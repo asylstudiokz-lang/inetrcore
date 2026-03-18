@@ -277,7 +277,44 @@ export function CenterSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block py-20">
+      <div className="hidden md:block py-20 relative">
+        {/* Decorative background shapes (Solid Figures) */}
+        {/* Diamond */}
+        <div style={{
+          position: "absolute",
+          top: "10%", left: "-100px",
+          width: "350px", height: "350px",
+          clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+          background: "linear-gradient(135deg, rgba(111,230,193,0.08) 0%, rgba(0,29,20,0) 100%)",
+          pointerEvents: "none",
+        }} />
+        {/* Dot pattern box */}
+        <div style={{
+          position: "absolute",
+          bottom: "15%", left: "5%",
+          width: "160px", height: "160px",
+          backgroundImage: "radial-gradient(circle, #6FE6C1 1.5px, transparent 1.5px)",
+          backgroundSize: "20px 20px",
+          opacity: 0.15,
+          pointerEvents: "none",
+        }} />
+        {/* Solid blurry circle block */}
+        <div style={{
+          position: "absolute",
+          bottom: "-100px", right: "-50px",
+          width: "450px", height: "450px",
+          borderRadius: "50%",
+          background: "rgba(111,230,193,0.02)",
+          border: "1px solid rgba(111,230,193,0.08)",
+          boxShadow: "inset 0 0 60px rgba(111,230,193,0.03)",
+          pointerEvents: "none",
+        }} />
+        {/* Floating cross */}
+        <svg style={{ position: "absolute", top: "15%", right: "10%", opacity: 0.15, pointerEvents: "none" }} width="40" height="40" viewBox="0 0 40 40" fill="none">
+           <path d="M19 0H21V40H19V0Z" fill="#6FE6C1" />
+           <path d="M0 19H40V21H0V19Z" fill="#6FE6C1" />
+        </svg>
+
         <Container>
           <div className="flex gap-16 items-center justify-center">
 

@@ -411,6 +411,37 @@ export function EducationSection() {
           pointerEvents: "none",
         }} />
 
+        {/* Decorative shapes (Solid Figures) */}
+        {/* Solid Hexagon */}
+        <div style={{
+          position: "absolute",
+          top: "10%", right: "-80px",
+          width: "300px", height: "340px",
+          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+          background: "linear-gradient(180deg, rgba(111,230,193,0.06) 0%, rgba(0,0,0,0) 100%)",
+          pointerEvents: "none",
+        }} />
+        {/* Solid triangle */}
+        <div style={{
+          position: "absolute",
+          bottom: "30%", left: "-50px",
+          width: "200px", height: "200px",
+          clipPath: "polygon(100% 0, 0 100%, 100% 100%)",
+          background: "rgba(111,230,193,0.03)",
+          borderBottom: "2px solid rgba(111,230,193,0.15)",
+          pointerEvents: "none",
+        }} />
+        {/* Accent square */}
+        <div style={{
+          position: "absolute",
+          bottom: "10%", right: "12%",
+          width: "80px", height: "80px",
+          background: "rgba(111,230,193,0.1)",
+          transform: "rotate(45deg)",
+          filter: "drop-shadow(0 0 20px rgba(111,230,193,0.3))",
+          pointerEvents: "none",
+        }} />
+
         <Container>
           <div style={{ display: "grid", gridTemplateColumns: "320px 1fr", gap: "60px", alignItems: "start" }}>
 

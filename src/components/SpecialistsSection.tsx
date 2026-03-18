@@ -613,7 +613,38 @@ export function SpecialistsSection() {
         className="hidden md:block"
         style={{ position: "relative", padding: "90px 0 100px" }}
       >
-        <Container style={{ position: "relative", zIndex: 1 }}>
+        {/* Decorative background shapes (Solid Figures) */}
+        {/* Massive slanted block */}
+        <div style={{
+          position: "absolute",
+          top: "0", left: "-20%",
+          width: "800px", height: "400px",
+          background: "linear-gradient(90deg, rgba(111,230,193,0.03) 0%, transparent 100%)",
+          transform: "skewY(-15deg)",
+          borderTop: "1px solid rgba(111,230,193,0.1)",
+          pointerEvents: "none",
+        }} />
+        {/* Solid Circle with inner gradient */}
+        <div style={{
+          position: "absolute",
+          bottom: "10%", right: "-100px",
+          width: "400px", height: "400px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle at 30% 30%, rgba(111,230,193,0.06) 0%, rgba(0,0,0,0) 80%)",
+          pointerEvents: "none",
+        }} />
+        {/* Floating Accent Square */}
+        <div style={{
+          position: "absolute",
+          top: "20%", right: "8%",
+          width: "40px", height: "40px",
+          background: "rgba(111,230,193,0.08)",
+          border: "1px solid rgba(111,230,193,0.2)",
+          transform: "rotate(15deg)",
+          pointerEvents: "none",
+        }} />
+
+        <Container className="relative z-10">
           {/* Heading row */}
           <div
             style={{
