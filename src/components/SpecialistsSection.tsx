@@ -288,7 +288,6 @@ function DesktopSpecialistCard({
   );
 }
 
-/* ── Mobile specialist card ──────────────────────────────────────────── */
 function MobileSpecialistCard({
   specialist,
   index,
@@ -297,159 +296,192 @@ function MobileSpecialistCard({
   index: number;
 }) {
   return (
-    <div
-      style={{
-        background: "#6FE6C1",
-        clipPath: CLIP(18),
-        padding: "1.5px",
-        filter:
-          "drop-shadow(0 0 12px rgba(111,230,193,0.15)) drop-shadow(0 6px 24px rgba(0,0,0,0.6))",
-      }}
-    >
+    <div style={{ position: "relative", marginBottom: "48px" }}>
+      {/* Ghost Name background - vertical on the right */}
       <div
         style={{
-          background: "linear-gradient(150deg, #002214 0%, #000e08 100%)",
-          clipPath: CLIP(17),
-          display: "flex",
-          alignItems: "stretch",
-          overflow: "hidden",
-          position: "relative",
+          position: "absolute",
+          right: "-8px",
+          top: "16px",
+          writingMode: "vertical-rl",
+          transform: "rotate(180deg)",
+          fontFamily: "'Furore', sans-serif",
+          fontSize: "48px",
+          color: "transparent",
+          WebkitTextStroke: "1px rgba(111,230,193,0.12)",
+          letterSpacing: "0.06em",
+          pointerEvents: "none",
+          zIndex: 0,
         }}
       >
-        {/* Photo left */}
-        <div
-          style={{
-            width: "120px",
-            flexShrink: 0,
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <ImageWithFallback
-            src={specialist.photo}
-            alt={`${specialist.firstName} ${specialist.lastName}`}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "top center",
-              display: "block",
-            }}
-          />
-          {/* Gradient right edge */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(to right, transparent 50%, rgba(0,14,8,0.95) 100%)",
-            }}
-          />
-          {/* Bottom gradient */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(to top, rgba(0,14,8,0.7) 0%, transparent 50%)",
-            }}
-          />
-        </div>
+        {specialist.ghostName}
+      </div>
 
-        {/* Ghost name — absolute, covers whole card */}
+      {/* Main Image Container */}
+      <div
+        style={{
+          position: "relative",
+          marginRight: "48px", // Space for the vertical text
+          zIndex: 1,
+        }}
+      >
+        {/* Glow behind image */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            paddingRight: "12px",
-            pointerEvents: "none",
-            overflow: "hidden",
+            background: "linear-gradient(135deg, #6FE6C1 0%, transparent 60%)",
+            filter: "blur(20px)",
+            opacity: 0.25,
           }}
-        >
-          <span
-            style={{
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "52px",
-              fontWeight: 400,
-              color: "transparent",
-              WebkitTextStroke: "1px rgba(111,230,193,0.07)",
-              textTransform: "uppercase",
-              letterSpacing: "0.04em",
-              lineHeight: 1,
-              whiteSpace: "nowrap",
-            }}
-          >
-            {specialist.ghostName}
-          </span>
-        </div>
+        />
 
-        {/* Content right */}
+        {/* Border wrapper */}
         <div
           style={{
-            flex: 1,
-            padding: "18px 16px 18px 12px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            position: "relative",
-            zIndex: 1,
+            background:
+              "linear-gradient(135deg, rgba(111,230,193,0.6) 0%, rgba(111,230,193,0.1) 100%)",
+            padding: "1.5px",
+            clipPath: CLIP(24),
           }}
         >
-          <div>
+          {/* Image inner wrapper */}
+          <div
+            style={{
+              background: "#001a10",
+              clipPath: CLIP(23),
+              aspectRatio: "1",
+              position: "relative",
+            }}
+          >
+            <ImageWithFallback
+              src={specialist.photo}
+              alt={`${specialist.firstName} ${specialist.lastName}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
+                filter: "contrast(1.05) saturate(1.05)",
+                display: "block",
+              }}
+            />
+            {/* Tag badge overlapping image */}
+            <div
+              style={{
+                position: "absolute",
+                top: "12px",
+                left: "0",
+                background: "#6FE6C1",
+                padding: "6px 12px 6px 16px",
+                clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
+                color: "#001a10",
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "10px",
+                letterSpacing: "0.15em",
+                boxShadow: "4px 4px 12px rgba(0,0,0,0.5)",
+              }}
+            >
+              {specialist.tag}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlapping Info Card */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          marginTop: "-40px",
+          marginLeft: "32px",
+          marginRight: "8px",
+          background: "linear-gradient(135deg, #6FE6C1 0%, #09B983 100%)",
+          padding: "1.5px",
+          clipPath: CLIP(18),
+          filter: "drop-shadow(0 12px 32px rgba(0,20,13,0.9))",
+        }}
+      >
+        <div
+          style={{
+            background: "linear-gradient(160deg, #002e1c 0%, #000e08 100%)",
+            clipPath: CLIP(17),
+            padding: "20px 20px 24px",
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+          }}
+        >
+          {/* Top highlight glow inside the card */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: "10%",
+              right: "40%",
+              height: "1px",
+              background:
+                "linear-gradient(90deg, transparent, rgba(111,230,193,0.6), transparent)",
+            }}
+          />
+
+          {/* Index Number row */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "12px",
+            }}
+          >
+            <div
+              style={{
+                width: "24px",
+                height: "1.5px",
+                background: "rgba(111,230,193,0.5)",
+                boxShadow: "0 0 8px rgba(111,230,193,0.5)",
+              }}
+            />
             <span
               style={{
                 fontFamily: "'Furore', sans-serif",
-                fontSize: "9px",
+                fontSize: "13px",
+                color: "rgba(111,230,193,0.7)",
                 letterSpacing: "0.2em",
-                color: "rgba(111,230,193,0.4)",
-                textTransform: "uppercase",
               }}
             >
               0{index + 1}
             </span>
-            <h3
-              style={{
-                fontFamily: "'Furore', sans-serif",
-                fontSize: "15px",
-                fontWeight: 400,
-                color: "#ffffff",
-                textTransform: "uppercase",
-                letterSpacing: "0.04em",
-                lineHeight: 1.3,
-                margin: "6px 0 8px",
-              }}
-            >
-              {specialist.firstName}
-              {"\n"}
-              {specialist.lastName}
-            </h3>
           </div>
 
-          <div>
-            <div
-              style={{
-                height: "1px",
-                background:
-                  "linear-gradient(90deg, rgba(111,230,193,0.35) 0%, transparent 80%)",
-                marginBottom: "8px",
-              }}
-            />
-            <p
-              style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: "11px",
-                color: "rgba(111,230,193,0.6)",
-                lineHeight: 1.55,
-                margin: 0,
-                whiteSpace: "pre-line",
-              }}
-            >
-              {specialist.role}
-            </p>
-          </div>
+          <h3
+            style={{
+              fontFamily: "'Furore', sans-serif",
+              fontSize: "18px",
+              fontWeight: 400,
+              color: "#ffffff",
+              textTransform: "uppercase",
+              letterSpacing: "0.04em",
+              lineHeight: 1.3,
+              margin: "0 0 10px",
+            }}
+          >
+            {specialist.firstName} <br />{" "}
+            <span style={{ color: "#6FE6C1" }}>{specialist.lastName}</span>
+          </h3>
+
+          <p
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: "12.5px",
+              color: "rgba(255,255,255,0.75)",
+              lineHeight: 1.55,
+              margin: 0,
+              whiteSpace: "pre-line",
+            }}
+          >
+            {specialist.role}
+          </p>
         </div>
       </div>
     </div>
