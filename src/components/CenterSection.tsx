@@ -66,6 +66,7 @@ function CardBackgroundSVG() {
 export function CenterSection() {
   return (
     <section
+      id="center"
       className="relative overflow-hidden"
       style={{ backgroundColor: "#001d14" }}
     >
@@ -104,7 +105,7 @@ export function CenterSection() {
           </p>
 
           {/* Person card — photo overflows top, border SVG overlay */}
-          <div className="relative mt-12 mb-6" style={{ height: "684px", overflow: "hidden" }}>
+          <div className="relative mt-12 mb-6" style={{ height: "550px", overflow: "hidden" }}>
 
             {/* ── Green fill — only inside the border frame (from top: 130px) ── */}
             <div
@@ -152,7 +153,7 @@ export function CenterSection() {
                 top: "0px",
                 left: 0,
                 right: 0,
-                height: "680px",
+                height: "546px",
                 zIndex: 1,
               }}
             >
@@ -175,7 +176,7 @@ export function CenterSection() {
                 position: "absolute",
                 bottom: 0,
                 left: 0, right: 0,
-                height: "320px",
+                height: "280px",
                 background: "linear-gradient(to bottom, rgba(0,29,20,0) 0%, rgba(0,29,20,0.85) 45%, rgba(0,29,20,0.97) 100%)",
                 pointerEvents: "none",
                 zIndex: 2,
@@ -186,7 +187,7 @@ export function CenterSection() {
             <div
               style={{
                 position: "absolute",
-                bottom: "175px",
+                bottom: "158px",
                 left: 0, right: 0,
                 textAlign: "center",
                 color: "#fff",
@@ -207,7 +208,7 @@ export function CenterSection() {
             <div
               style={{
                 position: "absolute",
-                bottom: "128px",
+                bottom: "116px",
                 left: 0, right: 0,
                 display: "flex",
                 justifyContent: "center",
@@ -238,7 +239,7 @@ export function CenterSection() {
                 bottom: 0,
                 left: 0, right: 0,
                 margin: 0,
-                padding: "16px 20px 24px",
+                padding: "8px 16px 16px",
                 color: "#fff",
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: "13px",

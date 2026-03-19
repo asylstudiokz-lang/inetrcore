@@ -1,18 +1,8 @@
 import { Navbar } from "./components/Navbar";
-import { HeroSection } from "./components/HeroSection";
-import { CenterSection } from "./components/CenterSection";
-import { AchievementsSection } from "./components/AchievementsSection";
-import { BookSection } from "./components/BookSection";
-import { EducationSection } from "./components/EducationSection";
-import { MissionSection } from "./components/MissionSection";
-import { DirectionsSection } from "./components/DirectionsSection";
-import { SpecialistsSection } from "./components/SpecialistsSection";
-import { PartnersSection } from "./components/PartnersSection";
 import { LocationSection } from "./components/LocationSection";
 import { Footer } from "./components/Footer";
-import imgPlexus from "@/assets/b22b92e6308ace5f34fc253bf021917839334a74.png?url";
 
-export default function App() {
+export default function ZprrApp() {
   return (
     <div suppressHydrationWarning style={{ backgroundColor: "#001d14", minHeight: "100vh", overflowX: "hidden", position: "relative" }}>
 
@@ -93,16 +83,12 @@ export default function App() {
         <Navbar />
       </div>
 
-      <main style={{ paddingTop: "80px", position: "relative", zIndex: 1 }}>
-        <HeroSection />
-        <CenterSection />
-        <AchievementsSection />
-        <BookSection />
-        <EducationSection />
-        <MissionSection />
-        <DirectionsSection />
-        <SpecialistsSection />
-        <PartnersSection />
+      <main style={{ paddingTop: "80px", position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
+        {/* Будущие секции будут добавляться сюда */}
+        <div style={{ minHeight: "40vh" }}>
+           {/* Временный отступ-заглушка для пустого контента */}
+        </div>
+        
         <LocationSection />
       </main>
       <Footer />

@@ -155,7 +155,7 @@ export function Navbar() {
         }}
       >
         {/* Animated scan line */}
-        <style>{`
+        <style dangerouslySetInnerHTML={{__html: `
           @keyframes scan-x {
             0%   { transform: translateX(-100%); opacity: 0; }
             10%  { opacity: 1; }
@@ -219,7 +219,7 @@ export function Navbar() {
           .cta-btn-desktop:hover::before {
             transform: translateX(100%);
           }
-        `}</style>
+        `}}></style>
 
         {/* Scan line */}
         <div style={{
@@ -302,8 +302,13 @@ export function Navbar() {
 
           {/* Nav links + CTA */}
           <nav style={{ display: "flex", gap: "36px", alignItems: "center" }}>
-            {["О центре", "Услуги", "Достижения", "Контакты"].map((item) => (
-              <a key={item} href="#" className="nav-link-desktop">{item}</a>
+            {[
+              { label: "О центре", href: "#center" },
+              { label: "Услуги", href: "#directions" },
+              { label: "Достижения", href: "#achievements" },
+              { label: "Контакты", href: "#location" }
+            ].map((item) => (
+              <a key={item.label} href={item.href} className="nav-link-desktop">{item.label}</a>
             ))}
 
             {/* CTA Button — hex cut corners */}
@@ -352,9 +357,16 @@ export function Navbar() {
           className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
           style={{ background: "rgba(0,20,13,0.98)" }}
         >
-          {["Главная", "О центре", "Услуги", "Запись", "Контакты"].map((item) => (
-            <button
-              key={item}
+          {[
+            { label: "Главная", href: "#hero" },
+            { label: "О центре", href: "#center" },
+            { label: "Услуги", href: "#directions" },
+            { label: "Запись", href: "https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" },
+            { label: "Контакты", href: "#location" }
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
               onClick={() => setMenuOpen(false)}
               style={{
                 fontFamily: "'Furore', 'Exo 2', sans-serif",
@@ -363,13 +375,14 @@ export function Navbar() {
                 letterSpacing: "0.1em",
                 color: "white",
                 textTransform: "uppercase",
+                textDecoration: "none",
                 background: "none",
-                border: "none",
-                cursor: "pointer",
+                display: "block",
+                textAlign: "center",
               }}
             >
-              {item}
-            </button>
+              {item.label}
+            </a>
           ))}
         </div>
       )}

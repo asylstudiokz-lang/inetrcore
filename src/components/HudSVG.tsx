@@ -15,10 +15,10 @@ function generateTicks() {
     const sw = isLong ? 1.8 : isMed ? 1.2 : 0.7;
     const opacity = isLong ? 1 : isMed ? 0.85 : 0.55;
     result.push({
-      x1: CX + outerR * Math.cos(angle),
-      y1: CY + outerR * Math.sin(angle),
-      x2: CX + innerR * Math.cos(angle),
-      y2: CY + innerR * Math.sin(angle),
+      x1: Number((CX + outerR * Math.cos(angle)).toFixed(4)),
+      y1: Number((CY + outerR * Math.sin(angle)).toFixed(4)),
+      x2: Number((CX + innerR * Math.cos(angle)).toFixed(4)),
+      y2: Number((CY + innerR * Math.sin(angle)).toFixed(4)),
       sw,
       opacity,
     });
@@ -57,12 +57,12 @@ interface HudSVGProps {
 export function HudSVG({ size = 400, className = "", style }: HudSVGProps) {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes hud-cw  { from { transform: rotate(0deg);    } to { transform: rotate(360deg);  } }
         @keyframes hud-ccw { from { transform: rotate(0deg);    } to { transform: rotate(-360deg); } }
         @keyframes hud-cw2 { from { transform: rotate(0deg);    } to { transform: rotate(360deg);  } }
         @keyframes hud-pulse { 0%,100% { opacity:0.7; } 50% { opacity:1; } }
-      `}</style>
+      `}}></style>
 
       <svg
         viewBox="0 0 400 400"
@@ -141,8 +141,8 @@ export function HudSVG({ size = 400, className = "", style }: HudSVGProps) {
             return (
               <circle
                 key={deg}
-                cx={CX + 193 * Math.cos(a)}
-                cy={CY + 193 * Math.sin(a)}
+                cx={Number((CX + 193 * Math.cos(a)).toFixed(4))}
+                cy={Number((CY + 193 * Math.sin(a)).toFixed(4))}
                 r="3.5"
                 fill={COLOR}
                 opacity="1"
@@ -156,8 +156,8 @@ export function HudSVG({ size = 400, className = "", style }: HudSVGProps) {
             return (
               <line
                 key={deg}
-                x1={CX + 184 * Math.cos(a)} y1={CY + 184 * Math.sin(a)}
-                x2={CX + 162 * Math.cos(a)} y2={CY + 162 * Math.sin(a)}
+                x1={Number((CX + 184 * Math.cos(a)).toFixed(4))} y1={Number((CY + 184 * Math.sin(a)).toFixed(4))}
+                x2={Number((CX + 162 * Math.cos(a)).toFixed(4))} y2={Number((CY + 162 * Math.sin(a)).toFixed(4))}
                 stroke={COLOR} strokeWidth="2" opacity="0.9"
               />
             );
@@ -259,8 +259,8 @@ export function HudSVG({ size = 400, className = "", style }: HudSVGProps) {
             return (
               <line
                 key={deg}
-                x1={CX + 65 * Math.cos(a)} y1={CY + 65 * Math.sin(a)}
-                x2={CX + 74 * Math.cos(a)} y2={CY + 74 * Math.sin(a)}
+                x1={Number((CX + 65 * Math.cos(a)).toFixed(4))} y1={Number((CY + 65 * Math.sin(a)).toFixed(4))}
+                x2={Number((CX + 74 * Math.cos(a)).toFixed(4))} y2={Number((CY + 74 * Math.sin(a)).toFixed(4))}
                 stroke={COLOR} strokeWidth="2" opacity="0.8"
               />
             );

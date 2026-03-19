@@ -194,9 +194,7 @@ function MapFrame({ height, cut = 22 }: { height: string; cut?: number }) {
 /* ── Main section ─────────────────────────────────────────────────────── */
 export function LocationSection() {
   return (
-    <section
-      style={{ backgroundColor: "#001d14", position: "relative", overflow: "hidden" }}
-    >
+    <section id="location" style={{ backgroundColor: "#001d14", position: "relative", overflow: "hidden" }}>
       {/* Ambient glow */}
       <div
         style={{

@@ -476,8 +476,8 @@ function DesktopGrid() {
 export function DirectionsSection() {
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ backgroundColor: "#001d14" }}
+      id="directions"
+      style={{ backgroundColor: "#001d14", position: "relative", overflow: "hidden" }}
     >
       {/* ── MOBILE ── */}
       <div

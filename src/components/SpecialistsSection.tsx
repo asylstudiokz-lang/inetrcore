@@ -296,62 +296,76 @@ function MobileSpecialistCard({
   index: number;
 }) {
   return (
-    <div style={{ position: "relative", marginBottom: "48px" }}>
-      {/* Ghost Name background - vertical on the right */}
-      <div
-        style={{
-          position: "absolute",
-          right: "-8px",
-          top: "16px",
-          writingMode: "vertical-rl",
-          transform: "rotate(180deg)",
-          fontFamily: "'Furore', sans-serif",
-          fontSize: "48px",
-          color: "transparent",
-          WebkitTextStroke: "1px rgba(111,230,193,0.12)",
-          letterSpacing: "0.06em",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      >
-        {specialist.ghostName}
-      </div>
-
-      {/* Main Image Container */}
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: "32px",
+        maxWidth: "300px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
+      {/* Photo container */}
       <div
         style={{
           position: "relative",
-          marginRight: "48px", // Space for the vertical text
-          zIndex: 1,
+          overflow: "hidden",
+          background: "#6FE6C1",
+          clipPath: CLIP(16),
+          padding: "1.5px",
+          filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.6))",
         }}
       >
-        {/* Glow behind image */}
         <div
           style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(135deg, #6FE6C1 0%, transparent 60%)",
-            filter: "blur(20px)",
-            opacity: 0.25,
-          }}
-        />
-
-        {/* Border wrapper */}
-        <div
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(111,230,193,0.6) 0%, rgba(111,230,193,0.1) 100%)",
-            padding: "1.5px",
-            clipPath: CLIP(24),
+            position: "relative",
+            overflow: "hidden",
+            clipPath: CLIP(15),
+            aspectRatio: "1",
+            background: "#001a10",
           }}
         >
-          {/* Image inner wrapper */}
+          {/* Ghost name behind photo */}
           <div
             style={{
-              background: "#001a10",
-              clipPath: CLIP(23),
-              aspectRatio: "1",
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 0,
+              pointerEvents: "none",
+              overflow: "hidden",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "clamp(48px, 12vw, 64px)",
+                fontWeight: 400,
+                color: "transparent",
+                WebkitTextStroke: "1px rgba(111,230,193,0.15)",
+                textTransform: "uppercase",
+                letterSpacing: "0.04em",
+                lineHeight: 1.1,
+                textAlign: "center",
+                wordBreak: "break-word",
+                padding: "0 8px",
+              }}
+            >
+              {specialist.ghostName}
+            </span>
+          </div>
+
+          {/* Photo */}
+          <div
+            style={{
               position: "relative",
+              zIndex: 1,
+              width: "100%",
+              height: "100%",
             }}
           >
             <ImageWithFallback
@@ -362,53 +376,64 @@ function MobileSpecialistCard({
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: "top center",
-                filter: "contrast(1.05) saturate(1.05)",
                 display: "block",
               }}
             />
-            {/* Tag badge overlapping image */}
+            {/* Dark-to-transparent gradient overlay at bottom */}
             <div
               style={{
                 position: "absolute",
-                top: "12px",
-                left: "0",
-                background: "#6FE6C1",
-                padding: "6px 12px 6px 16px",
-                clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
-                color: "#001a10",
-                fontFamily: "'Furore', sans-serif",
-                fontSize: "10px",
-                letterSpacing: "0.15em",
-                boxShadow: "4px 4px 12px rgba(0,0,0,0.5)",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(0,18,10,0.95) 0%, rgba(0,18,10,0.3) 45%, transparent 75%)",
               }}
-            >
-              {specialist.tag}
-            </div>
+            />
+          </div>
+
+          {/* Index number bottom-left */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "12px",
+              left: "14px",
+              zIndex: 3,
+              fontFamily: "'Furore', sans-serif",
+              fontSize: "12px",
+              letterSpacing: "0.18em",
+              color: "rgba(111,230,193,0.5)",
+            }}
+          >
+            0{index + 1}
+          </div>
+
+          {/* Tag chip bottom-right */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "12px",
+              right: "12px",
+              zIndex: 3,
+            }}
+          >
+            <DesktopTagChip label={specialist.tag} />
           </div>
         </div>
       </div>
 
-      {/* Overlapping Info Card */}
+      {/* Name + role card below */}
       <div
         style={{
-          position: "relative",
-          zIndex: 2,
-          marginTop: "-40px",
-          marginLeft: "32px",
-          marginRight: "8px",
+          marginTop: "10px",
           background: "linear-gradient(135deg, #6FE6C1 0%, #09B983 100%)",
-          padding: "1.5px",
-          clipPath: CLIP(18),
-          filter: "drop-shadow(0 12px 32px rgba(0,20,13,0.9))",
+          clipPath: CLIP(14),
+          padding: "1px",
         }}
       >
         <div
           style={{
             background: "linear-gradient(160deg, #002e1c 0%, #000e08 100%)",
-            clipPath: CLIP(17),
-            padding: "20px 20px 24px",
-            display: "flex",
-            flexDirection: "column",
+            clipPath: CLIP(13),
+            padding: "16px 20px",
             position: "relative",
           }}
         >
@@ -425,45 +450,17 @@ function MobileSpecialistCard({
             }}
           />
 
-          {/* Index Number row */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "12px",
-            }}
-          >
-            <div
-              style={{
-                width: "24px",
-                height: "1.5px",
-                background: "rgba(111,230,193,0.5)",
-                boxShadow: "0 0 8px rgba(111,230,193,0.5)",
-              }}
-            />
-            <span
-              style={{
-                fontFamily: "'Furore', sans-serif",
-                fontSize: "13px",
-                color: "rgba(111,230,193,0.7)",
-                letterSpacing: "0.2em",
-              }}
-            >
-              0{index + 1}
-            </span>
-          </div>
-
           <h3
             style={{
               fontFamily: "'Furore', sans-serif",
-              fontSize: "18px",
+              fontSize: "16px",
               fontWeight: 400,
               color: "#ffffff",
               textTransform: "uppercase",
               letterSpacing: "0.04em",
               lineHeight: 1.3,
-              margin: "0 0 10px",
+              margin: 0,
+              marginBottom: "8px",
             }}
           >
             {specialist.firstName} <br />{" "}
@@ -473,9 +470,10 @@ function MobileSpecialistCard({
           <p
             style={{
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: "12.5px",
+              fontSize: "12px",
+              fontWeight: 400,
               color: "rgba(255,255,255,0.75)",
-              lineHeight: 1.55,
+              lineHeight: 1.5,
               margin: 0,
               whiteSpace: "pre-line",
             }}
@@ -513,7 +511,7 @@ export function SpecialistsSection() {
       <div className="md:hidden" style={{ padding: "48px 0 52px" }}>
         <Container>
           {/* Section heading */}
-          <div style={{ marginBottom: "32px" }}>
+          <div style={{ marginBottom: "32px", textAlign: "center" }}>
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",

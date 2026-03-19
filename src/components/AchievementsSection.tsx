@@ -373,7 +373,15 @@ function DNAHelix() {
 
     const y = i * rungSpacing + 10;
 
-    return { x1, x2, y, cos, absCos, rFront, rBack };
+    return {
+      x1: Number(x1.toFixed(4)),
+      x2: Number(x2.toFixed(4)),
+      y: Number(y.toFixed(4)),
+      cos: Number(cos.toFixed(4)),
+      absCos: Number(absCos.toFixed(4)),
+      rFront: Number(rFront.toFixed(4)),
+      rBack: Number(rBack.toFixed(4))
+    };
   });
 
   return (
@@ -432,7 +440,7 @@ function DNAHelix() {
 
 export function AchievementsSection() {
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
+    <section id="achievements" className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
       {/* ── MOBILE (НЕ ТРОГАТЬ) ── */}
       <div className="md:hidden overflow-hidden">
         <Container>

@@ -25,7 +25,7 @@ function CTAButton() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes hero-btn-pulse {
           0%, 100% { opacity: 0.7; }
           50% { opacity: 1; }
@@ -55,7 +55,7 @@ function CTAButton() {
           transform: translateY(0px) scale(1);
           filter: drop-shadow(0 0 8px rgba(111,230,193,0.6)) brightness(1.05);
         }
-      `}</style>
+      `}}></style>
 
       <div
         style={{
@@ -217,10 +217,7 @@ function CTAButton() {
 
 export function HeroSection() {
   return (
-    <section
-      className="relative overflow-visible"
-      style={{ backgroundColor: "transparent" }}
-    >
+    <section id="hero" className="relative flex flex-col md:overflow-visible overflow-hidden items-center text-center px-4">
       {/* ── MOBILE ── */}
       <div className="md:hidden">
         <Container className="relative">
