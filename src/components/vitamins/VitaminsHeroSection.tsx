@@ -10,17 +10,32 @@ const CLIP = (size: number) =>
 
 export function VitaminsHeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: "60px", paddingBottom: "100px" }}>
-      {/* Decorative background glow */}
+    <section id="vitamins-hero" className="relative overflow-hidden" style={{ paddingTop: "60px", paddingBottom: "100px" }}>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes flowDown {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(1200px); }
+        }
+        @keyframes slideDown {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(8px); }
+        }
+        .arrow-bounce { animation: slideDown 2s ease-in-out infinite; }
+        
+        @media (max-width: 768px) {
+          #vitamins-hero {
+            padding-bottom: 30px !important;
+          }
+        }
+      `}} />
+      {/* Фоновый радиальный свет (как в ЗПРР) */}
       <div
         style={{
           position: "absolute",
-          top: "20%",
-          right: "-10%",
-          width: "600px",
-          height: "600px",
-          background: `radial-gradient(circle, rgba(111,230,193,0.05) 0%, transparent 60%)`,
+          inset: 0,
           pointerEvents: "none",
+          background:
+            "radial-gradient(ellipse 70% 60% at 68% 50%, rgba(0,80,50,0.18) 0%, transparent 70%)",
         }}
       />
       
@@ -55,9 +70,9 @@ export function VitaminsHeroSection() {
                </span>
              </div>
 
-             <div style={{ transform: "scale(0.85)" }}>
-               <CTAButton text="Консультация" />
-             </div>
+              <div className="w-full flex justify-center mt-4">
+                <CTAButton text="Консультация" />
+              </div>
            </div>
 
            {/* Mobile Logo with Hud Animation */}
@@ -95,8 +110,77 @@ export function VitaminsHeroSection() {
         {/* Decorative Data Stream Lines */}
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
           <div className="absolute left-[5%] top-[-100px] w-[1px] h-[300px] bg-gradient-to-b from-transparent via-[#6FE6C1]/30 to-transparent animate-[flowDown_8s_linear_infinite]" />
+          <div className="absolute left-[12%] top-[-100px] w-[1px] h-[500px] bg-gradient-to-b from-transparent via-[#6FE6C1]/15 to-transparent animate-[flowDown_12s_linear_infinite]" style={{ animationDelay: "2s" }} />
           <div className="absolute right-[8%] top-[-100px] w-[1px] h-[400px] bg-gradient-to-b from-transparent via-[#6FE6C1]/20 to-transparent animate-[flowDown_10s_linear_infinite]" style={{ animationDelay: "5s" }} />
         </div>
+
+        {/* Декоративные circuit-точки (как в ЗПРР) */}
+        <svg
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <filter id="cg-vitamins" x="-120%" y="-120%" width="340%" height="340%">
+              <feGaussianBlur stdDeviation="7" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <g stroke={CYAN} fill={CYAN}>
+            <g opacity="0.3">
+              <line x1="60" y1="90" x2="180" y2="90" strokeWidth="0.7" />
+              <circle cx="60" cy="90" r="12" fillOpacity="0.08" strokeWidth="0.6" />
+              <circle cx="60" cy="90" r="5" fillOpacity="0.25" strokeWidth="0" />
+              <circle cx="180" cy="90" r="4" fillOpacity="0.2" strokeWidth="0.6" />
+              <circle cx="180" cy="90" r="1.8" fillOpacity="0.7" strokeWidth="0" />
+            </g>
+            <g opacity="0.28">
+              <line x1="1220" y1="140" x2="1380" y2="140" strokeWidth="0.7" />
+              <circle cx="1220" cy="140" r="5" fillOpacity="0.18" strokeWidth="0.6" />
+              <circle cx="1220" cy="140" r="2" fillOpacity="0.6" strokeWidth="0" />
+              <circle cx="1380" cy="140" r="14" fillOpacity="0.07" strokeWidth="0.6" />
+              <circle cx="1380" cy="140" r="7" fillOpacity="0.2" strokeWidth="0" />
+            </g>
+            <g opacity="0.25">
+              <line x1="100" y1="480" x2="260" y2="480" strokeWidth="0.7" />
+              <circle cx="100" cy="480" r="16" fillOpacity="0.06" strokeWidth="0.6" />
+              <circle cx="100" cy="480" r="8" fillOpacity="0.18" strokeWidth="0" />
+              <circle cx="260" cy="480" r="6" fillOpacity="0.15" strokeWidth="0.6" />
+              <circle cx="260" cy="480" r="2.5" fillOpacity="0.55" strokeWidth="0" />
+            </g>
+            <g opacity="0.27">
+              <line x1="1160" y1="420" x2="1340" y2="420" strokeWidth="0.7" />
+              <circle cx="1160" cy="420" r="10" fillOpacity="0.08" strokeWidth="0.6" />
+              <circle cx="1160" cy="420" r="4.5" fillOpacity="0.22" strokeWidth="0" />
+              <circle cx="1340" cy="420" r="4" fillOpacity="0.18" strokeWidth="0.6" />
+              <circle cx="1340" cy="420" r="1.8" fillOpacity="0.65" strokeWidth="0" />
+            </g>
+            <g opacity="0.22">
+              <line x1="340" y1="820" x2="520" y2="820" strokeWidth="0.7" />
+              <circle cx="340" cy="820" r="5" fillOpacity="0.18" strokeWidth="0.6" />
+              <circle cx="340" cy="820" r="2" fillOpacity="0.6" strokeWidth="0" />
+              <circle cx="520" cy="820" r="13" fillOpacity="0.07" strokeWidth="0.6" />
+              <circle cx="520" cy="820" r="6" fillOpacity="0.18" strokeWidth="0" />
+            </g>
+            <g opacity="0.24">
+              <line x1="1050" y1="760" x2="1200" y2="760" strokeWidth="0.7" />
+              <circle cx="1050" cy="760" r="14" fillOpacity="0.07" strokeWidth="0.6" />
+              <circle cx="1050" cy="760" r="6" fillOpacity="0.2" strokeWidth="0" />
+              <circle cx="1200" cy="760" r="4" fillOpacity="0.18" strokeWidth="0.6" />
+              <circle cx="1200" cy="760" r="1.8" fillOpacity="0.65" strokeWidth="0" />
+            </g>
+          </g>
+        </svg>
 
         <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1200px] mx-auto relative z-10 flex-shrink-0">
            {/* Desktop Text Block (Left) */}

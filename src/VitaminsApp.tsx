@@ -3,6 +3,9 @@ import { LocationSection } from "./components/LocationSection";
 import { Footer } from "./components/Footer";
 import { VitaminsHeroSection } from "./components/vitamins/VitaminsHeroSection";
 import { VitaminsAdvantagesSection } from "./components/vitamins/VitaminsAdvantagesSection";
+import { VitaminsVideoSection } from "./components/vitamins/VitaminsVideoSection";
+import { VitaminsUniquenessSection } from "./components/vitamins/VitaminsUniquenessSection";
+import { AboutCompanySection } from "./components/vitamins/AboutCompanySection";
 
 export default function VitaminsApp() {
   return (
@@ -69,6 +72,9 @@ export default function VitaminsApp() {
       <main style={{ paddingTop: "80px", position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
         <VitaminsHeroSection />
         <VitaminsAdvantagesSection />
+        <VitaminsVideoSection />
+        <VitaminsUniquenessSection />
+        <AboutCompanySection />
         <LocationSection />
       </main>
       <Footer />
