@@ -194,17 +194,23 @@ export function ZprrArticlesSection() {
         <Container className="relative z-10">
           
           {/* ── HEADER ── */}
-          <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-[30px] h-[1px] bg-[#6FE6C1]" />
-              <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", color: "#6FE6C1", letterSpacing: "0.25em", textTransform: "uppercase" }}>
-                  ЭКСПЕРТНЫЕ МАТЕРИАЛЫ
-              </span>
-              <div className="w-[30px] h-[1px] bg-[#6FE6C1]" />
+          <div className="flex flex-col items-start text-left mb-16 md:mb-24 max-w-[1240px] mx-auto">
+            <div className="flex items-center gap-5 md:gap-8">
+              {/* VERTICAL ACCENT */}
+              <div className="w-[3px] md:w-[6px] h-[70px] md:h-[110px] bg-gradient-to-b from-[#6FE6C1] to-[#059669] shadow-[0_0_30px_rgba(111,230,193,0.4)]" />
+              
+              <div className="flex flex-col">
+                <div className="flex items-center gap-4 mb-3">
+                  <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "11px", fontWeight: 800, color: "#6FE6C1", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                      ЭКСПЕРТНЫЕ МАТЕРИАЛЫ
+                  </span>
+                  <div className="w-[60px] h-[1px] bg-[#6FE6C1]/30 hidden md:block" />
+                </div>
+                <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(36px, 6vw, 84px)", color: "#fff", textTransform: "uppercase", lineHeight: 0.9, margin: 0 }}>
+                  Мои <span style={{ color: "#00cf8f", textShadow: "0 0 40px rgba(0,207,143,0.3)" }}>Статьи</span>
+                </h2>
+              </div>
             </div>
-            <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(34px, 6vw, 76px)", color: "#fff", textTransform: "uppercase", lineHeight: 1.05, margin: 0 }}>
-              Мои <span style={{ color: "#00cf8f", textShadow: "0 0 30px rgba(0,207,143,0.3)" }}>Статьи</span>
-            </h2>
           </div>
 
           <div className="flex flex-col gap-5 md:gap-7 max-w-[1240px] mx-auto">
