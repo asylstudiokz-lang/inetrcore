@@ -117,9 +117,6 @@ function StageCard({ stage, large = false }: { stage: typeof stages[0]; large?: 
           overflow: "hidden",
         }}
       >
-        {/* Themed background SVG */}
-        <stage.BgSvg />
-
         {/* Ghost number */}
         <div style={{
           position: "absolute", bottom: "-10px", right: "16px",

@@ -176,6 +176,26 @@ export function ZprrArticlesSection() {
             </svg>
           </div>
 
+          {/* ── SECOND ROTATING BLUEPRINT (BOTTOM LEFT) ── */}
+          <div className="hidden lg:block absolute bottom-10 left-[-8%] w-[500px] h-[500px] animate-[spin_80s_linear_infinite_reverse] opacity-[0.08]">
+            <svg viewBox="0 0 200 200" className="w-full h-full fill-none stroke-[#6FE6C1]" strokeWidth="0.25">
+                <circle cx="100" cy="100" r="85" />
+                <circle cx="100" cy="100" r="45" strokeDasharray="3 6" />
+                <path d="M100 15 L100 0 M100 185 L100 200 M15 100 L0 100 M185 100 L200 100" />
+                <circle cx="100" cy="100" r="12" />
+            </svg>
+          </div>
+
+          {/* ── NEURAL CIRCUIT PATHS ── */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.04]" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <path d="M100 150 L300 150 L350 200 L600 200 L650 150 L900 150 L950 200 L1200 200 L1250 150" fill="none" stroke="#6FE6C1" strokeWidth="0.8" />
+            <path d="M100 750 L300 750 L350 700 L600 700 L650 750 L900 750 L950 700 L1200 700 L1250 750" fill="none" stroke="#6FE6C1" strokeWidth="0.8" />
+            <circle cx="350" cy="200" r="2" fill="#6FE6C1" />
+            <circle cx="950" cy="200" r="2" fill="#6FE6C1" />
+            <circle cx="350" cy="700" r="2" fill="#6FE6C1" />
+            <circle cx="950" cy="700" r="2" fill="#6FE6C1" />
+          </svg>
+
           <svg style={{ position: "absolute", bottom: "5%", left: "0", width: "400px", height: "400px", opacity: 0.15 }} viewBox="0 0 200 200">
             <defs>
               <pattern id="gridLines" width="20" height="20" patternUnits="userSpaceOnUse">

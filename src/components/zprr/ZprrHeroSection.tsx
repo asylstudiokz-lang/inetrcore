@@ -259,9 +259,30 @@ export function ZprrHeroSection() {
       {/* ── VIDEO SECTION ── */}
       <Container>
         <div id="zprr-video" className="relative w-full max-w-[1024px] mx-auto mt-12 md:mt-20 mb-8 md:mb-12 z-10">
+          
+          {/* ── BACKGROUND VIDEO DECO (HEXAGON) ── */}
+          <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none opacity-[0.05] z-0">
+            <svg viewBox="0 0 400 300" className="w-full h-full fill-none stroke-[#6FE6C1]" strokeWidth="0.5">
+              <path d="M200 20 L360 80 L360 220 L200 280 L40 220 L40 80 Z" />
+              <path d="M200 40 L340 95 L340 205 L200 260 L60 205 L60 95 Z" strokeDasharray="4 8" />
+              <line x1="200" y1="20" x2="200" y2="280" opacity="0.5" />
+              <line x1="40" y1="80" x2="360" y2="220" opacity="0.3" />
+              <line x1="40" y1="220" x2="360" y2="80" opacity="0.3" />
+            </svg>
+          </div>
+
+          {/* Technical Labels */}
+          <div className="hidden lg:flex absolute -top-8 -left-4 items-center gap-3 opacity-30 pointer-events-none">
+             <span className="font-['Furore'] text-[10px] text-[#6FE6C1] tracking-[0.2em] uppercase">// diagnostic_stream: live</span>
+             <div className="w-2 h-2 rounded-full bg-[#6FE6C1] animate-pulse" />
+          </div>
+          <div className="hidden lg:block absolute -bottom-8 -right-4 font-['Montserrat'] text-[9px] text-[#6FE6C1]/40 tracking-[0.1em] uppercase pointer-events-none">
+             system_active: visual_analysis_module_01
+          </div>
+
           {/* Decorative Corner Accents */}
-          <div style={{ position: "absolute", top: "-12px", left: "-12px", width: "30px", height: "30px", borderTop: "2px solid #6FE6C1", borderLeft: "2px solid #6FE6C1", opacity: 0.5, pointerEvents: "none" }} />
-          <div style={{ position: "absolute", bottom: "-12px", right: "-12px", width: "30px", height: "30px", borderBottom: "2px solid #6FE6C1", borderRight: "2px solid #6FE6C1", opacity: 0.5, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", top: "-12px", left: "-12px", width: "40px", height: "40px", borderTop: "2px solid #6FE6C1", borderLeft: "2px solid #6FE6C1", opacity: 0.6, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", bottom: "-12px", right: "-12px", width: "40px", height: "40px", borderBottom: "2px solid #6FE6C1", borderRight: "2px solid #6FE6C1", opacity: 0.6, pointerEvents: "none" }} />
 
           <div style={{
             background: "linear-gradient(135deg, rgba(111,230,193,0.5) 0%, rgba(111,230,193,0.1) 100%)",
