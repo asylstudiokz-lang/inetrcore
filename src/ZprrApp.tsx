@@ -2,6 +2,13 @@ import { Navbar } from "./components/Navbar";
 import { LocationSection } from "./components/LocationSection";
 import { Footer } from "./components/Footer";
 import { ZprrHeroSection } from "./components/zprr/ZprrHeroSection";
+import { ZprrCausesSection } from "./components/zprr/ZprrCausesSection";
+import { ZprrMethodologySection } from "./components/zprr/ZprrMethodologySection";
+import { ZprrTherapyStagesSection } from "./components/zprr/ZprrTherapyStagesSection";
+import { ZprrDeclarationsSection } from "./components/zprr/ZprrDeclarationsSection";
+import { ZprrReviewsSection } from "./components/zprr/ZprrReviewsSection";
+import { ZprrFaqSection } from "./components/zprr/ZprrFaqSection";
+import { ZprrArticlesSection } from "./components/zprr/ZprrArticlesSection";
 
 export default function ZprrApp() {
   return (
@@ -86,7 +93,13 @@ export default function ZprrApp() {
 
       <main style={{ paddingTop: "80px", position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
         <ZprrHeroSection />
-        
+        <ZprrCausesSection />
+        <ZprrMethodologySection />
+        <ZprrTherapyStagesSection />
+        <ZprrDeclarationsSection />
+        <ZprrReviewsSection />
+        <ZprrFaqSection />
+        <ZprrArticlesSection />
         <LocationSection />
       </main>
       <Footer />
