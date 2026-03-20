@@ -1,6 +1,6 @@
 import { Container } from "../ui/Container";
 
-const GOLD = "#D4AC6B";
+const CYAN = "#6FE6C1";
 
 const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
@@ -33,14 +33,14 @@ export function VitaminsAdvantagesSection() {
     <section id="vitamins-advantages" className="relative overflow-hidden" style={{ backgroundColor: "#001d14", padding: "100px 0" }}>
       
       {/* Ambient glows */}
-      <div style={{ position: "absolute", top: "0", left: "50%", transform: "translateX(-50%)", width: "80%", height: "1px", background: `linear-gradient(90deg, transparent, ${GOLD}40, transparent)`, pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: "0", left: "50%", transform: "translateX(-50%)", width: "80%", height: "1px", background: `linear-gradient(90deg, transparent, ${CYAN}40, transparent)`, pointerEvents: "none" }} />
       
       <Container>
         <div className="mb-16 text-center">
-          <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(42px, 5vw, 70px)", fontWeight: 400, color: GOLD, textTransform: "uppercase", letterSpacing: "0.05em", margin: 0 }}>
+          <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(34px, 5vw, 64px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.05em", margin: 0 }}>
             ПРЕИМУЩЕСТВА
           </h2>
-          <div style={{ width: "80px", height: "1px", background: GOLD, margin: "24px auto 0", opacity: 0.5 }} />
+          <div style={{ width: "80px", height: "1px", background: CYAN, margin: "24px auto 0", opacity: 0.5 }} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -48,7 +48,7 @@ export function VitaminsAdvantagesSection() {
             <div key={idx} className="group relative">
               <div
                 style={{
-                  background: `linear-gradient(135deg, ${GOLD}40 0%, transparent 100%)`,
+                  background: `linear-gradient(135deg, ${CYAN}40 0%, transparent 100%)`,
                   clipPath: CLIP(20),
                   padding: "1px",
                   transition: "all 0.3s ease",
@@ -64,7 +64,7 @@ export function VitaminsAdvantagesSection() {
                     flexDirection: "column",
                   }}
                 >
-                  <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "48px", color: GOLD, opacity: 0.1, marginBottom: "-20px" }}>
+                  <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "48px", color: CYAN, opacity: 0.1, marginBottom: "-20px" }}>
                     {adv.number}
                   </span>
                   <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "16px", color: "#fff", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px", position: "relative", zIndex: 1 }}>
