@@ -4,7 +4,7 @@ import { Container } from "./ui/Container";
 import { useState } from "react";
 
 /* CTA Button matching Figma SVG background */
-function CTAButton() {
+export function CTAButton({ text = "записаться" }: { text?: string } = {}) {
   const w = 309.7;
   const h = 65.34;
   const cut = 13;
@@ -116,7 +116,7 @@ function CTAButton() {
               overflow: "hidden",
             }}
           >
-            записаться
+            {text}
             {/* Shimmer sweep */}
             <span
               aria-hidden="true"

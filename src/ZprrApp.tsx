@@ -1,6 +1,7 @@
 import { Navbar } from "./components/Navbar";
 import { LocationSection } from "./components/LocationSection";
 import { Footer } from "./components/Footer";
+import { ZprrHeroSection } from "./components/zprr/ZprrHeroSection";
 
 export default function ZprrApp() {
   return (
@@ -84,10 +85,7 @@ export default function ZprrApp() {
       </div>
 
       <main style={{ paddingTop: "80px", position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
-        {/* Будущие секции будут добавляться сюда */}
-        <div style={{ minHeight: "40vh" }}>
-           {/* Временный отступ-заглушка для пустого контента */}
-        </div>
+        <ZprrHeroSection />
         
         <LocationSection />
       </main>
