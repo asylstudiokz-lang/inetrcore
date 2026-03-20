@@ -36,6 +36,22 @@ export function ZprrMethodologySection() {
       
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 70% 60% at 50% 10%, rgba(111,230,193,0.07) 0%, transparent 60%)" }} />
       
+      {/* ── BACKGROUND BIOLOGICAL BLUEPRINT ── */}
+      <div className="hidden lg:block absolute top-[15%] right-[5%] w-[600px] h-[600px] pointer-events-none opacity-[0.03] z-0">
+        <svg viewBox="0 0 200 200" className="w-full h-full fill-none stroke-[#6FE6C1] animate-[spin_160s_linear_infinite]">
+          <circle cx="100" cy="100" r="90" strokeWidth="0.2" />
+          <circle cx="100" cy="100" r="70" strokeWidth="0.2" />
+          <circle cx="100" cy="100" r="45" strokeWidth="0.2" />
+          <path d="M100 10 L100 30 M100 170 L100 190 M10 100 L30 100 M170 100 L190 100" strokeWidth="0.5" />
+          {[45, 135, 225, 315].map(a => (
+            <g key={a} transform={`rotate(${a} 100 100)`}>
+              <line x1="100" y1="20" x2="100" y2="40" strokeWidth="0.5" />
+              <circle cx="100" cy="30" r="2" fill="#6FE6C1" />
+            </g>
+          ))}
+        </svg>
+      </div>
+      
       <div className="relative pt-12 pb-16 md:pt-[100px] md:pb-[140px]">
         <Container style={{ position: "relative", zIndex: 1 }}>
           

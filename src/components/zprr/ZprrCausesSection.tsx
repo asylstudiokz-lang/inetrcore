@@ -70,6 +70,18 @@ export function ZprrCausesSection() {
           background: "radial-gradient(ellipse 70% 60% at 75% 50%, rgba(0,80,50,0.1) 0%, transparent 70%)",
         }}
       />
+
+      {/* ── HEADING BLUEPRINT DECO ── */}
+      <div className="hidden lg:block absolute top-[120px] left-[5%] w-[400px] h-[400px] pointer-events-none opacity-[0.04] z-0">
+        <svg viewBox="0 0 200 200" className="w-full h-full fill-none stroke-[#6FE6C1]" strokeWidth="0.5">
+          <circle cx="50" cy="100" r="45" />
+          <circle cx="50" cy="100" r="25" strokeDasharray="2 4" />
+          <path d="M50 55 L50 45 M50 155 L50 145 M5 100 L15 100 M95 100 L85 100" />
+          <line x1="50" y1="100" x2="180" y2="100" strokeDasharray="1 3" />
+          <path d="M140 70 L180 100 L140 130" />
+          <circle cx="180" cy="100" r="2" fill="#6FE6C1" />
+        </svg>
+      </div>
       
       <div className="relative pt-8 pb-10 md:pt-[100px] md:pb-[140px]">
         <Container style={{ position: "relative", zIndex: 1 }}>

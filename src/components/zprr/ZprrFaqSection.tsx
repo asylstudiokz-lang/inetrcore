@@ -55,6 +55,19 @@ export function ZprrFaqSection() {
       
       {/* ── BACKGROUND DECORATIONS ── */}
       <div className="hidden md:block absolute inset-0 pointer-events-none">
+        {/* Background Blueprint Grid */}
+        <div className="absolute inset-0 opacity-[0.08] z-0">
+          <svg width="100%" height="100%">
+            <defs>
+              <pattern id="faq-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#6FE6C1" strokeWidth="0.5" />
+                <circle cx="0" cy="0" r="1.5" fill="#6FE6C1" fillOpacity="0.4" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#faq-grid)" />
+          </svg>
+        </div>
+
         {/* Large Diamond (Left) */}
         <div style={{
           position: "absolute", top: "10%", left: "-200px", width: "500px", height: "500px",

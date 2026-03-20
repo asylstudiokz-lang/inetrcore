@@ -88,6 +88,26 @@ export function ZprrHeroSection() {
           }}
         />
 
+        {/* Background Blueprint Grid */}
+        <div style={{ position: "absolute", inset: 0, opacity: 0.08, pointerEvents: "none", zIndex: 0 }}>
+          <svg width="100%" height="100%">
+            <defs>
+              <pattern id="hero-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#6FE6C1" strokeWidth="0.6" />
+                <circle cx="0" cy="0" r="1.5" fill="#6FE6C1" fillOpacity="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+          </svg>
+        </div>
+
+        {/* Decorative Data Stream Lines */}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
+          <div className="absolute left-[5%] top-[-100px] w-[1px] h-[300px] bg-gradient-to-b from-transparent via-[#6FE6C1]/30 to-transparent animate-[flowDown_8s_linear_infinite]" />
+          <div className="absolute left-[12%] top-[-100px] w-[1px] h-[500px] bg-gradient-to-b from-transparent via-[#6FE6C1]/15 to-transparent animate-[flowDown_12s_linear_infinite]" style={{ animationDelay: "2s" }} />
+          <div className="absolute right-[8%] top-[-100px] w-[1px] h-[400px] bg-gradient-to-b from-transparent via-[#6FE6C1]/20 to-transparent animate-[flowDown_10s_linear_infinite]" style={{ animationDelay: "5s" }} />
+        </div>
+
         {/* Декоративные circuit-точки */}
         <svg
           style={{
@@ -217,6 +237,10 @@ export function ZprrHeroSection() {
           }}
         >
           <style dangerouslySetInnerHTML={{__html: `
+            @keyframes flowDown {
+              0% { transform: translateY(0); }
+              100% { transform: translateY(1200px); }
+            }
             @keyframes slideDown {
               0%, 100% { transform: translateY(0); }
               50% { transform: translateY(8px); }

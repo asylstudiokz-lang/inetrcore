@@ -26,6 +26,19 @@ function CertSlider() {
           <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "100%", height: "100%", border: "1px solid rgba(111,230,193,0.06)", clipPath: CLIP(16), pointerEvents: "none", transform: "rotate(2deg)" }} />
           <div style={{ position: "absolute", inset: 0, background: "#6FE6C1", clipPath: CLIP(16), padding: "1.5px", filter: "drop-shadow(0 0 30px rgba(111,230,193,0.15)) drop-shadow(0 15px 45px rgba(0,0,0,0.6))", zIndex: 2 }}>
             <div style={{ background: "linear-gradient(160deg, #001c10 0%, #000b06 100%)", clipPath: CLIP(15), height: "100%", width: "100%", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px", boxSizing: "border-box" }}>
+              {/* Scanner Line */}
+              <div 
+                className="absolute left-0 w-full h-[1px] bg-[#6FE6C1]/30 shadow-[0_0_15px_rgba(111,230,193,0.5)] z-30" 
+                style={{ animation: "scan 4s linear infinite" }}
+              />
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes scan {
+                  0% { top: 0%; opacity: 0; }
+                  10% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { top: 100%; opacity: 0; }
+                }
+              `}} />
               <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.04 }} viewBox="0 0 200 283" preserveAspectRatio="xMidYMid slice" fill="none">
                 {[40,80,120,160].map((x,i) => <line key={i} x1={x} y1="0" x2={x} y2="283" stroke="#6FE6C1" strokeWidth="0.8"/>)}
                 {[40,80,120,160,200,240,280].map((y,i) => <line key={i} x1="0" y1={y} x2="200" y2={y} stroke="#6FE6C1" strokeWidth="0.8"/>)}
