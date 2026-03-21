@@ -4,24 +4,36 @@ import { Container } from "./ui/Container";
 import { useState } from "react";
 
 /* CTA Button matching Figma SVG background */
-export function CTAButton({ text = "записаться" }: { text?: string } = {}) {
-  const w = 309.7;
+export function CTAButton({ text = "записаться", variant = "primary" }: { text?: string, variant?: "primary" | "secondary" } = {}) {
+  const isSecondary = variant === "secondary";
+  const maxWidth = isSecondary ? 420 : 309.7;
   const h = 65.34;
   const cut = 13;
-  const perimeter = 735; // approx polygon perimeter
+  
+  // Normalized points for viewBox="0 0 100 100" or just use non-scaling-stroke
+  // We'll use a fixed-proportion viewBox "0 0 420 65.34" and preserveAspectRatio="none"
+  const baseW = 420;
+  const baseH = 65.34;
+  
   const [hovered, setHovered] = useState(false);
 
   const points = [
     [cut, 0],
-    [w, 0],
-    [w, h - cut],
-    [w - cut, h],
-    [0, h],
+    [baseW, 0],
+    [baseW, baseH - cut],
+    [baseW - cut, baseH],
+    [0, baseH],
     [0, cut],
   ];
   const polyline = points
     .map(([x, y]) => `${x},${y}`)
     .join(" ");
+
+  const CYAN = "#6FE6C1";
+  const PRIMARY_BG = "#09B983";
+  const SECONDARY_BG = "transparent";
+  const PRIMARY_HOVER = "#0dd49a";
+  const SECONDARY_HOVER = "rgba(111,230,193,0.1)";
 
   return (
     <>
@@ -44,43 +56,66 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
             filter 0.35s ease,
             transform 0.25s ease,
             letter-spacing 0.3s ease;
+          clip-path: polygon(${cut}px 0, 100% 0, 100% calc(100% - ${cut}px), calc(100% - ${cut}px) 100%, 0 100%, 0 ${cut}px);
         }
-        .hero-cta-btn:hover {
-          background: #0dd49a !important;
+        .hero-cta-btn.primary:hover {
+          background: ${PRIMARY_HOVER} !important;
           filter: drop-shadow(0 0 18px rgba(111,230,193,0.9)) drop-shadow(0 0 6px rgba(13,212,154,0.7)) brightness(1.12);
           transform: translateY(-2px) scale(1.018);
           letter-spacing: 0.18em;
+        }
+        .hero-cta-btn.secondary:hover {
+          background: ${SECONDARY_HOVER} !important;
+          filter: drop-shadow(0 0 12px rgba(111,230,193,0.3));
+          transform: translateY(-1px) scale(1.01);
+          letter-spacing: 0.15em;
         }
         .hero-cta-btn:active {
           transform: translateY(0px) scale(1);
           filter: drop-shadow(0 0 8px rgba(111,230,193,0.6)) brightness(1.05);
         }
+        @media (max-width: 480px) {
+          .hero-cta-btn-wrapper {
+             max-width: 280px !important;
+             margin: 0 auto !important;
+          }
+          .hero-cta-btn {
+             font-size: 15px !important;
+             letter-spacing: 0.05em !important;
+          }
+        }
       `}}></style>
 
       <div
+        className="hero-cta-btn-wrapper"
         style={{
           position: "relative",
-          width: `${w}px`,
+          width: "100%",
+          maxWidth: `${maxWidth}px`,
           height: `${h}px`,
+          margin: "0",
+          display: "block"
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
         {/* Ping ring — pulses outward on hover */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: "-4px",
-            clipPath: `polygon(${cut + 4}px 0, 100% 0, 100% calc(100% - ${cut + 4}px), calc(100% - ${cut + 4}px) 100%, 0 100%, 0 ${cut + 4}px)`,
-            background: "transparent",
-            outline: "1.5px solid rgba(111,230,193,0.55)",
-            animation: hovered
-              ? "hero-btn-ping 0.7s ease-out infinite"
-              : "none",
-            pointerEvents: "none",
-          }}
-        />
+        {!isSecondary && (
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: "-4px",
+              clipPath: `polygon(${cut + 4}px 0, 100% 0, 100% calc(100% - ${cut + 4}px), calc(100% - ${cut + 4}px) 100%, 0 100%, 0 ${cut + 4}px)`,
+              background: "transparent",
+              outline: "1.5px solid rgba(111,230,193,0.55)",
+              animation: hovered
+                ? "hero-btn-ping 0.7s ease-out infinite"
+                : "none",
+              pointerEvents: "none",
+            }}
+          />
+        )}
 
         {/* Main button */}
         <a
@@ -94,15 +129,14 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
           }}
         >
           <button
-            className="hero-cta-btn"
+            className={`hero-cta-btn ${variant}`}
             style={{
               position: "absolute",
               inset: 0,
               width: "100%",
               height: "100%",
-              background: "#09B983",
-              clipPath: `polygon(${cut}px 0, 100% 0, 100% calc(100% - ${cut}px), calc(100% - ${cut}px) 100%, 0 100%, 0 ${cut}px)`,
-              border: "none",
+              background: isSecondary ? SECONDARY_BG : PRIMARY_BG,
+              border: isSecondary ? `1px solid ${CYAN}50` : "none",
               cursor: "pointer",
               fontFamily: "'Furore', 'Exo 2', sans-serif",
               fontSize: "20.671px",
@@ -110,27 +144,31 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
               letterSpacing: "0.12em",
               color: "#ffffff",
               textTransform: "uppercase",
+              whiteSpace: "nowrap",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               overflow: "hidden",
+              transition: "all 0.3s ease",
             }}
           >
             {text}
             {/* Shimmer sweep */}
-            <span
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%)",
-                animation: hovered
-                  ? "hero-btn-shimmer 0.55s ease forwards"
-                  : "none",
-                pointerEvents: "none",
-              }}
-            />
+            {!isSecondary && (
+              <span
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%)",
+                  animation: hovered
+                    ? "hero-btn-shimmer 0.55s ease forwards"
+                    : "none",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
           </button>
         </a>
 
@@ -141,9 +179,11 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
             inset: 0,
             pointerEvents: "none",
             overflow: "visible",
+            width: "100%",
+            height: "100%",
           }}
-          width={w}
-          height={h}
+          viewBox={`0 0 ${baseW} ${baseH}`}
+          preserveAspectRatio="none"
         >
           <defs>
             <filter id="btn-glow">
@@ -166,10 +206,11 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
           <polygon
             points={polyline}
             fill="none"
-            stroke="#6FE6C1"
+            stroke={CYAN}
             strokeWidth="1.5"
-            strokeOpacity={hovered ? 0 : 1}
+            strokeOpacity={hovered ? 0 : isSecondary ? 0.3 : 1}
             filter="url(#btn-glow)"
+            vectorEffect="non-scaling-stroke"
             style={{ transition: "stroke-opacity 0.3s ease" }}
           />
 
@@ -177,26 +218,28 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
           <polygon
             points={polyline}
             fill="none"
-            stroke="#6FE6C1"
+            stroke={CYAN}
             strokeWidth="2.5"
             filter="url(#btn-glow-hot)"
-            strokeDasharray={perimeter}
-            strokeDashoffset={hovered ? 0 : perimeter}
+            strokeDasharray={1000} // generic long dasharray
+            strokeDashoffset={hovered ? 0 : 1000}
+            vectorEffect="non-scaling-stroke"
             style={{
               transition: hovered
                 ? "stroke-dashoffset 0.55s cubic-bezier(0.4,0,0.2,1)"
                 : "stroke-dashoffset 0.4s ease",
+              strokeOpacity: isSecondary ? 0.6 : 1,
             }}
           />
 
-          {/* Corner accent dots */}
-          {hovered &&
+          {/* Corner accent dots - disabled for secondary or responsive ease */}
+          {!isSecondary && hovered &&
             [
               [cut, 0],
-              [w, 0],
-              [w, h - cut],
-              [w - cut, h],
-              [0, h],
+              [baseW, 0],
+              [baseW, baseH - cut],
+              [baseW - cut, baseH],
+              [0, baseH],
               [0, cut],
             ].map(([cx, cy], i) => (
               <circle
@@ -204,7 +247,7 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
                 cx={cx}
                 cy={cy}
                 r="3"
-                fill="#6FE6C1"
+                fill={CYAN}
                 filter="url(#btn-glow-hot)"
                 style={{ opacity: 0.9 }}
               />
@@ -214,7 +257,6 @@ export function CTAButton({ text = "записаться" }: { text?: string } =
     </>
   );
 }
-
 export function HeroSection() {
   return (
     <section id="hero" className="relative flex flex-col md:overflow-visible overflow-hidden items-center text-center px-4">

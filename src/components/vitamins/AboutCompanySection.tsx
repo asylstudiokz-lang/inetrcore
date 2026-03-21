@@ -10,6 +10,7 @@ const CERTIFICATES = [
     "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_3_1774043493592.png",
     "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_1_1774043468361.png",
     "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_3_1774043493592.png",
+    "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_1_1774043468361.png",
 ];
 
 const PlatedCard = ({ children, className = "", style = {}, tag = "", isMobile = false }: any) => (
@@ -67,42 +68,64 @@ export function AboutCompanySection() {
         return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
-    const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % (CERTIFICATES.length - visibleSlides + 1));
-    const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + (CERTIFICATES.length - visibleSlides + 1)) % (CERTIFICATES.length - visibleSlides + 1));
+    const maxSlide = CERTIFICATES.length - visibleSlides;
+    const isAtStart = currentSlide === 0;
+    const isAtEnd = currentSlide >= maxSlide;
+
+    const handleNext = () => {
+        if (!isAtEnd) setCurrentSlide(prev => prev + 1);
+    };
+    const handlePrev = () => {
+        if (!isAtStart) setCurrentSlide(prev => prev - 1);
+    };
 
     const SliderControls = ({ mobile }: { mobile: boolean }) => (
         <div style={{ 
             display: "flex", 
-            gap: mobile ? "12px" : "12px", 
+            gap: "12px", 
             width: mobile ? "100%" : "auto",
-            marginTop: mobile ? "0" : "0"
+            marginTop: "0"
         }}>
-            <button onClick={prevSlide} style={{ 
-                background: "transparent", 
-                border: `1px solid ${CYAN}44`, 
-                color: CYAN, 
-                width: mobile ? "100%" : "52px", 
-                height: mobile ? "48px" : "52px", 
-                cursor: "pointer", 
-                transition: "all 0.3s",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-            }} onMouseEnter={(e) => (e.currentTarget.style.borderColor = CYAN)}>
+            <button 
+                onClick={handlePrev} 
+                disabled={isAtStart}
+                style={{ 
+                    background: "transparent", 
+                    border: `1px solid ${CYAN}44`, 
+                    color: CYAN, 
+                    width: mobile ? "100%" : "52px", 
+                    height: mobile ? "48px" : "52px", 
+                    cursor: isAtStart ? "default" : "pointer", 
+                    transition: "all 0.3s",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    opacity: isAtStart ? 0.25 : 1,
+                    pointerEvents: isAtStart ? "none" : "auto"
+                }} 
+                onMouseEnter={(e) => !isAtStart && (e.currentTarget.style.borderColor = CYAN)}
+            >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </button>
-            <button onClick={nextSlide} style={{ 
-                background: "transparent", 
-                border: `1px solid ${CYAN}44`, 
-                color: CYAN, 
-                width: mobile ? "100%" : "52px", 
-                height: mobile ? "48px" : "52px", 
-                cursor: "pointer", 
-                transition: "all 0.3s",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-            }} onMouseEnter={(e) => (e.currentTarget.style.borderColor = CYAN)}>
+            <button 
+                onClick={handleNext} 
+                disabled={isAtEnd}
+                style={{ 
+                    background: "transparent", 
+                    border: `1px solid ${CYAN}44`, 
+                    color: CYAN, 
+                    width: mobile ? "100%" : "52px", 
+                    height: mobile ? "48px" : "52px", 
+                    cursor: isAtEnd ? "default" : "pointer", 
+                    transition: "all 0.3s",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    opacity: isAtEnd ? 0.25 : 1,
+                    pointerEvents: isAtEnd ? "none" : "auto"
+                }} 
+                onMouseEnter={(e) => !isAtEnd && (e.currentTarget.style.borderColor = CYAN)}
+            >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
         </div>
@@ -178,21 +201,19 @@ export function AboutCompanySection() {
                         </div>
                     </div>
 
-                    {/* Feature: International */}
+                    {/* Feature Cards */}
                     <PlatedCard className="col-span-12 md:col-span-4" tag="МЕЖДУНАРОДНЫЙ" isMobile={isMobile}>
                         <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0 }}>
                             Мы — международная компания, и наш инновационный метод восстановления организма применяется не только по всей России, но и в странах ближнего и дальнего зарубежья.
                         </p>
                     </PlatedCard>
 
-                    {/* Feature: Natural */}
                     <PlatedCard className="col-span-12 md:col-span-4" tag="ПРОИЗВОДСТВО" isMobile={isMobile}>
                          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0 }}>
                             ООО «ЦВТ» занимается разработкой продукции растительного происхождения. Это растительные комплексы в виде хелатных соединений без химии.
                         </p>
                     </PlatedCard>
 
-                    {/* Feature: Science */}
                     <PlatedCard className="col-span-12 md:col-span-4" tag="НАУЧНЫЙ ЦЕНТР" isMobile={isMobile}>
                         <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
                             Собственная научно-исследовательская база на территории технопарка Академгородка и Биотехнопарка Кольцово.
@@ -215,42 +236,58 @@ export function AboutCompanySection() {
                             flexDirection: "column",
                             gap: isMobile ? "16px" : "40px",
                         }}>
-                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexDirection: isMobile ? "row" : "row" }}>
+                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
                                 <div>
                                     <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: isMobile ? "20px" : "28px", color: "#fff", margin: 0 }}>СЕРТИФИКАТЫ <span style={{ color: CYAN }}>КАЧЕСТВА</span></h3>
                                 </div>
                                 {!isMobile && <SliderControls mobile={false} />}
                             </div>
 
-                            <div style={{ display: "grid", gridTemplateColumns: `repeat(${visibleSlides}, 1fr)`, gap: isMobile ? "16px" : "32px" }}>
-                                {CERTIFICATES.slice(currentSlide, currentSlide + visibleSlides).map((cert, i) => (
-                                    <div key={i} style={{ 
-                                        background: "rgba(111,230,193,0.03)", 
-                                        padding: "1px", 
-                                        clipPath: CLIP(12) 
-                                    }}>
-                                        <div style={{ background: "rgba(0,0,0,0.3)", padding: isMobile ? "12px" : "16px", clipPath: CLIP(11.5) }}>
+                            {/* Slider Viewport */}
+                            <div style={{ overflow: "hidden", margin: isMobile ? "0" : "0 -10px" }}>
+                                <div style={{ 
+                                    display: "flex", 
+                                    gap: "0", 
+                                    transform: `translateX(-${currentSlide * (100 / visibleSlides)}%)`,
+                                    transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+                                    width: "100%"
+                                }}>
+                                    {CERTIFICATES.map((cert, i) => (
+                                        <div key={i} style={{ 
+                                            flex: `0 0 ${100 / visibleSlides}%`,
+                                            padding: isMobile ? "0" : "0 10px",
+                                            boxSizing: "border-box"
+                                        }}>
                                             <div style={{ 
-                                                width: "100%", 
-                                                aspectRatio: "1 / 1.414", 
-                                                background: "#fff", 
-                                                position: "relative",
-                                                boxShadow: `0 0 40px ${CYAN}05`
+                                                background: "rgba(111,230,193,0.03)", 
+                                                padding: "1px", 
+                                                clipPath: CLIP(12),
+                                                height: "100%"
                                             }}>
-                                                <div style={{ 
-                                                    width: "100%", height: "100%", 
-                                                    display: "flex", alignItems: "center", justifyContent: "center",
-                                                    background: "#f0f0f0",
-                                                    color: "#999", fontFamily: "'Montserrat', sans-serif", fontSize: "10px",
-                                                    textAlign: "center"
-                                                }}>
-                                                    СЕРТИФИКАТ <br/> (ФОРМАТ A4)
+                                                <div style={{ background: "rgba(0,0,0,0.3)", padding: isMobile ? "12px" : "16px", clipPath: CLIP(11.5) }}>
+                                                    <div style={{ 
+                                                        width: "100%", 
+                                                        aspectRatio: "1 / 1.414", 
+                                                        background: "#fff", 
+                                                        position: "relative",
+                                                        boxShadow: `0 0 40px ${CYAN}05`
+                                                    }}>
+                                                        <div style={{ 
+                                                            width: "100%", height: "100%", 
+                                                            display: "flex", alignItems: "center", justifyContent: "center",
+                                                            background: "#f0f0f0",
+                                                            color: "#999", fontFamily: "'Montserrat', sans-serif", fontSize: "10px",
+                                                            textAlign: "center"
+                                                        }}>
+                                                            СЕРТИФИКАТ <br/> (ФОРМАТ A4)
+                                                        </div>
+                                                        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: CYAN, animation: "scan-plated 4s linear infinite", opacity: 0.4 }} />
+                                                    </div>
                                                 </div>
-                                                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: CYAN, animation: "scan-plated 4s linear infinite", opacity: 0.4 }} />
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
 
                             {isMobile && <SliderControls mobile={true} />}

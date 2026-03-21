@@ -7,6 +7,9 @@ import { VitaminsVideoSection } from "./components/vitamins/VitaminsVideoSection
 import { VitaminsUniquenessSection } from "./components/vitamins/VitaminsUniquenessSection";
 import { AboutCompanySection } from "./components/vitamins/AboutCompanySection";
 
+import { VitaminsCatalogSection } from "./components/vitamins/VitaminsCatalogSection";
+import { VitaminsArticlesSection } from "./components/vitamins/VitaminsArticlesSection";
+
 export default function VitaminsApp() {
   return (
     <div suppressHydrationWarning style={{ backgroundColor: "#001d14", minHeight: "100vh", overflowX: "hidden", position: "relative" }}>
@@ -75,6 +78,8 @@ export default function VitaminsApp() {
         <VitaminsVideoSection />
         <VitaminsUniquenessSection />
         <AboutCompanySection />
+        <VitaminsCatalogSection />
+        <VitaminsArticlesSection />
         <LocationSection />
       </main>
       <Footer />
