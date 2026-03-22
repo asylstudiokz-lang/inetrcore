@@ -4,6 +4,8 @@ import { Footer } from "./Footer";
 import { BiteCorrectionHeroSection } from "./bite-correction/BiteCorrectionHeroSection";
 import { BiteCorrectionMethodSection } from "./bite-correction/BiteCorrectionMethodSection";
 import { BiteCorrectionHowItWorksSection } from "./bite-correction/BiteCorrectionHowItWorksSection";
+import { BiteCorrectionNightCtaSection } from "./bite-correction/BiteCorrectionNightCtaSection";
+import { BiteCorrectionVideoSection } from "./bite-correction/BiteCorrectionVideoSection";
 
 export default function BiteCorrectionApp() {
   return (
@@ -86,6 +88,8 @@ export default function BiteCorrectionApp() {
         <BiteCorrectionHeroSection />
         <BiteCorrectionMethodSection />
         <BiteCorrectionHowItWorksSection />
+        <BiteCorrectionNightCtaSection />
+        <BiteCorrectionVideoSection />
         <LocationSection />
       </main>
       
