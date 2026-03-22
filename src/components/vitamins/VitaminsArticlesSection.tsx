@@ -173,6 +173,9 @@ const articles = [
 const CLIP_QUAD = (size: number) =>
   `polygon(${size}px 0, calc(100% - ${size}px) 0, 100% ${size}px, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, ${size}px 100%, 0 calc(100% - ${size}px), 0 ${size}px)`;
 
+const CLIP_ARTICLE = (size: number) =>
+  `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
+
 export function VitaminsArticlesSection() {
   const [selectedArticle, setSelectedArticle] = useState<number | null>(null);
 
@@ -305,15 +308,15 @@ function SocialBar() {
   return (
     <div className="mt-10 md:mt-16 flex flex-col items-center w-full px-4 md:px-0">
         <div 
-          className="relative w-full max-w-[1240px] h-[180px] md:h-[150px] group transition-all duration-700"
+          className="relative w-full max-w-[1240px] h-[250px] md:h-[150px] group transition-all duration-700"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
             {/* Main Body */}
             <div 
-              className="absolute inset-0 bg-[#00150f]/95 backdrop-blur-3xl flex flex-col md:flex-row items-center justify-between px-10 md:px-24 gap-8 transition-all duration-700"
+              className="absolute inset-0 bg-[#00150f]/95 backdrop-blur-3xl flex flex-col md:flex-row items-center justify-center md:justify-between px-6 py-8 md:px-24 md:py-0 gap-6 md:gap-8 transition-all duration-700"
               style={{ 
-                clipPath: CLIP_QUAD(30),
+                clipPath: CLIP_ARTICLE(30),
                 transform: isHovered ? "scale(1.02)" : "scale(1)",
                 boxShadow: "none"
               }}
@@ -346,9 +349,9 @@ function SocialBar() {
                 </div>
             </div>
 
-            {/* FULL CONTOUR SVG BORDER (BASE + CHASER) */}
+            {/* FULL CONTOUR SVG BORDER (BASE + CHASER) - DESKTOP */}
             <svg 
-              className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700" 
+              className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700 hidden md:block" 
               viewBox="0 0 1240 150" 
               preserveAspectRatio="none"
               style={{ transform: isHovered ? "scale(1.02)" : "scale(1)" }}
@@ -361,18 +364,16 @@ function SocialBar() {
                 </linearGradient>
               </defs>
               
-              {/* STATIC BASE CONTOUR */}
               <path 
-                d="M 30 0 L 1210 0 L 1240 30 L 1240 120 L 1210 150 L 30 150 L 0 120 L 0 30 Z"
+                d="M 30 0 L 1240 0 L 1240 120 L 1210 150 L 0 150 L 0 30 Z"
                 fill="none"
                 stroke={isHovered ? CYAN + "60" : CYAN + "20"}
                 strokeWidth="2"
                 className="transition-all duration-700"
               />
 
-              {/* DYNAMIC CHASER */}
               <path 
-                d="M 30 0 L 1210 0 L 1240 30 L 1240 120 L 1210 150 L 30 150 L 0 120 L 0 30 Z"
+                d="M 30 0 L 1240 0 L 1240 120 L 1210 150 L 0 150 L 0 30 Z"
                 fill="none"
                 stroke="url(#trace-grad-v4)"
                 strokeWidth={isHovered ? "3.5" : "0"}
@@ -383,11 +384,51 @@ function SocialBar() {
                 }}
               />
             </svg>
+
+            {/* FULL CONTOUR SVG BORDER (BASE + CHASER) - MOBILE */}
+            <svg 
+              className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700 block md:hidden" 
+              viewBox="0 0 375 250" 
+              preserveAspectRatio="none"
+              style={{ transform: isHovered ? "scale(1.02)" : "scale(1)" }}
+            >
+              <defs>
+                <linearGradient id="trace-grad-v4-mob" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="transparent" />
+                  <stop offset="50%" stopColor={CYAN} />
+                  <stop offset="100%" stopColor="transparent" />
+                </linearGradient>
+              </defs>
+              
+              <path 
+                d="M 30 0 L 375 0 L 375 220 L 345 250 L 0 250 L 0 30 Z"
+                fill="none"
+                stroke={isHovered ? CYAN + "60" : CYAN + "20"}
+                strokeWidth="2"
+                className="transition-all duration-700"
+              />
+
+              <path 
+                d="M 30 0 L 375 0 L 375 220 L 345 250 L 0 250 L 0 30 Z"
+                fill="none"
+                stroke="url(#trace-grad-v4-mob)"
+                strokeWidth={isHovered ? "3.5" : "0"}
+                strokeDasharray="150 1200"
+                style={{ 
+                    animation: isHovered ? "border-chase-v4-mob 3.5s linear infinite" : "none",
+                    opacity: isHovered ? 1 : 0
+                }}
+              />
+            </svg>
         </div>
 
         <style>{`
           @keyframes border-chase-v4 {
             from { stroke-dashoffset: 2800; }
+            to { stroke-dashoffset: 0; }
+          }
+          @keyframes border-chase-v4-mob {
+            from { stroke-dashoffset: 1350; }
             to { stroke-dashoffset: 0; }
           }
         `}</style>
@@ -409,9 +450,9 @@ function SocialLink({ href, icon, label }: { href: string, icon: React.ReactNode
 function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" | "medium", index: number, onClick: () => void }) {
   const isLarge = size === "large";
   return (
-    <div onClick={onClick} className="group relative transition-all duration-500 ease-out cursor-pointer hover:-translate-y-2 h-full" style={{ background: "rgba(111,230,193,0.06)", clipPath: CLIP_QUAD(isLarge ? 28 : 22), padding: "1px" }}>
-       <div className="absolute inset-0 bg-[#6FE6C1]/10 group-hover:bg-[#6FE6C1]/40 transition-all duration-500 opacity-60" style={{ clipPath: CLIP_QUAD(isLarge ? 28 : 22) }} />
-       <div className="relative h-full overflow-hidden flex flex-col justify-between" style={{ background: "linear-gradient(145deg, #00150f 0%, #000805 100%)", clipPath: CLIP_QUAD(isLarge ? 27.5 : 21.5), padding: isLarge ? "clamp(30px, 4vw, 50px)" : "clamp(24px, 3vw, 40px)", minHeight: isLarge ? "clamp(260px, 20vw, 320px)" : "clamp(220px, 15vw, 260px)" }}>
+    <div onClick={onClick} className="group relative transition-all duration-500 ease-out cursor-pointer hover:-translate-y-2 h-full" style={{ background: "rgba(111,230,193,0.06)", clipPath: CLIP_ARTICLE(isLarge ? 28 : 22), padding: "1px" }}>
+       <div className="absolute inset-0 bg-[#6FE6C1]/10 group-hover:bg-[#6FE6C1]/40 transition-all duration-500 opacity-60" style={{ clipPath: CLIP_ARTICLE(isLarge ? 28 : 22) }} />
+       <div className="relative h-full overflow-hidden flex flex-col justify-between" style={{ background: "linear-gradient(145deg, #00150f 0%, #000805 100%)", clipPath: CLIP_ARTICLE(isLarge ? 27.5 : 21.5), padding: isLarge ? "clamp(30px, 4vw, 50px)" : "clamp(24px, 3vw, 40px)", minHeight: isLarge ? "clamp(260px, 20vw, 320px)" : "clamp(220px, 15vw, 260px)" }}>
           <div className="flex items-start justify-between mb-8">
              <div className="flex flex-col gap-1">
                 <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "10px", fontWeight: 700, color: "#6FE6C1", letterSpacing: "0.15em", opacity: 0.9 }}>МАТЕРИАЛ №{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>

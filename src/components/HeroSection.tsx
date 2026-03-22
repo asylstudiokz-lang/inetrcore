@@ -80,7 +80,7 @@ export function CTAButton({ text = "записаться", variant = "primary" }
              margin: 0 auto !important;
           }
           .hero-cta-btn {
-             font-size: 15px !important;
+             font-size: 18px !important;
              letter-spacing: 0.05em !important;
           }
         }
@@ -346,9 +346,12 @@ export function HeroSection() {
               left: "50%",
               transform: "translateX(-50%)",
               top: "556px",
+              width: "310px",
+              display: "flex",
+              justifyContent: "center",
             }}
           >
-            <CTAButton />
+            <CTAButton text="Консультация" />
           </div>
 
           {/* Height spacer */}

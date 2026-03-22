@@ -53,7 +53,7 @@ export function ZprrHeroSection() {
                </span>
              </div>
 
-             <div style={{ transform: "scale(0.85)" }}>
+             <div style={{ width: "310px", margin: "0 auto" }}>
                <CTAButton text="Консультация" />
              </div>
            </div>

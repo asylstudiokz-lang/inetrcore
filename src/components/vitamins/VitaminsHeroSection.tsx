@@ -71,7 +71,9 @@ export function VitaminsHeroSection() {
              </div>
 
               <div className="w-full flex justify-center mt-4">
-                <CTAButton text="Консультация" />
+                <div style={{ width: "310px", margin: "0 auto" }}>
+                  <CTAButton text="Консультация" />
+                </div>
               </div>
            </div>
 
