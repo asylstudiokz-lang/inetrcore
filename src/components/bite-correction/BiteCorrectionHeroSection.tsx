@@ -72,16 +72,16 @@ export function BiteCorrectionHeroSection() {
 
               {/* Top-Right HUD Plaque (Mobile) */}
               <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5 }}>
-                <div style={{ position: "relative", background: "rgba(111,230,193,0.8)", clipPath: CLIP_INV(6), padding: "1px" }}>
+                <div style={{ position: "relative", background: "rgba(111,230,193,0.8)", clipPath: CLIP_INV(7), padding: "1px" }}>
                   <div style={{ 
                     background: "#011a14", 
-                    clipPath: CLIP_INV(6), 
-                    padding: "4px 12px",
+                    clipPath: CLIP_INV(7), 
+                    padding: "5px 14px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center"
                   }}>
-                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "7px", color: "#6FE6C1", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1.1 }}>
+                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "9px", color: "#6FE6C1", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1.1 }}>
                       КОРРЕКТОР МИКАТА
                     </span>
                   </div>
