@@ -3,6 +3,9 @@ import { LocationSection } from "./LocationSection";
 import { Footer } from "./Footer";
 import { WoundTreatmentHeroSection } from "./wound-treatment/WoundTreatmentHeroSection";
 import { WoundHealingProcessSection } from "./wound-treatment/WoundHealingProcessSection";
+import { WoundTreatmentProductsSection } from "./wound-treatment/WoundTreatmentProductsSection";
+import { WoundTreatmentUsageSection } from "./wound-treatment/WoundTreatmentUsageSection";
+import { WoundTreatmentGallerySection } from "./wound-treatment/WoundTreatmentGallerySection";
 
 export default function WoundTreatmentApp() {
   return (
@@ -84,6 +87,9 @@ export default function WoundTreatmentApp() {
       <main style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
         <WoundTreatmentHeroSection />
         <WoundHealingProcessSection />
+        <WoundTreatmentProductsSection />
+        <WoundTreatmentUsageSection />
+        <WoundTreatmentGallerySection />
         <LocationSection />
       </main>
       

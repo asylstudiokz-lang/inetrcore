@@ -101,27 +101,41 @@ export function WoundHealingProcessSection() {
                          <div style={{ 
                            clipPath: CLIP(23), background: "linear-gradient(145deg, #00261a 0%, #000c08 100%)", 
                            position: "relative", overflow: "hidden", minHeight: "100%"
-                         }} className="p-5 md:p-[clamp(30px,5vw,45px)]">
+                         }} className="p-8 md:p-[clamp(40px,6vw,60px)]">
                             
                             {/* Inner Details: Diagonal Data Lines */}
                             <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(111,230,193,1) 10px, rgba(111,230,193,1) 11px)" }} />
                             
-                            {/* Large Filled Geometric Accents (Card Background) */}
+                            {/* Large Decorative HUD SVG Background Accents (Consistent Right Placement) */}
                             <div 
-                              className={`absolute bg-[#6FE6C1]/[0.05] pointer-events-none transition-transform duration-1000 group-hover:scale-105 group-hover:bg-[#6FE6C1]/[0.08] ${
-                                i % 4 === 0 ? "w-[250px] h-[250px] md:w-[350px] md:h-[350px] right-[-10%] top-[-10%] rotate-[15deg]" :
-                                i % 4 === 1 ? "w-[300px] h-[300px] md:w-[400px] md:h-[400px] right-[-15%] bottom-[-15%] rotate-45" :
-                                i % 4 === 2 ? "w-[200px] h-[200px] md:w-[300px] md:h-[300px] left-[5%] top-[15%] rotate-[-20deg]" :
-                                "w-[350px] h-[350px] md:w-[450px] md:h-[450px] left-[-10%] bottom-[-10%] rotate-[-15deg]"
+                              className={`absolute pointer-events-none transition-all duration-1000 group-hover:scale-110 group-hover:opacity-60 opacity-30 ${
+                                i % 4 === 0 ? "w-[240px] h-[240px] md:w-[320px] md:h-[320px] -right-12 -top-12 rotate-[15deg]" :
+                                i % 4 === 1 ? "w-[200px] h-[200px] md:w-[280px] md:h-[280px] -right-8 -bottom-8 rotate-[-10deg]" :
+                                i % 4 === 2 ? "w-[180px] h-[180px] md:w-[260px] md:h-[260px] -right-4 top-[10%] rotate-[12deg]" :
+                                "w-[220px] h-[220px] md:w-[300px] md:h-[300px] -right-16 top-[40%] rotate-[-12deg]"
                               }`}
-                              style={{ 
-                                clipPath: 
-                                  i % 4 === 0 ? "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" :
-                                  i % 4 === 2 ? "polygon(50% 0%, 100% 100%, 0% 100%)" :
-                                  i % 4 === 3 ? "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" : 
-                                  "none"
-                              }}
-                            />
+                            >
+                              <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {i % 4 === 0 && ( /* Hexagon HUD */
+                                  <path d="M50 5 L90 27.5 V72.5 L50 95 L10 72.5 V27.5 L50 5Z" stroke={CYAN} strokeWidth="1" strokeOpacity="0.3" fill={CYAN} fillOpacity="0.04" />
+                                )}
+                                {i % 4 === 1 && ( /* Double Diamond */
+                                  <>
+                                    <path d="M50 0 L100 50 L50 100 L0 50 Z" stroke={CYAN} strokeWidth="1" strokeOpacity="0.3" fill={CYAN} fillOpacity="0.04" />
+                                    <path d="M50 20 L80 50 L50 80 L20 50 Z" stroke={CYAN} strokeWidth="0.8" strokeOpacity="0.15" />
+                                  </>
+                                )}
+                                {i % 4 === 2 && ( /* Pentagon HUD */
+                                  <path d="M50 5 L95 40 L78 95 L22 95 L5 40 Z" stroke={CYAN} strokeWidth="1" strokeOpacity="0.3" fill={CYAN} fillOpacity="0.04" />
+                                )}
+                                {i % 4 === 3 && ( /* Diamond Grid */
+                                  <>
+                                    <path d="M50 10 L90 50 L50 90 L10 50 Z" stroke={CYAN} strokeWidth="1" strokeOpacity="0.3" fill={CYAN} fillOpacity="0.06" />
+                                    <path d="M0 50 H100 M50 0 V100" stroke={CYAN} strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="2 2" />
+                                  </>
+                                )}
+                              </svg>
+                            </div>
 
                             {/* Inner Details: Corner Radial Glow */}
                             <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#6FE6C1] opacity-[0.12] blur-[50px] pointer-events-none rounded-full transition-opacity duration-500 group-hover:opacity-[0.25]" />
