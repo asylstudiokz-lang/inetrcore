@@ -9,7 +9,7 @@ const CLIP_INV = (size: number) =>
 
 export function BiteCorrectionHeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: "60px", paddingBottom: "100px" }}>
+    <section className="relative overflow-hidden" style={{ paddingTop: "0", paddingBottom: "0" }}>
       {/* Decorative background glows - 1:1 with ZPRR */}
       <div
         style={{
@@ -23,15 +23,15 @@ export function BiteCorrectionHeroSection() {
         }}
       />
       
-      {/* ── MOBILE (Media above Text) ── */}
+      {/* ── MOBILE (Text -> Image -> Button) ── */}
       <Container>
-        <div className="flex md:hidden flex-col-reverse items-center text-center gap-16 mb-20 relative">
+        <div className="flex md:hidden flex-col items-center justify-center text-center gap-8 relative px-6" style={{ height: "calc(100vh - 80px)" }}>
             {/* Ghost watermark - mobile */}
             <div style={{ position: "absolute", top: "-10px", left: "50%", transform: "translateX(-50%)", fontFamily: "'Furore', sans-serif", fontSize: "clamp(60px, 16vw, 100px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>
               МИКАТА
             </div>
 
-            {/* Mobile Text */}
+            {/* Mobile Text - Compact Layout */}
             <div className="z-10 w-full flex flex-col items-center relative">
               <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "16px" }}>
                 <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
@@ -48,25 +48,21 @@ export function BiteCorrectionHeroSection() {
 
               <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)", marginBottom: "16px", maxWidth: "280px" }} />
 
-              <div className="mb-8">
+              <div className="mb-0">
                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>
                    для защиты зубов в Алматы
                  </p>
               </div>
-
-              <div style={{ width: "310px", margin: "0 auto" }}>
-                <CTAButton text="Консультация" />
-              </div>
             </div>
 
-            {/* Mobile 3:4 Photo Placeholder - LARGER (Clean Border) */}
-            <div style={{ flexShrink: 0, width: "340px", height: "453px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", maxWidth: "90vw" }}>
+            {/* Mobile 3:4 Photo Placeholder - Smaller (Clean Border) */}
+            <div style={{ flexShrink: 0, width: "280px", height: "373px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", maxWidth: "90vw" }}>
               <div style={{ position: "absolute", inset: "0", clipPath: "polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
               
               {/* Continuous Contour Border Overlay */}
-              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} viewBox="0 0 340 453" preserveAspectRatio="none">
+              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} viewBox="0 0 280 373" preserveAspectRatio="none">
                 <polygon 
-                  points="0,0 318,0 340,22 340,453 22,453 0,431" 
+                  points="0,0 258,0 280,22 280,373 22,373 0,351" 
                   fill="none" 
                   stroke="#6FE6C1" 
                   strokeWidth="1.8" 
@@ -74,11 +70,18 @@ export function BiteCorrectionHeroSection() {
                 />
               </svg>
 
-              {/* Bottom-Left HUD Plaque (Mobile) */}
-              <div style={{ position: "absolute", bottom: "12px", left: "12px", zIndex: 5 }}>
-                <div style={{ position: "relative", background: "rgba(111,230,193,0.8)", clipPath: CLIP_INV(6), padding: "1.5px" }}>
-                  <div style={{ background: "#011a14", clipPath: CLIP_INV(6), padding: "4px 12px" }}>
-                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "7px", color: "#6FE6C1", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1 }}>
+              {/* Top-Right HUD Plaque (Mobile) */}
+              <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5 }}>
+                <div style={{ position: "relative", background: "rgba(111,230,193,0.8)", clipPath: CLIP_INV(6), padding: "1px" }}>
+                  <div style={{ 
+                    background: "#011a14", 
+                    clipPath: CLIP_INV(6), 
+                    padding: "4px 12px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}>
+                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "7px", color: "#6FE6C1", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1.1 }}>
                       КОРРЕКТОР МИКАТА
                     </span>
                   </div>
@@ -86,21 +89,26 @@ export function BiteCorrectionHeroSection() {
               </div>
 
               <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-4 text-[#6FE6C1]/30">
-                 <div className="w-16 h-16 border border-[#6FE6C1]/20 rounded-full flex items-center justify-center animate-pulse">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                 <div className="w-14 h-14 border border-[#6FE6C1]/20 rounded-full flex items-center justify-center animate-pulse">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
                     </svg>
                  </div>
-                 <span className="font-['Furore'] text-[9px] tracking-[0.3em] uppercase opacity-50">Фото [3:4]</span>
+                 <span className="font-['Furore'] text-[8px] tracking-[0.2em] uppercase opacity-50">Фото [3:4]</span>
               </div>
+            </div>
+
+            {/* Mobile Consultation Button - Moved after Image */}
+            <div style={{ width: "310px", margin: "0 auto", position: "relative", zIndex: 10, paddingBottom: "20px" }}>
+              <CTAButton text="Консультация" />
             </div>
         </div>
       </Container>
 
       {/* ── DESKTOP HERO WRAPPER (1:1 with ZPRR) ── */}
       <div 
-        className="hidden md:flex flex-col items-center justify-center w-full relative mb-16 px-8" 
-        style={{ minHeight: "calc(100vh - 80px)", paddingBottom: "10vh" }}
+        className="hidden md:flex flex-col items-center justify-center w-full relative px-8 overflow-hidden" 
+        style={{ height: "calc(100vh - 72px)", paddingBottom: "0" }}
       >
         {/* Background Radial Glow */}
         <div
@@ -113,8 +121,8 @@ export function BiteCorrectionHeroSection() {
           }}
         />
 
-        {/* Background Blueprint Grid - Extended upwards to Header (-140px) */}
-        <div style={{ position: "absolute", top: "-140px", left: 0, right: 0, bottom: 0, opacity: 0.08, pointerEvents: "none", zIndex: 0 }}>
+        {/* Background Blueprint Grid - Extended upwards and slightly downwards to hide edges */}
+        <div style={{ position: "absolute", top: "-140px", left: 0, right: 0, bottom: "-20px", opacity: 0.08, pointerEvents: "none", zIndex: 0 }}>
           <svg width="100%" height="100%">
             <defs>
               <pattern id="hero-grid" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -140,7 +148,7 @@ export function BiteCorrectionHeroSection() {
             top: "-140px",
             left: 0,
             width: "100%",
-            height: "calc(100% + 140px)",
+            height: "calc(100% + 160px)",
             pointerEvents: "none",
             zIndex: 0,
           }}
@@ -260,7 +268,7 @@ export function BiteCorrectionHeroSection() {
         <div 
           className="absolute bottom-16 lg:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
           onClick={() => {
-            const el = document.getElementById("location");
+            const el = document.getElementById("methodology");
             if (el) {
               const y = el.getBoundingClientRect().top + window.scrollY - 100;
               window.scrollTo({ top: y, behavior: "smooth" });

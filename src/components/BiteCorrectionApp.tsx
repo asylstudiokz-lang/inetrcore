@@ -2,6 +2,7 @@ import { Navbar } from "./Navbar";
 import { LocationSection } from "./LocationSection";
 import { Footer } from "./Footer";
 import { BiteCorrectionHeroSection } from "./bite-correction/BiteCorrectionHeroSection";
+import { BiteCorrectionMethodSection } from "./bite-correction/BiteCorrectionMethodSection";
 
 export default function BiteCorrectionApp() {
   return (
@@ -80,8 +81,9 @@ export default function BiteCorrectionApp() {
         <Navbar />
       </div>
 
-      <main style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", paddingTop: "80px" }}>
+      <main className="pt-[80px] md:pt-[72px]" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
         <BiteCorrectionHeroSection />
+        <BiteCorrectionMethodSection />
         <LocationSection />
       </main>
       

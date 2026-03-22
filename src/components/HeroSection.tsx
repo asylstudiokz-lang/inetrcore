@@ -76,12 +76,12 @@ export function CTAButton({ text = "записаться", variant = "primary" }
         }
         @media (max-width: 480px) {
           .hero-cta-btn-wrapper {
-             max-width: 280px !important;
+             max-width: 320px !important;
              margin: 0 auto !important;
           }
           .hero-cta-btn {
-             font-size: 18px !important;
-             letter-spacing: 0.05em !important;
+             font-size: clamp(11px, 3.2vw, 13px) !important;
+             letter-spacing: 0.03em !important;
           }
         }
       `}}></style>
@@ -136,12 +136,12 @@ export function CTAButton({ text = "записаться", variant = "primary" }
               width: "100%",
               height: "100%",
               background: isSecondary ? SECONDARY_BG : PRIMARY_BG,
-              border: isSecondary ? `1px solid ${CYAN}50` : "none",
+              border: isSecondary ? "1px solid rgba(255,255,255,0.3)" : "none",
               cursor: "pointer",
               fontFamily: "'Furore', 'Exo 2', sans-serif",
-              fontSize: "20.671px",
+              fontSize: "clamp(12px, 3.5vw, 18px)",
               fontWeight: 400,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.08em",
               color: "#ffffff",
               textTransform: "uppercase",
               whiteSpace: "nowrap",
