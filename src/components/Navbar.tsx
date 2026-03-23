@@ -31,6 +31,16 @@ const INNER_CLIP = `polygon(1px 1px, calc(100% - 1px) 1px, calc(100% - 1px) ${CU
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  const SERVICES = [
+    { label: "Лечение ЗПРР, ЗРР, РАС", href: "/services/1" },
+    { label: "Витаминные комплексы", href: "/services/2" },
+    { label: "Педагогическая коррекция", href: "/services/3" },
+    { label: "Исправление прикуса", href: "/services/4" },
+    { label: "Лечение ран", href: "/services/5" },
+  ];
 
   return (
     <>
@@ -97,21 +107,24 @@ export function Navbar() {
           <div style={{ width: "24px" }} />
 
           {/* "ЦЕНТР ПОБЕД" — centered exactly as in Figma */}
-          <span
-            style={{
-              fontFamily: "'Furore', 'Exo 2', sans-serif",
-              fontSize: "28.732px",
-              fontWeight: 400,
-              letterSpacing: "0.06em",
-              color: "#f9f9f9",
-              textShadow: "0px 3.471px 28.58px #00eea3",
-              lineHeight: 1,
-              textTransform: "uppercase",
-              userSelect: "none",
-            }}
-          >
-            центр побед
-          </span>
+          <a href="/" style={{ textDecoration: "none" }}>
+            <span
+              style={{
+                fontFamily: "'Furore', 'Exo 2', sans-serif",
+                fontSize: "28.732px",
+                fontWeight: 400,
+                letterSpacing: "0.06em",
+                color: "#f9f9f9",
+                textShadow: "0px 3.471px 28.58px #00eea3",
+                lineHeight: 1,
+                textTransform: "uppercase",
+                userSelect: "none",
+                display: "block",
+              }}
+            >
+              центр побед
+            </span>
+          </a>
 
           {/* Hamburger menu button */}
           <button
@@ -219,6 +232,51 @@ export function Navbar() {
           .cta-btn-desktop:hover::before {
             transform: translateX(100%);
           }
+          .services-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(111,230,193,0.3);
+            padding: 1px;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 20px rgba(111,230,193,0.1);
+            z-index: 100;
+          }
+          .services-dropdown-inner {
+            background: linear-gradient(180deg, rgba(0,35,22,0.98) 0%, rgba(0,20,12,0.99) 100%);
+            padding: 12px 0;
+            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          }
+          .services-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .dropdown-item {
+            display: block;
+            padding: 12px 24px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: rgba(200,245,228,0.7);
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s;
+            border-left: 2px solid transparent;
+            text-align: left;
+          }
+          .dropdown-item:hover {
+            color: #6FE6C1;
+            background: rgba(111,230,193,0.06);
+            border-left: 2px solid #6FE6C1;
+            padding-left: 28px;
+          }
         `}}></style>
 
         {/* Scan line */}
@@ -243,8 +301,8 @@ export function Navbar() {
           height: "100%",
         }}>
 
-          {/* Logo block */}
-          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          {/* Logo block Link */}
+          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "14px", color: "inherit" }}>
             {/* Company logo image */}
             <img
               src={imgLogo}
@@ -291,7 +349,7 @@ export function Navbar() {
                 оздоровительный центр
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Center separator lines */}
           <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "0", margin: "0 32px" }}>
@@ -304,11 +362,44 @@ export function Navbar() {
           <nav style={{ display: "flex", gap: "36px", alignItems: "center" }}>
             {[
               { label: "О центре", href: "#center" },
-              { label: "Услуги", href: "#directions" },
+              { label: "Услуги", href: "#directions", dropdown: true },
               { label: "Достижения", href: "#achievements" },
               { label: "Контакты", href: "#location" }
             ].map((item) => (
-              <a key={item.label} href={item.href} className="nav-link-desktop">{item.label}</a>
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.dropdown && setDropdownOpen(true)}
+                onMouseLeave={() => item.dropdown && setDropdownOpen(false)}
+              >
+                <a
+                  href={item.href}
+                  className="nav-link-desktop"
+                  style={{ display: "flex", alignItems: "center", gap: "6px" }}
+                >
+                  {item.label}
+                  {item.dropdown && (
+                    <svg
+                      width="8" height="6" viewBox="0 0 8 6" fill="none"
+                      style={{ transform: dropdownOpen ? "rotate(180deg)" : "none", transition: "transform 0.3s", opacity: 0.6 }}
+                    >
+                      <path d="M1 1.5L4 4.5L7 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </a>
+                
+                {item.dropdown && (
+                  <div className={`services-dropdown ${dropdownOpen ? "open" : ""}`}>
+                    <div className="services-dropdown-inner">
+                      {SERVICES.map((service) => (
+                        <a key={service.label} href={service.href} className="dropdown-item">
+                          {service.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
 
             {/* CTA Button — hex cut corners */}
@@ -360,29 +451,97 @@ export function Navbar() {
           {[
             { label: "Главная", href: "#hero" },
             { label: "О центре", href: "#center" },
-            { label: "Услуги", href: "#directions" },
+            { label: "Услуги", href: "#directions", isServices: true },
             { label: "Запись", href: "https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" },
             { label: "Контакты", href: "#location" }
           ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                fontFamily: "'Furore', 'Exo 2', sans-serif",
-                fontSize: "24px",
-                fontWeight: 400,
-                letterSpacing: "0.1em",
-                color: "white",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                background: "none",
-                display: "block",
-                textAlign: "center",
-              }}
-            >
-              {item.label}
-            </a>
+            <div key={item.label} style={{ width: "100%", textAlign: "center" }}>
+              {item.isServices ? (
+                <>
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    style={{
+                      fontFamily: "'Furore', 'Exo 2', sans-serif",
+                      fontSize: "24px",
+                      fontWeight: 400,
+                      letterSpacing: "0.1em",
+                      color: "white",
+                      textTransform: "uppercase",
+                      textDecoration: "none",
+                      background: "none",
+                      border: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "10px",
+                      width: "100%",
+                      padding: 0,
+                      cursor: "pointer",
+                    }}
+                  >
+                    {item.label}
+                    <svg
+                      width="12" height="8" viewBox="0 0 12 8" fill="none"
+                      style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "none", transition: "transform 0.3s", opacity: 0.7 }}
+                    >
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  
+                  {mobileServicesOpen && (
+                    <div style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      marginTop: "20px",
+                      marginBottom: "10px",
+                      background: "rgba(111,230,193,0.04)",
+                      padding: "16px 0",
+                      borderRadius: "8px",
+                    }}>
+                      {SERVICES.map((service) => (
+                        <a
+                          key={service.label}
+                          href={service.href}
+                          onClick={() => setMenuOpen(false)}
+                          style={{
+                            fontFamily: "'Exo 2', sans-serif",
+                            fontSize: "13px",
+                            fontWeight: 600,
+                            letterSpacing: "0.08em",
+                            color: "rgba(111,230,193,0.8)",
+                            textTransform: "uppercase",
+                            textDecoration: "none",
+                            display: "block",
+                          }}
+                        >
+                          {service.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <a
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    fontFamily: "'Furore', 'Exo 2', sans-serif",
+                    fontSize: "24px",
+                    fontWeight: 400,
+                    letterSpacing: "0.1em",
+                    color: "white",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    background: "none",
+                    display: "block",
+                    textAlign: "center",
+                  }}
+                >
+                  {item.label}
+                </a>
+              )}
+            </div>
           ))}
         </div>
       )}
