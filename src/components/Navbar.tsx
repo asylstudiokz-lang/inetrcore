@@ -445,14 +445,19 @@ export function Navbar() {
       {/* Mobile fullscreen menu overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
-          style={{ background: "rgba(0,20,13,0.98)" }}
+          className="fixed inset-0 z-40 flex flex-col items-center justify-start gap-10 md:hidden overflow-y-auto"
+          style={{ 
+            background: "rgba(0,20,13,0.98)",
+            paddingTop: "160px",
+            paddingBottom: "60px",
+            paddingLeft: "20px",
+            paddingRight: "20px"
+          }}
         >
           {[
             { label: "Главная", href: "/#hero" },
             { label: "О центре", href: "/#center" },
             { label: "Услуги", href: "/#directions", isServices: true },
-            { label: "Запись", href: "https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" },
             { label: "Контакты", href: "/#location" }
           ].map((item) => (
             <div key={item.label} style={{ width: "100%", textAlign: "center" }}>
@@ -489,35 +494,45 @@ export function Navbar() {
                   </button>
                   
                   {mobileServicesOpen && (
-                    <div style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "16px",
+                    <div className="mobile-services-dropdown-border" style={{
+                      width: "100%",
                       marginTop: "20px",
                       marginBottom: "10px",
-                      background: "rgba(111,230,193,0.04)",
-                      padding: "16px 0",
-                      borderRadius: "8px",
+                      background: "rgba(111,230,193,0.3)",
+                      padding: "1px",
+                      borderRadius: "12px",
+                      clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
                     }}>
-                      {SERVICES.map((service) => (
-                        <a
-                          key={service.label}
-                          href={service.href}
-                          onClick={() => setMenuOpen(false)}
-                          style={{
-                            fontFamily: "'Exo 2', sans-serif",
-                            fontSize: "13px",
-                            fontWeight: 600,
-                            letterSpacing: "0.08em",
-                            color: "rgba(111,230,193,0.8)",
-                            textTransform: "uppercase",
-                            textDecoration: "none",
-                            display: "block",
-                          }}
-                        >
-                          {service.label}
-                        </a>
-                      ))}
+                      <div style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "18px",
+                        background: "rgba(0,18,13,0.95)",
+                        padding: "20px 0",
+                        borderRadius: "12px",
+                        clipPath: "polygon(11.5px 0, 100% 0, 100% calc(100% - 11.5px), calc(100% - 11.5px) 100%, 0 100%, 0 11.5px)",
+                      }}>
+                        {SERVICES.map((service) => (
+                          <a
+                            key={service.label}
+                            href={service.href}
+                            onClick={() => setMenuOpen(false)}
+                            style={{
+                              fontFamily: "'Exo 2', sans-serif",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              letterSpacing: "0.08em",
+                              color: "rgba(111,230,193,0.85)",
+                              textTransform: "uppercase",
+                              textDecoration: "none",
+                              display: "block",
+                              padding: "4px 20px",
+                            }}
+                          >
+                            {service.label}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </>
@@ -543,6 +558,37 @@ export function Navbar() {
               )}
             </div>
           ))}
+
+          {/* Consultation Button Mobile */}
+          <div style={{ width: "100%", marginTop: "10px", padding: "0 10px" }}>
+            <a
+              href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+              onClick={() => setMenuOpen(false)}
+            >
+              <button
+                style={{
+                  width: "100%",
+                  fontFamily: "'Furore', 'Exo 2', sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  letterSpacing: "0.12em",
+                  color: "#001a10",
+                  textTransform: "uppercase",
+                  padding: "16px 20px",
+                  background: "linear-gradient(135deg, #6FE6C1 0%, #09B983 60%, #00a06e 100%)",
+                  border: "none",
+                  boxShadow: "0 0 20px rgba(0,238,163,0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
+                  clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
+                  cursor: "pointer",
+                }}
+              >
+                получить консультацию
+              </button>
+            </a>
+          </div>
         </div>
       )}
     </>
