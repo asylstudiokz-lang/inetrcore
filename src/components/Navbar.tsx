@@ -361,10 +361,10 @@ export function Navbar() {
           {/* Nav links + CTA */}
           <nav style={{ display: "flex", gap: "36px", alignItems: "center" }}>
             {[
-              { label: "О центре", href: "#center" },
-              { label: "Услуги", href: "#directions", dropdown: true },
-              { label: "Достижения", href: "#achievements" },
-              { label: "Контакты", href: "#location" }
+              { label: "О центре", href: "/#center" },
+              { label: "Услуги", href: "/#directions", dropdown: true },
+              { label: "Достижения", href: "/#achievements" },
+              { label: "Контакты", href: "/#location" }
             ].map((item) => (
               <div
                 key={item.label}
@@ -449,11 +449,11 @@ export function Navbar() {
           style={{ background: "rgba(0,20,13,0.98)" }}
         >
           {[
-            { label: "Главная", href: "#hero" },
-            { label: "О центре", href: "#center" },
-            { label: "Услуги", href: "#directions", isServices: true },
+            { label: "Главная", href: "/#hero" },
+            { label: "О центре", href: "/#center" },
+            { label: "Услуги", href: "/#directions", isServices: true },
             { label: "Запись", href: "https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" },
-            { label: "Контакты", href: "#location" }
+            { label: "Контакты", href: "/#location" }
           ].map((item) => (
             <div key={item.label} style={{ width: "100%", textAlign: "center" }}>
               {item.isServices ? (
