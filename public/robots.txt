@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://intercore-intech.kz/sitemap-index.xml
+Sitemap: https://intercore-intech.com/sitemap-index.xml
