@@ -313,6 +313,7 @@ export function LocationSection() {
                 }
                 label="email"
                 value={"info@begumed.kz"}
+                href="mailto:info@begumed.kz"
                 mobile
               />
             </div>
@@ -470,6 +471,7 @@ export function LocationSection() {
                   }
                   label="email"
                   value={"info@begumed.kz"}
+                  href="mailto:info@begumed.kz"
                 />
 
                 <div

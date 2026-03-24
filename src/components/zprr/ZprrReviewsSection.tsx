@@ -1,25 +1,87 @@
 import { Container } from "../ui/Container";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+
+import imgReview1 from "@/assets/reviews/review1.jpg?url";
+import imgReview2 from "@/assets/reviews/review2.jpg?url";
+import imgReview3 from "@/assets/reviews/review3.jpg?url";
+import imgReview4 from "@/assets/reviews/review4.jpg?url";
+import imgReview5 from "@/assets/reviews/review5.jpg?url";
+import imgReview6 from "@/assets/reviews/review6.jpg?url";
+import imgReview7 from "@/assets/reviews/review7.jpg?url";
+import imgReview8 from "@/assets/reviews/review8.jpg?url";
+import imgReview9 from "@/assets/reviews/review9.jpg?url";
+import imgReview10 from "@/assets/reviews/review10.jpg?url";
+import imgReview11 from "@/assets/reviews/review11.jpg?url";
+import imgReview12 from "@/assets/reviews/review12.jpg?url";
+import imgReview13 from "@/assets/reviews/review13.jpg?url";
+import imgReview14 from "@/assets/reviews/review14.jpg?url";
+import imgReview15 from "@/assets/reviews/review15.jpg?url";
+import imgReview16 from "@/assets/reviews/review16.jpg?url";
+import imgReview17 from "@/assets/reviews/review17.jpg?url";
+import imgReview18 from "@/assets/reviews/review18.jpg?url";
+import imgReview19 from "@/assets/reviews/review19.jpg?url";
+import imgReview20 from "@/assets/reviews/review20.jpg?url";
 
 // For cut corners
 const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 const ytVideos = [
-  { tag: "СЕНСОМОТОРНАЯ АЛАЛИЯ", videoId: "bTqVqk7FSmY" },
-  { tag: "КОСАЯ ТАРАННАЯ КОСТЬ", videoId: "bTqVqk7FSmY" },
-  { tag: "РЕЗУЛЬТАТ ПОСЛЕ 3-Х СЕАНСОВ", videoId: "bTqVqk7FSmY" },
-  { tag: "РЕЗУЛЬТАТЫ ПОДХОДА", videoId: "bTqVqk7FSmY" }
+  { tag: "СЕНСОМОТОРНАЯ АЛАЛИЯ", videoId: "7CPsbl0dpyY" },
+  { tag: "КОСАЯ ТАРАННАЯ КОСТЬ", videoId: "zoypRqF3L5o" },
+  { tag: "РЕЗУЛЬТАТ ПОСЛЕ 3-Х СЕАНСОВ", videoId: "NWDTdkcMRJA" },
+  { tag: "РЕЗУЛЬТАТЫ ПОДХОДА", videoId: "J0whIIoj928" }
 ];
 
-// Generate 15 placeholder cards for images
-const stories = Array.from({ length: 15 }, (_, i) => ({
-  id: i + 1,
-  imgSrc: "", // placeholder for future images
-}));
+// Actual story images and placeholders
+const stories = [
+  { id: 1, imgSrc: imgReview1 },
+  { id: 2, imgSrc: imgReview2 },
+  { id: 3, imgSrc: imgReview3 },
+  { id: 4, imgSrc: imgReview4 },
+  { id: 5, imgSrc: imgReview5 },
+  { id: 6, imgSrc: imgReview6 },
+  { id: 7, imgSrc: imgReview7 },
+  { id: 8, imgSrc: imgReview8 },
+  { id: 9, imgSrc: imgReview9 },
+  { id: 10, imgSrc: imgReview10 },
+  { id: 11, imgSrc: imgReview11 },
+  { id: 12, imgSrc: imgReview12 },
+  { id: 13, imgSrc: imgReview13 },
+  { id: 14, imgSrc: imgReview14 },
+  { id: 15, imgSrc: imgReview15 },
+  { id: 16, imgSrc: imgReview16 },
+  { id: 17, imgSrc: imgReview17 },
+  { id: 18, imgSrc: imgReview18 },
+  { id: 19, imgSrc: imgReview19 },
+  { id: 20, imgSrc: imgReview20 },
+];
 
 export function ZprrReviewsSection() {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (sliderRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+      setCanScrollLeft(scrollLeft > 5);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener('scroll', checkScroll, { passive: true });
+      window.addEventListener('resize', checkScroll);
+      return () => {
+        slider.removeEventListener('scroll', checkScroll);
+        window.removeEventListener('resize', checkScroll);
+      };
+    }
+  }, []);
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -171,18 +233,48 @@ export function ZprrReviewsSection() {
             </h3>
           </div>
           <div className="hidden md:flex gap-4">
-            <button
-               onClick={scrollLeft}
-               className="site-btn"
-               style={{ width: "48px", height: "48px", clipPath: CLIP(10), border: "none", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(111,230,193,0.15)", color: "#6FE6C1", cursor: "pointer", outline: "1px solid rgba(111,230,193,0.3)" }}
-            >
+                <button
+                  onClick={scrollLeft}
+                  className="site-btn"
+                  style={{ 
+                    width: "48px", 
+                    height: "48px", 
+                    clipPath: CLIP(10), 
+                    border: "none", 
+                    display: "flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    background: "rgba(111,230,193,0.15)", 
+                    color: "#6FE6C1", 
+                    cursor: canScrollLeft ? "pointer" : "default", 
+                    outline: "1px solid rgba(111,230,193,0.3)",
+                    opacity: canScrollLeft ? 1 : 0.3,
+                    transition: "all 0.3s ease",
+                    pointerEvents: canScrollLeft ? "auto" : "none"
+                  }}
+                >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-            <button
-               onClick={scrollRight}
-               className="site-btn"
-               style={{ width: "48px", height: "48px", clipPath: CLIP(10), border: "none", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(111,230,193,0.15)", color: "#6FE6C1", cursor: "pointer", outline: "1px solid rgba(111,230,193,0.3)" }}
-            >
+                <button
+                  onClick={scrollRight}
+                  className="site-btn"
+                  style={{ 
+                    width: "48px", 
+                    height: "48px", 
+                    clipPath: CLIP(10), 
+                    border: "none", 
+                    display: "flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    background: "rgba(111,230,193,0.15)", 
+                    color: "#6FE6C1", 
+                    cursor: canScrollRight ? "pointer" : "default", 
+                    outline: "1px solid rgba(111,230,193,0.3)",
+                    opacity: canScrollRight ? 1 : 0.3,
+                    transition: "all 0.3s ease",
+                    pointerEvents: canScrollRight ? "auto" : "none"
+                  }}
+                >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
           </div>
@@ -251,7 +343,12 @@ export function ZprrReviewsSection() {
             <button
                onClick={scrollLeft}
                className="site-btn relative flex items-center justify-center transition-all duration-300 active:scale-90"
-               style={{ width: "64px", height: "38px", border: "none", background: "none", cursor: "pointer", padding: 0 }}
+               style={{ 
+                 width: "64px", height: "38px", border: "none", background: "none", 
+                 cursor: canScrollLeft ? "pointer" : "default", padding: 0,
+                 opacity: canScrollLeft ? 1 : 0.3,
+                 pointerEvents: canScrollLeft ? "auto" : "none"
+               }}
             >
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 64 38" preserveAspectRatio="none">
                 <path 
@@ -272,7 +369,12 @@ export function ZprrReviewsSection() {
             <button
                onClick={scrollRight}
                className="site-btn relative flex items-center justify-center transition-all duration-300 active:scale-90"
-               style={{ width: "64px", height: "38px", border: "none", background: "none", cursor: "pointer", padding: 0 }}
+               style={{ 
+                 width: "64px", height: "38px", border: "none", background: "none", 
+                 cursor: canScrollRight ? "pointer" : "default", padding: 0,
+                 opacity: canScrollRight ? 1 : 0.3,
+                 pointerEvents: canScrollRight ? "auto" : "none"
+               }}
             >
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 64 38" preserveAspectRatio="none">
                 <path 
@@ -326,7 +428,7 @@ export function ZprrReviewsSection() {
              </a>
 
              {/* Youtube Tech Button */}
-             <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="custom-btn group relative w-full md:w-1/2" 
+             <a href="https://www.youtube.com/@centr_pobed_kz" target="_blank" rel="noopener noreferrer" className="custom-btn group relative w-full md:w-1/2" 
                 style={{ clipPath: CLIP(24), padding: "1.5px", textDecoration: "none", display: "inline-block", background: "linear-gradient(135deg, rgba(111,230,193,0.6) 0%, rgba(111,230,193,0.1) 100%)", boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}>
                <div style={{ clipPath: CLIP(23), background: "linear-gradient(135deg, rgba(0,52,34,0.9) 0%, rgba(0,18,12,0.95) 100%)", padding: "clamp(16px, 4vw, 24px) clamp(20px, 5vw, 32px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
                  <div className="flex items-center gap-4 md:gap-5">

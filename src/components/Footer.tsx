@@ -248,10 +248,10 @@ export function Footer() {
 
             {/* Legal links */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
-              <LegalLink href="#" mobile>
+              <LegalLink href="/privacy-policy" mobile>
                 Политика конфиденциальности<br />и обработки персональных данных
               </LegalLink>
-              <LegalLink href="#" mobile>
+              <LegalLink href="/public-offer" mobile>
                 Публичная оферта
               </LegalLink>
             </div>
@@ -382,10 +382,10 @@ export function Footer() {
 
             {/* Legal links */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-              <LegalLink href="#">
+              <LegalLink href="/privacy-policy">
                 Политика конфиденциальности и обработки персональных данных
               </LegalLink>
-              <LegalLink href="#">Публичная оферта</LegalLink>
+              <LegalLink href="/public-offer">Публичная оферта</LegalLink>
             </div>
 
             {/* Wide divider */}

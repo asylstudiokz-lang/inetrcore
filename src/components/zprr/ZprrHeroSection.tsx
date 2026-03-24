@@ -305,8 +305,8 @@ export function ZprrHeroSection() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/bTqVqk7FSmY"
-                title="ЛЕКЦИЯ | ПРИЧИНЫ РАЗВИТИЯ ЗРР ЗПРР РАС СЕНСОМОТРНАЯ АЛАЛИЯ СДВГ и др"
+                src="https://www.youtube.com/embed/K7HDqvZI0YQ"
+                title="View From A Blue Moon - Official Trailer (4K Ultra HD) - John Florence"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

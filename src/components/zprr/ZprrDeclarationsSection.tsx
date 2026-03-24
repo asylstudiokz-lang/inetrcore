@@ -1,21 +1,31 @@
 import { useState } from "react";
 import { Container } from "../ui/Container";
 
+import imgCert1 from "@/assets/certificates/1.jpg?url";
+import imgCert2 from "@/assets/certificates/2.jpg?url";
+import imgCert3 from "@/assets/certificates/3.jpg?url";
+import imgCert4 from "@/assets/certificates/4.jpg?url";
+import imgCert5 from "@/assets/certificates/5.jpg?url";
+
 const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 const slides = [
-  { num: "01", label: "Декларация о соответствии ЕАС", sub: "№ РОСС RU.ЖЖФО.1.Н00034 · до 11.10.2026" },
-  { num: "02", label: "Сертификат соответствия ЕАС", sub: "№ РОСС RU.ЖЖФО.1.Н00035 · до 11.10.2026" },
-  { num: "03", label: "Декларация Евразийского союза", sub: "№ РОСС RU.ЖЖФО.1.Н00036 · до 11.10.2026" },
-  { num: "04", label: "Сертификат качества ЕАС", sub: "№ РОСС RU.ЖЖФО.1.Н00037 · до 11.10.2026" },
-  { num: "05", label: "Декларация безопасности", sub: "№ РОСС RU.ЖЖФО.1.Н00038 · до 11.10.2026" },
+  { num: "01", src: imgCert1, label: "Декларация о соответствии ЕАС", sub: "№ РОСС RU.ЖЖФО.1.Н00034 · до 11.10.2026" },
+  { num: "02", src: imgCert2, label: "Сертификат соответствия ЕАС", sub: "№ РОСС RU.ЖЖФО.1.Н00035 · до 11.10.2026" },
+  { num: "03", src: imgCert3, label: "Декларация Евразийского союза", sub: "№ РОСС RU.ЖЖФО.1.Н00036 · до 11.10.2026" },
+  { num: "04", src: imgCert4, label: "Сертификат качества ЕАС", sub: "№ РОСС RU.ЖЖФО.1.Н00037 · до 11.10.2026" },
+  { num: "05", src: imgCert5, label: "Декларация безопасности", sub: "№ РОСС RU.ЖЖФО.1.Н00038 · до 11.10.2026" },
 ];
+
 
 function CertSlider() {
   const [current, setCurrent] = useState(0);
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const prev = () => setCurrent((c) => Math.max(0, c - 1));
+  const next = () => setCurrent((c) => Math.min(slides.length - 1, c + 1));
+
+  const isFirst = current === 0;
+  const isLast = current === slides.length - 1;
   const slide = slides[current];
 
   return (
@@ -26,40 +36,53 @@ function CertSlider() {
           <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "100%", height: "100%", border: "1px solid rgba(111,230,193,0.06)", clipPath: CLIP(16), pointerEvents: "none", transform: "rotate(2deg)" }} />
           <div style={{ position: "absolute", inset: 0, background: "#6FE6C1", clipPath: CLIP(16), padding: "1.5px", filter: "drop-shadow(0 0 30px rgba(111,230,193,0.15)) drop-shadow(0 15px 45px rgba(0,0,0,0.6))", zIndex: 2 }}>
             <div style={{ background: "linear-gradient(160deg, #001c10 0%, #000b06 100%)", clipPath: CLIP(15), height: "100%", width: "100%", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px", boxSizing: "border-box" }}>
-              {/* Scanner Line */}
-              <div 
-                className="absolute left-0 w-full h-[1px] bg-[#6FE6C1]/30 shadow-[0_0_15px_rgba(111,230,193,0.5)] z-30" 
-                style={{ animation: "scan 4s linear infinite" }}
-              />
-              <style dangerouslySetInnerHTML={{ __html: `
-                @keyframes scan {
-                  0% { top: 0%; opacity: 0; }
-                  10% { opacity: 1; }
-                  90% { opacity: 1; }
-                  100% { top: 100%; opacity: 0; }
-                }
-              `}} />
-              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.04 }} viewBox="0 0 200 283" preserveAspectRatio="xMidYMid slice" fill="none">
-                {[40,80,120,160].map((x,i) => <line key={i} x1={x} y1="0" x2={x} y2="283" stroke="#6FE6C1" strokeWidth="0.8"/>)}
-                {[40,80,120,160,200,240,280].map((y,i) => <line key={i} x1="0" y1={y} x2="200" y2={y} stroke="#6FE6C1" strokeWidth="0.8"/>)}
-              </svg>
-              <div style={{ position: "absolute", bottom: "-10px", right: "12px", fontFamily: "'Furore', sans-serif", fontSize: "140px", lineHeight: 1, color: "transparent", WebkitTextStroke: "1px rgba(111,230,193,0.06)", userSelect: "none", pointerEvents: "none", letterSpacing: "-0.05em" }}>{slide.num}</div>
-              <svg width="72" height="72" viewBox="0 0 64 64" fill="none" style={{ marginBottom: "20px", flexShrink: 0 }}><circle cx="32" cy="32" r="30" stroke="#6FE6C1" strokeWidth="1.2" opacity="0.3"/><circle cx="32" cy="32" r="22" stroke="#6FE6C1" strokeWidth="0.7" opacity="0.15"/><circle cx="32" cy="32" r="6" fill="rgba(111,230,193,0.1)" stroke="#6FE6C1" strokeWidth="1"/><path d="M22 32l6 6 14-14" stroke="#D3FFF2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              <div style={{ textAlign: "center", position: "relative", zIndex: 1, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ height: "1px", width: "100%", background: "linear-gradient(90deg, transparent, rgba(111,230,193,0.5), transparent)", marginBottom: "12px" }} />
-                <p style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: "rgba(111,230,193,0.6)", letterSpacing: "0.25em", textTransform: "uppercase", margin: "0 0 8px 0" }}>DOCUMENT VERIFIED</p>
-                <div style={{ height: "48px", display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}><p style={{ fontFamily: "'Furore', sans-serif", fontSize: "14px", color: "#ffffff", letterSpacing: "0.08em", textTransform: "uppercase", margin: 0, lineHeight: 1.3 }}>{slide.label}</p></div>
-                <div style={{ height: "1px", width: "100%", background: "linear-gradient(90deg, transparent, rgba(111,230,193,0.5), transparent)", marginTop: "12px", marginBottom: "12px" }} />
-                <div style={{ height: "20px" }}><p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.4)", letterSpacing: "0.04em", margin: 0 }}>{slide.sub}</p></div>
-              </div>
+              <img src={slide.src} alt={slide.label} style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "1px", background: "#fff" }} />
             </div>
           </div>
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "20px", position: "relative", zIndex: 10 }}>
-        <button onClick={prev} style={{ background: "#6FE6C1", clipPath: CLIP(8), padding: "1px", border: "none", cursor: "pointer", filter: "drop-shadow(0 0 8px rgba(111,230,193,0.3))" }}><div style={{ background: "#001a0e", clipPath: CLIP(7), padding: "12px 20px" }}><svg width="18" height="8" viewBox="0 0 18 8" fill="none"><path d="M18 4H2M6 1L2 4L6 7" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div></button>
+        <button 
+          onClick={prev} 
+          style={{ 
+            background: "#6FE6C1", 
+            clipPath: CLIP(8), 
+            padding: "1px", 
+            border: "none", 
+            cursor: isFirst ? "default" : "pointer", 
+            filter: "drop-shadow(0 0 8px rgba(111,230,193,0.3))",
+            opacity: isFirst ? 0.3 : 1,
+            pointerEvents: isFirst ? "none" : "auto",
+            transition: "opacity 0.3s ease"
+          }}
+        >
+          <div style={{ background: "#001a0e", clipPath: CLIP(7), padding: "12px 20px" }}>
+            <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
+              <path d="M18 4H2M6 1L2 4L6 7" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </button>
         <div style={{ display: "flex", gap: "6px", width: "90px", justifyContent: "center" }}>{slides.map((_, i) => (<button key={i} onClick={() => setCurrent(i)} style={{ width: i === current ? "20px" : "6px", height: "6px", borderRadius: "3px", background: i === current ? "#6FE6C1" : "rgba(111,230,193,0.25)", border: "none", cursor: "pointer", padding: 0 }} />))}</div>
-        <button onClick={next} style={{ background: "#6FE6C1", clipPath: CLIP(8), padding: "1px", border: "none", cursor: "pointer", filter: "drop-shadow(0 0 8px rgba(111,230,193,0.3))" }}><div style={{ background: "#001a0e", clipPath: CLIP(7), padding: "12px 20px" }}><svg width="18" height="8" viewBox="0 0 18 8" fill="none"><path d="M0 4H16M12 1L16 4L12 7" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div></button>
+        <button 
+          onClick={next} 
+          style={{ 
+            background: "#6FE6C1", 
+            clipPath: CLIP(8), 
+            padding: "1px", 
+            border: "none", 
+            cursor: isLast ? "default" : "pointer", 
+            filter: "drop-shadow(0 0 8px rgba(111,230,193,0.3))",
+            opacity: isLast ? 0.3 : 1,
+            pointerEvents: isLast ? "none" : "auto",
+            transition: "opacity 0.3s ease"
+          }}
+        >
+          <div style={{ background: "#001a0e", clipPath: CLIP(7), padding: "12px 20px" }}>
+            <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
+              <path d="M0 4H16M12 1L16 4L12 7" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </button>
       </div>
     </div>
   );
@@ -121,9 +144,35 @@ export function ZprrDeclarationsSection() {
           </h2>
           <div style={{ background: "rgba(111,230,193,0.15)", clipPath: CLIP(20), padding: "1.5px", marginBottom: "40px" }}>
             <div style={{ background: "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)", clipPath: CLIP(19), padding: "28px 24px" }}>
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", margin: 0 }}>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", margin: "0 0 24px 0" }}>
                 Инновационная продукция витаминно-минеральных комплексов. Не имеет аналогов в мире — первая восстанавливающая продукция в <span style={{ color: "#6FE6C1" }}>хелатной водорастворимой форме.</span>
               </p>
+              <a 
+                href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", display: "inline-block" }}
+              >
+                <button 
+                  className="site-btn"
+                  style={{ 
+                    fontFamily: "'Furore', sans-serif", 
+                    fontSize: "12px", 
+                    color: "#000", 
+                    textTransform: "uppercase", 
+                    letterSpacing: "0.15em",
+                    padding: "16px 32px",
+                    background: "linear-gradient(135deg, #6FE6C1 0%, #059669 100%)",
+                    clipPath: CLIP(10),
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                    boxShadow: "0 0 20px rgba(111,230,193,0.3)"
+                  }}
+                >
+                  Получить консультацию
+                </button>
+              </a>
             </div>
           </div>
           <CertSlider />
@@ -150,9 +199,35 @@ export function ZprrDeclarationsSection() {
               </h2>
               <div style={{ background: "rgba(111,230,193,0.15)", clipPath: CLIP(20), padding: "1.5px", maxWidth: "560px" }}>
                 <div style={{ background: "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)", clipPath: CLIP(19), padding: "28px 32px" }}>
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, margin: 0 }}>
+                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, margin: "0 0 32px 0" }}>
                     Инновационная продукция витаминно-минеральных комплексов. Не имеет аналогов в мире — первая восстанавливающая продукция в <span style={{ color: "#6FE6C1", fontWeight: 500 }}>хелатной водорастворимой форме.</span>
                   </p>
+                  <a 
+                    href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none", display: "inline-block" }}
+                  >
+                    <button 
+                      className="site-btn"
+                      style={{ 
+                        fontFamily: "'Furore', sans-serif", 
+                        fontSize: "13px", 
+                        color: "#000", 
+                        textTransform: "uppercase", 
+                        letterSpacing: "0.18em",
+                        padding: "18px 40px",
+                        background: "linear-gradient(135deg, #6FE6C1 0%, #059669 100%)",
+                        clipPath: CLIP(12),
+                        border: "none",
+                        cursor: "pointer",
+                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                        boxShadow: "0 0 25px rgba(111,230,193,0.35)"
+                      }}
+                    >
+                      Получить консультацию
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
