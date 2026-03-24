@@ -52,11 +52,11 @@ export function ZprrMethodologySection() {
         </svg>
       </div>
       
-      <div className="relative pt-12 pb-16 md:pt-[100px] md:pb-[140px]">
+      <div className="relative py-[60px] md:py-[100px]">
         <Container style={{ position: "relative", zIndex: 1 }}>
           
           {/* ── HEADING ── */}
-          <div className="w-full flex flex-col items-center text-center mb-12 md:mb-[80px]">
+          <div className="w-full flex flex-col items-center text-center mb-8 md:mb-[60px]">
             <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
               <div style={{ width: "30px", height: "1px", background: "linear-gradient(90deg, transparent, #6FE6C1)" }} />
               <div style={{ width: "6px", height: "6px", background: "#6FE6C1", borderRadius: "50%", boxShadow: "0 0 10px #6FE6C1" }} />

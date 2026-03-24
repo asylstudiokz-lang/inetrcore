@@ -132,7 +132,7 @@ export function PedagogicalHeroSection() {
   const [hoveredLogo, setHoveredLogo] = useState(false);
 
   return (
-    <section className="relative overflow-hidden" style={{ paddingBottom: "50px" }}>
+    <section className="relative overflow-hidden pb-[50px] md:pb-0">
       {/* Decorative background glow */}
       <div
         style={{
@@ -190,9 +190,20 @@ export function PedagogicalHeroSection() {
       </Container>
 
       {/* ── DESKTOP HERO WRAPPER ── */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .pedagogical-hero-desktop-wrapper {
+          min-height: calc(100vh - 80px);
+        }
+        @media (min-width: 2050px) {
+          .pedagogical-hero-desktop-wrapper {
+             min-height: 1000px;
+             height: 1000px;
+             max-height: 1000px;
+          }
+        }
+      `}} />
       <div 
-        className="hidden md:flex flex-col items-center justify-center w-full relative mb-12 px-8" 
-        style={{ minHeight: "calc(100vh - 80px)", paddingBottom: "6vh" }}
+        className="hidden md:flex flex-col items-center justify-center w-full relative md:mb-0 px-8 pedagogical-hero-desktop-wrapper" 
       >
         {/* Фоновый радиальный свет */}
         <div
@@ -299,7 +310,7 @@ export function PedagogicalHeroSection() {
           </g>
         </svg>
 
-        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1200px] mx-auto relative z-10 flex-shrink-0 mt-4 lg:mt-6">
+        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1200px] mx-auto relative z-10 flex-shrink-0">
            {/* Desktop Text Block (Left) */}
            <div className="flex-1 flex flex-col items-start text-left z-10 w-full max-w-[660px] relative">
              <div style={{ position: "absolute", top: "-36px", left: "-16px", fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(60px, 8vw, 120px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>

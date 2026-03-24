@@ -93,7 +93,7 @@ export function BiteCorrectionHeroSection() {
               <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-4 text-[#6FE6C1]/30">
                  <div className="w-14 h-14 border border-[#6FE6C1]/20 rounded-full flex items-center justify-center animate-pulse">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21" />
                     </svg>
                  </div>
                  <span className="font-['Furore'] text-[8px] tracking-[0.2em] uppercase opacity-50">Фото [3:4]</span>
@@ -107,10 +107,21 @@ export function BiteCorrectionHeroSection() {
         </div>
       </Container>
 
-      {/* ── DESKTOP HERO WRAPPER (1:1 with ZPRR) ── */}
+      {/* ── DESKTOP HERO WRAPPER ── */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .bite-correction-hero-desktop-wrapper {
+          min-height: calc(100vh - 80px);
+        }
+        @media (min-width: 2050px) {
+          .bite-correction-hero-desktop-wrapper {
+             min-height: 1000px;
+             height: 1000px;
+             max-height: 1000px;
+          }
+        }
+      `}} />
       <div 
-        className="hidden md:flex flex-col items-center justify-center w-full relative px-8 overflow-hidden" 
-        style={{ height: "calc(100vh - 72px)", paddingBottom: "0" }}
+        className="hidden md:flex flex-col items-center justify-center w-full relative px-8 overflow-hidden bite-correction-hero-desktop-wrapper" 
       >
         {/* Background Radial Glow */}
         <div
@@ -189,7 +200,7 @@ export function BiteCorrectionHeroSection() {
           </g>
         </svg>
 
-        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1240px] mx-auto relative z-10 flex-shrink-0 -mt-20 lg:-mt-24">
+        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1240px] mx-auto relative z-10 flex-shrink-0">
             {/* Desktop Text Block (Left) */}
             <div className="flex-1 flex flex-col items-start text-left z-10 w-full max-w-[660px] relative">
               {/* Ghost watermark - desktop */}
@@ -290,7 +301,7 @@ export function BiteCorrectionHeroSection() {
         
         {/* Pulsing Scroll Arrow for Desktop Hero */}
         <div 
-          className="absolute bottom-16 lg:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
+          className="absolute bottom-12 lg:bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
           onClick={() => {
             const el = document.getElementById("methodology");
             if (el) {
@@ -307,7 +318,7 @@ export function BiteCorrectionHeroSection() {
             .arrow-bounce { animation: slideDown 2s ease-in-out infinite; }
           `}} />
           <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.2em", color: "#6FE6C1", textTransform: "uppercase" }}>
-            Подробнее
+            Узнать больше
           </span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="arrow-bounce">
             <path d="M5 9L12 16L19 9" stroke="#6FE6C1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

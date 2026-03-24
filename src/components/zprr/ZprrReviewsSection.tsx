@@ -36,8 +36,8 @@ export function ZprrReviewsSection() {
   };
 
   return (
-    <section id="reviews" className="relative overflow-hidden" 
-             style={{ backgroundColor: "#001d14", padding: "clamp(80px, 10vw, 100px) 0 clamp(100px, 15vw, 140px)" }}>
+    <section id="reviews" className="relative py-[60px] md:py-[100px] overflow-hidden" 
+             style={{ backgroundColor: "#001d14" }}>
       
       {/* ── HIGH-TECH AMBIGENT BACKGROUND ── */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 50% 10%, rgba(111,230,193,0.08) 0%, transparent 60%), radial-gradient(circle at 50% 90%, rgba(111,230,193,0.05) 0%, transparent 60%)", pointerEvents: "none" }} />

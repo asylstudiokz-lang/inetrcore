@@ -47,8 +47,8 @@ const uniquenessItems = [
 
 export function VitaminsUniquenessSection() {
   return (
-    <section id="vitamins-uniqueness" className="relative overflow-hidden" 
-             style={{ backgroundColor: BG_DARK, padding: "clamp(60px, 10vw, 120px) 0" }}>
+    <section id="vitamins-uniqueness" className="relative overflow-hidden py-[60px] md:py-[100px]" 
+             style={{ backgroundColor: BG_DARK }}>
       
       {/* ── GLOBAL SCHEMATIC BACKGROUND ── */}
       <div style={{ position: "absolute", inset: 0, opacity: 0.1, pointerEvents: "none" }}>
@@ -85,7 +85,7 @@ export function VitaminsUniquenessSection() {
       <Container className="relative z-10">
         
         {/* Заголовок секции */}
-        <div style={{ marginBottom: "60px", textAlign: "left" }}>
+        <div className="mb-8 md:mb-[60px]" style={{ textAlign: "left" }}>
             <h2 style={{ 
                 fontFamily: "'Furore', sans-serif", 
                 fontSize: "clamp(34px, 5.5vw, 68px)", 

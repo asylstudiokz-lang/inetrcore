@@ -54,7 +54,7 @@ const advantages = [
 
 export function VitaminsAdvantagesSection() {
   return (
-    <section id="vitamins-advantages" className="relative overflow-hidden" style={{ backgroundColor: "#001d14", padding: "20px 0 120px 0" }}>
+    <section id="vitamins-advantages" className="relative overflow-hidden py-[60px] md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
       
       {/* ── ГЕКСАГОНАЛЬНАЯ СЕТКА (HEX GRID) ── */}
       <div style={{ position: "absolute", inset: 0, opacity: 0.08, pointerEvents: "none" }}>
@@ -86,7 +86,7 @@ export function VitaminsAdvantagesSection() {
 
       <Container className="relative z-10">
         {/* Заголовок секции */}
-        <div id="advantages-header-container" style={{ marginBottom: "60px", display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div id="advantages-header-container" className="mb-8 md:mb-[60px]" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <div 
                     style={{ 
@@ -197,10 +197,6 @@ export function VitaminsAdvantagesSection() {
           animation: tech-blink 2s ease-in-out infinite;
         }
         @media (max-width: 768px) {
-          #vitamins-advantages {
-            padding-top: 5px !important;
-            padding-bottom: 40px !important;
-          }
           #v-advantages-cta {
             margin-top: 24px !important;
           }

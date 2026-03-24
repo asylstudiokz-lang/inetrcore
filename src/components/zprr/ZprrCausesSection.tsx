@@ -83,7 +83,7 @@ export function ZprrCausesSection() {
         </svg>
       </div>
       
-      <div className="relative pt-8 pb-10 md:pt-[100px] md:pb-[140px]">
+      <div className="relative py-[60px] md:py-[100px]">
         <Container style={{ position: "relative", zIndex: 1 }}>
           
           <div className="flex flex-col lg:flex-row items-stretch w-full justify-start">

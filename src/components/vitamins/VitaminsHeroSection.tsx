@@ -13,7 +13,7 @@ export function VitaminsHeroSection() {
   const [logoHovered, setLogoHovered] = useState(false);
 
   return (
-    <section id="vitamins-hero" className="relative overflow-hidden" style={{ paddingTop: "60px", paddingBottom: "100px" }}>
+    <section id="vitamins-hero" className="relative overflow-hidden pt-[60px] pb-[100px] md:py-0">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes flowDown {
           0% { transform: translateY(0); }
@@ -95,11 +95,22 @@ export function VitaminsHeroSection() {
       </Container>
 
       {/* ── DESKTOP HERO WRAPPER ── */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .vitamins-hero-desktop-wrapper {
+          min-height: calc(100vh - 80px);
+        }
+        @media (min-width: 2050px) {
+          .vitamins-hero-desktop-wrapper {
+             min-height: 1000px;
+             height: 1000px;
+             max-height: 1000px;
+          }
+        }
+      `}} />
       <div 
-        className="hidden md:flex flex-col items-center justify-center w-full relative mb-16 px-8" 
-        style={{ minHeight: "calc(100vh - 180px)", paddingBottom: "5vh" }}
+        className="hidden md:flex flex-col items-center justify-center w-full relative md:mb-0 px-8 vitamins-hero-desktop-wrapper" 
+        style={{ position: "relative" }}
       >
-        {/* Background Blueprint Grid */}
         <div style={{ position: "absolute", inset: 0, opacity: 0.08, pointerEvents: "none", zIndex: 0 }}>
           <svg width="100%" height="100%">
             <defs>
@@ -246,7 +257,7 @@ export function VitaminsHeroSection() {
 
         {/* Pulsing Scroll Arrow for Desktop Hero */}
         <div 
-          className="absolute bottom-16 lg:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
+          className="absolute bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
           onClick={() => {
             const el = document.getElementById("vitamins-advantages");
             if (el) {

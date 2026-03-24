@@ -52,8 +52,8 @@ export function SpecialistProfileSection() {
   const [hoveredPhoto, setHoveredPhoto] = useState(false);
 
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
-      {/* ... (background elements remain same) ... */}
+    <section className="relative overflow-hidden py-10 md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
+      {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: `radial-gradient(circle, ${CYAN} 1px, transparent 1px)`, backgroundSize: "40px 40px" }} />
         <div className="absolute right-[5%] top-[10%] w-[25%] h-[35%] opacity-[0.03] hidden lg:block" style={{ background: CYAN, clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)", filter: "blur(40px)" }} />
@@ -63,11 +63,11 @@ export function SpecialistProfileSection() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-radial-gradient from-[#09B98305] to-transparent blur-[100px]" />
       </div>
 
-      <Container className="relative z-10 py-16 lg:py-24">
+      <Container className="relative z-10">
         {/* ── MOBILE HEADER ── */}
-        <div className="lg:hidden mb-12 text-center flex flex-col items-center">
+        <div className="lg:hidden mb-8 text-center flex flex-col items-center">
             <p style={{ fontFamily: "'Furore', sans-serif", fontSize: "12px", color: CYAN, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "16px", opacity: 0.8 }}>Ваш специалист</p>
-            <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8vw, 40px)", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1, marginBottom: "24px" }}>Профессиональная помощь<br/>в развитии ребенка</h3>
+            <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8vw, 40px)", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1, marginBottom: "24px" }}>Помощь в развитии</h3>
             <div style={{ width: "80px", height: "4px", background: CYAN }} />
         </div>
 
@@ -131,7 +131,7 @@ export function SpecialistProfileSection() {
           {/* ── CONTENT COLUMN ── */}
           <div className="w-full lg:w-[55%] flex flex-col">
              {/* Desktop Header */}
-             <div className="hidden lg:block mb-12 text-left">
+             <div className="hidden lg:block mb-[60px] text-left">
                 <p style={{ fontFamily: "'Furore', sans-serif", fontSize: "12px", color: CYAN, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "16px", opacity: 0.8 }}>Ваш специалист</p>
                 <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(32px, 4vw, 48px)", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1, marginBottom: "24px" }}>Профессиональная помощь<br/>в развитии ребенка</h3>
                 <div style={{ width: "80px", height: "4px", background: CYAN }} />

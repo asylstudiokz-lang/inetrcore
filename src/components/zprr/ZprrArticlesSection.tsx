@@ -162,7 +162,7 @@ export function ZprrArticlesSection() {
 
   return (
     <>
-      <section id="articles" className="relative overflow-hidden" style={{ backgroundColor: "#001d14", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <section id="articles" className="relative py-[60px] md:py-[100px] overflow-hidden" style={{ backgroundColor: "#001d14" }}>
         
         {/* ── BACKGROUND BLUEPRINT ANIMATIONS ── */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -214,7 +214,7 @@ export function ZprrArticlesSection() {
         <Container className="relative z-10">
           
           {/* ── HEADER ── */}
-          <div className="flex flex-col items-start text-left mb-16 md:mb-24 max-w-[1240px] mx-auto">
+          <div className="flex flex-col items-start text-left mb-8 md:mb-[60px] max-w-[1240px] mx-auto">
             <div className="flex items-center gap-5 md:gap-8">
               {/* VERTICAL ACCENT */}
               <div className="w-[3px] md:w-[6px] h-[70px] md:h-[110px] bg-gradient-to-b from-[#6FE6C1] to-[#059669] shadow-[0_0_30px_rgba(111,230,193,0.4)]" />

@@ -38,7 +38,10 @@ export function ComplexLessonsSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14", padding: 0 }}>
+    <section 
+      className="relative overflow-hidden py-10 md:py-[100px]" 
+      style={{ backgroundColor: "#001d14" }}
+    >
       
       {/* ── AMBIENT DECORATION ── */}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
@@ -55,7 +58,7 @@ export function ComplexLessonsSection() {
         }}>ОЗДОРОВЛЕНИЕ</div>
       </div>
 
-      <Container className="relative z-10 pb-12 pt-2 lg:pb-20 lg:pt-4">
+      <Container className="relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           

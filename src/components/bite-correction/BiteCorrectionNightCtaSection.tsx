@@ -9,12 +9,22 @@ export function BiteCorrectionNightCtaSection() {
   const [hoveredPhoto, setHoveredPhoto] = useState(false);
   return (
     <section
+      className="bite-correction-night-cta-section"
       style={{
         position: "relative",
-        padding: "0 0 72px",
         overflow: "hidden",
       }}
     >
+      <style dangerouslySetInnerHTML={{ __html: `
+        .bite-correction-night-cta-section {
+          padding: 60px 0 !important;
+        }
+        @media (min-width: 768px) {
+          .bite-correction-night-cta-section {
+            padding: 100px 0 !important;
+          }
+        }
+      `}} />
       {/* Subtle horizontal divider glow line */}
       <div
         style={{
@@ -43,7 +53,7 @@ export function BiteCorrectionNightCtaSection() {
 
       {/* ─── MOBILE ─── */}
       <div className="md:hidden">
-        <Container style={{ paddingTop: "48px" }}>
+        <Container>
           {/* Text */}
           <div style={{ marginBottom: "28px" }}>
             <p
@@ -190,7 +200,7 @@ export function BiteCorrectionNightCtaSection() {
 
       {/* ─── DESKTOP ─── */}
       <div className="hidden md:block">
-        <Container style={{ paddingTop: "72px" }}>
+        <Container>
           <div
             style={{
               display: "grid",

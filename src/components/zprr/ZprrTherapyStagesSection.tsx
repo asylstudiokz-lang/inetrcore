@@ -182,7 +182,7 @@ export function ZprrTherapyStagesSection() {
       </svg>
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden" style={{ position: "relative", padding: "48px 0 52px" }}>
+      <div className="md:hidden py-[60px]" style={{ position: "relative" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
           <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "38px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.95, margin: "0 0 32px 0" }}>
             Этапы <span style={{ color: "transparent", WebkitTextStroke: "1.5px #6FE6C1" }}>Терапии</span>
@@ -201,11 +201,11 @@ export function ZprrTherapyStagesSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block" style={{ position: "relative", padding: "90px 0 100px" }}>
+      <div className="hidden md:block relative" style={{ padding: "100px 0" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
 
           {/* Heading row */}
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "40px" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "60px" }}>
             <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(52px, 5.5vw, 80px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.92, margin: 0 }}>
               Этапы <span style={{ color: "transparent", WebkitTextStroke: "1.5px #6FE6C1" }}>Терапии</span>
             </h2>

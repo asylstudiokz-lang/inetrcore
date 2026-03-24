@@ -51,7 +51,7 @@ export function ZprrFaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden" style={{ backgroundColor: "#001d14", padding: "clamp(64px, 10vw, 120px) 0" }}>
+    <section id="faq" className="relative py-[60px] md:py-[100px] overflow-hidden" style={{ backgroundColor: "#001d14" }}>
       
       {/* ── BACKGROUND DECORATIONS ── */}
       <div className="hidden md:block absolute inset-0 pointer-events-none">
@@ -92,7 +92,7 @@ export function ZprrFaqSection() {
       <Container className="relative z-10">
         
         {/* ── HEADER ── */}
-        <div className="flex flex-col items-center text-center mb-12 md:mb-24">
+        <div className="flex flex-col items-center text-center mb-8 md:mb-[60px]">
           <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8vw, 72px)", color: "#fff", textTransform: "uppercase", lineHeight: 1, margin: 0 }}>
              Часто задаваемые<br />
              <span style={{ color: "#00cf8f", textShadow: "0 0 28px rgba(0,207,143,0.4)" }}>Вопросы</span>

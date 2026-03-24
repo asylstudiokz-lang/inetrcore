@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container } from "../ui/Container";
+import { useIsMobile } from "../ui/use-mobile";
 
 const CYAN = "#6FE6C1";
 const CLIP = (size: number) =>
@@ -8,10 +9,10 @@ const CLIP = (size: number) =>
 export function VitaminsVideoSection() {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
+  const isMobile = useIsMobile();
 
   return (
-    <section id="vitamins-videos" className="relative overflow-hidden" 
-             style={{ padding: "clamp(60px, 12vw, 150px) 0 clamp(40px, 8vw, 60px)" }}>
+    <section id="vitamins-videos" className="relative overflow-hidden py-[60px] md:py-[100px]">
       
       {/* ── BACKGROUND ORNAMENTS ── */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 30%, rgba(111,230,193,0.1) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(111,230,193,0.05) 0%, transparent 50%)", pointerEvents: "none" }} />
@@ -57,7 +58,7 @@ export function VitaminsVideoSection() {
             onMouseEnter={() => setHover1(true)}
             onMouseLeave={() => setHover1(false)}
             style={{ 
-              transform: `translateY(${hover1 ? "-56px" : "-48px"})`, // Base -48px (-12rem * 4 in units, wait -12 is tailwind?)
+              transform: isMobile ? "none" : `translateY(${hover1 ? "-56px" : "-48px"})`, // Base -48px
               // Actually md:-translate-y-12 is -48px. 
               // Let's use string template for the transform if it's dynamic.
               transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease"
@@ -112,7 +113,7 @@ export function VitaminsVideoSection() {
              onMouseEnter={() => setHover2(true)}
              onMouseLeave={() => setHover2(false)}
              style={{
-               transform: `translateY(${hover2 ? "56px" : "64px"})`, // Base translate-y-16 is 64px. Lift means -8px. So 56px.
+               transform: isMobile ? "none" : `translateY(${hover2 ? "56px" : "64px"})`, // Base 64px
                transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease"
              }}
           >

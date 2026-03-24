@@ -8,7 +8,7 @@ const CLIP = (size: number) =>
 
 export function ZprrHeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: "60px", paddingBottom: "100px" }}>
+    <section className="relative overflow-hidden pt-[60px] pb-0 md:py-0">
       {/* Decorative background glow */}
       <div
         style={{
@@ -73,9 +73,21 @@ export function ZprrHeroSection() {
       </Container>
 
       {/* ── DESKTOP HERO WRAPPER ── */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .zprr-hero-desktop-wrapper {
+          min-height: calc(100vh - 80px);
+        }
+        @media (min-width: 2050px) {
+          .zprr-hero-desktop-wrapper {
+             min-height: 1000px;
+             height: 1000px;
+             max-height: 1000px;
+          }
+        }
+      `}} />
       <div 
-        className="hidden md:flex flex-col items-center justify-center w-full relative mb-16 px-8" 
-        style={{ minHeight: "calc(100vh - 80px)", paddingBottom: "10vh" }}
+        className="hidden md:flex flex-col items-center justify-center w-full relative md:mb-0 px-8 zprr-hero-desktop-wrapper" 
+        style={{ position: "relative" }}
       >
         {/* Фоновый радиальный свет */}
         <div
@@ -227,7 +239,7 @@ export function ZprrHeroSection() {
         
         {/* Pulsing Scroll Arrow for Desktop Hero */}
         <div 
-          className="absolute bottom-16 lg:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
+          className="absolute bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
           onClick={() => {
             const el = document.getElementById("zprr-video");
             if (el) {
@@ -269,15 +281,6 @@ export function ZprrHeroSection() {
               <line x1="40" y1="80" x2="360" y2="220" opacity="0.3" />
               <line x1="40" y1="220" x2="360" y2="80" opacity="0.3" />
             </svg>
-          </div>
-
-          {/* Technical Labels */}
-          <div className="hidden lg:flex absolute -top-8 -left-4 items-center gap-3 opacity-30 pointer-events-none">
-             <span className="font-['Furore'] text-[10px] text-[#6FE6C1] tracking-[0.2em] uppercase">// diagnostic_stream: live</span>
-             <div className="w-2 h-2 rounded-full bg-[#6FE6C1] animate-pulse" />
-          </div>
-          <div className="hidden lg:block absolute -bottom-8 -right-4 font-['Montserrat'] text-[9px] text-[#6FE6C1]/40 tracking-[0.1em] uppercase pointer-events-none">
-             system_active: visual_analysis_module_01
           </div>
 
           {/* Decorative Corner Accents */}

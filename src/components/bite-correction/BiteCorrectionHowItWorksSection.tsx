@@ -96,7 +96,7 @@ export function BiteCorrectionHowItWorksSection() {
       style={{ backgroundColor: "#001d14" }}
     >
       {/* ────────────────────────────── MOBILE ─────────────────────────── */}
-      <div className="md:hidden" style={{ position: "relative", padding: "52px 0 60px", overflow: "hidden" }}>
+      <div className="md:hidden" style={{ position: "relative", padding: "60px 0", overflow: "hidden" }}>
 
         {/* Background glow */}
         <div style={{
@@ -129,7 +129,7 @@ export function BiteCorrectionHowItWorksSection() {
             fontFamily: "'Furore', sans-serif",
             fontSize: "clamp(24px, 8vw, 36px)", fontWeight: 400,
             color: "#fff", lineHeight: 1.1, textTransform: "uppercase",
-            letterSpacing: "0.04em", margin: "0 0 28px 0",
+            letterSpacing: "0.04em", margin: "0 0 32px 0",
           }}>
             Как работает<br />
             <span style={{ color: "transparent", WebkitTextStroke: `1px ${CYAN}` }}>корректор</span>{" "}
@@ -228,7 +228,7 @@ export function BiteCorrectionHowItWorksSection() {
       </div>
 
       {/* ─────────────────────────── DESKTOP ───────────────────────────── */}
-      <div className="hidden md:block" style={{ position: "relative", padding: "100px 0 110px" }}>
+      <div className="hidden md:block" style={{ position: "relative", padding: "100px 0" }}>
 
         {/* Background glow right */}
         <div style={{
@@ -271,7 +271,7 @@ export function BiteCorrectionHowItWorksSection() {
         <Container style={{ position: "relative", zIndex: 1 }}>
 
           {/* Section label */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "56px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "60px" }}>
             <span style={{
               fontFamily: "'Furore', sans-serif", fontSize: "11px",
               letterSpacing: "0.22em", color: CYAN, textTransform: "uppercase", flexShrink: 0,

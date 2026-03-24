@@ -11,12 +11,22 @@ export function BiteCorrectionVideoSection() {
 
   return (
     <section
+      className="bite-correction-video-section"
       style={{
         position: "relative",
-        padding: "72px 0 80px",
         overflow: "hidden",
       }}
     >
+      <style dangerouslySetInnerHTML={{ __html: `
+        .bite-correction-video-section {
+          padding: 60px 0 !important;
+        }
+        @media (min-width: 768px) {
+          .bite-correction-video-section {
+            padding: 100px 0 !important;
+          }
+        }
+      `}} />
       {/* Ambient background */}
       <div
         style={{
@@ -115,7 +125,7 @@ export function BiteCorrectionVideoSection() {
               lineHeight: 1.25,
               letterSpacing: "0.04em",
               textTransform: "uppercase",
-              margin: "0 0 24px 0",
+              margin: "0 0 32px 0",
             }}
           >
             Так что же такое{" "}
@@ -373,7 +383,7 @@ export function BiteCorrectionVideoSection() {
                   lineHeight: 1.25,
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
-                  margin: "0 0 20px 0",
+                  margin: "0 0 60px 0",
                   position: "relative",
                   zIndex: 1,
                 }}

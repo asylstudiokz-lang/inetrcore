@@ -43,7 +43,20 @@ export function BiteCorrectionResultsSection() {
   };
 
   return (
-    <section style={{ position: "relative", overflow: "hidden", padding: "96px 0 108px" }}>
+    <section 
+      className="bite-correction-results-section"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      <style dangerouslySetInnerHTML={{ __html: `
+        .bite-correction-results-section {
+          padding: 60px 0 !important;
+        }
+        @media (min-width: 768px) {
+          .bite-correction-results-section {
+            padding: 100px 0 !important;
+          }
+        }
+      `}} />
 
       {/* Ambient background glows */}
       <div style={{
@@ -87,7 +100,7 @@ export function BiteCorrectionResultsSection() {
 
           {/* Problems */}
           <Eyebrow label="// проблемы" />
-          <h2 style={mobileH2}>
+          <h2 style={{ ...mobileH2, marginBottom: "32px" }}>
             Какие проблемы{" "}
             <span style={{ color: CYAN, textShadow: "0 0 18px rgba(111,230,193,0.45)" }}>
               решает миката?
@@ -102,7 +115,7 @@ export function BiteCorrectionResultsSection() {
 
           {/* Results slider */}
           <Eyebrow label="// результаты" />
-          <h2 style={{ ...mobileH2, marginBottom: "26px" }}>
+          <h2 style={{ ...mobileH2, marginBottom: "32px" }}>
             Результаты{" "}
             <span style={{ color: CYAN, textShadow: "0 0 18px rgba(111,230,193,0.45)" }}>
               лечения
@@ -134,7 +147,7 @@ export function BiteCorrectionResultsSection() {
           {/* ── PROBLEMS BLOCK ── */}
           <Eyebrow label="// проблемы" />
 
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "48px", gap: "24px", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "60px", gap: "24px", flexWrap: "wrap" }}>
             <h2 style={desktopH2}>
               Какие проблемы{" "}
               <span style={{ color: CYAN, textShadow: "0 0 30px rgba(111,230,193,0.4)" }}>
@@ -158,7 +171,7 @@ export function BiteCorrectionResultsSection() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "64px", alignItems: "center" }}>
             {/* Left — title + description */}
             <div>
-              <h2 style={{ ...desktopH2, marginBottom: "24px" }}>
+              <h2 style={{ ...desktopH2, marginBottom: "60px" }}>
                 Результаты{" "}
                 <span style={{ color: CYAN, textShadow: "0 0 30px rgba(111,230,193,0.4)" }}>
                   лечения

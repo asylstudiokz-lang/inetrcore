@@ -113,7 +113,7 @@ export function ZprrDeclarationsSection() {
       </svg>
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden" style={{ position: "relative", padding: "48px 0 52px" }}>
+      <div className="md:hidden py-[60px]" style={{ position: "relative" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
           <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8.5vw, 42px)", fontWeight: 400, color: "#fff", lineHeight: 0.95, textTransform: "uppercase", letterSpacing: "0.01em", margin: "0 0 32px 0" }}>
             Декларации о<br />
@@ -131,9 +131,9 @@ export function ZprrDeclarationsSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block" style={{ position: "relative", padding: "100px 0 110px" }}>
+      <div className="hidden md:block relative" style={{ padding: "100px 0" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "48px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "60px" }}>
             <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", letterSpacing: "0.2em", color: "#6FE6C1", textTransform: "uppercase" }}>// декларации</span>
             <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 100%)" }} />
           </div>

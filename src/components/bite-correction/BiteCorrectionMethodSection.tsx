@@ -152,7 +152,7 @@ export function BiteCorrectionMethodSection() {
 
       <Container>
         {/* Section Heading */}
-        <div className="section-heading" style={{ marginBottom: "72px" }}>
+        <div className="section-heading" style={{ marginBottom: "60px" }}>
           <p style={{
             fontFamily: "'Furore', sans-serif",
             fontSize: "11px",
@@ -498,7 +498,7 @@ export function BiteCorrectionMethodSection() {
             padding: 100px 0 !important;
           }
           .section-heading {
-            margin-bottom: 72px !important;
+            margin-bottom: 60px !important;
           }
           .methodology-card-content {
             padding: 40px 34px;

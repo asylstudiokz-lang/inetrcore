@@ -145,8 +145,8 @@ export function AboutCompanySection() {
     );
 
     return (
-        <section id="about-company" className="relative overflow-hidden" 
-                 style={{ backgroundColor: BG_DARK, paddingTop: isMobile ? "60px" : "80px", paddingBottom: isMobile ? "80px" : "120px" }}>
+        <section id="about-company" className="relative overflow-hidden py-[60px] md:py-[100px]" 
+                 style={{ backgroundColor: BG_DARK }}>
             
             {/* ── BACKGROUND SCHEMATIC ── */}
             <div style={{ position: "absolute", inset: 0, opacity: 0.08, pointerEvents: "none" }}>
@@ -161,7 +161,7 @@ export function AboutCompanySection() {
 
             <Container className="relative z-10">
                 {/* ── HEADER ── */}
-                <div style={{ marginBottom: isMobile ? "40px" : "60px", borderBottom: `1px solid ${CYAN}15`, paddingBottom: isMobile ? "24px" : "32px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <div className="mb-8 md:mb-[60px]" style={{ borderBottom: `1px solid ${CYAN}15`, paddingBottom: isMobile ? "24px" : "32px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <div>
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
                              <div style={{ width: "32px", height: "1px", background: CYAN }} />

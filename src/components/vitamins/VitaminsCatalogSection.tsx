@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from '../ui/Container';
+import { useIsMobile } from '../ui/use-mobile';
 
 const CYAN = "#6FE6C1";
 const BG_DARK = "#001d14";
@@ -7,11 +8,12 @@ const CLIP = (s: number) => `polygon(0 0, calc(100% - ${s}px) 0, 100% ${s}px, 10
 
 export function VitaminsCatalogSection() {
     const [isHovered, setIsHovered] = useState(false);
+    const isMobile = useIsMobile();
     const catalogCover = "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/media__1774082213011.png";
 
     return (
-        <section id="catalog-section" className="relative overflow-hidden" 
-                 style={{ backgroundColor: BG_DARK, padding: "100px 0 60px 0" }}>
+        <section id="catalog-section" className="relative overflow-hidden py-[60px] md:py-[100px]" 
+                 style={{ backgroundColor: BG_DARK }}>
             
             {/* ── Background Watermark ── */}
             <div style={{
@@ -57,7 +59,7 @@ export function VitaminsCatalogSection() {
                         onMouseLeave={() => setIsHovered(false)}
                         style={{
                             position: "relative",
-                            width: "clamp(260px, 40vw, 500px)",
+                            width: isMobile ? "clamp(280px, 80vw, 420px)" : "clamp(260px, 40vw, 500px)",
                             aspectRatio: "1.5 / 1",
                             cursor: "pointer",
                             filter: isHovered ? `drop-shadow(0 0 40px ${CYAN}40)` : "none",

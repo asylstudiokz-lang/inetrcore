@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Container } from "../ui/Container";
+import { useIsMobile } from "../ui/use-mobile";
 
 const CYAN = "#6FE6C1";
 
@@ -190,7 +191,7 @@ export function VitaminsArticlesSection() {
 
   return (
     <>
-      <section id="articles" className="relative overflow-hidden" style={{ backgroundColor: "#001d14", paddingTop: "clamp(80px, 12vw, 140px)", paddingBottom: "clamp(40px, 6vw, 80px)" }}>
+      <section id="articles" className="relative overflow-hidden py-[60px] md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
         
         {/* ── BACKGROUND BLUEPRINT ANIMATIONS ── */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -215,7 +216,7 @@ export function VitaminsArticlesSection() {
 
         <Container className="relative z-10">
           {/* ── HEADER ── */}
-          <div className="flex flex-col items-start text-left mb-16 md:mb-24 max-w-[1240px] mx-auto">
+          <div className="flex flex-col items-start text-left mb-8 md:mb-[60px] max-w-[1240px] mx-auto">
             <div className="flex items-center gap-5 md:gap-8">
               <div className="w-[3px] md:w-[6px] h-[70px] md:h-[110px] bg-gradient-to-b from-[#6FE6C1] to-[#059669] shadow-[0_0_30px_rgba(111,230,193,0.4)]" />
               <div className="flex flex-col">
@@ -303,123 +304,76 @@ export function VitaminsArticlesSection() {
 
 function SocialBar() {
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
   const CYAN = "#6FE6C1";
 
   return (
     <div className="mt-10 md:mt-16 flex flex-col items-center w-full px-4 md:px-0">
         <div 
-          className="relative w-full max-w-[1240px] h-[250px] md:h-[150px] group transition-all duration-700"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          className="relative w-full max-w-[1240px] min-h-[260px] md:h-[150px] group transition-all duration-700"
+          onMouseEnter={() => !isMobile && setIsHovered(true)}
+          onMouseLeave={() => !isMobile && setIsHovered(false)}
+          style={{
+            background: isHovered ? CYAN : `${CYAN}30`,
+            clipPath: CLIP_ARTICLE(isMobile ? 22 : 30),
+            padding: "1.5px",
+            transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+            transform: isHovered ? "scale(1.025)" : "scale(1)",
+            boxShadow: isHovered ? `0 0 40px ${CYAN}25` : "none"
+          }}
         >
             {/* Main Body */}
             <div 
-              className="absolute inset-0 bg-[#00150f]/95 backdrop-blur-3xl flex flex-col md:flex-row items-center justify-center md:justify-between px-6 py-8 md:px-24 md:py-0 gap-6 md:gap-8 transition-all duration-700"
+              className="absolute inset-[1.5px] bg-[#00150f]/95 backdrop-blur-3xl flex flex-col md:flex-row items-center justify-center md:justify-between px-6 py-10 md:px-24 md:py-0 gap-8 md:gap-8 transition-all duration-700"
               style={{ 
-                clipPath: CLIP_ARTICLE(30),
-                transform: isHovered ? "scale(1.02)" : "scale(1)",
+                clipPath: CLIP_ARTICLE(isMobile ? 20.5 : 28.5),
                 boxShadow: "none"
               }}
             >
                 <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                  <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(18px, 2.2vw, 24px)", color: CYAN, letterSpacing: "0.4em", textShadow: `0 0 10px ${CYAN}30`, textTransform: "uppercase" }}>
+                  <span style={{ 
+                    fontFamily: "'Furore', sans-serif", 
+                    fontSize: isMobile ? "18px" : "clamp(18px, 2.2vw, 24px)", 
+                    color: CYAN, 
+                    letterSpacing: isMobile ? "0.15em" : "0.4em", 
+                    textShadow: `0 0 10px ${CYAN}30`, 
+                    textTransform: "uppercase" 
+                  }}>
                     ПРИСОЕДИНЯЙТЕСЬ К НАМ
                   </span>
-                  <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "clamp(15px, 1.8vw, 19px)", color: "rgba(255,255,255,0.6)", fontWeight: 500, marginTop: "8px" }}>
+                  <span style={{ 
+                    fontFamily: "'Raleway', sans-serif", 
+                    fontSize: isMobile ? "14px" : "clamp(15px, 1.8vw, 19px)", 
+                    color: "rgba(255,255,255,0.6)", 
+                    fontWeight: 500, 
+                    marginTop: isMobile ? "12px" : "8px" 
+                  }}>
                     Эксклюзивные экспертные статьи и новости
                   </span>
                 </div>
 
-                <div className="flex items-center gap-12 md:gap-20">
+                <div className="flex items-center gap-8 md:gap-20">
                   <SocialLink 
                     href="#" 
                     label="Instagram" 
-                    icon={<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>} 
+                    isMobile={isMobile}
+                    icon={<svg width={isMobile ? "40" : "34"} height={isMobile ? "40" : "34"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>} 
                   />
                   <SocialLink 
                     href="#" 
                     label="YouTube" 
-                    icon={<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.42 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.42-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>} 
+                    isMobile={isMobile}
+                    icon={<svg width={isMobile ? "40" : "34"} height={isMobile ? "40" : "34"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.42 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.42-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>} 
                   />
                   <SocialLink 
                     href="#" 
                     label="WhatsApp" 
-                    icon={<svg width="34" height="34" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.1 2.4-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 34.9 2.2 10.6-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>} 
+                    isMobile={isMobile}
+                    icon={<svg width={isMobile ? "40" : "34"} height={isMobile ? "40" : "34"} viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.1 2.4-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 34.9 2.2 10.6-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>} 
                   />
                 </div>
             </div>
 
-            {/* FULL CONTOUR SVG BORDER (BASE + CHASER) - DESKTOP */}
-            <svg 
-              className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700 hidden md:block" 
-              viewBox="0 0 1240 150" 
-              preserveAspectRatio="none"
-              style={{ transform: isHovered ? "scale(1.02)" : "scale(1)" }}
-            >
-              <defs>
-                <linearGradient id="trace-grad-v4" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="transparent" />
-                  <stop offset="50%" stopColor={CYAN} />
-                  <stop offset="100%" stopColor="transparent" />
-                </linearGradient>
-              </defs>
-              
-              <path 
-                d="M 30 0 L 1240 0 L 1240 120 L 1210 150 L 0 150 L 0 30 Z"
-                fill="none"
-                stroke={isHovered ? CYAN + "60" : CYAN + "20"}
-                strokeWidth="2"
-                className="transition-all duration-700"
-              />
-
-              <path 
-                d="M 30 0 L 1240 0 L 1240 120 L 1210 150 L 0 150 L 0 30 Z"
-                fill="none"
-                stroke="url(#trace-grad-v4)"
-                strokeWidth={isHovered ? "3.5" : "0"}
-                strokeDasharray="300 2500"
-                style={{ 
-                    animation: isHovered ? "border-chase-v4 3.5s linear infinite" : "none",
-                    opacity: isHovered ? 1 : 0
-                }}
-              />
-            </svg>
-
-            {/* FULL CONTOUR SVG BORDER (BASE + CHASER) - MOBILE */}
-            <svg 
-              className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700 block md:hidden" 
-              viewBox="0 0 375 250" 
-              preserveAspectRatio="none"
-              style={{ transform: isHovered ? "scale(1.02)" : "scale(1)" }}
-            >
-              <defs>
-                <linearGradient id="trace-grad-v4-mob" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="transparent" />
-                  <stop offset="50%" stopColor={CYAN} />
-                  <stop offset="100%" stopColor="transparent" />
-                </linearGradient>
-              </defs>
-              
-              <path 
-                d="M 30 0 L 375 0 L 375 220 L 345 250 L 0 250 L 0 30 Z"
-                fill="none"
-                stroke={isHovered ? CYAN + "60" : CYAN + "20"}
-                strokeWidth="2"
-                className="transition-all duration-700"
-              />
-
-              <path 
-                d="M 30 0 L 375 0 L 375 220 L 345 250 L 0 250 L 0 30 Z"
-                fill="none"
-                stroke="url(#trace-grad-v4-mob)"
-                strokeWidth={isHovered ? "3.5" : "0"}
-                strokeDasharray="150 1200"
-                style={{ 
-                    animation: isHovered ? "border-chase-v4-mob 3.5s linear infinite" : "none",
-                    opacity: isHovered ? 1 : 0
-                }}
-              />
-            </svg>
         </div>
 
         <style>{`
@@ -436,7 +390,7 @@ function SocialBar() {
   );
 }
 
-function SocialLink({ href, icon, label }: { href: string, icon: React.ReactNode, label: string }) {
+function SocialLink({ href, icon, label, isMobile }: { href: string, icon: React.ReactNode, label: string, isMobile?: boolean }) {
   return (
     <a href={href} className="group relative flex items-center justify-center transition-all duration-400">
       <div className="w-18 h-18 md:w-20 md:h-20 flex items-center justify-center rounded-sm bg-white/5 border border-white/10 group-hover:border-[#6FE6C1]/60 group-hover:bg-[#6FE6C1]/20 transition-all overflow-hidden">
