@@ -13,16 +13,28 @@ const CERTIFICATES = [
     "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_1_1774043468361.png",
 ];
 
-const PlatedCard = ({ children, className = "", style = {}, tag = "", isMobile = false }: any) => (
-    <div className={className} style={{
-        position: "relative",
-        background: `${CYAN}50`,
-        clipPath: CLIP(isMobile ? 18 : 22),
-        padding: "1.5px",
-        ...style
-    }}>
+const PlatedCard = ({ children, className = "", style = {}, tag = "", isMobile = false }: any) => {
+    const [hovered, setHovered] = useState(false);
+    return (
+    <div 
+        className={className} 
+        onMouseEnter={() => !isMobile && setHovered(true)}
+        onMouseLeave={() => !isMobile && setHovered(false)}
+        style={{
+            position: "relative",
+            background: hovered ? CYAN : `${CYAN}50`,
+            clipPath: CLIP(isMobile ? 18 : 22),
+            padding: "1.5px",
+            transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+            transform: hovered ? "translateY(-6px)" : "translateY(0)",
+            boxShadow: hovered ? `0 0 25px ${CYAN}30` : "none",
+            ...style
+        }}
+    >
         <div style={{
-            background: "linear-gradient(155deg, #002818 0%, #00110c 100%)",
+            background: hovered 
+                ? "linear-gradient(155deg, #003620 0%, #00150c 100%)" 
+                : "linear-gradient(155deg, #002818 0%, #00110c 100%)",
             clipPath: CLIP(isMobile ? 17 : 21),
             padding: isMobile ? "16px" : "24px",
             height: "100%",
@@ -50,7 +62,8 @@ const PlatedCard = ({ children, className = "", style = {}, tag = "", isMobile =
             <div style={{ position: "absolute", bottom: "12px", right: "12px", width: "8px", height: "8px", border: `1px solid ${CYAN}55`, transform: "rotate(45deg)" }} />
         </div>
     </div>
-);
+    );
+};
 
 export function AboutCompanySection() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -258,12 +271,16 @@ export function AboutCompanySection() {
                                             padding: isMobile ? "0" : "0 10px",
                                             boxSizing: "border-box"
                                         }}>
-                                            <div style={{ 
-                                                background: "rgba(111,230,193,0.03)", 
-                                                padding: "1px", 
-                                                clipPath: CLIP(12),
-                                                height: "100%"
-                                            }}>
+                                                <div style={{ 
+                                                    background: "rgba(111,230,193,0.03)", 
+                                                    padding: "1px", 
+                                                    clipPath: CLIP(12),
+                                                    height: "100%",
+                                                    transition: "all 0.4s ease",
+                                                    transform: "translateZ(0)"
+                                                }}
+                                                className="hover:shadow-[0_0_25px_rgba(111,230,193,0.3)] hover:-translate-y-2 transition-all duration-300"
+                                                >
                                                 <div style={{ background: "rgba(0,0,0,0.3)", padding: isMobile ? "12px" : "16px", clipPath: CLIP(11.5) }}>
                                                     <div style={{ 
                                                         width: "100%", 

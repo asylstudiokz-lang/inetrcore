@@ -1,3 +1,4 @@
+import { useState } from "react";
 import svgPaths from "@/imports/svg-zloupfkzmy";
 import { Container } from "./ui/Container";
 import dnkImage from "@/assets/58c92785e47e467e7c07a65b51844b0784258cc3.png?url";
@@ -243,25 +244,39 @@ const CLIP = `polygon(0 0, calc(100% - ${CUT}px) 0, 100% ${CUT}px, 100% 100%, ${
 function AchievementCardDesktop({
   title, description, index, large,
 }: Achievement & { index: number; large?: boolean }) {
+  const [hovered, setHovered] = useState(false);
   const num = String(index + 1).padStart(2, "0");
 
   return (
-    <div style={{ position: "relative", height: "100%" }}>
+    <div 
+      style={{ 
+        position: "relative", 
+        height: "100%",
+        transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        transform: hovered ? "translateY(-8px)" : "translateY(0)",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {/* Border layer */}
       <div style={{
         position: "absolute", inset: 0,
         clipPath: CLIP,
-        background: "rgba(111,230,193,0.3)",
+        background: hovered ? "#6FE6C1" : "rgba(111,230,193,0.3)",
+        filter: hovered ? "drop-shadow(0 0 20px rgba(111,230,193,0.5))" : "none",
+        transition: "all 0.4s ease",
         pointerEvents: "none",
       }} />
 
       {/* Content layer */}
       <div style={{
         position: "relative",
-        margin: "1px",
-        height: "calc(100% - 2px)",
+        margin: "1.5px",
+        height: "calc(100% - 3px)",
         clipPath: CLIP,
-        background: "linear-gradient(135deg, rgba(0,52,34,0.7) 0%, rgba(0,18,12,0.95) 60%)",
+        background: hovered 
+          ? "linear-gradient(135deg, rgba(0,70,45,0.9) 0%, rgba(0,25,16,0.98) 60%)"
+          : "linear-gradient(135deg, rgba(0,52,34,0.7) 0%, rgba(0,18,12,0.95) 60%)",
         overflow: "hidden",
         display: "flex",
         flexDirection: large ? "row" : "column",
@@ -270,6 +285,7 @@ function AchievementCardDesktop({
         padding: large ? "36px 40px" : "28px 28px",
         boxSizing: "border-box",
         minHeight: large ? "340px" : "180px",
+        transition: "background 0.4s ease",
       }}>
 
         {/* Left accent bar */}

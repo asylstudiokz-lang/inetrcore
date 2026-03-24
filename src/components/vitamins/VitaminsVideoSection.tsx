@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 
 const CYAN = "#6FE6C1";
@@ -5,6 +6,9 @@ const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 export function VitaminsVideoSection() {
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+
   return (
     <section id="vitamins-videos" className="relative overflow-hidden" 
              style={{ padding: "clamp(60px, 12vw, 150px) 0 clamp(40px, 8vw, 60px)" }}>
@@ -48,15 +52,28 @@ export function VitaminsVideoSection() {
         <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-12 md:gap-8 lg:gap-16 min-h-[400px]">
           
           {/* VIDEO 1: Large & Higher */}
-          <div className="relative w-full md:w-[56%] z-20 md:-translate-y-12">
+          <div 
+            className="relative w-full md:w-[56%] z-20 transition-all duration-500 ease-out"
+            onMouseEnter={() => setHover1(true)}
+            onMouseLeave={() => setHover1(false)}
+            style={{ 
+              transform: `translateY(${hover1 ? "-56px" : "-48px"})`, // Base -48px (-12rem * 4 in units, wait -12 is tailwind?)
+              // Actually md:-translate-y-12 is -48px. 
+              // Let's use string template for the transform if it's dynamic.
+              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease"
+            }}
+          >
             {/* SVG Frame Accent */}
-            <div style={{ position: "absolute", top: "-12px", left: "-12px", width: "40px", height: "40px", borderTop: "2px solid #6FE6C1", borderLeft: "2px solid #6FE6C1", opacity: 0.5, zIndex: 10 }} />
+            <div style={{ position: "absolute", top: "-12px", left: "-12px", width: "40px", height: "40px", borderTop: "2px solid #6FE6C1", borderLeft: "2px solid #6FE6C1", opacity: hover1 ? 0.8 : 0.5, zIndex: 10, transition: "opacity 0.4s" }} />
             
             <div style={{
-              background: "linear-gradient(135deg, rgba(111,230,193,0.3) 0%, rgba(0,0,0,0) 100%)",
+              background: hover1 ? "linear-gradient(135deg, rgba(111,230,193,0.5) 0%, rgba(0,0,0,0) 100%)" : "linear-gradient(135deg, rgba(111,230,193,0.3) 0%, rgba(0,0,0,0) 100%)",
               padding: "2px",
               clipPath: CLIP(24),
-              boxShadow: "0 20px 60px rgba(0,0,0,0.7)",
+              boxShadow: hover1 
+                ? `0 20px 60px rgba(0,0,0,0.8), 0 0 30px ${CYAN}30` 
+                : "0 20px 60px rgba(0,0,0,0.7)",
+              transition: "all 0.4s ease"
             }}>
               <div style={{
                 background: "#000a08",
@@ -90,15 +107,26 @@ export function VitaminsVideoSection() {
           </div>
 
           {/* VIDEO 2: Small & Lower */}
-          <div className="relative w-full md:w-[38%] z-10 md:translate-y-16 self-center md:self-auto">
+          <div 
+             className="relative w-full md:w-[38%] z-10 self-center md:self-auto transition-all duration-500 ease-out"
+             onMouseEnter={() => setHover2(true)}
+             onMouseLeave={() => setHover2(false)}
+             style={{
+               transform: `translateY(${hover2 ? "56px" : "64px"})`, // Base translate-y-16 is 64px. Lift means -8px. So 56px.
+               transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease"
+             }}
+          >
             {/* SVG Frame Accent */}
-            <div style={{ position: "absolute", bottom: "-12px", right: "-12px", width: "40px", height: "40px", borderBottom: "2px solid #6FE6C1", borderRight: "2px solid #6FE6C1", opacity: 0.4, zIndex: 10 }} />
+            <div style={{ position: "absolute", bottom: "-12px", right: "-12px", width: "40px", height: "40px", borderBottom: "2px solid #6FE6C1", borderRight: "2px solid #6FE6C1", opacity: hover2 ? 0.7 : 0.4, zIndex: 10, transition: "opacity 0.4s" }} />
 
             <div style={{
-              background: "linear-gradient(135deg, rgba(111,230,193,0.2) 0%, rgba(0,0,0,0) 100%)",
+              background: hover2 ? "linear-gradient(135deg, rgba(111,230,193,0.4) 0%, rgba(0,0,0,0) 100%)" : "linear-gradient(135deg, rgba(111,230,193,0.2) 0%, rgba(0,0,0,0) 100%)",
               padding: "1px",
               clipPath: CLIP(20),
-              boxShadow: "0 15px 40px rgba(0,0,0,0.6)",
+              boxShadow: hover2 
+                ? `0 15px 40px rgba(0,0,0,0.7), 0 0 25px ${CYAN}25` 
+                : "0 15px 40px rgba(0,0,0,0.6)",
+              transition: "all 0.4s ease"
             }}>
               <div style={{
                 background: "#000806",

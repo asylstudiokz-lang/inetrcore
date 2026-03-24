@@ -449,10 +449,35 @@ function SocialLink({ href, icon, label }: { href: string, icon: React.ReactNode
 
 function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" | "medium", index: number, onClick: () => void }) {
   const isLarge = size === "large";
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div onClick={onClick} className="group relative transition-all duration-500 ease-out cursor-pointer hover:-translate-y-2 h-full" style={{ background: "rgba(111,230,193,0.06)", clipPath: CLIP_ARTICLE(isLarge ? 28 : 22), padding: "1px" }}>
+    <div 
+      onClick={onClick} 
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="group relative transition-all duration-500 ease-out cursor-pointer h-full" 
+      style={{ 
+        background: hovered ? `${CYAN}40` : "rgba(111,230,193,0.06)", 
+        clipPath: CLIP_ARTICLE(isLarge ? 28 : 22), 
+        padding: "1px",
+        transform: hovered ? "translateY(-10px)" : "translateY(0)",
+        boxShadow: hovered ? `0 0 25px ${CYAN}25` : "none",
+        transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)"
+      }}
+    >
        <div className="absolute inset-0 bg-[#6FE6C1]/10 group-hover:bg-[#6FE6C1]/40 transition-all duration-500 opacity-60" style={{ clipPath: CLIP_ARTICLE(isLarge ? 28 : 22) }} />
-       <div className="relative h-full overflow-hidden flex flex-col justify-between" style={{ background: "linear-gradient(145deg, #00150f 0%, #000805 100%)", clipPath: CLIP_ARTICLE(isLarge ? 27.5 : 21.5), padding: isLarge ? "clamp(30px, 4vw, 50px)" : "clamp(24px, 3vw, 40px)", minHeight: isLarge ? "clamp(260px, 20vw, 320px)" : "clamp(220px, 15vw, 260px)" }}>
+       <div 
+         className="relative h-full overflow-hidden flex flex-col justify-between transition-colors duration-400" 
+         style={{ 
+           background: hovered 
+             ? "linear-gradient(145deg, #00221a 0%, #00100a 100%)" 
+             : "linear-gradient(145deg, #00150f 0%, #000805 100%)", 
+           clipPath: CLIP_ARTICLE(isLarge ? 27.5 : 21.5), 
+           padding: isLarge ? "clamp(30px, 4vw, 50px)" : "clamp(24px, 3vw, 40px)", 
+           minHeight: isLarge ? "clamp(260px, 20vw, 320px)" : "clamp(220px, 15vw, 260px)" 
+         }}
+       >
           <div className="flex items-start justify-between mb-8">
              <div className="flex flex-col gap-1">
                 <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "10px", fontWeight: 700, color: "#6FE6C1", letterSpacing: "0.15em", opacity: 0.9 }}>МАТЕРИАЛ №{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>

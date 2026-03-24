@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Container } from "./ui/Container";
 
 export function MissionSection() {
+  const [hovered, setHovered] = useState(false);
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
 
@@ -189,29 +191,44 @@ export function MissionSection() {
             </h2>
 
             {/* RIGHT: text in styled block */}
-            <div style={{
-              background: "#6FE6C1",
-              clipPath: "polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px)",
-              padding: "1.5px",
-              filter: "drop-shadow(0 0 40px rgba(111,230,193,0.7)) drop-shadow(0 20px 60px rgba(0,0,0,0.85)) drop-shadow(0 0 80px rgba(111,230,193,0.3))",
-            }}>
+            <div 
+              style={{
+                position: "relative",
+                transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transform: hovered ? "translateY(-10px)" : "translateY(0)",
+              }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
               <div style={{
-                background: "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)",
-                clipPath: "polygon(23px 0, 100% 0, 100% calc(100% - 23px), calc(100% - 23px) 100%, 0 100%, 0 23px)",
-                padding: "36px 32px",
-                filter: "drop-shadow(0 0 32px rgba(111,230,193,0.35)) drop-shadow(0 16px 48px rgba(0,0,0,0.7))",
+                background: hovered ? "#6FE6C1" : "rgba(111,230,193,0.7)",
+                clipPath: "polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px)",
+                padding: "1.5px",
+                filter: hovered 
+                  ? "drop-shadow(0 0 45px rgba(111,230,193,0.8)) drop-shadow(0 20px 60px rgba(0,0,0,0.85))"
+                  : "drop-shadow(0 0 40px rgba(111,230,193,0.7)) drop-shadow(0 20px 60px rgba(0,0,0,0.85)) drop-shadow(0 0 80px rgba(111,230,193,0.3))",
+                transition: "all 0.4s ease",
               }}>
-                <p style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "16px", fontWeight: 400,
-                  color: "rgba(255,255,255,0.8)",
-                  lineHeight: 1.75,
-                  margin: 0,
+                <div style={{
+                  background: hovered
+                    ? "linear-gradient(135deg, rgba(0,60,33,0.92) 0%, rgba(0,25,16,0.98) 100%)"
+                    : "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)",
+                  clipPath: "polygon(23px 0, 100% 0, 100% calc(100% - 23px), calc(100% - 23px) 100%, 0 100%, 0 23px)",
+                  padding: "36px 32px",
+                  transition: "background 0.4s ease",
                 }}>
-                  Создавать новые научные решения для медицины будущего, где лечение основано на{" "}
-                  <span style={{ color: "#6FE6C1" }}>глубоком понимании организма</span>{" "}
-                  и его самовосстанавливающем потенциале.
-                </p>
+                  <p style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: "16px", fontWeight: 400,
+                    color: "rgba(255,255,255,0.85)",
+                    lineHeight: 1.75,
+                    margin: 0,
+                  }}>
+                    Создавать новые научные решения для медицины будущего, где лечение основано на{" "}
+                    <span style={{ color: "#6FE6C1" }}>глубоком понимании организма</span>{" "}
+                    и его самовосстанавливающем потенциале.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ export function VitaminsCatalogSection() {
 
     return (
         <section id="catalog-section" className="relative overflow-hidden" 
-                 style={{ backgroundColor: BG_DARK, padding: "60px 0" }}>
+                 style={{ backgroundColor: BG_DARK, padding: "100px 0 60px 0" }}>
             
             {/* ── Background Watermark ── */}
             <div style={{
@@ -61,7 +61,8 @@ export function VitaminsCatalogSection() {
                             aspectRatio: "1.5 / 1",
                             cursor: "pointer",
                             filter: isHovered ? `drop-shadow(0 0 40px ${CYAN}40)` : "none",
-                            transition: "filter 0.5s ease"
+                            transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                            transform: isHovered ? "translateY(-10px) scale(1.02)" : "translateY(0) scale(1)"
                         }}
                     >
                         {/* Card 3 (Bottom) */}
@@ -146,7 +147,7 @@ export function VitaminsCatalogSection() {
                                 clipPath: CLIP(14),
                                 display: "flex", alignItems: "center", justifyContent: "center",
                                 gap: "14px", transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                                transform: isHovered ? "scale(1.02)" : "scale(1)"
+                                transform: isHovered ? "translateY(-1px)" : "translateY(0)"
                             }}>
                                 <span style={{
                                     fontFamily: "'Furore', sans-serif", fontSize: "14px", color: "#fff",

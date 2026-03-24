@@ -2,6 +2,7 @@ import imgLayer2112 from "@/assets/715843f66d27252ba7fde56ad138a1d24895b5be.png?
 import imgDesktop from "@/assets/d2d985305618bae330c5b0d7ee4148ffb2e2445e.png?url";
 import { imgLayer2111 } from "@/imports/svg-tl91i";
 import svgPaths from "@/imports/svg-5vmpngdvp6";
+import { useState } from "react";
 import { Container } from "./ui/Container";
 
 /* Card polygon clip shapes */
@@ -64,6 +65,7 @@ function CardBackgroundSVG() {
 }
 
 export function CenterSection() {
+  const [hovered, setHovered] = useState(false);
   return (
     <section
       id="center"
@@ -329,7 +331,11 @@ export function CenterSection() {
                 background: "#001d14",
                 clipPath: "polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px)",
                 overflow: "hidden",
+                transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transform: hovered ? "translateY(-10px)" : "translateY(0)",
               }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
             >
               {/* Photo — shifted down to create space below top border */}
               <img
@@ -344,6 +350,8 @@ export function CenterSection() {
                   objectFit: "cover",
                   objectPosition: "32% top",
                   display: "block",
+                  transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  transform: hovered ? "scale(1.05)" : "scale(1)",
                 }}
               />
 
@@ -373,12 +381,13 @@ export function CenterSection() {
                 position: "absolute",
                 bottom: "14px",
                 right: "16px",
-                background: "rgba(111,230,193,0.35)",
+                background: hovered ? "#6FE6C1" : "rgba(111,230,193,0.35)",
                 clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
                 padding: "1px",
+                transition: "background 0.4s ease",
               }}>
                 <div style={{
-                  background: "rgba(0,18,12,0.82)",
+                  background: hovered ? "#0e4a2e" : "rgba(0,18,12,0.82)",
                   clipPath: "polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px)",
                   padding: "6px 16px",
                 }}>
@@ -400,8 +409,11 @@ export function CenterSection() {
                   top: 0, left: 0,
                   width: "100%", height: "100%",
                   pointerEvents: "none",
-                  filter: "drop-shadow(0 0 6px rgba(111,230,193,0.7))",
+                  filter: hovered 
+                    ? "drop-shadow(0 0 15px rgba(111,230,193,0.9)) drop-shadow(0 0 30px rgba(111,230,193,0.4))"
+                    : "drop-shadow(0 0 6px rgba(111,230,193,0.7))",
                   overflow: "visible",
+                  transition: "filter 0.4s ease",
                 }}
                 viewBox="0 0 340 480"
                 preserveAspectRatio="none"

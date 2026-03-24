@@ -213,20 +213,37 @@ export function BookSection() {
           <div className="flex items-center justify-center gap-20">
 
             {/* ── Book card ── */}
-            <div className="flex-shrink-0" style={{ position: "relative" }}>
+            <div 
+              className="flex-shrink-0" 
+              style={{ 
+                position: "relative",
+                transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transform: hovered ? "translateY(-12px)" : "translateY(0)",
+              }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
               {/* Outer glow */}
-              <div style={{ filter: "drop-shadow(0 0 32px rgba(111,230,193,0.35)) drop-shadow(0 0 60px rgba(9,185,131,0.15))" }}>
+              <div style={{ 
+                filter: hovered 
+                  ? "drop-shadow(0 0 45px rgba(111,230,193,0.5)) drop-shadow(0 0 80px rgba(9,185,131,0.25))"
+                  : "drop-shadow(0 0 32px rgba(111,230,193,0.35)) drop-shadow(0 0 60px rgba(9,185,131,0.15))",
+                transition: "filter 0.4s ease"
+              }}>
                 {/* Border layer */}
                 <div style={{
                   position: "relative",
                   width: "300px",
-                  background: "#6FE6C1",
+                  background: hovered ? "#6FE6C1" : "rgba(111,230,193,0.7)",
                   clipPath: "polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px)",
                   padding: "2px",
+                  transition: "background 0.4s ease",
                 }}>
                   {/* Inner card */}
                   <div style={{
-                    background: "linear-gradient(160deg, #0a2e1e 0%, #061a10 100%)",
+                    background: hovered
+                      ? "linear-gradient(160deg, #0e422c 0%, #061a10 100%)"
+                      : "linear-gradient(160deg, #0a2e1e 0%, #061a10 100%)",
                     clipPath: "polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px)",
                     display: "flex",
                     alignItems: "center",
@@ -235,6 +252,7 @@ export function BookSection() {
                     overflow: "hidden",
                     position: "relative",
                     minHeight: "380px",
+                    transition: "background 0.4s ease",
                   }}>
                     {/* Subtle grid lines */}
                     <div style={{
@@ -247,8 +265,6 @@ export function BookSection() {
                     <img
                       alt="Книга: Биотрансформация"
                       src={img12}
-                      onMouseEnter={() => setHovered(true)}
-                      onMouseLeave={() => setHovered(false)}
                       style={{
                         transform: hovered
                           ? "rotate(-10deg) scale(1.10) translateY(-10px)"
@@ -259,7 +275,9 @@ export function BookSection() {
                         objectFit: "contain",
                         position: "relative",
                         zIndex: 1,
-                        filter: "drop-shadow(0 12px 32px rgba(0,0,0,0.7)) drop-shadow(0 0 16px rgba(111,230,193,0.15))",
+                        filter: hovered
+                          ? "drop-shadow(0 20px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 25px rgba(111,230,193,0.3))"
+                          : "drop-shadow(0 12px 32px rgba(0,0,0,0.7)) drop-shadow(0 0 16px rgba(111,230,193,0.15))",
                         cursor: "pointer",
                       }}
                     />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 
 const CYAN = "#6FE6C1";
@@ -160,22 +161,28 @@ export function VitaminsUniquenessSection() {
 
 function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
     const isLarge = item.isLarge && !mobile;
+    const [hovered, setHovered] = useState(false);
 
     return (
         <div 
           className="group relative h-full"
+          onMouseEnter={() => !mobile && setHovered(true)}
+          onMouseLeave={() => !mobile && setHovered(false)}
           style={{
-            background: `${CYAN}80`,
+            background: hovered ? `${CYAN}` : `${CYAN}80`,
             clipPath: CLIP(22),
             padding: "2px",
-            transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
             minHeight: isLarge ? "520px" : "250px",
-            boxShadow: `0 0 20px ${CYAN}15`
+            boxShadow: hovered ? `0 0 35px ${CYAN}40` : `0 0 20px ${CYAN}15`,
+            transform: hovered ? "translateY(-10px)" : "translateY(0)",
           }}
         >
           <div
             style={{
-              background: "linear-gradient(155deg, #002818 0%, #00110c 100%)",
+              background: hovered 
+                ? "linear-gradient(155deg, #003620 0%, #00150c 100%)" 
+                : "linear-gradient(155deg, #002818 0%, #00110c 100%)",
               clipPath: CLIP(21),
               padding: isLarge ? "48px" : "32px 28px",
               height: "100%",

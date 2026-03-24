@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 import { CTAButton } from "../HeroSection";
 
@@ -130,9 +131,60 @@ export function VitaminsAdvantagesSection() {
           ))}
         </div>
 
-        {/* Кнопка CTA */}
+        {/* Кнопка CTA с анимацией контура */}
         <div id="v-advantages-cta" style={{ marginTop: "60px", display: "flex", justifyContent: "center" }}>
-           <CTAButton text="Получить консультацию" variant="secondary" />
+           <div className="relative" style={{ width: "320px", height: "64px" }}>
+             <style dangerouslySetInnerHTML={{__html: `
+               @keyframes trace-path {
+                 0% { stroke-dashoffset: 1000; }
+                 100% { stroke-dashoffset: 0; }
+               }
+               .advantages-cta-btn:hover .trace-border {
+                 animation: trace-path 1.5s linear infinite;
+               }
+             `}} />
+             <a
+               href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="advantages-cta-btn group block w-full h-full relative"
+               style={{ textDecoration: "none" }}
+             >
+                {/* Glow behind */}
+                <div style={{ position: "absolute", inset: "-2px", background: CYAN, opacity: 0, clipPath: CLIP(14), filter: "blur(12px)", transition: "opacity 0.4s" }} className="group-hover:opacity-30" />
+                
+                <button style={{
+                  position: "absolute", inset: 0, width: "100%", height: "100%",
+                  background: "rgba(111,230,193,0.1)", border: "none", 
+                  clipPath: CLIP(14), color: "#fff", fontFamily: "'Furore', sans-serif",
+                  fontSize: "14px", letterSpacing: "0.2em", textTransform: "uppercase",
+                  transition: "all 0.4s ease", cursor: "pointer"
+                }} className="group-hover:bg-[#09B983] group-hover:scale-[1.01] group-hover:-translate-y-0.5">
+                  Получить консультацию
+                </button>
+
+                <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }} viewBox="0 0 320 64" preserveAspectRatio="none">
+                   {/* Static Border - Always Visible */}
+                   <path 
+                     d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" 
+                     fill="none" 
+                     stroke={CYAN} 
+                     strokeWidth="1.5"
+                     strokeOpacity="0.3"
+                   />
+                   {/* Tracing Border - Hover Only */}
+                   <path 
+                     d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" 
+                     fill="none" 
+                     stroke={CYAN} 
+                     strokeWidth="2"
+                     strokeDasharray="1000"
+                     strokeDashoffset="1000"
+                     className="trace-border transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                   />
+                </svg>
+             </a>
+           </div>
         </div>
       </Container>
 
@@ -159,14 +211,19 @@ export function VitaminsAdvantagesSection() {
 }
 
 function ModuleCard({ adv }: { adv: any }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div 
       className={`${adv.span} group relative`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
-        background: `${CYAN}20`,
+        background: hovered ? `${CYAN}40` : `${CYAN}20`,
         clipPath: CLIP(22),
         padding: "1.5px",
-        transition: "all 0.4s ease",
+        transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        transform: hovered ? "translateY(-8px)" : "translateY(0)",
       }}
     >
         {/* Внешнее свечение */}
@@ -180,7 +237,9 @@ function ModuleCard({ adv }: { adv: any }) {
 
       <div
         style={{
-          background: "linear-gradient(155deg, #002818 0%, #000e08 100%)",
+          background: hovered 
+            ? "linear-gradient(155deg, #003620 0%, #00150c 100%)" 
+            : "linear-gradient(155deg, #002818 0%, #000e08 100%)",
           clipPath: CLIP(21),
           padding: "40px 30px",
           height: "100%",
