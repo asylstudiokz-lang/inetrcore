@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 import { CTAButton } from "../HeroSection";
 
@@ -8,6 +9,7 @@ const CLIP_INV = (size: number) =>
   `polygon(0 0, calc(100% - ${size}px) 0, 100% ${size}px, 100% 100%, ${size}px 100%, 0 calc(100% - ${size}px))`;
 
 export function BiteCorrectionHeroSection() {
+  const [hoveredPhoto, setHoveredPhoto] = useState(false);
   return (
     <section className="relative overflow-hidden" style={{ paddingTop: "0", paddingBottom: "0" }}>
       {/* Decorative background glows - 1:1 with ZPRR */}
@@ -219,11 +221,31 @@ export function BiteCorrectionHeroSection() {
             </div>
 
             {/* Desktop 3:4 Photo Placeholder (Right) - LARGER (Clean Border) */}
-            <div style={{ flexShrink: 0, width: "480px", height: "640px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div 
+              className={`hero-photo-container relative ${hoveredPhoto ? "is-hovered" : ""}`}
+              onMouseEnter={() => setHoveredPhoto(true)}
+              onMouseLeave={() => setHoveredPhoto(false)}
+              style={{ flexShrink: 0, width: "480px", height: "640px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+            >
+              <style dangerouslySetInnerHTML={{ __html: `
+                @media (min-width: 768px) {
+                  .hero-photo-container.is-hovered {
+                    transform: translateY(-10px);
+                  }
+                  .hero-photo-glow {
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                  }
+                  .hero-photo-container.is-hovered .hero-photo-glow {
+                    opacity: 0.12 !important;
+                    transform: scale(1.1);
+                  }
+                }
+              `}} />
               {/* Outer Glowing frame */}
-              <div style={{ position: "absolute", inset: "-15%", pointerEvents: "none" }}>
-                 <div className="w-full h-full bg-[#6FE6C1] opacity-[0.03] blur-[100px] rounded-full" />
-              </div>
+              <div 
+                className="hero-photo-glow"
+                style={{ position: "absolute", inset: "-15%", pointerEvents: "none", background: "#6FE6C1", opacity: 0.03, filter: "blur(100px)", borderRadius: "100%" }} 
+              />
               
               {/* Geometric clipped BG */}
               <div style={{ position: "absolute", inset: "0%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
@@ -231,11 +253,13 @@ export function BiteCorrectionHeroSection() {
               {/* Continuous Contour Border Overlay */}
               <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} viewBox="0 0 480 640" preserveAspectRatio="none">
                 <polygon 
-                  points="0,0 452,0 480,28 480,640 28,640 0,612" 
+                  points="1,1 452,1 479,29 479,639 29,639 1,611 1,1" 
                   fill="none" 
                   stroke="#6FE6C1" 
-                  strokeWidth="1.8" 
-                  strokeOpacity="0.7"
+                  strokeWidth={hoveredPhoto ? "2.5" : "1.8"} 
+                  strokeOpacity={hoveredPhoto ? "1" : "0.7"}
+                  className="transition-all duration-300"
+                  style={{ filter: hoveredPhoto ? "drop-shadow(0 0 12px rgba(111,230,193,0.6))" : "none" }}
                 />
               </svg>
 

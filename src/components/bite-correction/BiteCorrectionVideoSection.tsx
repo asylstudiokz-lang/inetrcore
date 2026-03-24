@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 
 const CYAN = "#6FE6C1";
@@ -5,6 +6,9 @@ const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 export function BiteCorrectionVideoSection() {
+  const [hoveredVideo, setHoveredVideo] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(false);
+
   return (
     <section
       style={{
@@ -215,14 +219,32 @@ export function BiteCorrectionVideoSection() {
 
               {/* Video frame */}
               <div
+                className={`video-frame-outer ${hoveredVideo ? "is-hovered" : ""}`}
+                onMouseEnter={() => setHoveredVideo(true)}
+                onMouseLeave={() => setHoveredVideo(false)}
                 style={{
                   position: "relative",
                   background: `linear-gradient(135deg, rgba(111,230,193,0.3) 0%, rgba(0,0,0,0) 100%)`,
                   padding: "2px",
                   clipPath: CLIP(24),
                   boxShadow: "0 24px 80px rgba(0,0,0,0.75), 0 0 40px rgba(111,230,193,0.08)",
+                  transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
                 }}
               >
+                <style dangerouslySetInnerHTML={{ __html: `
+                  @media (min-width: 768px) {
+                    .video-frame-outer.is-hovered {
+                      transform: translateY(-10px) scale(1.02);
+                    }
+                    .video-descriptor-card {
+                      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s ease;
+                    }
+                    .video-descriptor-card.is-hovered {
+                      transform: translateY(-8px);
+                      filter: drop-shadow(0 0 30px rgba(111,230,193,0.35)) !important;
+                    }
+                  }
+                `}} />
                 <div
                   style={{
                     background: "#000a08",
@@ -284,7 +306,12 @@ export function BiteCorrectionVideoSection() {
             </div>
 
             {/* RIGHT — Text (narrower) */}
-            <div style={{ position: "relative" }}>
+            <div 
+              className={`video-descriptor-card ${hoveredCard ? "is-hovered" : ""}`}
+              onMouseEnter={() => setHoveredCard(true)}
+              onMouseLeave={() => setHoveredCard(false)}
+              style={{ position: "relative" }}
+            >
               {/* Ghost watermark */}
               <div
                 style={{

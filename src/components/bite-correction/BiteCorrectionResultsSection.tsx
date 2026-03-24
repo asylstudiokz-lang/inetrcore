@@ -267,14 +267,35 @@ function ProblemRow({ index, label }: { index: number; label: string }) {
 
 /* ─── Desktop problem card ─── */
 function ProblemCard({ index, label }: { index: number; label: string }) {
+  const [isHovered, setIsHovered] = useState(false);
   const num = String(index + 1).padStart(2, "0");
   return (
-    <div style={{ position: "relative" }}>
+    <div 
+      className={`problem-card-wrapper ${isHovered ? "is-hovered" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ position: "relative", transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+    >
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (min-width: 768px) {
+          .problem-card-wrapper.is-hovered {
+            transform: translateY(-8px);
+          }
+          .problem-card-glow-bg {
+            transition: opacity 0.5s ease;
+          }
+          .problem-card-wrapper.is-hovered .problem-card-glow-bg {
+            opacity: 0.15 !important;
+          }
+        }
+      `}} />
       {/* Border wrapper */}
       <div style={{
-        background: `linear-gradient(135deg, ${CYAN}aa 0%, ${CYAN}22 100%)`,
+        background: isHovered ? CYAN : `linear-gradient(135deg, ${CYAN}aa 0%, ${CYAN}22 100%)`,
         padding: "1.5px", clipPath: CLIP_PATH,
         height: "100%",
+        transition: "background 0.3s ease",
+        filter: isHovered ? `drop-shadow(0 0 15px ${CYAN}44)` : "none"
       }}>
         <div style={{
           width: "100%", height: "100%",
@@ -349,12 +370,25 @@ interface SliderBlockProps {
 }
 
 function SliderBlock({ current, onPrev, onNext, onTouchStart, onTouchEnd }: SliderBlockProps) {
+  const [isHovered, setIsHovered] = useState(false);
   const slides = Array.from({ length: TOTAL_SLIDES }, (_, i) => i);
   const num = String(current + 1).padStart(2, "0");
   const total = String(TOTAL_SLIDES).padStart(2, "0");
 
   return (
-    <div>
+    <div 
+      className={`results-slider-wrapper ${isHovered ? "is-hovered" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+    >
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (min-width: 768px) {
+          .results-slider-wrapper.is-hovered {
+            transform: translateY(-10px);
+          }
+        }
+      `}} />
       {/* Slide: 4:3 ratio */}
       <div
         style={{ position: "relative", width: "100%", paddingTop: "75%", marginBottom: "20px" }}
@@ -371,9 +405,10 @@ function SliderBlock({ current, onPrev, onNext, onTouchStart, onTouchEnd }: Slid
         {/* Border contour wrapper */}
         <div style={{
           position: "absolute", inset: 0,
-          background: `linear-gradient(135deg, ${CYAN}ee 0%, ${CYAN}22 100%)`,
+          background: isHovered ? CYAN : `linear-gradient(135deg, ${CYAN}ee 0%, ${CYAN}22 100%)`,
           padding: "1.5px", clipPath: CLIP_PATH,
-          filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.8))",
+          filter: isHovered ? `drop-shadow(0 0 20px ${CYAN}55) drop-shadow(0 20px 50px rgba(0,0,0,0.8))` : "drop-shadow(0 20px 50px rgba(0,0,0,0.8))",
+          transition: "all 0.3s ease",
         }}>
           <div style={{
             width: "100%", height: "100%",

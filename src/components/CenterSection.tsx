@@ -73,11 +73,11 @@ export function CenterSection() {
       style={{ backgroundColor: "#001d14" }}
     >
       {/* ── MOBILE ── */}
-      <div className="md:hidden">
+      <div className="md:hidden py-10">
         <Container className="relative">
           {/* Section heading */}
           <div
-            className="text-center uppercase w-full pt-5"
+            className="text-center uppercase w-full mb-[32px]"
             style={{
               fontFamily: "'Furore', 'Exo 2', sans-serif",
               fontWeight: 800,
@@ -107,8 +107,7 @@ export function CenterSection() {
           </p>
 
           {/* Person card — photo overflows top, border SVG overlay */}
-          <div className="relative mt-12 mb-6" style={{ height: "550px", overflow: "hidden" }}>
-
+          <div className="relative mb-6" style={{ height: "550px", overflow: "hidden" }}>
             {/* ── Green fill — only inside the border frame (from top: 130px) ── */}
             <div
               style={{
@@ -280,7 +279,7 @@ export function CenterSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block py-20 relative">
+      <div className="hidden md:block relative" style={{ padding: "100px 0" }}>
         {/* Decorative background shapes (Solid Figures) */}
         {/* Diamond */}
         <div style={{

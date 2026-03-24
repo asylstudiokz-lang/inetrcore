@@ -481,7 +481,7 @@ export function DirectionsSection() {
     >
       {/* ── MOBILE ── */}
       <div
-        className="md:hidden"
+        className="md:hidden py-10"
         style={{ position: "relative", padding: "48px 0 52px" }}
       >
         <Container style={{ position: "relative", zIndex: 1 }}>
@@ -520,8 +520,7 @@ export function DirectionsSection() {
 
       {/* ── DESKTOP ── */}
       <div
-        className="hidden md:block"
-        style={{ position: "relative", padding: "90px 0 100px" }}
+        className="hidden md:block relative" style={{ padding: "100px 0" }}
       >
         <Container style={{ position: "relative", zIndex: 1 }}>
           <DesktopGrid />

@@ -508,7 +508,7 @@ export function SpecialistsSection() {
       />
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden" style={{ padding: "48px 0 52px" }}>
+      <div className="md:hidden py-10">
         <Container>
           {/* Section heading */}
           <div style={{ marginBottom: "32px", textAlign: "center" }}>
@@ -608,8 +608,7 @@ export function SpecialistsSection() {
 
       {/* ── DESKTOP ── */}
       <div
-        className="hidden md:block"
-        style={{ position: "relative", padding: "90px 0 100px" }}
+        className="hidden md:block relative" style={{ padding: "100px 0" }}
       >
         {/* Decorative background shapes (Solid Figures) */}
         {/* Massive slanted block */}

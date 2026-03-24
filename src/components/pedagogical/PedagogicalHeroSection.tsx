@@ -129,6 +129,8 @@ const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 export function PedagogicalHeroSection() {
+  const [hoveredLogo, setHoveredLogo] = useState(false);
+
   return (
     <section className="relative overflow-hidden" style={{ paddingBottom: "50px" }}>
       {/* Decorative background glow */}
@@ -322,7 +324,21 @@ export function PedagogicalHeroSection() {
            </div>
 
            {/* Desktop Logo Block (Right) */}
-           <div style={{ flexShrink: 0, width: "clamp(340px, 35vw, 480px)", height: "clamp(340px, 35vw, 480px)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+           <div 
+             style={{ 
+               flexShrink: 0, 
+               width: "clamp(340px, 35vw, 480px)", 
+               height: "clamp(340px, 35vw, 480px)", 
+               position: "relative", 
+               display: "flex", 
+               alignItems: "center", 
+               justifyContent: "center",
+               transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+               transform: hoveredLogo ? "translateY(-10px)" : "none",
+             }}
+             onMouseEnter={() => setHoveredLogo(true)}
+             onMouseLeave={() => setHoveredLogo(false)}
+           >
              <div className="absolute pointer-events-none" style={{ inset: "-15%" }}><HudSVG size={600} style={{ width: "100%", height: "100%" }} /></div>
              <div style={{ position: "absolute", inset: "12%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 22px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
              <div style={{ position: "absolute", inset: "12%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))", outline: "1px solid rgba(111,230,193,0.22)" }} />

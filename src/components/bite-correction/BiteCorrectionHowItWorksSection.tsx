@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 
 const CYAN = "#6FE6C1";
@@ -86,6 +87,8 @@ function CustomSectionCTA({ text }: { text: string }) {
 }
 
 export function BiteCorrectionHowItWorksSection() {
+  const [hoveredLeft, setHoveredLeft] = useState(false);
+  const [hoveredRight, setHoveredRight] = useState(false);
   return (
     <section
       id="how-it-works"
@@ -280,14 +283,43 @@ export function BiteCorrectionHowItWorksSection() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
 
             {/* LEFT — Photo */}
-            <div style={{ position: "relative" }}>
+            <div 
+              className={`how-photo-wrapper ${hoveredLeft ? "is-hovered" : ""}`}
+              onMouseEnter={() => setHoveredLeft(true)}
+              onMouseLeave={() => setHoveredLeft(null as any)}
+              style={{ position: "relative", transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+            >
+              <style dangerouslySetInnerHTML={{ __html: `
+                @media (min-width: 768px) {
+                  .how-photo-wrapper.is-hovered {
+                    transform: translateY(-10px) scale(1.02);
+                  }
+                  .how-photo-glow {
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                  }
+                  .how-photo-wrapper.is-hovered .how-photo-glow {
+                    opacity: 0.1 !important;
+                    transform: scale(1.1);
+                  }
+                  .how-text-block-wrapper {
+                    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s ease;
+                  }
+                  .how-text-block-wrapper.is-hovered {
+                    transform: translateY(-8px);
+                    filter: drop-shadow(0 0 40px rgba(111,230,193,0.4)) !important;
+                  }
+                }
+              `}} />
 
               {/* Outer glow */}
-              <div style={{
-                position: "absolute", inset: "-15%",
-                background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(111,230,193,0.07) 0%, transparent 70%)",
-                pointerEvents: "none",
-              }} />
+              <div 
+                className="how-photo-glow"
+                style={{
+                  position: "absolute", inset: "-15%",
+                  background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(111,230,193,0.07) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                  opacity: 0.8
+                }} />
 
               {/* Photo container */}
               <div style={{
@@ -323,8 +355,10 @@ export function BiteCorrectionHowItWorksSection() {
                     points="1,1 371,1 399,29 399,499 29,499 1,471 1,1"
                     fill="none" 
                     stroke={CYAN} 
-                    strokeWidth="1.6" 
-                    strokeOpacity="0.7"
+                    strokeWidth={hoveredLeft ? "2.5" : "1.6"} 
+                    strokeOpacity={hoveredLeft ? "1" : "0.7"}
+                    className="transition-all duration-300"
+                    style={{ filter: hoveredLeft ? "drop-shadow(0 0 12px rgba(111,230,193,0.6))" : "none" }}
                   />
                 </svg>
 
@@ -398,13 +432,17 @@ export function BiteCorrectionHowItWorksSection() {
               }} />
 
               {/* Main text block — HUD border */}
-              <div style={{
-                background: CYAN,
-                clipPath: CLIP(20),
-                padding: "1.5px",
-                marginBottom: "28px",
-                filter: "drop-shadow(0 0 32px rgba(111,230,193,0.55)) drop-shadow(0 16px 48px rgba(0,0,0,0.8))",
-              }}>
+              <div 
+                className={`how-text-block-wrapper ${hoveredRight ? "is-hovered" : ""}`}
+                onMouseEnter={() => setHoveredRight(true)}
+                onMouseLeave={() => setHoveredRight(false)}
+                style={{
+                  background: CYAN,
+                  clipPath: CLIP(20),
+                  padding: "1.5px",
+                  marginBottom: "28px",
+                  filter: "drop-shadow(0 0 32px rgba(111,230,193,0.35)) drop-shadow(0 16px 48px rgba(0,0,0,0.8))",
+                }}>
                 <div style={{
                   background: "linear-gradient(135deg, rgba(0,38,20,0.88) 0%, rgba(0,13,8,0.97) 100%)",
                   clipPath: CLIP(19),

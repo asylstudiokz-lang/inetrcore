@@ -236,7 +236,7 @@ export function EducationSection() {
     <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden" style={{ position: "relative", padding: "48px 0 56px" }}>
+      <div className="md:hidden py-10" style={{ position: "relative" }}>
 
         {/* Subtle dot grid */}
         <div style={{
@@ -393,7 +393,7 @@ export function EducationSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block" style={{ position: "relative", padding: "80px 0 100px" }}>
+      <div className="hidden md:block relative" style={{ padding: "100px 0" }}>
 
         {/* Decorative grid dots */}
         <div style={{

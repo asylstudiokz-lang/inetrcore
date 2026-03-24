@@ -7,7 +7,7 @@ export function MissionSection() {
     <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden" style={{ position: "relative", padding: "48px 0 52px", overflow: "hidden" }}>
+      <div className="md:hidden py-10" style={{ position: "relative", overflow: "hidden" }}>
 
         {/* Ambient glow */}
         <div style={{
@@ -113,7 +113,7 @@ export function MissionSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block" style={{ position: "relative", padding: "90px 0 100px" }}>
+      <div className="hidden md:block relative" style={{ padding: "100px 0" }}>
 
         {/* Subtle ambient glow */}
         <div style={{
@@ -159,7 +159,7 @@ export function MissionSection() {
         <Container style={{ position: "relative", zIndex: 1 }}>
 
           {/* Section label */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "52px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "60px" }}>
             <span style={{
               fontFamily: "'Furore', sans-serif",
               fontSize: "11px", letterSpacing: "0.2em",

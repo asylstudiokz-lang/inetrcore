@@ -19,7 +19,7 @@ export function BookSection() {
     <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14", marginBottom: "32px" }}>
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden">
+      <div className="md:hidden py-10">
         <Container className="relative">
           {/* Card background SVG — full container width */}
           <div
@@ -187,7 +187,7 @@ export function BookSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block py-24" style={{ position: "relative", overflow: "hidden" }}>
+      <div className="hidden md:block relative" style={{ padding: "100px 0", overflow: "hidden" }}>
 
         {/* Ambient background glow */}
         <div style={{

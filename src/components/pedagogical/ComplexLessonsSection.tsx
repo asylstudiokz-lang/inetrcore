@@ -79,9 +79,9 @@ export function ComplexLessonsSection() {
                clipPath: CLIP_PATH,
                padding: "2px",
                height: "100%",
-               transition: "all 0.5s ease",
-               transform: hovered === 1 ? "translateY(-6px)" : "none",
-               boxShadow: hovered === 1 ? "0 20px 40px rgba(0,0,0,0.6)" : "none",
+               transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+               transform: hovered === 1 ? "translateY(-8px)" : "none",
+               boxShadow: hovered === 1 ? `0 20px 40px rgba(0,0,0,0.6), 0 0 20px ${CYAN}20` : "none",
              }}>
                 <div style={{ 
                   position: "relative",
@@ -152,9 +152,9 @@ export function ComplexLessonsSection() {
                clipPath: CLIP_PATH,
                padding: "2px",
                height: "100%",
-               transition: "all 0.5s ease",
-               transform: hovered === 2 ? "translateY(-6px)" : "none",
-               boxShadow: hovered === 2 ? "0 20px 40px rgba(0,0,0,0.6)" : "none",
+               transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+               transform: hovered === 2 ? "translateY(-8px)" : "none",
+               boxShadow: hovered === 2 ? `0 20px 40px rgba(0,0,0,0.6), 0 0 20px ${CYAN}20` : "none",
              }}>
                 <div style={{ 
                   position: "relative",

@@ -52,8 +52,89 @@ const methodologyCards = [
   },
 ];
 
+function CustomInnovationCTA({ text }: { text: string }) {
+  const CYAN = "#6FE6C1";
+  const CLIP = (size: number) =>
+    `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
+
+  return (
+    <a 
+      href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block group relative transition-transform active:scale-95"
+      style={{ width: "100%" }}
+    >
+      <div 
+        className="w-full relative transition-all duration-300"
+        style={{
+          height: "58px",
+          background: "rgba(111,230,193,0.06)",
+          clipPath: CLIP(12),
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {/* Glow background (visible on hover) */}
+        <div 
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${CYAN}15 50%, transparent 100%)` }}
+        />
+
+        <span 
+          className="font-['Furore'] tracking-[0.1em] text-white/90 transition-all group-hover:text-white group-hover:scale-105 relative z-10"
+          style={{ 
+            fontSize: "clamp(12px, 3.2vw, 14px)",
+            textShadow: `0 0 10px ${CYAN}30`,
+            textTransform: "uppercase"
+          }}
+        >
+          {text}
+        </span>
+        
+        {/* Continuous SVG Border Overlay */}
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" 
+          viewBox="0 0 340 58" 
+          preserveAspectRatio="none"
+        >
+          <polygon
+            points="12,0 340,0 340,46 328,58 0,58 0,12 12,0"
+            fill="none"
+            stroke={CYAN}
+            strokeWidth="1.5"
+            strokeOpacity="0.4"
+            vectorEffect="non-scaling-stroke"
+            className="transition-all duration-300 group-hover:stroke-opacity-100 group-hover:stroke-[2]"
+            style={{ filter: "drop-shadow(0 0 6px rgba(111,230,193,0.4))" }}
+          />
+        </svg>
+
+        {/* Extra Hover Glow Ring (SVG) */}
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none overflow-visible opacity-0 group-hover:opacity-60 transition-opacity duration-300" 
+          viewBox="0 0 340 58" 
+          preserveAspectRatio="none"
+        >
+          <polygon
+            points="12,0 340,0 340,46 328,58 0,58 0,12 12,0"
+            fill="none"
+            stroke={CYAN}
+            strokeWidth="3.5"
+            vectorEffect="non-scaling-stroke"
+            style={{ filter: "blur(8px)" }}
+          />
+        </svg>
+      </div>
+    </a>
+  );
+}
+
 export function BiteCorrectionMethodSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [hoveredInnovation, setHoveredInnovation] = useState(false);
   const totalSlides = 10;
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -99,9 +180,28 @@ export function BiteCorrectionMethodSection() {
         {/* Methodology Cards (3 in a Row) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-12 lg:mb-16">
           {methodologyCards.map((card, i) => (
-            <div key={i} style={{ display: "flex", flexDirection: "column" }}>
+            <div 
+              key={i} 
+              className={`methodology-card-wrapper ${hoveredCard === i ? "is-hovered" : ""}`}
+              onMouseEnter={() => setHoveredCard(i)}
+              onMouseLeave={() => setHoveredCard(null)}
+              style={{ display: "flex", flexDirection: "column", transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+            >
+              <style dangerouslySetInnerHTML={{ __html: `
+                @media (min-width: 768px) {
+                  .methodology-card-wrapper.is-hovered {
+                    transform: translateY(-8px);
+                  }
+                  .methodology-card-wrapper.is-hovered .card-border-frame {
+                    filter: drop-shadow(0 0 15px rgba(111,230,193,0.4)) !important;
+                  }
+                }
+              `}} />
               {/* Outer Cyan Border Frame */}
-              <div style={{ background: CYAN, clipPath: CLIP(20), padding: "1.5px", filter: "drop-shadow(0 12px 30px rgba(0,0,0,0.5))" }}>
+              <div 
+                className="card-border-frame transition-all duration-300"
+                style={{ background: CYAN, clipPath: CLIP(20), padding: "1.5px", filter: "drop-shadow(0 12px 30px rgba(0,0,0,0.5))" }}
+              >
                   <div 
                     className="methodology-card-content"
                     style={{ background: "#000d0a", clipPath: CLIP(19), position: "relative", display: "flex", flexDirection: "column" }}
@@ -115,15 +215,16 @@ export function BiteCorrectionMethodSection() {
                           <polygon 
                             points="12,0 48,0 48,36 36,48 0,48 0,12" 
                             fill="none" 
-                            stroke="rgba(111,230,193,0.35)" 
-                            strokeWidth="1.5" 
+                            stroke={hoveredCard === i ? CYAN : "rgba(111,230,193,0.35)"} 
+                            strokeWidth={hoveredCard === i ? "2" : "1.5"}
+                            className="transition-all duration-300"
                           />
                         </svg>
                         <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
                           {card.icon}
                         </div>
                       </div>
-                      <span className="card-id" style={{ fontFamily: "'Furore', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.45)", letterSpacing: "0.15em" }}>
+                      <span className="card-id" style={{ fontFamily: "'Furore', sans-serif", fontSize: "14px", color: hoveredCard === i ? CYAN : "rgba(111,230,193,0.45)", letterSpacing: "0.15em", transition: "color 0.3s ease" }}>
                         0{i + 1}
                       </span>
                     </div>
@@ -140,11 +241,11 @@ export function BiteCorrectionMethodSection() {
                         <div key={pIdx} className="flex gap-4 items-start">
                           <div style={{ marginTop: "8px", flexShrink: 0 }}>
                             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                              <rect x="0.5" y="0.5" width="7" height="7" stroke={CYAN} strokeWidth="0.8" opacity="0.6" />
-                              <rect x="3" y="3" width="2" height="2" fill={CYAN} />
+                              <rect x="0.5" y="0.5" width="7" height="7" stroke={CYAN} strokeWidth="0.8" opacity={hoveredCard === i ? 1 : 0.6} className="transition-opacity duration-300" />
+                              <rect x="3" y="3" width="2" height="2" fill={CYAN} opacity={hoveredCard === i ? 1 : 0.8} className="transition-opacity duration-300" />
                             </svg>
                           </div>
-                          <p className="card-point-text" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", fontWeight: 400, color: "rgba(255,255,255,0.75)", lineHeight: 1.6, margin: 0 }}>
+                          <p className="card-point-text" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", fontWeight: 400, color: hoveredCard === i ? "#fff" : "rgba(255,255,255,0.75)", lineHeight: 1.6, margin: 0, transition: "color 0.3s ease" }}>
                             {point}
                           </p>
                         </div>
@@ -153,7 +254,7 @@ export function BiteCorrectionMethodSection() {
 
                     {/* Bottom mechanical details (L-bracket) */}
                     <div className="card-spacer" style={{ marginTop: "auto", display: "flex", justifyContent: "flex-end", paddingTop: "10px" }}>
-                      <div style={{ width: "16px", height: "16px", borderRight: "1.5px solid rgba(111,230,193,0.5)", borderBottom: "1.5px solid rgba(111,230,193,0.5)" }} />
+                      <div style={{ width: "16px", height: "16px", borderRight: `1.5px solid ${hoveredCard === i ? CYAN : "rgba(111,230,193,0.5)"}`, borderBottom: `1.5px solid ${hoveredCard === i ? CYAN : "rgba(111,230,193,0.5)"}`, transition: "border-color 0.3s ease" }} />
                     </div>
                   </div>
               </div>
@@ -162,7 +263,26 @@ export function BiteCorrectionMethodSection() {
         </div>
 
         {/* Innovation Block (Matrix Horizontal Style) */}
-        <div style={{ background: CYAN, clipPath: CLIP(30), padding: "1.5px", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.7))" }}>
+        <div 
+          className={`innovation-block-wrapper ${hoveredInnovation ? "is-hovered" : ""}`}
+          onMouseEnter={() => setHoveredInnovation(true)}
+          onMouseLeave={() => setHoveredInnovation(false)}
+          style={{ background: CYAN, clipPath: CLIP(30), padding: "1.5px", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.7))", transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+        >
+          <style dangerouslySetInnerHTML={{ __html: `
+            @media (min-width: 768px) {
+              .innovation-block-wrapper.is-hovered {
+                transform: translateY(-10px);
+                filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(111,230,193,0.3)) !important;
+              }
+              .slider-photo-wrapper {
+                transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+              }
+              .innovation-block-wrapper.is-hovered .slider-photo-wrapper {
+                transform: scale(1.02);
+              }
+            }
+          `}} />
           <div style={{ background: "linear-gradient(135deg, #001a12 0%, #000a06 100%)", clipPath: CLIP(29), display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
             
             {/* Left Column: Information */}
@@ -189,11 +309,11 @@ export function BiteCorrectionMethodSection() {
                      <div key={pIdx} className="flex gap-4 items-start">
                        <div style={{ marginTop: "8px", flexShrink: 0 }}>
                          <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                           <rect x="0.5" y="0.5" width="7" height="7" stroke={CYAN} strokeWidth="0.8" opacity="0.6" />
-                           <rect x="3" y="3" width="2" height="2" fill={CYAN} />
+                           <rect x="0.5" y="0.5" width="7" height="7" stroke={CYAN} strokeWidth="0.8" opacity={hoveredInnovation ? 1 : 0.6} className="transition-opacity duration-300" />
+                           <rect x="3" y="3" width="2" height="2" fill={CYAN} opacity={hoveredInnovation ? 1 : 1} />
                          </svg>
                        </div>
-                       <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, color: "rgba(255,255,255,0.85)", lineHeight: 1.4, margin: 0 }}>
+                       <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, color: hoveredInnovation ? "#fff" : "rgba(255,255,255,0.85)", lineHeight: 1.4, margin: 0, transition: "color 0.3s ease" }}>
                          {point}
                        </p>
                      </div>
@@ -201,7 +321,7 @@ export function BiteCorrectionMethodSection() {
                  </div>
 
                  <div style={{ maxWidth: "340px" }}>
-                   <CTAButton text="Получить консультацию" variant="secondary" />
+                   <CustomInnovationCTA text="Получить консультацию" />
                  </div>
                </div>
             </div>
@@ -211,7 +331,7 @@ export function BiteCorrectionMethodSection() {
                <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px)", backgroundSize: "30px 30px", pointerEvents: "none" }} />
                
                {/* 3:4 Aspect Ratio Slider Outer Wrapper */}
-               <div className="w-full relative" style={{ maxWidth: "340px" }}>
+               <div className="w-full relative slider-photo-wrapper" style={{ maxWidth: "340px" }}>
                   {/* The clipped container for slides only */}
                   <div className="relative w-full overflow-hidden" 
                        style={{ 
@@ -247,14 +367,15 @@ export function BiteCorrectionMethodSection() {
                     <polygon 
                       points="12,0.5 339.5,0.5 339.5,441 328,452.5 0.5,452.5 0.5,12" 
                       fill="none" 
-                      stroke="rgba(111,230,193,0.3)" 
-                      strokeWidth="1"
+                      stroke={hoveredInnovation ? CYAN : "rgba(111,230,193,0.3)"} 
+                      strokeWidth={hoveredInnovation ? "2" : "1"}
+                      className="transition-all duration-300"
                     />
                   </svg>
 
                    {/* Corner Brackets */}
-                   <div style={{ position: "absolute", top: 16, left: 16, width: "24px", height: "24px", borderTop: "2.5px solid rgba(111,230,193,0.45)", borderLeft: "2.5px solid rgba(111,230,193,0.45)", zIndex: 10 }} />
-                   <div style={{ position: "absolute", bottom: 16, right: 16, width: "24px", height: "24px", borderBottom: "2.5px solid rgba(111,230,193,0.45)", borderRight: "2.5px solid rgba(111,230,193,0.45)", zIndex: 10 }} />
+                   <div style={{ position: "absolute", top: 16, left: 16, width: "24px", height: "24px", borderTop: `2.5px solid ${hoveredInnovation ? CYAN : "rgba(111,230,193,0.45)"}`, borderLeft: `2.5px solid ${hoveredInnovation ? CYAN : "rgba(111,230,193,0.45)"}`, zIndex: 10, transition: "all 0.3s ease" }} />
+                   <div style={{ position: "absolute", bottom: 16, right: 16, width: "24px", height: "24px", borderBottom: `2.5px solid ${hoveredInnovation ? CYAN : "rgba(111,230,193,0.45)"}`, borderRight: `2.5px solid ${hoveredInnovation ? CYAN : "rgba(111,230,193,0.45)"}`, zIndex: 10, transition: "all 0.3s ease" }} />
                 </div>
 
                 {/* Navigation Arrows Below */}

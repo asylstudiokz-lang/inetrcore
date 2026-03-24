@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../ui/Container";
 
 const CYAN = "#6FE6C1";
@@ -5,6 +6,7 @@ const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 export function BiteCorrectionNightCtaSection() {
+  const [hoveredPhoto, setHoveredPhoto] = useState(false);
   return (
     <section
       style={{
@@ -279,13 +281,36 @@ export function BiteCorrectionNightCtaSection() {
 
             {/* RIGHT – 4:3 photo block (1/4 of grid) */}
             <div
+              className={`night-photo-wrapper ${hoveredPhoto ? "is-hovered" : ""}`}
+              onMouseEnter={() => setHoveredPhoto(true)}
+              onMouseLeave={() => setHoveredPhoto(false)}
               style={{
                 position: "relative",
                 width: "100%",
                 paddingTop: "75%", /* 4:3 */
                 filter: "drop-shadow(0 16px 48px rgba(0,0,0,0.7)) drop-shadow(0 0 20px rgba(111,230,193,0.08))",
+                transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
               }}
             >
+              <style dangerouslySetInnerHTML={{ __html: `
+                @media (min-width: 768px) {
+                  .night-photo-wrapper.is-hovered {
+                    transform: translateY(-10px) scale(1.02);
+                  }
+                  .night-photo-glow {
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                  }
+                  .night-photo-wrapper.is-hovered .night-photo-glow {
+                    opacity: 0.1 !important;
+                    transform: scale(1.1);
+                  }
+                }
+              `}} />
+              {/* Outer Cyan Glow Accent */}
+              <div 
+                className="night-photo-glow"
+                style={{ position: "absolute", inset: "-15%", background: "radial-gradient(circle at center, rgba(111,230,193,0.1) 0%, transparent 70%)", pointerEvents: "none", zIndex: 0, opacity: 0.4 }} 
+              />
               {/* BG */}
               <div
                 style={{
@@ -313,8 +338,10 @@ export function BiteCorrectionNightCtaSection() {
                   points="17,1 299,1 299,208 283,224 1,224 1,17 17,1"
                   fill="none"
                   stroke={CYAN}
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
+                  strokeWidth={hoveredPhoto ? "2.5" : "1.5"}
+                  strokeOpacity={hoveredPhoto ? "1" : "0.55"}
+                  className="transition-all duration-300"
+                  style={{ filter: hoveredPhoto ? "drop-shadow(0 0 10px rgba(111,230,193,0.6))" : "none" }}
                 />
               </svg>
               {/* Subtle inner glow */}

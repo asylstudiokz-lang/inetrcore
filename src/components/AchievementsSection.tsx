@@ -458,9 +458,9 @@ export function AchievementsSection() {
   return (
     <section id="achievements" className="relative overflow-hidden" style={{ backgroundColor: "#001d14" }}>
       {/* ── MOBILE (НЕ ТРОГАТЬ) ── */}
-      <div className="md:hidden overflow-hidden">
+      <div className="md:hidden overflow-hidden py-10">
         <Container>
-          <div style={{ textAlign: "center", paddingTop: "28px", paddingBottom: "48px", fontFamily: "'Furore', sans-serif", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1 }}>
+          <div style={{ textAlign: "center", marginBottom: "32px", fontFamily: "'Furore', sans-serif", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1 }}>
             <p style={{ margin: 0, fontSize: "34px", color: "#ffffff" }}>ключевые</p>
             <p style={{ margin: 0, fontSize: "34px", color: "#00cf8f" }}>достижения</p>
           </div>
@@ -473,11 +473,11 @@ export function AchievementsSection() {
       </div>
 
       {/* ── DESKTOP ── */}
-      <div className="hidden md:block" style={{ padding: "80px 0 100px", position: "relative" }}>
+      <div className="hidden md:block relative" style={{ padding: "100px 0" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,80,50,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
         <Container>
           {/* Heading */}
-          <div style={{ marginBottom: "52px" }}>
+          <div style={{ marginBottom: "60px" }}>
             <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(52px, 5.5vw, 80px)", fontWeight: 400, letterSpacing: "0.04em", lineHeight: 1.0, textTransform: "uppercase", margin: 0 }}>
               <span style={{ color: "#ffffff" }}>ключевые </span>
               <span style={{ color: "#00cf8f", textShadow: "0 0 28px rgba(0,207,143,0.5)" }}>достижения</span>

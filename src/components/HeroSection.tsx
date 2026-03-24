@@ -80,7 +80,7 @@ export function CTAButton({ text = "записаться", variant = "primary" }
               fontFamily: "'Furore', 'Exo 2', sans-serif",
               fontSize: "clamp(12px, 3.5vw, 18px)",
               fontWeight: 400,
-              letterSpacing: hovered ? "0.18em" : "0.08em",
+              letterSpacing: hovered ? "0.14em" : "0.08em",
               color: "#ffffff",
               textTransform: "uppercase",
               whiteSpace: "nowrap",
@@ -88,11 +88,13 @@ export function CTAButton({ text = "записаться", variant = "primary" }
               alignItems: "center",
               justifyContent: "center",
               overflow: "hidden",
-              transition: "all 0.35s ease",
+              transition: "all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)",
               position: "relative",
             }}
           >
-            {text}
+            <span style={{ position: "relative", zIndex: 5, transition: "transform 0.4s ease", transform: hovered ? "scale(1.03)" : "scale(1)" }}>
+              {text}
+            </span>
             
             {/* Shimmer sweep */}
             {!isSecondary && (
@@ -104,20 +106,43 @@ export function CTAButton({ text = "записаться", variant = "primary" }
                   background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%)",
                   animation: hovered ? "hero-btn-shimmer 0.6s ease forwards" : "none",
                   pointerEvents: "none",
+                  zIndex: 2,
                 }}
               />
             )}
           </button>
         </a>
+
+        {/* Tracing Border Overlay */}
+        <svg 
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible", zIndex: 10 }} 
+          viewBox={`0 0 ${maxWidth} ${h}`} 
+          preserveAspectRatio="none"
+        >
+          <polygon
+            points={`${cut},0 ${maxWidth},0 ${maxWidth},${h - cut} ${maxWidth - cut},${h} 0,${h} 0,${cut} ${cut},0`}
+            fill="none"
+            stroke={CYAN}
+            strokeWidth="2"
+            strokeOpacity={hovered ? 1 : 0}
+            vectorEffect="non-scaling-stroke"
+            className="transition-all duration-500"
+            style={{ 
+              strokeDasharray: hovered ? "none" : "1000", 
+              strokeDashoffset: hovered ? "0" : "1000",
+              filter: hovered ? `drop-shadow(0 0 8px ${CYAN})` : "none"
+            }}
+          />
+        </svg>
       </div>
     </>
   );
 }
 export function HeroSection() {
   return (
-    <section id="hero" className="relative flex flex-col md:overflow-visible overflow-hidden items-center text-center px-4">
+    <section id="hero" className="relative flex flex-col md:overflow-visible overflow-hidden items-center text-center w-full">
       {/* ── MOBILE ── */}
-      <div className="md:hidden">
+      <div className="md:hidden px-4">
         <Container className="relative">
           {/* HUD SVG behind logo */}
           <div
@@ -216,9 +241,21 @@ export function HeroSection() {
       </div>
 
       {/* ── DESKTOP ── */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .hero-desktop-wrapper {
+          min-height: calc(100vh - 80px);
+        }
+        @media (min-width: 2050px) {
+          .hero-desktop-wrapper {
+            min-height: 1000px;
+            height: 1000px;
+            max-height: 1000px;
+          }
+        }
+      `}}></style>
       <div
-        className="hidden md:flex items-center justify-center px-8"
-        style={{ minHeight: "100vh", position: "relative" }}
+        className="hidden md:flex items-center justify-center px-8 w-full hero-desktop-wrapper"
+        style={{ position: "relative" }}
       >
         {/* Фоновый радиальный свет */}
         <div

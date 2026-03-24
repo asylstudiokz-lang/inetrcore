@@ -231,7 +231,7 @@ export function PartnersSection() {
       />
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden" style={{ padding: "48px 0 52px" }}>
+      <div className="md:hidden py-10">
         <Container>
           {/* Heading */}
           <div style={{ marginBottom: "32px" }}>
@@ -282,8 +282,7 @@ export function PartnersSection() {
 
       {/* ── DESKTOP ── */}
       <div
-        className="hidden md:block"
-        style={{ position: "relative", padding: "90px 0 100px" }}
+        className="hidden md:block relative" style={{ padding: "100px 0" }}
       >
         <Container style={{ position: "relative", zIndex: 1 }}>
           {/* Heading + subtitle row */}
