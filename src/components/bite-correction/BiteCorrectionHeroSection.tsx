@@ -110,7 +110,7 @@ export function BiteCorrectionHeroSection() {
       {/* ── DESKTOP HERO WRAPPER ── */}
       <style dangerouslySetInnerHTML={{__html: `
         .bite-correction-hero-desktop-wrapper {
-          min-height: calc(100vh - 80px);
+          min-height: calc(100vh - 72px);
         }
         @media (min-width: 2050px) {
           .bite-correction-hero-desktop-wrapper {

@@ -42,13 +42,15 @@ export function WoundTreatmentUsageSection() {
       <div style={{ position: "absolute", bottom: "-100px", left: "-80px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(111,230,193,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       {/* ════════ MOBILE ════════ */}
-      <div className="md:hidden" style={{ padding: "52px 0 64px" }}>
+      <div className="md:hidden py-[60px]">
         <Container>
-          <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "40px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.95, margin: "0 0 8px" }}>
-            ЖКИМ<br />
-            <span style={{ WebkitTextStroke: "1px #6FE6C1", color: "transparent" }}>используется</span>
-          </h2>
-          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.45)", letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 32px" }}>только для наружнего применения</p>
+          <div className="mb-[32px]">
+            <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "40px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.95, margin: "0 0 8px" }}>
+              ЖКИМ<br />
+              <span style={{ WebkitTextStroke: "1px #6FE6C1", color: "transparent" }}>используется</span>
+            </h2>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.45)", letterSpacing: "0.1em", textTransform: "uppercase", margin: 0 }}>только для наружнего применения</p>
+          </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
             {usageAreas.map((area, i) => (
@@ -70,11 +72,11 @@ export function WoundTreatmentUsageSection() {
       </div>
 
       {/* ════════ DESKTOP ════════ */}
-      <div className="hidden md:block" style={{ padding: "90px 0 100px", position: "relative" }}>
+      <div className="hidden md:block" style={{ padding: "100px 0", position: "relative" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
 
           {/* ── Top: heading + subtitle ── */}
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 64 }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 60 }}>
             <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(44px, 5vw, 68px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.92, margin: 0 }}>
               ЖКИМ<br />
               <span style={{ WebkitTextStroke: "1.5px #6FE6C1", color: "transparent" }}>используется</span>
@@ -89,22 +91,11 @@ export function WoundTreatmentUsageSection() {
             {usageAreas.map((area, i) => (
               <div
                 key={i}
+                className="group transition-all duration-500 hover:translate-y-[-10px] [filter:drop-shadow(0_0_10px_rgba(0,0,0,0.4))] hover:[filter:drop-shadow(0_12px_40px_rgba(111,230,193,0.35))]"
                 style={{
                   background: "rgba(111,230,193,0.18)",
                   clipPath: CLIP(20),
-                  padding: "1.5px",
-                  transition: "all 0.3s ease",
-                  filter: "drop-shadow(0 0 10px rgba(0,0,0,0.4))",
-                }}
-                onMouseEnter={(e) => {
-                  const target = e.currentTarget as HTMLDivElement;
-                  target.style.background = CYAN;
-                  target.style.filter = `drop-shadow(0 0 20px rgba(111,230,193,0.25))`;
-                }}
-                onMouseLeave={(e) => {
-                  const target = e.currentTarget as HTMLDivElement;
-                  target.style.background = "rgba(111,230,193,0.18)";
-                  target.style.filter = "drop-shadow(0 0 10px rgba(0,0,0,0.4))";
+                  padding: "1.5px"
                 }}
               >
                 <div
@@ -117,15 +108,23 @@ export function WoundTreatmentUsageSection() {
                     flexDirection: "column",
                     position: "relative",
                     overflow: "hidden",
+                    transition: "all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)",
                   }}
                 >
                   {/* Subtle corner HUD element */}
-                  <div style={{ position: "absolute", top: 18, left: 18, width: 14, height: 14, borderTop: "1px solid rgba(111,230,193,0.3)", borderLeft: "1px solid rgba(111,230,193,0.3)" }} />
+                  <div 
+                    style={{ 
+                      position: "absolute", top: 18, left: 18, width: 14, height: 14, 
+                      borderTop: "1px solid rgba(111,230,193,0.3)", borderLeft: "1px solid rgba(111,230,193,0.3)",
+                      transition: "all 0.4s ease"
+                    }} 
+                    className="group-hover:border-white/40 group-hover:scale-110"
+                  />
 
                   {/* Serial Number */}
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
                     <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 13, color: CYAN, opacity: 0.65, letterSpacing: "0.2em" }}>{String(i + 1).padStart(2, "0")}</span>
-                    <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, rgba(111,230,193,0.25), transparent)" }} />
+                    <div className="flex-1 h-[1px] bg-gradient-to-r from-[#6FE6C1]/25 to-transparent group-hover:from-[#6FE6C1]/60 transition-all duration-500" />
                   </div>
 
                   {/* Title */}
@@ -140,8 +139,8 @@ export function WoundTreatmentUsageSection() {
 
                   {/* Bottom indicator */}
                   <div style={{ marginTop: "auto", paddingTop: 28, display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{ width: 40, height: 1, background: "linear-gradient(90deg, #6FE6C1, transparent)", opacity: 0.4 }} />
-                    <div style={{ width: 4, height: 4, background: CYAN, borderRadius: "50%", boxShadow: `0 0 8px ${CYAN}` }} />
+                    <div className="w-10 h-[1px] bg-gradient-to-r from-[#6FE6C1] to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div style={{ width: 4, height: 4, background: CYAN, borderRadius: "50%", boxShadow: `0 0 8px ${CYAN}` }} className="group-hover:animate-pulse" />
                   </div>
                 </div>
               </div>

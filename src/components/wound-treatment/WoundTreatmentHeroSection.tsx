@@ -7,7 +7,24 @@ const CYAN = "#6FE6C1";
 
 export function WoundTreatmentHeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: "60px" }}>
+    <section className="relative overflow-hidden">
+      <style dangerouslySetInnerHTML={{__html: `
+        .wound-treatment-hero-desktop-wrapper {
+          min-height: calc(100vh - 72px);
+        }
+        @media (min-width: 2050px) {
+          .wound-treatment-hero-desktop-wrapper {
+             min-height: 1000px;
+             height: 1000px;
+             max-height: 1000px;
+          }
+        }
+        @keyframes slideDownHero {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(8px); }
+        }
+        .arrow-bounce-hero { animation: slideDownHero 2s ease-in-out infinite; }
+      `}} />
       {/* Decorative background glow */}
       <div
         style={{
@@ -73,8 +90,7 @@ export function WoundTreatmentHeroSection() {
 
       {/* ── DESKTOP HERO WRAPPER ── */}
       <div 
-        className="hidden md:flex flex-col items-center justify-center w-full relative mb-16 px-8" 
-        style={{ minHeight: "calc(100vh - 80px)" }}
+        className="hidden md:flex flex-col items-center justify-center w-full relative px-8 wound-treatment-hero-desktop-wrapper" 
       >
         {/* Background Radial Light */}
         <div
@@ -172,6 +188,24 @@ export function WoundTreatmentHeroSection() {
            </div>
         </div>
         
+        {/* Pulsing Scroll Arrow for Desktop Hero */}
+        <div 
+          className="absolute bottom-12 lg:bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
+          onClick={() => {
+            const el = document.getElementById("healing-process");
+            if (el) {
+              const y = el.getBoundingClientRect().top + window.scrollY - 100;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          }}
+        >
+          <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.2em", color: CYAN, textTransform: "uppercase" }}>
+            Узнать больше
+          </span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="arrow-bounce-hero">
+            <path d="M5 9L12 16L19 9" stroke={CYAN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
       </div>
     </section>
   );

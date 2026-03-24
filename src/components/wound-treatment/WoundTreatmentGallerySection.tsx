@@ -31,13 +31,14 @@ export function WoundTreatmentGallerySection() {
   return (
     <section
       id="gallery"
-      style={{ backgroundColor: "#001d14", position: "relative", overflow: "hidden" }}
+      className="relative overflow-hidden py-[60px] md:py-[100px]"
+      style={{ backgroundColor: "#001d14" }}
     >
       {/* ── Background decoration ── */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: "10%", right: "5%", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(111,230,193,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-      <Container style={{ position: "relative", zIndex: 1, padding: "80px 0 100px" }}>
+      <Container style={{ position: "relative", zIndex: 1 }}>
         <div style={{ 
           display: "flex", 
           flexDirection: isMobile ? "column" : "row", 
@@ -62,7 +63,7 @@ export function WoundTreatmentGallerySection() {
               </span>
             </div>
 
-            <div style={{ overflow: "hidden", position: "relative", padding: "4px" }}>
+            <div style={{ overflow: "hidden", position: "relative", padding: "24px 10px" }}>
               <div
                 style={{
                   display: "flex",
@@ -74,13 +75,14 @@ export function WoundTreatmentGallerySection() {
                 {slides.map((slide) => (
                   <div
                     key={slide.id}
+                    className="group transition-all duration-500 md:hover:translate-y-[-8px] [filter:drop-shadow(0_0_8px_rgba(0,0,0,0.3))] md:hover:[filter:drop-shadow(0_15px_40_rgba(111,230,193,0.3))]"
                     style={{
                       flex: `0 0 calc(${100 / (isMobile ? 1 : 2)}% - ${isMobile ? 0 : 10}px)`,
                       aspectRatio: "1/1",
                       background: "rgba(111,230,193,0.18)",
                       clipPath: CLIP(24),
                       padding: "1.5px",
-                      position: "relative",
+                      position: "relative"
                     }}
                   >
                     <div
@@ -95,20 +97,45 @@ export function WoundTreatmentGallerySection() {
                         justifyContent: "center",
                         position: "relative",
                         overflow: "hidden",
+                        transition: "all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)",
                       }}
                     >
                       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.06) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
                       
-                      <svg style={{ width: 64, height: 64, color: CYAN, opacity: 0.35, marginBottom: 18 }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg 
+                        style={{ 
+                          width: 64, height: 64, color: CYAN, opacity: 0.35, marginBottom: 18,
+                          transition: "all 0.5s ease" 
+                        }} 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        className="md:group-hover:scale-110 md:group-hover:opacity-60"
+                      >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.7} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       
-                      <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 12, color: CYAN, letterSpacing: "0.2em", opacity: 0.5, textAlign: "center", padding: "0 20px", textTransform: "uppercase" }}>
+                      <span 
+                        style={{ 
+                          fontFamily: "'Furore', sans-serif", fontSize: 12, color: CYAN, 
+                          letterSpacing: "0.2em", opacity: 0.5, textAlign: "center", 
+                          padding: "0 20px", textTransform: "uppercase",
+                          transition: "all 0.5s ease"
+                        }}
+                        className="md:group-hover:scale-110 md:group-hover:opacity-100"
+                      >
                         Здесь будут фотографии
                       </span>
 
-                      {/* Ghost ID */}
-                      <div style={{ position: "absolute", bottom: -10, right: 12, fontFamily: "'Furore', sans-serif", fontSize: 84, color: "transparent", WebkitTextStroke: "1px rgba(111,230,193,0.04)", userSelect: "none", lineHeight: 0.8 }}>
+                      {/* Ghost ID with animation */}
+                      <div 
+                        style={{ 
+                          position: "absolute", bottom: -10, right: 12, 
+                          fontFamily: "'Furore', sans-serif", fontSize: 84, 
+                          color: "transparent", WebkitTextStroke: "1px rgba(111,230,193,0.04)", 
+                          userSelect: "none", lineHeight: 0.8,
+                          transition: "all 0.8s ease"
+                        }}
+                        className="md:group-hover:translate-x-2 md:group-hover:opacity-10"
+                      >
                         {slide.id}
                       </div>
                     </div>

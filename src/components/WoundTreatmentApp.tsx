@@ -84,7 +84,7 @@ export default function WoundTreatmentApp() {
         <Navbar />
       </div>
 
-      <main style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
+      <main className="pt-[80px] md:pt-[72px]" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
         <WoundTreatmentHeroSection />
         <WoundHealingProcessSection />
         <WoundTreatmentProductsSection />

@@ -31,7 +31,7 @@ const phases = [
 
 export function WoundHealingProcessSection() {
   return (
-    <section id="healing-process" className="relative overflow-hidden" style={{ backgroundColor: "#001d14", padding: "60px 0 80px" }}>
+    <section id="healing-process" className="relative overflow-hidden py-[60px] md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
       
       {/* ── GLOBAL SECTION SATIATION (Glows & Grids) ── */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -43,7 +43,7 @@ export function WoundHealingProcessSection() {
       <Container className="relative z-10">
         
         {/* ── PREMIUM HEADER ── */}
-        <div className="mb-10 md:mb-20 text-center lg:text-left">
+        <div className="mb-[32px] md:mb-[60px] text-center lg:text-left">
            <h2 style={{ 
              fontFamily: "'Furore', sans-serif", fontSize: "clamp(28px, 4.5vw, 56px)", 
              color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.03em", lineHeight: 1.15

@@ -36,10 +36,10 @@ export function WoundTreatmentProductsSection() {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.06) 1px, transparent 1px)", backgroundSize: "32px 32px", maskImage: "radial-gradient(ellipse 80% 100% at 50% 50%, black 40%, transparent 100%)", pointerEvents: "none" }} />
 
       {/* ════════ MOBILE ════════ */}
-      <div className="md:hidden" style={{ padding: "48px 0 56px" }}>
+      <div className="md:hidden py-[60px]">
         <Container>
           {/* Section heading */}
-          <div style={{ marginBottom: "32px" }}>
+          <div className="mb-[32px]">
             <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "40px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.95, margin: 0 }}>
               Применяемые<br />
               <span style={{ WebkitTextStroke: "1.5px #6FE6C1", color: "transparent" }}>препараты</span>
@@ -89,7 +89,7 @@ export function WoundTreatmentProductsSection() {
       </div>
 
       {/* ════════ DESKTOP ════════ */}
-      <div className="hidden md:block" style={{ position: "relative", padding: "90px 0 110px" }}>
+      <div className="hidden md:block py-[100px]" style={{ position: "relative" }}>
         {/* Decorative bg shapes */}
         <div style={{ position: "absolute", top: "0", left: "-20%", width: "800px", height: "400px", background: "linear-gradient(90deg, rgba(111,230,193,0.03) 0%, transparent 100%)", transform: "skewY(-15deg)", borderTop: "1px solid rgba(111,230,193,0.1)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "10%", right: "-100px", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle at 30% 30%, rgba(111,230,193,0.05) 0%, rgba(0,0,0,0) 80%)", border: "1px solid rgba(111,230,193,0.06)", pointerEvents: "none" }} />
@@ -106,9 +106,16 @@ export function WoundTreatmentProductsSection() {
           {/* Product cards — each wrapped in a border block */}
           <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
             {products.map((p, i) => (
-              <div key={p.id}>
+              <div key={p.id} className="group">
                 {/* ── Outer diamond-cut border wrapper ── */}
-                <div style={{ background: "#6FE6C1", clipPath: CLIP_OUTER(24), padding: "1.5px", filter: "drop-shadow(0 12px 40px rgba(0,0,0,0.7))" }}>
+                <div 
+                  className="group-hover:translate-y-[-8px] transition-all duration-500 [filter:drop-shadow(0_12px_40px_rgba(0,0,0,0.7))] group-hover:[filter:drop-shadow(0_20px_60px_rgba(111,230,193,0.3))]"
+                  style={{ 
+                    background: "#6FE6C1", 
+                    clipPath: CLIP_OUTER(24), 
+                    padding: "1.5px"
+                  }}
+                >
                   <div style={{ background: "linear-gradient(135deg, #001a0f 0%, #000a05 100%)", clipPath: CLIP_OUTER(23), padding: "28px" }}>
 
                     {/* ── Inner row: photo + text ── */}
