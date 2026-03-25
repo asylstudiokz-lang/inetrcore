@@ -8,18 +8,55 @@ import VitaminsApp from '../../VitaminsApp.tsx';
 	description="Индивидуальный подбор нутриентов и витаминных комплексов для восстановления обмена веществ, укрепления иммунитета и повышения энергии в Центре Побед, Алматы."
 	schema={JSON.stringify({
 		"@context": "https://schema.org",
-		"@type": "Service",
-		"serviceType": "Биохимическая коррекция и витаминные комплексы",
-		"provider": {
-			"@type": "MedicalOrganization",
-			"name": "Центр Побед",
-			"url": "https://centrpobed.kz"
-		},
-		"areaServed": {
-			"@type": "City",
-			"name": "Алматы"
-		},
-		"description": "Индивидуальный подбор нутриентов и витаминных комплексов для восстановления обмена веществ, укрепления иммунитета и повышения энергии."
+		"@graph": [
+			{
+				"@type": "Service",
+				"serviceType": "Биохимическая коррекция и витаминные комплексы",
+				"provider": {
+					"@type": "MedicalOrganization",
+					"name": "Центр Побед",
+					"url": "https://centrpobed.kz"
+				},
+				"areaServed": {
+					"@type": "City",
+					"name": "Алматы"
+				},
+				"description": "Индивидуальный подбор нутриентов и витаминных комплексов для восстановления обмена веществ, укрепления иммунитета и повышения энергии."
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Экспертный Анализ VITAMINS 1",
+				"description": "Разбор биохимических процессов и влияния витаминных комплексов на организм.",
+				"thumbnailUrl": "https://img.youtube.com/vi/jQSSjroGjzw/maxresdefault.jpg",
+				"contentUrl": "https://www.youtube.com/watch?v=jQSSjroGjzw",
+				"uploadDate": "2024-01-01"
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Экспертный Анализ VITAMINS 2",
+				"description": "Как правильно подбирать нутриенты для восстановления здоровья.",
+				"thumbnailUrl": "https://img.youtube.com/vi/Rs1DalWvRk4/maxresdefault.jpg",
+				"contentUrl": "https://www.youtube.com/watch?v=Rs1DalWvRk4",
+				"uploadDate": "2024-01-01"
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Главная",
+						"item": "https://centrpobed.kz/"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "Витамины и Биохимия",
+						"item": "https://centrpobed.kz/services/2"
+					}
+				]
+			}
+		]
 	})}
 >
 	<VitaminsApp client:load />

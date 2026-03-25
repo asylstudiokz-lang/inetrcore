@@ -7,6 +7,28 @@ import PrivacyPolicyApp from '../../components/PrivacyPolicyApp.tsx';
 	title="Политика конфиденциальности — Центр Побед"
 	description="Ознакомьтесь с политикой конфиденциальности оздоровительного центра Центр Побед. Мы заботимся о безопасности ваших персональных данных."
 	noindex={true}
+	schema={JSON.stringify({
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Главная",
+						"item": "https://centrpobed.kz/"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "Политика конфиденциальности",
+						"item": "https://centrpobed.kz/privacy-policy"
+					}
+				]
+			}
+		]
+	})}
 >
 	<PrivacyPolicyApp client:load />
 </Layout>

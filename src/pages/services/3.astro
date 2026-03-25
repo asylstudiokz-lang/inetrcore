@@ -8,18 +8,39 @@ import PedagogicalApp from '../../PedagogicalApp';
     description="Профессиональная педагогическая коррекция для детей: развитие когнитивных навыков, социализация и подготовка к школе в оздоровительном центре Центр Побед, Алматы."
     schema={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Педагогическая коррекция и развитие детей",
-        "provider": {
-            "@type": "MedicalOrganization",
-            "name": "Центр Побед",
-            "url": "https://centrpobed.kz"
-        },
-        "areaServed": {
-            "@type": "City",
-            "name": "Алматы"
-        },
-        "description": "Профессиональная педагогическая коррекция для детей: развитие когнитивных навыков, социализация и подготовка к школе."
+        "@graph": [
+            {
+                "@type": "Service",
+                "serviceType": "Педагогическая коррекция и развитие детей",
+                "provider": {
+                    "@type": "MedicalOrganization",
+                    "name": "Центр Побед",
+                    "url": "https://centrpobed.kz"
+                },
+                "areaServed": {
+                    "@type": "City",
+                    "name": "Алматы"
+                },
+                "description": "Профессиональная педагогическая коррекция для детей: развитие когнитивных навыков, socialización и подготовка к школе."
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Главная",
+                        "item": "https://centrpobed.kz/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Педагогическая Коррекция",
+                        "item": "https://centrpobed.kz/services/3"
+                    }
+                ]
+            }
+        ]
     })}
 >
     <PedagogicalApp client:load />

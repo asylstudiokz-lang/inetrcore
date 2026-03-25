@@ -8,18 +8,57 @@ import BiteCorrectionApp from '../../components/BiteCorrectionApp.tsx';
 	description="Инновационное исправление прикуса без брекетов с помощью корректора Миката. Лечение дисфункции ВНЧС, бруксизма и храпа в Центре Побед, Алматы."
 	schema={JSON.stringify({
 		"@context": "https://schema.org",
-		"@type": "Service",
-		"serviceType": "Исправление прикуса корректором Миката",
-		"provider": {
-			"@type": "MedicalOrganization",
-			"name": "Центр Побед",
-			"url": "https://centrpobed.kz"
-		},
-		"areaServed": {
-			"@type": "City",
-			"name": "Алматы"
-		},
-		"description": "Инновационное исправление прикуса без брекетов с помощью корректора Миката. Лечение дисфункции ВНЧС, бруксизма и храпа."
+		"@graph": [
+			{
+				"@type": "Service",
+				"serviceType": "Исправление прикуса корректором Миката",
+				"provider": {
+					"@type": "MedicalOrganization",
+					"name": "Центр Побед",
+					"url": "https://centrpobed.kz"
+				},
+				"areaServed": {
+					"@type": "City",
+					"name": "Алматы"
+				},
+				"description": "Инновационное исправление прикуса без брекетов с помощью корректора Миката. Лечение дисфункции ВНЧС, бруксизма и храпа."
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Что такое корректор МИКАТА?",
+				"description": "Принцип работы и преимущества корректора Миката для исправления прикуса.",
+				"thumbnailUrl": "https://img.youtube.com/vi/vGuUakA1WRc/maxresdefault.jpg",
+				"contentUrl": "https://www.youtube.com/watch?v=vGuUakA1WRc",
+				"uploadDate": "2024-01-01"
+			},
+			{
+				"@type": "ImageGallery",
+				"name": "Результаты исправления прикуса",
+				"description": "Фотографии пациентов до и после лечения корректором Миката.",
+				"image": [
+					"https://centrpobed.kz/src/assets/mik/mik_1.jpeg",
+					"https://centrpobed.kz/src/assets/mik/mik_2.jpeg",
+					"https://centrpobed.kz/src/assets/mik/mik_3.jpeg"
+				]
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Главная",
+						"item": "https://centrpobed.kz/"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "Исправление Прикуса",
+						"item": "https://centrpobed.kz/services/4"
+					}
+				]
+			}
+		]
 	})}
 >
 	<BiteCorrectionApp client:load />

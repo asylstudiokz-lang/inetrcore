@@ -8,18 +8,48 @@ import WoundTreatmentApp from '../../components/WoundTreatmentApp.tsx';
 	description="Эффективное лечение диабетической стопы, трофических язв и долго незаживающих ран с применением Жидкого Клеточного Иммуномодулятора (ЖКИМ) в Центре Побед, Алматы."
 	schema={JSON.stringify({
 		"@context": "https://schema.org",
-		"@type": "Service",
-		"serviceType": "Лечение ран препаратом ЖКИМ",
-		"provider": {
-			"@type": "MedicalOrganization",
-			"name": "Центр Побед",
-			"url": "https://centrpobed.kz"
-		},
-		"areaServed": {
-			"@type": "City",
-			"name": "Алматы"
-		},
-		"description": "Эффективное лечение диабетической стопы, трофических язв и долго незаживающих ран с применением Жидкого Клеточного Иммуномодулятора (ЖКИМ)."
+		"@graph": [
+			{
+				"@type": "Service",
+				"serviceType": "Лечение ран препаратом ЖКИМ",
+				"provider": {
+					"@type": "MedicalOrganization",
+					"name": "Центр Побед",
+					"url": "https://centrpobed.kz"
+				},
+				"areaServed": {
+					"@type": "City",
+					"name": "Алматы"
+				},
+				"description": "Эффективное лечение диабетической стопы, трофических язв и долго незаживающих ран с применением Жидкого Клеточного Иммуномодулятора (ЖКИМ)."
+			},
+			{
+				"@type": "ImageGallery",
+				"name": "Процесс заживления ран ЖКИМ",
+				"description": "Фотографии динамики заживления трофических язв и диабетической стопы.",
+				"image": [
+					"https://centrpobed.kz/src/assets/wounds/wound1.jpg",
+					"https://centrpobed.kz/src/assets/wounds/wound2.jpg"
+				]
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Главная",
+						"item": "https://centrpobed.kz/"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "Лечение Ран ЖКИМ",
+						"item": "https://centrpobed.kz/services/5"
+					}
+				]
+			}
+		]
 	})}
 >
 	<WoundTreatmentApp client:load />

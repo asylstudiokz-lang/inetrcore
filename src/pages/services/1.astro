@@ -8,18 +8,76 @@ import ZprrApp from '../../ZprrApp.tsx';
 	description="Программа реабилитации для детей с задержкой психо-речевого развития (ЗПРР) в Алматы. Комплексный подход: остеопатия, биохимическая коррекция and инновационные методики."
 	schema={JSON.stringify({
 		"@context": "https://schema.org",
-		"@type": "Service",
-		"serviceType": "Лечение ЗПРР и ЗРР",
-		"provider": {
-			"@type": "MedicalOrganization",
-			"name": "Центр Побед",
-			"url": "https://centrpobed.kz"
-		},
-		"areaServed": {
-			"@type": "City",
-			"name": "Алматы"
-		},
-		"description": "Программа реабилитации для детей с задержкой психо-речевого развития (ЗПРР) в Алматы. Комплексный подход: остеопатия, биохимическая коррекция and инновационные методики."
+		"@graph": [
+			{
+				"@type": "Service",
+				"serviceType": "Лечение ЗПРР и ЗРР",
+				"provider": {
+					"@type": "MedicalOrganization",
+					"name": "Центр Побед",
+					"url": "https://centrpobed.kz"
+				},
+				"areaServed": {
+					"@type": "City",
+					"name": "Алматы"
+				},
+				"description": "Программа реабилитации для детей с задержкой психо-речевого развития (ЗПРР) в Алматы. Комплексный подход: остеопатия, биохимическая коррекция and инновационные методики."
+			},
+			{
+				"@type": "FAQPage",
+				"mainEntity": [
+					{
+						"@type": "Question",
+						"name": "Когда можно на прием на фоне подготовки комплексами?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Достаточно 2-3х недель приема комплексов и можно на приём для достижения желаемого результата."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Сколько курсов нужно пройти чтобы был результат?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Индивидуально, но при условии, если ребенок прошел подготовку - 2 сеанса, без подготовки 3 сеанса. Результат зависит от степени сложности состояния ребенка."
+						}
+					}
+				]
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Отзыв: СЕНСОМОТОРНАЯ АЛАЛИЯ",
+				"description": "Результат лечения сенсомоторной алалии в Центре Побед.",
+				"thumbnailUrl": "https://img.youtube.com/vi/7CPsbl0dpyY/maxresdefault.jpg",
+				"contentUrl": "https://www.youtube.com/watch?v=7CPsbl0dpyY",
+				"uploadDate": "2024-01-01"
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Результат после 3-х сеансов",
+				"description": "Клинический результат восстановления ребенка после 3-х сеансов в Центре Побед.",
+				"thumbnailUrl": "https://img.youtube.com/vi/NWDTdkcMRJA/maxresdefault.jpg",
+				"contentUrl": "https://www.youtube.com/watch?v=NWDTdkcMRJA",
+				"uploadDate": "2024-01-01"
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Главная",
+						"item": "https://centrpobed.kz/"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "ЗПРР и ЗРР",
+						"item": "https://centrpobed.kz/services/1"
+					}
+				]
+			}
+		]
 	})}
 >
 	<ZprrApp client:load />
