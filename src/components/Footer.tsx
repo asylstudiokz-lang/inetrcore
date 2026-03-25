@@ -198,7 +198,7 @@ export function Footer() {
             {/* Social icons */}
             <div style={{ display: "flex", gap: "12px" }}>
               <SocialBtn
-                href="https://instagram.com"
+                href="https://www.instagram.com/centr_pobed_kz?igsh=MW84azgzZTN2OXRlZw=="
                 icon={<IconInstagram size={20} />}
                 label="Instagram"
                 mobile
@@ -311,7 +311,7 @@ export function Footer() {
             {/* Social icons */}
             <div style={{ display: "flex", gap: "16px" }}>
               <SocialBtn
-                href="https://instagram.com"
+                href="https://www.instagram.com/centr_pobed_kz?igsh=MW84azgzZTN2OXRlZw=="
                 icon={<IconInstagram size={22} />}
                 label="Instagram"
               />

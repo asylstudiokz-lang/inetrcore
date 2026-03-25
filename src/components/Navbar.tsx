@@ -361,7 +361,7 @@ export function Navbar() {
           {/* Nav links + CTA */}
           <nav style={{ display: "flex", gap: "36px", alignItems: "center" }}>
             {[
-              { label: "О центре", href: "/#center" },
+              { label: "О центре", href: "/" },
               { label: "Услуги", href: "/#directions", dropdown: true },
               { label: "Достижения", href: "/#achievements" },
               { label: "Контакты", href: "/#location" }
@@ -456,7 +456,7 @@ export function Navbar() {
         >
           {[
             { label: "Главная", href: "/#hero" },
-            { label: "О центре", href: "/#center" },
+            { label: "О центре", href: "/" },
             { label: "Услуги", href: "/#directions", isServices: true },
             { label: "Контакты", href: "/#location" }
           ].map((item) => (
