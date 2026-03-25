@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '../ui/Container';
+import imgBiotechnopark from '@/assets/biotechnopark.png?url';
+
+import vCert1 from '@/assets/certificates/1.jpg?url';
+import vCert2 from '@/assets/certificates/2.jpg?url';
+import vCert3 from '@/assets/certificates/3.jpg?url';
+import vCert4 from '@/assets/certificates/4.jpg?url';
+import vCert5 from '@/assets/certificates/5.jpg?url';
 
 const CYAN = "#6FE6C1";
 const BG_DARK = "#001d14";
 const CLIP = (s: number) => `polygon(${s}px 0, 100% 0, 100% calc(100% - ${s}px), calc(100% - ${s}px) 100%, 0 100%, 0 ${s}px)`;
 
-const CERTIFICATES = [
-    "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_1_1774043468361.png",
-    "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_3_1774043493592.png",
-    "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_1_1774043468361.png",
-    "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_3_1774043493592.png",
-    "/Users/ivanancuk/.gemini/antigravity/brain/dbefaa07-9165-4791-9d82-8891d00f9b3f/quality_certificate_mock_1_1774043468361.png",
-];
+const CERTIFICATES = [vCert1, vCert2, vCert3, vCert4, vCert5];
 
 const PlatedCard = ({ children, className = "", style = {}, tag = "", isMobile = false }: any) => {
     const [hovered, setHovered] = useState(false);
@@ -200,15 +201,18 @@ export function AboutCompanySection() {
                             position: "relative", margin: "1px", height: "calc(100% - 2px)", clipPath: CLIP(isMobile ? 17 : 21),
                             overflow: "hidden"
                         }}>
-                             <div style={{ 
-                                width: "100%", height: "100%", 
-                                display: "flex", alignItems: "center", justifyContent: "center",
-                                background: "rgba(111,230,193,0.05)",
-                                color: CYAN, fontFamily: "'Furore', sans-serif", fontSize: isMobile ? "11px" : "14px",
-                                textAlign: "center", padding: "20px"
-                            }}>
-                                [ ФОТОГРАФИЯ БИОТЕХНОПАРКА КОЛЬЦОВО ]
-                            </div>
+                            <img 
+                                src={imgBiotechnopark} 
+                                alt="Биотехнопарк Кольцово" 
+                                style={{ 
+                                    width: "100%", 
+                                    height: "100%", 
+                                    objectFit: "cover",
+                                    position: "absolute",
+                                    inset: 0,
+                                    zIndex: 1
+                                }} 
+                            />
                             <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, #001d14 0%, transparent 50%)`, opacity: 0.6 }} />
                             <div style={{ position: "absolute", bottom: isMobile ? "16px" : "24px", left: isMobile ? "16px" : "24px", fontFamily: "'Furore', sans-serif", fontSize: "9px", color: CYAN, letterSpacing: "0.2em" }}>БИОТЕХНОПАРК КОЛЬЦОВО</div>
                         </div>
@@ -292,11 +296,14 @@ export function AboutCompanySection() {
                                                         <div style={{ 
                                                             width: "100%", height: "100%", 
                                                             display: "flex", alignItems: "center", justifyContent: "center",
-                                                            background: "#f0f0f0",
-                                                            color: "#999", fontFamily: "'Montserrat', sans-serif", fontSize: "10px",
-                                                            textAlign: "center"
+                                                            background: "#fff",
+                                                            position: "relative"
                                                         }}>
-                                                            СЕРТИФИКАТ <br/> (ФОРМАТ A4)
+                                                            <img 
+                                                                src={cert} 
+                                                                alt={`Сертификат ${i + 1}`} 
+                                                                style={{ width: "100%", height: "100%", objectFit: "contain" }} 
+                                                            />
                                                         </div>
                                                         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: CYAN, animation: "scan-plated 4s linear infinite", opacity: 0.4 }} />
                                                     </div>

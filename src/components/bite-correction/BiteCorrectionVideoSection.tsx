@@ -161,7 +161,7 @@ export function BiteCorrectionVideoSection() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&rel=0"
+                src="https://www.youtube.com/embed/vGuUakA1WRc?modestbranding=1&rel=0"
                 title="Корректор МИКАТА"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -267,7 +267,7 @@ export function BiteCorrectionVideoSection() {
                   <iframe
                     width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&rel=0"
+                    src="https://www.youtube.com/embed/vGuUakA1WRc?modestbranding=1&rel=0"
                     title="Корректор МИКАТА"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

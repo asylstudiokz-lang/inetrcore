@@ -52,6 +52,23 @@ const methodologyCards = [
   },
 ];
 
+import mikata1 from "@/assets/mikata/mikata_1.jpg?url";
+import mikata2 from "@/assets/mikata/mikata_2.jpg?url";
+import mikata3 from "@/assets/mikata/mikata_3.jpg?url";
+import mikata4 from "@/assets/mikata/mikata_4.jpg?url";
+import mikata5 from "@/assets/mikata/mikata_5.jpg?url";
+import mikata6 from "@/assets/mikata/mikata_6.jpeg?url";
+import mikata7 from "@/assets/mikata/mikata_7.jpeg?url";
+import mikata8 from "@/assets/mikata/mikata_8.jpeg?url";
+import mikata9 from "@/assets/mikata/mikata_9.jpeg?url";
+import mikata10 from "@/assets/mikata/mikata_10.jpeg?url";
+import mikata11 from "@/assets/mikata/mikata_11.jpeg?url";
+
+const mikataImages = [
+  mikata1, mikata2, mikata3, mikata4, mikata5,
+  mikata6, mikata7, mikata8, mikata9, mikata10, mikata11
+];
+
 function CustomInnovationCTA({ text }: { text: string }) {
   const CYAN = "#6FE6C1";
   const CLIP = (size: number) =>
@@ -135,7 +152,7 @@ export function BiteCorrectionMethodSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [hoveredInnovation, setHoveredInnovation] = useState(false);
-  const totalSlides = 10;
+  const totalSlides = mikataImages.length;
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
@@ -342,13 +359,15 @@ export function BiteCorrectionMethodSection() {
                     
                      {/* Slides */}
                      <div className="absolute inset-0 flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                       {Array.from({ length: totalSlides }).map((_, idx) => (
-                         <div key={idx} className="w-full h-full flex-shrink-0 flex flex-col items-center justify-center relative">
-                           <div style={{ width: "100%", height: "100%", background: `radial-gradient(circle at center, rgba(111,230,193,${0.05 + idx * 0.01}) 0%, transparent 70%)` }} />
-                           <div className="absolute inset-0 flex flex-col items-center justify-center border border-white/5">
-                              <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: CYAN, opacity: 0.3, marginBottom: "8px" }}>MIKATA_PRO_IMAGE_{idx + 1}</span>
-                              <div className="text-white/20 text-xs font-mono uppercase tracking-widest">[ PHOTO PLACEHOLDER ]</div>
-                           </div>
+                       {mikataImages.map((img, idx) => (
+                         <div key={idx} className="w-full h-full flex-shrink-0 relative overflow-hidden">
+                            <img 
+                              src={img} 
+                              alt={`Mikata Result ${idx + 1}`} 
+                              className="absolute inset-0 w-full h-full object-cover"
+                              style={{ opacity: 0.95 }}
+                            />
+                            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%)", pointerEvents: "none" }} />
                          </div>
                        ))}
                      </div>

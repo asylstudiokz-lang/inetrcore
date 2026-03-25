@@ -5,10 +5,47 @@ const CYAN = "#6FE6C1";
 const CLIP = (s: number) =>
   `polygon(${s}px 0, 100% 0, 100% calc(100% - ${s}px), calc(100% - ${s}px) 100%, 0 100%, 0 ${s}px)`;
 
-const slides = Array.from({ length: 10 }, (_, i) => ({
-  id: String(i + 1).padStart(2, "0"),
-  title: `Результат ${i + 1}`,
-}));
+import wound1 from "@/assets/wounds/wound_1.jpeg?url";
+import wound2 from "@/assets/wounds/wound_2.jpeg?url";
+import wound3 from "@/assets/wounds/wound_3.jpeg?url";
+import wound4 from "@/assets/wounds/wound_4.jpeg?url";
+import wound5 from "@/assets/wounds/wound_5.jpeg?url";
+import wound6 from "@/assets/wounds/wound_6.jpeg?url";
+import wound7 from "@/assets/wounds/wound_7.jpeg?url";
+import wound8 from "@/assets/wounds/wound_8.jpeg?url";
+import wound9 from "@/assets/wounds/wound_9.jpeg?url";
+import wound10 from "@/assets/wounds/wound_10.jpeg?url";
+import wound11 from "@/assets/wounds/wound_11.jpeg?url";
+import wound12 from "@/assets/wounds/wound_12.jpeg?url";
+import wound13 from "@/assets/wounds/wound_13.jpeg?url";
+import wound14 from "@/assets/wounds/wound_14.jpeg?url";
+import wound15 from "@/assets/wounds/wound_15.jpeg?url";
+import wound16 from "@/assets/wounds/wound_16.jpeg?url";
+import wound17 from "@/assets/wounds/wound_17.jpeg?url";
+import wound19 from "@/assets/wounds/wound_19.jpeg?url";
+import wound20 from "@/assets/wounds/wound_20.jpeg?url";
+
+const slides = [
+  { id: "01", img: wound1 },
+  { id: "02", img: wound2 },
+  { id: "03", img: wound3 },
+  { id: "04", img: wound4 },
+  { id: "05", img: wound5 },
+  { id: "06", img: wound6 },
+  { id: "07", img: wound7 },
+  { id: "08", img: wound8 },
+  { id: "09", img: wound9 },
+  { id: "10", img: wound10 },
+  { id: "11", img: wound11 },
+  { id: "12", img: wound12 },
+  { id: "13", img: wound13 },
+  { id: "14", img: wound14 },
+  { id: "15", img: wound15 },
+  { id: "16", img: wound16 },
+  { id: "17", img: wound17 },
+  { id: "19", img: wound19 },
+  { id: "20", img: wound20 },
+];
 
 export function WoundTreatmentGallerySection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -87,7 +124,7 @@ export function WoundTreatmentGallerySection() {
                   >
                     <div
                       style={{
-                        background: "linear-gradient(135deg, #000c06 0%, #00140a 100%)",
+                        background: "#000c06",
                         clipPath: CLIP(23),
                         height: "100%",
                         width: "100%",
@@ -102,39 +139,23 @@ export function WoundTreatmentGallerySection() {
                     >
                       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.06) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
                       
-                      <svg 
-                        style={{ 
-                          width: 64, height: 64, color: CYAN, opacity: 0.35, marginBottom: 18,
-                          transition: "all 0.5s ease" 
-                        }} 
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        className="md:group-hover:scale-110 md:group-hover:opacity-60"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.7} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      
-                      <span 
-                        style={{ 
-                          fontFamily: "'Furore', sans-serif", fontSize: 12, color: CYAN, 
-                          letterSpacing: "0.2em", opacity: 0.5, textAlign: "center", 
-                          padding: "0 20px", textTransform: "uppercase",
-                          transition: "all 0.5s ease"
-                        }}
-                        className="md:group-hover:scale-110 md:group-hover:opacity-100"
-                      >
-                        Здесь будут фотографии
-                      </span>
+                      {/* Image rendering */}
+                      <img 
+                        src={slide.img} 
+                        alt={`Результат ${slide.id}`} 
+                        className="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity duration-300 md:group-hover:opacity-100"
+                      />
 
                       {/* Ghost ID with animation */}
                       <div 
                         style={{ 
                           position: "absolute", bottom: -10, right: 12, 
                           fontFamily: "'Furore', sans-serif", fontSize: 84, 
-                          color: "transparent", WebkitTextStroke: "1px rgba(111,230,193,0.04)", 
+                          color: "transparent", WebkitTextStroke: "1px rgba(111,230,193,0.1)", 
                           userSelect: "none", lineHeight: 0.8,
                           transition: "all 0.8s ease"
                         }}
-                        className="md:group-hover:translate-x-2 md:group-hover:opacity-10"
+                        className="md:group-hover:translate-x-2 md:group-hover:opacity-20"
                       >
                         {slide.id}
                       </div>

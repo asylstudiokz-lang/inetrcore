@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Container } from '../ui/Container';
 import { useIsMobile } from '../ui/use-mobile';
+import imgCatalogMain from '../../assets/vitamins/catalog_main.jpg?url';
+import imgCatalogCard2 from '../../assets/vitamins/catalog_card2.jpg?url';
+import imgCatalogCard3 from '../../assets/vitamins/catalog_card3.jpg?url';
 
 const CYAN = "#6FE6C1";
 const BG_DARK = "#001d14";
@@ -54,72 +57,94 @@ export function VitaminsCatalogSection() {
                 }}>
                     
                     {/* Interactive Card Stack */}
-                    <div 
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                        style={{
-                            position: "relative",
-                            width: isMobile ? "clamp(280px, 80vw, 420px)" : "clamp(260px, 40vw, 500px)",
-                            aspectRatio: "1.5 / 1",
-                            cursor: "pointer",
-                            filter: isHovered ? `drop-shadow(0 0 40px ${CYAN}40)` : "none",
-                            transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                            transform: isHovered ? "translateY(-10px) scale(1.02)" : "translateY(0) scale(1)"
-                        }}
+                    <a 
+                        href="https://drive.google.com/drive/folders/1Bl7moB1T5HzPApA9iEXCsDh_VRQo8tKF" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none", color: "inherit" }}
                     >
-                        {/* Card 3 (Bottom) */}
-                        <div style={{
-                            position: "absolute", inset: 0, clipPath: CLIP(22),
-                            background: "rgba(111,230,193,0.15)", zIndex: 1,
-                            transform: isHovered ? "translate(-40px, -20px) rotate(-10deg)" : "translate(-20px, -10px) rotate(-5deg)",
-                            transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
-                        }}>
-                             <div style={{
-                                position: "absolute", inset: "1.5px", clipPath: CLIP(21),
-                                background: "linear-gradient(135deg, #002d20 0%, #001d14 100%)", opacity: 0.8
-                             }} />
-                        </div>
+                        <div 
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            style={{
+                                position: "relative",
+                                width: isMobile ? "clamp(280px, 80vw, 420px)" : "clamp(260px, 40vw, 500px)",
+                                aspectRatio: "1.5 / 1",
+                                cursor: "pointer",
+                                filter: isHovered ? `drop-shadow(0 0 40px ${CYAN}40)` : "none",
+                                transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                                transform: isHovered ? "translateY(-10px) scale(1.02)" : "translateY(0) scale(1)"
+                            }}
+                        >
+                            {/* Card 3 (Bottom) */}
+                            <div style={{
+                                position: "absolute", inset: 0, clipPath: CLIP(22),
+                                background: "rgba(111,230,193,0.15)", zIndex: 1,
+                                transform: isHovered ? "translate(-40px, -20px) rotate(-10deg)" : "translate(-20px, -10px) rotate(-5deg)",
+                                transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
+                            }}>
+                                <img 
+                                    src={imgCatalogCard3} 
+                                    alt="Catalog Card 3" 
+                                    style={{
+                                        position: "absolute", inset: "1.5px", clipPath: CLIP(21),
+                                        width: "calc(100% - 3px)", height: "calc(100% - 3px)",
+                                        objectFit: "cover", opacity: 0.8
+                                    }} 
+                                />
+                            </div>
 
-                        {/* Card 2 (Middle) */}
-                        <div style={{
-                            position: "absolute", inset: 0, clipPath: CLIP(22),
-                            background: "rgba(111,230,193,0.25)", zIndex: 2,
-                            transform: isHovered ? "translate(40px, -20px) rotate(10deg)" : "translate(20px, -10px) rotate(5deg)",
-                            transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
-                        }}>
-                             <div style={{
-                                position: "absolute", inset: "1.5px", clipPath: CLIP(21),
-                                background: "linear-gradient(135deg, #003d2b 0%, #001d14 100%)", opacity: 0.9
-                             }} />
-                        </div>
+                            {/* Card 2 (Middle) */}
+                            <div style={{
+                                position: "absolute", inset: 0, clipPath: CLIP(22),
+                                background: "rgba(111,230,193,0.25)", zIndex: 2,
+                                transform: isHovered ? "translate(40px, -20px) rotate(10deg)" : "translate(20px, -10px) rotate(5deg)",
+                                transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
+                            }}>
+                                <img 
+                                    src={imgCatalogCard2} 
+                                    alt="Catalog Card 2" 
+                                    style={{
+                                        position: "absolute", inset: "1.5px", clipPath: CLIP(21),
+                                        width: "calc(100% - 3px)", height: "calc(100% - 3px)",
+                                        objectFit: "cover", opacity: 0.9
+                                    }} 
+                                />
+                            </div>
 
-                        {/* Card 1 (Top) */}
-                        <div style={{
-                            position: "absolute", inset: 0, clipPath: CLIP(22),
-                            background: CYAN, zIndex: 3,
-                            transform: isHovered ? "translateY(-15px)" : "translateY(0)",
-                            transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
-                        }}>
-                             <div style={{
-                                position: "absolute", inset: "1.5px", clipPath: CLIP(21),
-                                background: `linear-gradient(135deg, ${CYAN}80 0%, ${CYAN}40 100%)`,
-                                display: "flex", alignItems: "center", justifyContent: "center"
-                             }}>
-                                 {/* Placeholder Icon/Text */}
-                                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff40" strokeWidth="1.5">
-                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                     <circle cx="8.5" cy="8.5" r="1.5" />
-                                     <polyline points="21 15 16 10 5 21" />
-                                 </svg>
-                             </div>
-                             {/* Gloss Overlay */}
-                             <div style={{
-                                position: "absolute", inset: 0,
-                                background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                                pointerEvents: "none"
-                             }} />
+                            {/* Card 1 (Top) */}
+                            <div style={{
+                                position: "absolute", inset: 0, clipPath: CLIP(22),
+                                background: CYAN, zIndex: 3,
+                                transform: isHovered ? "translateY(-15px)" : "translateY(0)",
+                                transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
+                            }}>
+                                <div style={{
+                                    position: "absolute", inset: "1.5px", clipPath: CLIP(21),
+                                    background: `linear-gradient(135deg, ${CYAN}80 0%, ${CYAN}40 100%)`,
+                                    display: "flex", alignItems: "center", justifyContent: "center"
+                                }}>
+                                    <img 
+                                        src={imgCatalogMain} 
+                                        alt="Каталог ВМК" 
+                                        style={{ 
+                                            width: "100%", 
+                                            height: "100%", 
+                                            objectFit: "cover",
+                                            position: "absolute",
+                                            inset: 0
+                                        }} 
+                                    />
+                                </div>
+                                {/* Gloss Overlay */}
+                                <div style={{
+                                    position: "absolute", inset: 0,
+                                    background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                                    pointerEvents: "none"
+                                }} />
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
                     {/* Polygon Download Button */}
                     <div style={{
@@ -141,7 +166,12 @@ export function VitaminsCatalogSection() {
                         }} />
 
                         {/* Main Button Body */}
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <a 
+                            href="https://drive.google.com/drive/folders/1Bl7moB1T5HzPApA9iEXCsDh_VRQo8tKF" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none" }}
+                        >
                             <button style={{
                                 position: "absolute", inset: 0, width: "100%", height: "100%",
                                 background: isHovered ? `rgba(9, 185, 131, 0.9)` : `rgba(111,230,193,0.1)`,

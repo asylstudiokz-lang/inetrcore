@@ -54,7 +54,7 @@ const articles = [
     content: (
         <div className="space-y-6">
           <p>Сейчас существует много комплексов веществ для беременных. Их, строго говоря, можно разделить на две группы. В одну группу входят препараты содержащие витамины, которые были получены синтетическим (химическим) путем. Их эффект не оспорим, конечно, если комплекс составлен правильно. Но их недостатком является узость состава, а также возможная нежелательная нагрузка на организм женщины – почки, печень и т.д., а если учесть что эта нагрузка в период беременности повышается, то риск возникновения нежелательных эффектов возрастает в разы.</p>
-          <p>Другая группа препараты растительного происхождения, создают минимальную нагрузку на организм, обладают широким спектром биологического действия. Главный их недостаток – низкое содержание питательных веществ, а также не очень высокая биодоступность питательных веществ. Да, конечно, они безвредны. Но и толку от них не особо много. Так как же поддержать организм женщины в период беременности наиболее оптимально? Решение лежит на стыке двух групп этих продуктов. Суть в том, чтобы повысить биологическую ценность и биодоступность питательных веществ в природном сырье.</p>
+          <p>Дружная группа препараты растительного происхождения, создают минимальную нагрузку на организм, обладают широким спектром биологического действия. Главный их недостаток – низкое содержание питательных веществ, а также не очень высокая биодоступность питательных веществ. Да, конечно, они безвредны. Но и толку от них не особо много. Так как же поддержать организм женщины в период беременности наиболее оптимально? Решение лежит на стыке двух групп этих продуктов. Суть в том, чтобы повысить биологическую ценность и биодоступность питательных веществ в природном сырье.</p>
           <p>Именно здесь приходят на помощь научные достижения. Компания создала линейку таких продуктов. И далее мы попытаемся распределить их применение в течение всей беременности в зависимости от потребностей организма женщины. Для этого мы воспользуемся классической схемой разделения беременности на триместры, которая доказала свою эффективность.</p>
         </div>
     )
@@ -116,8 +116,7 @@ const articles = [
                     </ul>
                 </div>
             </div>
-
-            <p>Коронавирус бьет по уязвимым местам и вернуться к привычному ритму жизни после него непросто. По рекомендации ВОЗ чем раньше начать восстановительный период, тем меньше риск развития тяжелых последствий.</p>
+<p>Коронавирус бьет по уязвимым местам и вернуться к привычному ритму жизни после него непросто. По рекомендации ВОЗ чем раньше начать восстановительный период, тем меньше риск развития тяжелых последствий.</p>
             <p>Данный пакет услуг поможет: Восстановить тканевое дыхание, стабилизировать работу нервной системы, нормализовать циркуляцию крови и обменные процессы.</p>
         </div>
     )
@@ -288,10 +287,31 @@ export function VitaminsArticlesSection() {
                 <div className="p-8 md:p-16 pt-10 text-[rgba(255,255,255,0.85)] leading-relaxed text-lg" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                    {articles[selectedArticle].content}
                    <div className="mt-16 pt-16 border-t border-white/5 flex flex-col items-center">
-                      <button className="site-btn" style={{ fontFamily: "'Furore', sans-serif", fontSize: "14px", color: "#000", textTransform: "uppercase", letterSpacing: "0.2em", padding: "20px 52px", background: "linear-gradient(135deg, #6FE6C1 0%, #059669 100%)", clipPath: CLIP_QUAD(12), border: "none", cursor: "pointer", transition: "all 0.3s ease", boxShadow: "0 0 30px rgba(111,230,193,0.4)" }}>
-                          Получить консультацию
-                      </button>
-                   </div>
+                       <a 
+                        href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="site-btn" 
+                        style={{ 
+                          display: "inline-block",
+                          fontFamily: "'Furore', sans-serif", 
+                          fontSize: "14px", 
+                          color: "#000", 
+                          textTransform: "uppercase", 
+                          letterSpacing: "0.2em", 
+                          padding: "20px 52px", 
+                          background: "linear-gradient(135deg, #6FE6C1 0%, #059669 100%)", 
+                          clipPath: CLIP_ARTICLE(12), 
+                          border: "none", 
+                          cursor: "pointer", 
+                          transition: "all 0.3s ease", 
+                          boxShadow: "0 0 30px rgba(111,230,193,0.4)",
+                          textDecoration: "none"
+                        }}
+                      >
+                           Получить консультацию
+                       </a>
+                    </div>
                 </div>
              </div>
           </div>
@@ -360,13 +380,13 @@ function SocialBar() {
                     icon={<svg width={isMobile ? "40" : "34"} height={isMobile ? "40" : "34"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>} 
                   />
                   <SocialLink 
-                    href="#" 
+                    href="https://www.youtube.com/@centr_pobed_kz" 
                     label="YouTube" 
                     isMobile={isMobile}
                     icon={<svg width={isMobile ? "40" : "34"} height={isMobile ? "40" : "34"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.42 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.42-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>} 
                   />
                   <SocialLink 
-                    href="#" 
+                    href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
                     label="WhatsApp" 
                     isMobile={isMobile}
                     icon={<svg width={isMobile ? "40" : "34"} height={isMobile ? "40" : "34"} viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.1 2.4-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 34.9 2.2 10.6-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>} 
@@ -392,7 +412,12 @@ function SocialBar() {
 
 function SocialLink({ href, icon, label, isMobile }: { href: string, icon: React.ReactNode, label: string, isMobile?: boolean }) {
   return (
-    <a href={href} className="group relative flex items-center justify-center transition-all duration-400">
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="group relative flex items-center justify-center transition-all duration-400"
+    >
       <div className="w-18 h-18 md:w-20 md:h-20 flex items-center justify-center rounded-sm bg-white/5 border border-white/10 group-hover:border-[#6FE6C1]/60 group-hover:bg-[#6FE6C1]/20 transition-all overflow-hidden">
         <div className="transition-transform duration-500 group-hover:scale-125 text-white/40 group-hover:text-[#6FE6C1]">{icon}</div>
       </div>

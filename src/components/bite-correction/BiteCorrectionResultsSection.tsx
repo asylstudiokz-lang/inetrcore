@@ -16,7 +16,16 @@ const PROBLEMS = [
   "Профилактика апноэ",
 ];
 
-const TOTAL_SLIDES = 10;
+import mik1 from "@/assets/mik/mik_1.jpeg?url";
+import mik2 from "@/assets/mik/mik_2.jpeg?url";
+import mik3 from "@/assets/mik/mik_3.jpeg?url";
+import mik4 from "@/assets/mik/mik_4.jpeg?url";
+import mik5 from "@/assets/mik/mik_5.jpeg?url";
+import mik6 from "@/assets/mik/mik_6.jpeg?url";
+import mik7 from "@/assets/mik/mik_7.jpeg?url";
+
+const resultsImages = [mik1, mik2, mik3, mik4, mik5, mik6, mik7];
+const TOTAL_SLIDES = resultsImages.length;
 
 export function BiteCorrectionResultsSection() {
   const [current, setCurrent] = useState(0);
@@ -426,43 +435,27 @@ function SliderBlock({ current, onPrev, onNext, onTouchStart, onTouchEnd }: Slid
           <div style={{
             width: "100%", height: "100%",
             clipPath: `polygon(0 0, calc(100% - ${CUT - 1.5}px) 0, 100% ${CUT - 1.5}px, 100% 100%, ${CUT - 1.5}px 100%, 0 calc(100% - ${CUT - 1.5}px))`,
-            background: "linear-gradient(150deg, rgba(0,30,16,0.98) 0%, rgba(0,4,2,1) 100%)",
+            background: "#000a08",
             display: "flex", flexDirection: "column",
             alignItems: "center", justifyContent: "center",
-            gap: "12px", color: `rgba(111,230,193,0.2)`,
             position: "relative", overflow: "hidden",
           }}>
-            {/* Dot grid texture */}
-            <div style={{
-              position: "absolute", inset: 0,
-              backgroundImage: `radial-gradient(circle, rgba(111,230,193,0.08) 1px, transparent 1px)`,
-              backgroundSize: "32px 32px",
-              pointerEvents: "none",
-            }} />
-            {/* Radial center glow */}
-            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 50% 50% at 50% 45%, rgba(111,230,193,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
-            {/* Crosshair */}
-            <svg style={{ position: "absolute", opacity: 0.08, pointerEvents: "none" }} width="60" height="60" viewBox="0 0 60 60">
-              <path d="M30 0V60M0 30H60" stroke="#6FE6C1" strokeWidth="0.8" />
-              <circle cx="30" cy="30" r="14" fill="none" stroke="#6FE6C1" strokeWidth="0.8" />
-            </svg>
-            {/* Photo icon */}
-            <div style={{
-              width: "58px", height: "58px", borderRadius: "50%",
-              border: "1px solid rgba(111,230,193,0.2)",
-              background: "rgba(111,230,193,0.04)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              position: "relative", zIndex: 1,
-            }}>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
+            {/* Image rendering */}
+            <div className="absolute inset-0 transition-opacity duration-300">
+              <img 
+                src={resultsImages[current]} 
+                alt={`Результат лечения ${current + 1}`}
+                style={{ 
+                  width: "100%", 
+                  height: "100%", 
+                  objectFit: "cover",
+                  opacity: 0.9
+                }} 
+              />
             </div>
-            <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "8px", letterSpacing: "0.35em", textTransform: "uppercase", opacity: 0.4, position: "relative", zIndex: 1 }}>
-              Результат {num}
-            </span>
+
+            {/* Ambient center glow */}
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 50% 50% at 50% 45%, rgba(111,230,193,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
           </div>
         </div>
 

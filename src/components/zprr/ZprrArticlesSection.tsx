@@ -273,9 +273,13 @@ export function ZprrArticlesSection() {
                       <div className="relative inline-block">
                           <div className="absolute inset-[-10px] bg-[#6FE6C1]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                           
-                          <button 
+                          <a 
+                              href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="site-btn"
                               style={{ 
+                                  display: "inline-block",
                                   fontFamily: "'Furore', sans-serif", 
                                   fontSize: "14px", 
                                   color: "#000", 
@@ -287,11 +291,12 @@ export function ZprrArticlesSection() {
                                   border: "none",
                                   cursor: "pointer",
                                   transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                                  boxShadow: "0 0 30px rgba(111,230,193,0.4)"
+                                  boxShadow: "0 0 30px rgba(111,230,193,0.4)",
+                                  textDecoration: "none"
                               }}
                           >
                               Получить консультацию
-                          </button>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -355,9 +360,13 @@ export function ZprrArticlesSection() {
                    {articles[selectedArticle].content}
                    
                    <div className="mt-16 pt-16 border-t border-white/5 flex flex-col items-center">
-                      <button 
+                      <a 
+                          href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="site-btn"
                           style={{ 
+                              display: "inline-block",
                               fontFamily: "'Furore', sans-serif", 
                               fontSize: "14px", 
                               color: "#000", 
@@ -369,11 +378,12 @@ export function ZprrArticlesSection() {
                               border: "none",
                               cursor: "pointer",
                               transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                              boxShadow: "0 0 30px rgba(111,230,193,0.4)"
+                              boxShadow: "0 0 30px rgba(111,230,193,0.4)",
+                              textDecoration: "none"
                           }}
                       >
                           Получить консультацию
-                      </button>
+                      </a>
                    </div>
                 </div>
              </div>

@@ -89,8 +89,8 @@ export function VitaminsVideoSection() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&rel=0"
-                  title="Placeholder Video 1"
+                  src="https://www.youtube.com/embed/jQSSjroGjzw?modestbranding=1&rel=0"
+                  title="Экспертный Анализ 1"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -142,8 +142,8 @@ export function VitaminsVideoSection() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/9bZkp7q19f0?modestbranding=1&rel=0"
-                  title="Placeholder Video 2"
+                  src="https://www.youtube.com/embed/Rs1DalWvRk4?modestbranding=1&rel=0"
+                  title="Экспертный Анализ 2"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
