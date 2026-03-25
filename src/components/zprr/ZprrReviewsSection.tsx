@@ -411,7 +411,7 @@ export function ZprrReviewsSection() {
            <div className="flex flex-col md:flex-row gap-6 w-full max-w-[800px] mx-auto justify-center">
              
              {/* Instagram Tech Button */}
-             <a href="https://www.instagram.com/centr_pobed_kz?igsh=MW84azgzZTN2OXRlZw==" target="_blank" rel="noopener noreferrer" className="custom-btn group relative w-full md:w-1/2" 
+             <a href="https://www.instagram.com/centr_pobed_kz?igsh=MW84azgzZTN2OXRlZw==" target="_blank" rel="noopener noreferrer" title="Наш Instagram - Центр Побед" className="custom-btn group relative w-full md:w-1/2" 
                 style={{ clipPath: CLIP(24), padding: "1.5px", textDecoration: "none", display: "inline-block", background: "linear-gradient(135deg, rgba(111,230,193,0.6) 0%, rgba(111,230,193,0.1) 100%)", boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}>
                <div style={{ clipPath: CLIP(23), background: "linear-gradient(135deg, rgba(0,52,34,0.9) 0%, rgba(0,18,12,0.95) 100%)", padding: "clamp(16px, 4vw, 24px) clamp(20px, 5vw, 32px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
                  <div className="flex items-center gap-4 md:gap-5">
@@ -433,7 +433,7 @@ export function ZprrReviewsSection() {
              </a>
 
              {/* Youtube Tech Button */}
-             <a href="https://www.youtube.com/@centr_pobed_kz" target="_blank" rel="noopener noreferrer" className="custom-btn group relative w-full md:w-1/2" 
+             <a href="https://www.youtube.com/@centr_pobed_kz" target="_blank" rel="noopener noreferrer" title="Наш YouTube канал - Центр Побед" className="custom-btn group relative w-full md:w-1/2" 
                 style={{ clipPath: CLIP(24), padding: "1.5px", textDecoration: "none", display: "inline-block", background: "linear-gradient(135deg, rgba(111,230,193,0.6) 0%, rgba(111,230,193,0.1) 100%)", boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}>
                <div style={{ clipPath: CLIP(23), background: "linear-gradient(135deg, rgba(0,52,34,0.9) 0%, rgba(0,18,12,0.95) 100%)", padding: "clamp(16px, 4vw, 24px) clamp(20px, 5vw, 32px)", display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
                  <div className="flex items-center gap-4 md:gap-5">

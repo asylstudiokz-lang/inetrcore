@@ -38,11 +38,13 @@ function SocialBtn({
   href,
   icon,
   label,
+  title,
   mobile = false,
 }: {
   href: string;
   icon: React.ReactNode;
   label: string;
+  title: string;
   mobile?: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -55,6 +57,7 @@ function SocialBtn({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
+      title={title}
       style={{ display: "inline-block", textDecoration: "none" }}
     >
       <div
@@ -97,10 +100,12 @@ function SocialBtn({
 /* ── Legal link ────────────────────────────────────────────────── */
 function LegalLink({
   href,
+  title,
   children,
   mobile = false,
 }: {
   href: string;
+  title: string;
   children: React.ReactNode;
   mobile?: boolean;
 }) {
@@ -108,6 +113,7 @@ function LegalLink({
   return (
     <a
       href={href}
+      title={title}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -201,12 +207,14 @@ export function Footer() {
                 href="https://www.instagram.com/centr_pobed_kz?igsh=MW84azgzZTN2OXRlZw=="
                 icon={<IconInstagram size={20} />}
                 label="Instagram"
+                title="Наш Instagram - Центр Побед"
                 mobile
               />
               <SocialBtn
                 href="https://wa.me/77021737192"
                 icon={<IconWhatsApp size={20} />}
                 label="WhatsApp"
+                title="Связаться с нами в WhatsApp"
                 mobile
               />
             </div>
@@ -248,10 +256,10 @@ export function Footer() {
 
             {/* Legal links */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
-              <LegalLink href="/privacy-policy" mobile>
+              <LegalLink href="/privacy-policy" title="Перейти к политике конфиденциальности" mobile>
                 Политика конфиденциальности<br />и обработки персональных данных
               </LegalLink>
-              <LegalLink href="/public-offer" mobile>
+              <LegalLink href="/public-offer" title="Перейти к публичной оферте" mobile>
                 Публичная оферта
               </LegalLink>
             </div>
@@ -275,6 +283,7 @@ export function Footer() {
                 Телефон для связи:{" "}
                 <a
                   href="tel:+77021737192"
+                  title="Позвонить нам"
                   style={{ color: "#6FE6C1", textDecoration: "none" }}
                 >
                   +7 702 173 7192
@@ -314,11 +323,13 @@ export function Footer() {
                 href="https://www.instagram.com/centr_pobed_kz?igsh=MW84azgzZTN2OXRlZw=="
                 icon={<IconInstagram size={22} />}
                 label="Instagram"
+                title="Наш Instagram - Центр Побед"
               />
               <SocialBtn
                 href="https://wa.me/77021737192"
                 icon={<IconWhatsApp size={22} />}
                 label="WhatsApp"
+                title="Связаться с нами в WhatsApp"
               />
             </div>
 
@@ -382,10 +393,10 @@ export function Footer() {
 
             {/* Legal links */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-              <LegalLink href="/privacy-policy">
+              <LegalLink href="/privacy-policy" title="Перейти к политике конфиденциальности">
                 Политика конфиденциальности и обработки персональных данных
               </LegalLink>
-              <LegalLink href="/public-offer">Публичная оферта</LegalLink>
+              <LegalLink href="/public-offer" title="Перейти к публичной оферте">Публичная оферта</LegalLink>
             </div>
 
             {/* Wide divider */}
@@ -518,6 +529,7 @@ export function Footer() {
                   </p>
                   <a
                     href="tel:+77021737192"
+                    title="Позвонить нам"
                     style={{
                       fontFamily: "'Montserrat', sans-serif",
                       fontSize: "18px",

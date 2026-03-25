@@ -61,6 +61,7 @@ export function VitaminsCatalogSection() {
                         href="https://drive.google.com/drive/folders/1Bl7moB1T5HzPApA9iEXCsDh_VRQo8tKF" 
                         target="_blank" 
                         rel="noopener noreferrer"
+                        title="Посмотреть каталог продукции в Google Drive"
                         style={{ textDecoration: "none", color: "inherit" }}
                     >
                         <div 
@@ -173,6 +174,7 @@ export function VitaminsCatalogSection() {
                             href="https://drive.google.com/drive/folders/1Bl7moB1T5HzPApA9iEXCsDh_VRQo8tKF" 
                             target="_blank" 
                             rel="noopener noreferrer"
+                            title="Скачать каталог продукции в Google Drive"
                             style={{ textDecoration: "none" }}
                         >
                             <button style={{

@@ -17,6 +17,7 @@ function CustomSectionCTA({ text }: { text: string }) {
       href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
       target="_blank" 
       rel="noopener noreferrer"
+      title="Записаться на консультацию в WhatsApp"
       className="block group relative transition-transform active:scale-95"
       style={{ width: "100%" }}
     >

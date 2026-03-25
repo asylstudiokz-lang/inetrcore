@@ -277,6 +277,7 @@ export function ZprrArticlesSection() {
                               href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
                               target="_blank"
                               rel="noopener noreferrer"
+                              title="Получить консультацию в WhatsApp"
                               className="site-btn"
                               style={{ 
                                   display: "inline-block",

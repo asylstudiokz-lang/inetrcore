@@ -107,7 +107,7 @@ export function Navbar() {
           <div style={{ width: "24px" }} />
 
           {/* "ЦЕНТР ПОБЕД" — centered exactly as in Figma */}
-          <a href="/" style={{ textDecoration: "none" }}>
+          <a href="/" title="Центр Побед - На главную" style={{ textDecoration: "none" }}>
             <span
               style={{
                 fontFamily: "'Furore', 'Exo 2', sans-serif",
@@ -302,7 +302,7 @@ export function Navbar() {
         }}>
 
           {/* Logo block Link */}
-          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "14px", color: "inherit" }}>
+          <a href="/" title="Центр Побед - На главную" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "14px", color: "inherit" }}>
             {/* Company logo image */}
             <img
               src={imgLogo}
@@ -373,11 +373,18 @@ export function Navbar() {
                 onMouseEnter={() => item.dropdown && setDropdownOpen(true)}
                 onMouseLeave={() => item.dropdown && setDropdownOpen(false)}
               >
-                <a
-                  href={item.href}
-                  className="nav-link-desktop"
-                  style={{ display: "flex", alignItems: "center", gap: "6px" }}
-                >
+                  <a
+                    href={item.href}
+                    title={
+                      item.label === "О центре" ? "О нашем оздоровительном центре" :
+                      item.label === "Услуги" ? "Наши основные направления и услуги" :
+                      item.label === "Достижения" ? "Наши результаты и достижения" :
+                      item.label === "Контакты" ? "Контактная информация и адрес центра" :
+                      item.label
+                    }
+                    className="nav-link-desktop"
+                    style={{ display: "flex", alignItems: "center", gap: "6px" }}
+                  >
                   {item.label}
                   {item.dropdown && (
                     <svg
@@ -393,7 +400,12 @@ export function Navbar() {
                   <div className={`services-dropdown ${dropdownOpen ? "open" : ""}`}>
                     <div className="services-dropdown-inner">
                       {SERVICES.map((service) => (
-                        <a key={service.label} href={service.href} className="dropdown-item">
+                        <a 
+                          key={service.label} 
+                          href={service.href} 
+                          title={`Перейти к разделу: ${service.label}`}
+                          className="dropdown-item"
+                        >
                           {service.label}
                         </a>
                       ))}
@@ -408,6 +420,7 @@ export function Navbar() {
               href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
+              title="Записаться на консультацию в WhatsApp"
               style={{ textDecoration: "none" }}
             >
             <button
@@ -517,6 +530,7 @@ export function Navbar() {
                           <a
                             key={service.label}
                             href={service.href}
+                            title={`Перейти к разделу: ${service.label}`}
                             onClick={() => setMenuOpen(false)}
                             style={{
                               fontFamily: "'Exo 2', sans-serif",
@@ -540,6 +554,13 @@ export function Navbar() {
               ) : (
                 <a
                   href={item.href}
+                  title={
+                    item.label === "Главная" ? "Вернуться в начало страницы" :
+                    item.label === "О центре" ? "О нашем оздоровительном центре" :
+                    item.label === "Услуги" ? "Наши основные направления и услуги" :
+                    item.label === "Контакты" ? "Контактная информация и адрес центра" :
+                    item.label
+                  }
                   onClick={() => setMenuOpen(false)}
                   style={{
                     fontFamily: "'Furore', 'Exo 2', sans-serif",
@@ -566,6 +587,7 @@ export function Navbar() {
               href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
+              title="Записаться на консультацию в WhatsApp"
               style={{ textDecoration: "none" }}
               onClick={() => setMenuOpen(false)}
             >

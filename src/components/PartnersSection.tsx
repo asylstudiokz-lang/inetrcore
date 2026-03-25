@@ -147,6 +147,7 @@ function PartnerCard({
             <ImageWithFallback
               src={partner.logo}
               alt={partner.name}
+              title={partner.name}
               style={{
                 width: mobile
                   ? `${partner.logoSize.width * 0.85}px`

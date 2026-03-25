@@ -60,6 +60,7 @@ export function CTAButton({ text = "записаться", variant = "primary" }
           href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
           target="_blank"
           rel="noopener noreferrer"
+          title="Записаться на консультацию через WhatsApp"
           style={{
             display: "flex",
             width: "100%",
@@ -815,7 +816,8 @@ export function HeroSection() {
 
             {/* Logo */}
             <img
-              alt="Центр Побед Лого"
+              alt="Центр Побед - Логотип"
+              title="Центр Побед - Оздоровительный центр инновационных технологий"
               src={img1}
               style={{
                 width: "72%",
