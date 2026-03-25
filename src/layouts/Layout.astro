@@ -9,6 +9,7 @@ interface Props {
 	schema?: string;
 	canonicalURL?: string;
 	keywords?: string;
+	ogImage?: string;
 }
 
 const { 
@@ -17,7 +18,8 @@ const {
 	noindex = false,
 	schema,
 	canonicalURL,
-	keywords = "оздоровительный центр, Алматы, остеопатия, ЗПРР, ЗРР, коррекция прикуса, Миката, ЖКИМ, лечение ран, витамины, нутриенты"
+	keywords = "оздоровительный центр, Алматы, остеопатия, ЗПРР, ЗРР, коррекция прикуса, Миката, ЖКИМ, лечение ран, витамины, нутриенты",
+	ogImage = "https://intercore-intech.com/logo.webp"
 } = Astro.props;
 ---
 
@@ -34,6 +36,21 @@ const {
 		)}
 		<link rel="canonical" href={canonicalURL || Astro.url.href} />
 		<link rel="publisher" href="https://intercore-intech.com" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL || Astro.url.href} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL || Astro.url.href} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImage} />
+
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
