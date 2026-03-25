@@ -7,13 +7,15 @@ interface Props {
 	description?: string;
 	noindex?: boolean;
 	schema?: string;
+	canonicalURL?: string;
 }
 
 const { 
 	title, 
 	description = "Центр Побед — Инновационный Оздоровительный Центр в Алматы. Остеопатия, коррекция прикуса Миката, лечение ран ЖКИМ и восстановление при ЗПРР.",
 	noindex = false,
-	schema
+	schema,
+	canonicalURL
 } = Astro.props;
 ---
 
@@ -23,6 +25,7 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<link rel="canonical" href={canonicalURL || Astro.url.href} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
