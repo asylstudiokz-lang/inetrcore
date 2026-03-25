@@ -6,6 +6,21 @@ import PedagogicalApp from '../../PedagogicalApp';
 <Layout 
     title="Педагогическая коррекция и развитие детей — Центр Побед"
     description="Профессиональная педагогическая коррекция для детей: развитие когнитивных навыков, социализация и подготовка к школе в оздоровительном центре Центр Побед, Алматы."
+    schema={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Педагогическая коррекция и развитие детей",
+        "provider": {
+            "@type": "MedicalOrganization",
+            "name": "Центр Побед",
+            "url": "https://centrpobed.kz"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Алматы"
+        },
+        "description": "Профессиональная педагогическая коррекция для детей: развитие когнитивных навыков, социализация и подготовка к школе."
+    })}
 >
     <PedagogicalApp client:load />
 </Layout>

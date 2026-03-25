@@ -6,6 +6,21 @@ import VitaminsApp from '../../VitaminsApp.tsx';
 <Layout 
 	title="Витаминные комплексы и биохимическая коррекция — Центр Побед"
 	description="Индивидуальный подбор нутриентов и витаминных комплексов для восстановления обмена веществ, укрепления иммунитета и повышения энергии в Центре Побед, Алматы."
+	schema={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"serviceType": "Биохимическая коррекция и витаминные комплексы",
+		"provider": {
+			"@type": "MedicalOrganization",
+			"name": "Центр Побед",
+			"url": "https://centrpobed.kz"
+		},
+		"areaServed": {
+			"@type": "City",
+			"name": "Алматы"
+		},
+		"description": "Индивидуальный подбор нутриентов и витаминных комплексов для восстановления обмена веществ, укрепления иммунитета и повышения энергии."
+	})}
 >
 	<VitaminsApp client:load />
 </Layout>

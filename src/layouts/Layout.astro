@@ -6,12 +6,14 @@ interface Props {
 	title: string;
 	description?: string;
 	noindex?: boolean;
+	schema?: string;
 }
 
 const { 
 	title, 
 	description = "Центр Побед — Инновационный Оздоровительный Центр в Алматы. Остеопатия, коррекция прикуса Миката, лечение ран ЖКИМ и восстановление при ЗПРР.",
-	noindex = false
+	noindex = false,
+	schema
 } = Astro.props;
 ---
 
@@ -24,6 +26,7 @@ const {
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
+		{schema && <script type="application/ld+json" set:html={schema} />}
 	</head>
 	<body class="bg-[#f2fcf8]">
 		<slot />

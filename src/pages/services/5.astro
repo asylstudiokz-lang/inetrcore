@@ -6,6 +6,21 @@ import WoundTreatmentApp from '../../components/WoundTreatmentApp.tsx';
 <Layout 
 	title="Лечение хронических ран и трофических язв препаратом ЖКИМ — Центр Побед"
 	description="Эффективное лечение диабетической стопы, трофических язв и долго незаживающих ран с применением Жидкого Клеточного Иммуномодулятора (ЖКИМ) в Центре Побед, Алматы."
+	schema={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"serviceType": "Лечение ран препаратом ЖКИМ",
+		"provider": {
+			"@type": "MedicalOrganization",
+			"name": "Центр Побед",
+			"url": "https://centrpobed.kz"
+		},
+		"areaServed": {
+			"@type": "City",
+			"name": "Алматы"
+		},
+		"description": "Эффективное лечение диабетической стопы, трофических язв и долго незаживающих ран с применением Жидкого Клеточного Иммуномодулятора (ЖКИМ)."
+	})}
 >
 	<WoundTreatmentApp client:load />
 </Layout>

@@ -6,6 +6,21 @@ import BiteCorrectionApp from '../../components/BiteCorrectionApp.tsx';
 <Layout 
 	title="Исправление прикуса и лечение ВНЧС корректором Миката — Центр Побед"
 	description="Инновационное исправление прикуса без брекетов с помощью корректора Миката. Лечение дисфункции ВНЧС, бруксизма и храпа в Центре Побед, Алматы."
+	schema={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"serviceType": "Исправление прикуса корректором Миката",
+		"provider": {
+			"@type": "MedicalOrganization",
+			"name": "Центр Побед",
+			"url": "https://centrpobed.kz"
+		},
+		"areaServed": {
+			"@type": "City",
+			"name": "Алматы"
+		},
+		"description": "Инновационное исправление прикуса без брекетов с помощью корректора Миката. Лечение дисфункции ВНЧС, бруксизма и храпа."
+	})}
 >
 	<BiteCorrectionApp client:load />
 </Layout>
