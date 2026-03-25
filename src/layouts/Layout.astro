@@ -8,6 +8,7 @@ interface Props {
 	noindex?: boolean;
 	schema?: string;
 	canonicalURL?: string;
+	keywords?: string;
 }
 
 const { 
@@ -15,7 +16,8 @@ const {
 	description = "Центр Побед — Инновационный Оздоровительный Центр в Алматы. Остеопатия, коррекция прикуса Миката, лечение ран ЖКИМ и восстановление при ЗПРР.",
 	noindex = false,
 	schema,
-	canonicalURL
+	canonicalURL,
+	keywords = "оздоровительный центр, Алматы, остеопатия, ЗПРР, ЗРР, коррекция прикуса, Миката, ЖКИМ, лечение ран, витамины, нутриенты"
 } = Astro.props;
 ---
 
@@ -24,12 +26,14 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
 		{noindex ? (
 			<meta name="robots" content="noindex, nofollow" />
 		) : (
 			<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		)}
 		<link rel="canonical" href={canonicalURL || Astro.url.href} />
+		<link rel="publisher" href="https://intercore-intech.com" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
