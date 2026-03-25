@@ -363,7 +363,8 @@ export function BiteCorrectionMethodSection() {
                          <div key={idx} className="w-full h-full flex-shrink-0 relative overflow-hidden">
                             <img 
                               src={img} 
-                              alt={`Mikata Result ${idx + 1}`} 
+                              alt={`Результат коррекции МИКАТА №${idx + 1}`} 
+                              title="Фото результата лечения корректором МИКАТА"
                               className="absolute inset-0 w-full h-full object-cover"
                               style={{ opacity: 0.95 }}
                             />

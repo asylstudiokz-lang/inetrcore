@@ -160,6 +160,7 @@ export function CenterSection() {
             >
               <img
                 alt="Бегужинов Дияр Маратович"
+                title="Бегужинов Дияр Маратович - Основатель Центра Побед"
                 src={imgLayer2112}
                 style={{
                   width: "100%",
@@ -339,6 +340,7 @@ export function CenterSection() {
               {/* Photo — shifted down to create space below top border */}
               <img
                 alt="Бегужинов Дияр Маратович"
+                title="Бегужинов Дияр Маратович - Врач-кардиохирург, остеопат"
                 src={imgLayer2112}
                 style={{
                   position: "absolute",

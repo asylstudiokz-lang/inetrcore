@@ -306,7 +306,8 @@ export function Navbar() {
             {/* Company logo image */}
             <img
               src={imgLogo}
-              alt="Центр Побед"
+              alt="Центр Побед - Логотип"
+              title="Центр Побед - Оздоровительный центр инновационных технологий"
               style={{
                 width: "48px",
                 height: "48px",

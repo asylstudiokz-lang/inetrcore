@@ -316,7 +316,12 @@ export function ZprrReviewsSection() {
                    <div className="relative flex-1 w-full bg-[#E5E5EA]/5 rounded-xl overflow-hidden flex items-center justify-center border border-[#6FE6C1]/20" 
                         style={{ boxShadow: "0 0 30px rgba(0,0,0,0.6) inset" }}>
                      {story.imgSrc ? (
-                       <img src={story.imgSrc} alt={`История ${story.id}`} className="w-full h-full object-cover" />
+                       <img 
+                        src={story.imgSrc} 
+                        alt={`История пациента ${story.id}`} 
+                        title="История и результат лечения в Центре Побед"
+                        className="w-full h-full object-cover" 
+                      />
                      ) : (
                        <div className="flex flex-col items-center justify-center text-[#6FE6C1]/40">
                          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="mb-3">

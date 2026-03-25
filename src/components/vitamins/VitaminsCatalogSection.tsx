@@ -85,7 +85,8 @@ export function VitaminsCatalogSection() {
                             }}>
                                 <img 
                                     src={imgCatalogCard3} 
-                                    alt="Catalog Card 3" 
+                                    alt="Витаминный комплекс - Карточка 3" 
+                                    title="Натуральные витамины и БАДы"
                                     style={{
                                         position: "absolute", inset: "1.5px", clipPath: CLIP(21),
                                         width: "calc(100% - 3px)", height: "calc(100% - 3px)",
@@ -103,7 +104,8 @@ export function VitaminsCatalogSection() {
                             }}>
                                 <img 
                                     src={imgCatalogCard2} 
-                                    alt="Catalog Card 2" 
+                                    alt="Витаминный комплекс - Карточка 2" 
+                                    title="Комплексы для восстановления организма"
                                     style={{
                                         position: "absolute", inset: "1.5px", clipPath: CLIP(21),
                                         width: "calc(100% - 3px)", height: "calc(100% - 3px)",
@@ -126,7 +128,8 @@ export function VitaminsCatalogSection() {
                                 }}>
                                     <img 
                                         src={imgCatalogMain} 
-                                        alt="Каталог ВМК" 
+                                        alt="Каталог VITAMINS - Центр Побед" 
+                                        title="Скачать каталог витаминных комплексов"
                                         style={{ 
                                             width: "100%", 
                                             height: "100%", 

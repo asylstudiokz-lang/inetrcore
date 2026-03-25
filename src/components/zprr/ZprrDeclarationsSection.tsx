@@ -36,7 +36,7 @@ function CertSlider() {
           <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "100%", height: "100%", border: "1px solid rgba(111,230,193,0.06)", clipPath: CLIP(16), pointerEvents: "none", transform: "rotate(2deg)" }} />
           <div style={{ position: "absolute", inset: 0, background: "#6FE6C1", clipPath: CLIP(16), padding: "1.5px", filter: "drop-shadow(0 0 30px rgba(111,230,193,0.15)) drop-shadow(0 15px 45px rgba(0,0,0,0.6))", zIndex: 2 }}>
             <div style={{ background: "linear-gradient(160deg, #001c10 0%, #000b06 100%)", clipPath: CLIP(15), height: "100%", width: "100%", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px", boxSizing: "border-box" }}>
-              <img src={slide.src} alt={slide.label} style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "1px", background: "#fff" }} />
+              <img src={slide.src} alt={slide.label} title={slide.label} style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "1px", background: "#fff" }} />
             </div>
           </div>
         </div>

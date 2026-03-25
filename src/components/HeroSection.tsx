@@ -173,7 +173,8 @@ export function HeroSection() {
             }}
           >
             <img
-              alt="Центр Побед Лого"
+              alt="Центр Побед - Логотип"
+              title="Центр Побед - Оздоровительный центр инновационных технологий"
               src={img1}
               className="absolute w-full"
               style={{

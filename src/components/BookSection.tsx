@@ -96,6 +96,7 @@ export function BookSection() {
               >
                 <img
                   alt="Книга: Биотрансформация"
+                  title="Книга 'Биотрансформация' - История объединения остеопатии и кардиохирургии"
                   src={img12}
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                 />
@@ -264,6 +265,7 @@ export function BookSection() {
                     {/* Book image */}
                     <img
                       alt="Книга: Биотрансформация"
+                      title="Книга 'Биотрансформация' - Автор Дияр Бегужинов"
                       src={img12}
                       style={{
                         transform: hovered

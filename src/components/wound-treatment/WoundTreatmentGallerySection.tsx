@@ -142,7 +142,8 @@ export function WoundTreatmentGallerySection() {
                       {/* Image rendering */}
                       <img 
                         src={slide.img} 
-                        alt={`Результат ${slide.id}`} 
+                        alt={`Результат лечения раны №${slide.id}`} 
+                        title="Прогресс заживления раны в динамике"
                         className="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity duration-300 md:group-hover:opacity-100"
                       />
 

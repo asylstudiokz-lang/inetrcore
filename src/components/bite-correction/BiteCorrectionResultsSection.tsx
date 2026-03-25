@@ -444,7 +444,8 @@ function SliderBlock({ current, onPrev, onNext, onTouchStart, onTouchEnd }: Slid
             <div className="absolute inset-0 transition-opacity duration-300">
               <img 
                 src={resultsImages[current]} 
-                alt={`Результат лечения ${current + 1}`}
+                alt={`Результат исправления прикуса ${current + 1}`}
+                title="Фото результата лечения - до и после"
                 style={{ 
                   width: "100%", 
                   height: "100%", 

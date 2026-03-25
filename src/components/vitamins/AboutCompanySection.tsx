@@ -204,6 +204,7 @@ export function AboutCompanySection() {
                             <img 
                                 src={imgBiotechnopark} 
                                 alt="Биотехнопарк Кольцово" 
+                                title="Новосибирский Биотехнопарк Кольцово - Научно-производственная площадка"
                                 style={{ 
                                     width: "100%", 
                                     height: "100%", 
@@ -302,6 +303,7 @@ export function AboutCompanySection() {
                                                             <img 
                                                                 src={cert} 
                                                                 alt={`Сертификат ${i + 1}`} 
+                                                                title="Сертификат качества продукции и соответствия стандартам"
                                                                 style={{ width: "100%", height: "100%", objectFit: "contain" }} 
                                                             />
                                                         </div>
