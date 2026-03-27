@@ -96,7 +96,7 @@ export function SpecialistProfileSection() {
                }}>
                   <div style={{ 
                     position: "relative",
-                    background: "#00120a", 
+                    background: "#0d3d33", 
                     clipPath: CLIP_PATH,
                     aspectRatio: "4/5",
                     overflow: "hidden",
