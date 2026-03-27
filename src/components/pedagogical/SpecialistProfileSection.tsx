@@ -96,7 +96,7 @@ export function SpecialistProfileSection() {
                }}>
                   <div style={{ 
                     position: "relative",
-                    background: "#d1fae5", 
+                    background: "#00120a", 
                     clipPath: CLIP_PATH,
                     aspectRatio: "4/5",
                     overflow: "hidden",
@@ -161,8 +161,10 @@ export function SpecialistProfileSection() {
                    }}
                  >
                     <div style={{
-                      background: "rgba(0,18,10,0.95)",
-                      clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px))",
+                      background: hoveredCard === i
+                         ? "linear-gradient(135deg, #003820 0%, #001810 100%)"
+                         : "linear-gradient(135deg, #002416 0%, #000e08 100%)",
+                      clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 30px))",
                       padding: "32px 28px",
                       height: "100%",
                       display: "flex",
