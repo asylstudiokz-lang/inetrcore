@@ -1,5 +1,6 @@
 import { Container } from "../ui/Container";
 import { useState } from "react";
+import AlbinaPhoto from "@/assets/team/Albina.png";
 
 const CYAN = "#6FE6C1";
 const CLIP_PATH = "polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px))";
@@ -103,15 +104,19 @@ export function SpecialistProfileSection() {
                     alignItems: "center",
                     justifyContent: "center"
                   }}>
-                    {/* Placeholder for Photo */}
-                    <div className="flex flex-col items-center gap-4 text-center px-12 opacity-40 group-hover:opacity-80 transition-opacity">
-                       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={CYAN} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                          <circle cx="8.5" cy="8.5" r="1.5" />
-                          <polyline points="21 15 16 10 5 21" />
-                       </svg>
-                       <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", color: CYAN, textTransform: "uppercase", letterSpacing: "0.2em" }}>Здесь будет<br/>фотография</p>
-                    </div>
+                    {/* Photo */}
+                    <img 
+                      src={AlbinaPhoto.src} 
+                      alt="Альбина Ахметова" 
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "top center",
+                        transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                        transform: hoveredPhoto ? "scale(1.05)" : "scale(1)"
+                      }}
+                    />
                     {/* Scanline Effect */}
                     <div className="absolute inset-0 pointer-events-none opacity-10 bg-repeat-y" style={{ backgroundImage: "linear-gradient(to bottom, transparent 0, rgba(111,230,193,0.5) 1px, transparent 2px)", backgroundSize: "100% 4px" }} />
                   </div>
