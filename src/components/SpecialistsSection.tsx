@@ -5,6 +5,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import DiyarPhoto from "../assets/team/Diyar.png";
 import NatalyaPhoto from "../assets/team/Natalya.png";
 import MichailPhoto from "../assets/team/Michail.png";
+import AlbinaPhoto from "../assets/team/Albina.png";
 
 const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
@@ -17,8 +18,7 @@ const specialists = [
     ghostName: "АХМЕТОВА",
     role: "логопед-дефектолог\nнейропсихолог\nАВА-специалист",
     tag: "Педагогика",
-    photo:
-      "https://images.unsplash.com/photo-1772987057599-2f1088c1e993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGRvY3RvciUyMHNwZWNpYWxpc3QlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzM3NjE4NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    photo: AlbinaPhoto.src,
   },
   {
     id: 2,
