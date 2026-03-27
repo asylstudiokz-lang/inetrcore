@@ -328,37 +328,6 @@ function MobileSpecialistCard({
             background: "#001a10",
           }}
         >
-          {/* Ghost name behind photo */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 0,
-              pointerEvents: "none",
-              overflow: "hidden",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "'Furore', sans-serif",
-                fontSize: "clamp(48px, 12vw, 64px)",
-                fontWeight: 400,
-                color: "transparent",
-                WebkitTextStroke: "1px rgba(111,230,193,0.15)",
-                textTransform: "uppercase",
-                letterSpacing: "0.04em",
-                lineHeight: 1.1,
-                textAlign: "center",
-                wordBreak: "break-word",
-                padding: "0 8px",
-              }}
-            >
-              {specialist.ghostName}
-            </span>
-          </div>
 
           {/* Photo */}
           <div
