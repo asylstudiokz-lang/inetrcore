@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Container } from "./ui/Container";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+import DiyarPhoto from "../assets/team/Diyar.png";
+import NatalyaPhoto from "../assets/team/Natalya.png";
+import MichailPhoto from "../assets/team/Michail.png";
+
 const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
@@ -23,8 +27,7 @@ const specialists = [
     ghostName: "БЕГУЖИНОВ",
     role: "врач-остеопат\nкардиохирург\nруководитель и основатель",
     tag: "Остеопатия",
-    photo:
-      "https://images.unsplash.com/photo-1642975967602-653d378f3b5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBkb2N0b3IlMjBvc3Rlb3BhdGglMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzM3NjE4NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    photo: DiyarPhoto.src,
   },
   {
     id: 3,
@@ -33,8 +36,7 @@ const specialists = [
     ghostName: "НАТАЛЬЯ",
     role: "краниопостуролог\nостеопат",
     tag: "Реабилитация",
-    photo:
-      "https://images.unsplash.com/photo-1725071198794-2c23b93bedf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwd29tYW4lMjBzcGVjaWFsaXN0JTIwdGhlcmFwaXN0JTIwcG9ydHJhaXR8ZW58MXx8fHwxNzczNzYxODc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    photo: NatalyaPhoto.src,
   },
   {
     id: 4,
@@ -43,8 +45,7 @@ const specialists = [
     ghostName: "ЧВАНОВ",
     role: "остеопат",
     tag: "Остеопатия",
-    photo:
-      "https://images.unsplash.com/photo-1669504243706-1df1f8d5dacd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBmaXRuZXNzJTIwaGVhbHRoJTIwc3BlY2lhbGlzdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc3Mzc2MTg3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+    photo: MichailPhoto.src,
   },
 ];
 
