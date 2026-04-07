@@ -11,7 +11,7 @@ const CLIP_INV = (size: number) =>
 export function BiteCorrectionHeroSection() {
   const [hoveredPhoto, setHoveredPhoto] = useState(false);
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: "0", paddingBottom: "0" }}>
+    <section className="relative overflow-hidden pt-[60px] pb-[40px] md:py-0 w-full">
       {/* Decorative background glows - 1:1 with ZPRR */}
       <div
         style={{
@@ -25,9 +25,9 @@ export function BiteCorrectionHeroSection() {
         }}
       />
       
-      {/* ── MOBILE (Text -> Image -> Button) ── */}
-      <Container>
-        <div className="flex md:hidden flex-col items-center justify-center text-center gap-8 relative px-6" style={{ height: "calc(100vh - 80px)" }}>
+      {/* ── MOBILE ── */}
+      <Container className="w-full">
+        <div className="flex md:hidden flex-col items-center justify-center text-center gap-6 relative px-4 pt-[20px] pb-8 w-full">
             {/* Ghost watermark - mobile */}
             <div style={{ position: "absolute", top: "-10px", left: "50%", transform: "translateX(-50%)", fontFamily: "'Furore', sans-serif", fontSize: "clamp(60px, 16vw, 100px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>
               МИКАТА
@@ -57,47 +57,9 @@ export function BiteCorrectionHeroSection() {
               </div>
             </div>
 
-            {/* Mobile 3:4 Photo Placeholder - Smaller (Clean Border) */}
-            <div style={{ flexShrink: 0, width: "280px", height: "373px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", maxWidth: "90vw" }}>
-              <div style={{ position: "absolute", inset: "0", clipPath: "polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
-              
-              {/* Continuous Contour Border Overlay */}
-              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} viewBox="0 0 280 373" preserveAspectRatio="none">
-                <polygon 
-                  points="0,0 258,0 280,22 280,373 22,373 0,351" 
-                  fill="none" 
-                  stroke="#6FE6C1" 
-                  strokeWidth="1.8" 
-                  strokeOpacity="0.7"
-                />
-              </svg>
-
-              {/* Top-Right HUD Plaque (Mobile) */}
-              <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5 }}>
-                <div style={{ position: "relative", background: "rgba(111,230,193,0.8)", clipPath: CLIP_INV(7), padding: "1px" }}>
-                  <div style={{ 
-                    background: "#011a14", 
-                    clipPath: CLIP_INV(7), 
-                    padding: "5px 14px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}>
-                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "9px", color: "#6FE6C1", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1.1 }}>
-                      КОРРЕКТОР МИКАТА
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-4 text-[#6FE6C1]/30">
-                 <div className="w-14 h-14 border border-[#6FE6C1]/20 rounded-full flex items-center justify-center animate-pulse">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21" />
-                    </svg>
-                 </div>
-                 <span className="font-['Furore'] text-[8px] tracking-[0.2em] uppercase opacity-50">Фото [3:4]</span>
-              </div>
+            {/* Mobile Image Placeholder */}
+            <div style={{ flexShrink: 0, width: "100%", maxWidth: "400px", aspectRatio: "4 / 3", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
+              <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "center", padding: "20px" }}>Здесь должно быть изображение</span>
             </div>
 
             {/* Mobile Consultation Button - Moved after Image */}
@@ -200,9 +162,9 @@ export function BiteCorrectionHeroSection() {
           </g>
         </svg>
 
-        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1240px] mx-auto relative z-10 flex-shrink-0">
+        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1200px] mx-auto relative z-10 flex-shrink-0 -mt-12 lg:-mt-20">
             {/* Desktop Text Block (Left) */}
-            <div className="flex-1 flex flex-col items-start text-left z-10 w-full max-w-[660px] relative">
+            <div className="flex-1 flex flex-col items-start text-left z-10 w-full max-w-[660px] relative mt-16 lg:mt-24">
               {/* Ghost watermark - desktop */}
               <div style={{ position: "absolute", top: "-36px", left: "-16px", fontFamily: "'Furore', sans-serif", fontSize: "clamp(60px, 8vw, 120px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>
                 МИКАТА
@@ -231,77 +193,17 @@ export function BiteCorrectionHeroSection() {
               <CTAButton text="Консультация" />
             </div>
 
-            {/* Desktop 3:4 Photo Placeholder (Right) - LARGER (Clean Border) */}
-            <div 
-              className={`hero-photo-container relative ${hoveredPhoto ? "is-hovered" : ""}`}
-              onMouseEnter={() => setHoveredPhoto(true)}
-              onMouseLeave={() => setHoveredPhoto(false)}
-              style={{ flexShrink: 0, width: "480px", height: "640px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
-            >
-              <style dangerouslySetInnerHTML={{ __html: `
-                @media (min-width: 768px) {
-                  .hero-photo-container.is-hovered {
-                    transform: translateY(-10px);
-                  }
-                  .hero-photo-glow {
-                    transition: opacity 0.6s ease, transform 0.6s ease;
-                  }
-                  .hero-photo-container.is-hovered .hero-photo-glow {
-                    opacity: 0.12 !important;
-                    transform: scale(1.1);
-                  }
-                }
-              `}} />
-              {/* Outer Glowing frame */}
-              <div 
-                className="hero-photo-glow"
-                style={{ position: "absolute", inset: "-15%", pointerEvents: "none", background: "#6FE6C1", opacity: 0.03, filter: "blur(100px)", borderRadius: "100%" }} 
-              />
-              
-              {/* Geometric clipped BG */}
-              <div style={{ position: "absolute", inset: "0%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
-              
-              {/* Continuous Contour Border Overlay */}
-              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} viewBox="0 0 480 640" preserveAspectRatio="none">
-                <polygon 
-                  points="1,1 452,1 479,29 479,639 29,639 1,611 1,1" 
-                  fill="none" 
-                  stroke="#6FE6C1" 
-                  strokeWidth={hoveredPhoto ? "2.5" : "1.8"} 
-                  strokeOpacity={hoveredPhoto ? "1" : "0.7"}
-                  className="transition-all duration-300"
-                  style={{ filter: hoveredPhoto ? "drop-shadow(0 0 12px rgba(111,230,193,0.6))" : "none" }}
-                />
-              </svg>
-
-              {/* Bottom-Left HUD Plaque (Desktop) */}
-              <div style={{ position: "absolute", bottom: "20px", left: "20px", zIndex: 5 }}>
-                <div style={{ position: "relative", background: "rgba(111,230,193,0.8)", clipPath: CLIP_INV(10), padding: "1.5px" }}>
-                  <div style={{ background: "#011a14", clipPath: CLIP_INV(10), padding: "8px 24px" }}>
-                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: "#6FE6C1", letterSpacing: "0.2em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1 }}>
-                      КОРРЕКТОР МИКАТА
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Placeholder Content */}
-              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-4 text-[#6FE6C1]/30">
-                 <div className="w-20 h-20 border border-[#6FE6C1]/20 rounded-full flex items-center justify-center animate-pulse">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                       <circle cx="8.5" cy="8.5" r="1.5"/>
-                       <polyline points="21 15 16 10 5 21"/>
-                    </svg>
-                 </div>
-                 <span className="font-['Furore'] text-[10px] tracking-[0.3em] uppercase opacity-50">Фото [3:4]</span>
+            {/* Desktop Image Placeholder */}
+            <div style={{ flexShrink: 0, width: "clamp(300px, 30vw, 400px)", aspectRatio: "3 / 4", position: "relative", display: "flex", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
+              <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(111,230,193,0.2)" }}>
+                <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "12px", color: "#6FE6C1", textTransform: "uppercase", letterSpacing: "0.05em" }}>Здесь должно быть изображение</span>
               </div>
             </div>
         </div>
         
         {/* Pulsing Scroll Arrow for Desktop Hero */}
         <div 
-          className="absolute bottom-12 lg:bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
+          className="absolute bottom-[60px] lg:bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
           onClick={() => {
             const el = document.getElementById("methodology");
             if (el) {

@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Container } from "../ui/Container";
-import imgLogo from "../../assets/9f52023862aa50f87d6a753ba0b67d4e931e459f.png?url";
-import { HudSVG } from "../HudSVG";
 import { CTAButton } from "../HeroSection";
 
 const CYAN = "#6FE6C1";
@@ -13,7 +11,7 @@ export function VitaminsHeroSection() {
   const [logoHovered, setLogoHovered] = useState(false);
 
   return (
-    <section id="vitamins-hero" className="relative overflow-hidden pt-[60px] pb-[100px] md:py-0">
+    <section id="vitamins-hero" className="relative overflow-hidden pt-[60px] pb-[40px] md:py-0 w-full">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes flowDown {
           0% { transform: translateY(0); }
@@ -42,9 +40,9 @@ export function VitaminsHeroSection() {
         }}
       />
       
-      {/* ── MOBILE (Logo above Text) ── */}
-      <Container>
-        <div className="flex md:hidden flex-col-reverse items-center text-center gap-16 mb-20 relative">
+      {/* ── MOBILE ── */}
+      <Container className="w-full">
+        <div className="flex md:hidden flex-col items-center justify-center text-center gap-6 relative px-4 pt-[20px] pb-8 w-full">
            {/* Ghost watermark */}
            <div style={{ position: "absolute", top: "-10px", left: "50%", transform: "translateX(-50%)", fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(60px, 16vw, 100px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>
              комплексы
@@ -80,21 +78,9 @@ export function VitaminsHeroSection() {
               </div>
            </div>
 
-           {/* Mobile Logo with Hud Animation */}
-           <div style={{ flexShrink: 0, width: "300px", height: "300px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-             <div className="absolute pointer-events-none" style={{ inset: "-15%" }}><HudSVG size={400} style={{ width: "100%", height: "100%" }} /></div>
-             <div style={{ position: "absolute", inset: "12%", clipPath: "polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
-             <div style={{ position: "absolute", inset: "12%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))", outline: "1px solid rgba(111,230,193,0.22)" }} />
-             <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2 }} viewBox="0 0 480 480">
-               <g stroke={CYAN} strokeOpacity="0.5" strokeWidth="1.5" fill="none"><path d="M57,57 L57,82" /><path d="M57,57 L82,57" /><path d="M423,57 L398,57" /><path d="M423,57 L423,82" /><path d="M57,423 L57,398" /><path d="M57,423 L82,423" /><path d="M423,423 L398,423" /><path d="M423,423 L423,398" /></g>
-               <g fill={CYAN} fillOpacity="0.55"><circle cx="57" cy="57" r="2.5" /><circle cx="423" cy="57" r="2.5" /><circle cx="57" cy="423" r="2.5" /><circle cx="423" cy="423" r="2.5" /></g>
-             </svg>
-             <img 
-               alt="Логотип Центр Побед" 
-               title="Центр Побед - Функциональное питание"
-               src={imgLogo} 
-               style={{ width: "72%", height: "72%", objectFit: "contain", position: "relative", zIndex: 1, filter: "drop-shadow(0 0 30px rgba(9,185,131,0.4))" }} 
-             />
+           {/* Mobile Image Placeholder */}
+           <div style={{ flexShrink: 0, width: "100%", maxWidth: "400px", aspectRatio: "4 / 3", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
+             <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "center", padding: "20px" }}>Здесь должно быть изображение</span>
            </div>
         </div>
       </Container>
@@ -203,9 +189,9 @@ export function VitaminsHeroSection() {
           </g>
         </svg>
 
-        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1200px] mx-auto relative z-10 flex-shrink-0">
+        <div className="flex items-center justify-between gap-8 lg:gap-16 xl:gap-24 w-full max-w-[1200px] mx-auto relative z-10 flex-shrink-0 -mt-12 lg:-mt-20">
            {/* Desktop Text Block (Left) */}
-           <div className="flex-1 flex flex-col items-start text-left z-10 w-full max-w-[660px] relative">
+           <div className="flex-1 flex flex-col items-start text-left z-10 w-full max-w-[660px] relative mt-16 lg:mt-24">
              <div style={{ position: "absolute", top: "-36px", left: "-16px", fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(60px, 8vw, 120px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>
                комплексы
              </div>
@@ -233,41 +219,17 @@ export function VitaminsHeroSection() {
              <CTAButton text="Консультация" />
            </div>
 
-           {/* Desktop Logo Block (Right) */}
-           <div 
-             onMouseEnter={() => setLogoHovered(true)}
-             onMouseLeave={() => setLogoHovered(false)}
-             style={{ 
-               flexShrink: 0, 
-               width: "clamp(340px, 35vw, 480px)", 
-               height: "clamp(340px, 35vw, 480px)", 
-               position: "relative", 
-               display: "flex", 
-               alignItems: "center", 
-               justifyContent: "center",
-               transform: logoHovered ? "translateY(-10px)" : "translateY(0)",
-               transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)"
-             }}
-           >
-             <div className="absolute pointer-events-none" style={{ inset: "-15%" }}><HudSVG size={600} style={{ width: "100%", height: "100%" }} /></div>
-             <div style={{ position: "absolute", inset: "12%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 22px))", background: "rgba(111,230,193,0.07)", border: "none" }} />
-             <div style={{ position: "absolute", inset: "12%", clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))", outline: "1px solid rgba(111,230,193,0.22)" }} />
-             <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 2 }} viewBox="0 0 480 480">
-               <g stroke={CYAN} strokeOpacity="0.5" strokeWidth="1.5" fill="none"><path d="M57,57 L57,82" /><path d="M57,57 L82,57" /><path d="M423,57 L398,57" /><path d="M423,57 L423,82" /><path d="M57,423 L57,398" /><path d="M57,423 L82,423" /><path d="M423,423 L398,423" /><path d="M423,423 L423,398" /></g>
-               <g fill={CYAN} fillOpacity="0.55"><circle cx="57" cy="57" r="2.5" /><circle cx="423" cy="57" r="2.5" /><circle cx="57" cy="423" r="2.5" /><circle cx="423" cy="423" r="2.5" /></g>
-             </svg>
-              <img 
-                alt="Логотип Центр Побед" 
-                title="Центр Побед - Растительные витамины"
-                src={imgLogo} 
-                style={{ width: "72%", height: "72%", objectFit: "contain", position: "relative", zIndex: 1, filter: "drop-shadow(0 0 40px rgba(9,185,131,0.4))" }} 
-              />
+           {/* Desktop Image Placeholder */}
+           <div style={{ flexShrink: 0, width: "clamp(300px, 30vw, 400px)", aspectRatio: "3 / 4", position: "relative", display: "flex", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
+             <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(111,230,193,0.2)" }}>
+               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "12px", color: "#6FE6C1", textTransform: "uppercase", letterSpacing: "0.05em" }}>Здесь должно быть изображение</span>
+             </div>
            </div>
         </div>
 
         {/* Pulsing Scroll Arrow for Desktop Hero */}
         <div 
-          className="absolute bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
+          className="absolute bottom-[60px] lg:bottom-[100px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity z-20"
           onClick={() => {
             const el = document.getElementById("vitamins-advantages");
             if (el) {
