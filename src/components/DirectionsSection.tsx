@@ -1,5 +1,6 @@
 import { Container } from "./ui/Container";
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
+import { Skull, Pill, ToyBrick, Bone, Bandage } from "lucide-react";
 
 const cards = [
   {
@@ -8,6 +9,7 @@ const cards = [
     description:
       "Новые научные решения для медицины будущего, где лечение основано на глубоком понимании организма и его самовосстанавливающем потенциале.",
     tag: "Неврология",
+    icon: Skull,
     wide: true,
     accent: true,
   },
@@ -16,6 +18,7 @@ const cards = [
     title: "Витаминно-минеральные комплексы",
     description: "Функциональное питание на растительной основе.",
     tag: "Нутрициология",
+    icon: Pill,
     wide: false,
     accent: false,
   },
@@ -25,6 +28,7 @@ const cards = [
     description:
       "С РАС, ЗПРР, Аутизмом — комплексные занятия с логопедом, дефектологом, нейропсихологом.",
     tag: "Педагогика",
+    icon: ToyBrick,
     wide: false,
     accent: false,
   },
@@ -33,6 +37,7 @@ const cards = [
     title: "Исправление прикуса",
     description: "Остеопатическая методика и корректор Миката.",
     tag: "Стоматология",
+    icon: Bone,
     wide: false,
     accent: false,
   },
@@ -42,6 +47,7 @@ const cards = [
     description:
       "Трофических язв, ожогов и пролежней. Инновационная квантовая матрица.",
     tag: "Регенерация",
+    icon: Bandage,
     wide: false,
     accent: false,
   },
@@ -101,51 +107,42 @@ function MobileCard({
             ? "linear-gradient(150deg, #00391e 0%, #001810 100%)"
             : "linear-gradient(150deg, #002214 0%, #000e08 100%)",
           clipPath: CLIP(17),
-          padding: "22px 20px 20px",
+          padding: "20px 20px 20px",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: "flex-start",
           boxSizing: "border-box",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Ghost number */}
+        {/* Background Icon */}
         <div
           style={{
             position: "absolute",
-            bottom: "-8px",
-            right: "12px",
-            fontFamily: "'Furore', sans-serif",
-            fontSize: "96px",
-            lineHeight: 1,
-            color: "transparent",
-            WebkitTextStroke: "1px rgba(111,230,193,0.09)",
+            bottom: "-10px",
+            right: "-10px",
+            color: "rgba(111,230,193,0.06)",
             userSelect: "none",
             pointerEvents: "none",
-            letterSpacing: "-0.04em",
+            zIndex: 0,
           }}
         >
-          0{card.id}
-        </div>
-
-        {/* Top: TagChip */}
-        <div style={{ marginBottom: "18px" }}>
-          <MobileTagChip label={card.tag} />
+          {card.icon && <card.icon size={120} strokeWidth={1.5} />}
         </div>
 
         {/* Content */}
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 10, flex: 1 }}>
           <h3
             style={{
               fontFamily: "'Furore', sans-serif",
-              fontSize: "15px",
+              fontSize: "18px",
               fontWeight: 400,
               color: "#ffffff",
               textTransform: "uppercase",
               lineHeight: 1.25,
               margin: 0,
-              marginBottom: "12px",
+              marginBottom: "10px",
               letterSpacing: "0.03em",
             }}
           >
@@ -155,10 +152,10 @@ function MobileCard({
           <p
             style={{
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: "14px",
+              fontSize: "12px",
               fontWeight: 400,
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.7,
+              color: "rgba(255,255,255,0.65)",
+              lineHeight: 1.5,
               margin: 0,
               marginBottom: "20px",
             }}
@@ -166,43 +163,59 @@ function MobileCard({
             {card.description}
           </p>
 
-          {/* Divider + button */}
+          {/* Spacer to push button to the bottom if content is short, although height is now dependent on content */}
+          <div style={{ marginTop: "auto" }} />
+
+          {/* Site-style Polygon Button */}
           <div
             style={{
-              height: "1px",
-              background:
-                "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 70%)",
-              marginBottom: "16px",
-            }}
-          />
-          <button
-            className="site-btn-text"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "transparent",
-              border: "none",
-              padding: 0,
+              position: "relative",
+              zIndex: 10,
+              width: "100%",
+              background: "rgba(111,230,193,0.4)",
+              clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
+              padding: "1px",
+              transition: "all 0.3s ease",
               cursor: "pointer",
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "10px",
-              letterSpacing: "0.18em",
-              color: "#6FE6C1",
-              textTransform: "uppercase",
+            }}
+            onMouseEnter={(e) => {
+               const el = e.currentTarget;
+               el.style.background = "rgba(111,230,193,1)";
+               el.style.filter = "drop-shadow(0 0 12px rgba(111,230,193,0.5))";
+               (el.firstChild as HTMLElement).style.background = "#002a1b"; // Solid dark green so border doesn't bleed through
+            }}
+            onMouseLeave={(e) => {
+               const el = e.currentTarget;
+               el.style.background = "rgba(111,230,193,0.4)";
+               el.style.filter = "none";
+               (el.firstChild as HTMLElement).style.background = "#001209"; // Solid dark background
             }}
           >
-            подробнее
-            <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
-              <path
-                d="M0 4H16M12 1L16 4L12 7"
-                stroke="#6FE6C1"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                background: "#001209", // Solid!
+                clipPath: "polygon(9.5px 0, 100% 0, 100% calc(100% - 9.5px), calc(100% - 9.5px) 100%, 0 100%, 0 9.5px)",
+                padding: "14px 16px",
+                transition: "all 0.3s ease",
+              }}
+            >
+              <span style={{
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "12px",
+                letterSpacing: "0.15em",
+                color: "#6FE6C1",
+                textTransform: "uppercase",
+              }}>
+                подробнее
+              </span>
+              <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
+                <path d="M0 4H16M12 1L16 4L12 7" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -301,23 +314,19 @@ function DesktopCard({
           overflow: "hidden",
         }}
       >
-        {/* Ghost number */}
+        {/* Background Icon */}
         <div
           style={{
             position: "absolute",
-            bottom: "-12px",
-            right: "16px",
-            fontFamily: "'Furore', sans-serif",
-            fontSize: "clamp(80px, 9vw, 130px)",
-            lineHeight: 1,
-            color: "transparent",
-            WebkitTextStroke: "1px rgba(111,230,193,0.09)",
+            bottom: "-20px",
+            right: "-20px",
+            color: "rgba(111,230,193,0.06)",
             userSelect: "none",
             pointerEvents: "none",
-            letterSpacing: "-0.04em",
+            zIndex: 0,
           }}
         >
-          0{card.id}
+          {card.icon && <card.icon size={220} strokeWidth={1} />}
         </div>
 
         {/* Top: tag */}
@@ -327,13 +336,15 @@ function DesktopCard({
             alignItems: "center",
             justifyContent: "space-between",
             marginBottom: "28px",
+            position: "relative",
+            zIndex: 10,
           }}
         >
           <DesktopTagChip label={card.tag} />
         </div>
 
         {/* Content */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end", position: "relative", zIndex: 10 }}>
           <h3
             style={{
               fontFamily: "'Furore', sans-serif",
@@ -366,43 +377,57 @@ function DesktopCard({
             {card.description}
           </p>
 
-          {/* Divider + button */}
+          {/* Site-style Polygon Button */}
           <div
             style={{
-              height: "1px",
-              background:
-                "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 70%)",
-              marginBottom: "18px",
-            }}
-          />
-          <button
-            className="site-btn-text"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "transparent",
-              border: "none",
-              padding: 0,
+              position: "relative",
+              zIndex: 10,
+              width: "max-content",
+              background: "rgba(111,230,193,0.4)",
+              clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
+              padding: "1.5px",
+              transition: "all 0.3s ease",
               cursor: "pointer",
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "10px",
-              letterSpacing: "0.18em",
-              color: "#6FE6C1",
-              textTransform: "uppercase",
+            }}
+            onMouseEnter={(e) => {
+               const el = e.currentTarget;
+               el.style.background = "rgba(111,230,193,1)";
+               el.style.filter = "drop-shadow(0 0 16px rgba(111,230,193,0.6))";
+               (el.firstChild as HTMLElement).style.background = "#002a1b"; // Solid dark green so border doesn't bleed through
+            }}
+            onMouseLeave={(e) => {
+               const el = e.currentTarget;
+               el.style.background = "rgba(111,230,193,0.4)";
+               el.style.filter = "none";
+               (el.firstChild as HTMLElement).style.background = "#001209"; // Solid dark background
             }}
           >
-            подробнее
-            <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
-              <path
-                d="M0 4H16M12 1L16 4L12 7"
-                stroke="#6FE6C1"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "16px",
+                background: "#001209", // Solid!
+                clipPath: "polygon(10.5px 0, 100% 0, 100% calc(100% - 10.5px), calc(100% - 10.5px) 100%, 0 100%, 0 10.5px)",
+                padding: "14px 22px",
+                transition: "all 0.3s ease",
+              }}
+            >
+              <span style={{
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "12px",
+                letterSpacing: "0.15em",
+                color: "#6FE6C1",
+                textTransform: "uppercase",
+              }}>
+                подробнее
+              </span>
+              <svg width="20" height="10" viewBox="0 0 18 8" fill="none">
+                <path d="M0 4H16M12 1L16 4L12 7" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
