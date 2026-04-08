@@ -4,56 +4,13 @@ import AlbinaPhoto from "@/assets/team/Albina.png";
 
 const CYAN = "#6FE6C1";
 const CLIP_PATH = "polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px))";
-
-const specialties = [
-  {
-    title: "Логопед",
-    description: "Коррекция речевых нарушений, запуск речи, постановка звуков",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={CYAN} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        <path d="M8 9h8" /><path d="M8 13h6" />
-      </svg>
-    )
-  },
-  {
-    title: "Дефектолог",
-    description: "Помощь детям с нарушениями развития и обучаемости",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={CYAN} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M12 8v4" /><path d="M12 16h.01" />
-      </svg>
-    )
-  },
-  {
-    title: "Нейропсихолог",
-    description: "Развитие когнитивных функций, моторики и психических процессов",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={CYAN} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1 0-4.88 2.5 2.5 0 0 1 0-4.88A2.5 2.5 0 0 1 9.5 2Z" />
-        <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 0-4.88 2.5 2.5 0 0 0 0-4.88A2.5 2.5 0 0 0 14.5 2Z" />
-      </svg>
-    )
-  },
-  {
-    title: "АВА-специалист",
-    description: "Прикладной анализ поведения, формирование навыков и коррекция поведения",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={CYAN} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" />
-      </svg>
-    )
-  }
-];
+const CLIP_MODULE = "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)";
 
 export function SpecialistProfileSection() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [hoveredPhoto, setHoveredPhoto] = useState(false);
 
   return (
-    <section className="relative overflow-hidden py-10 md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
+    <section className="relative overflow-hidden py-12 md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: `radial-gradient(circle, ${CYAN} 1px, transparent 1px)`, backgroundSize: "40px 40px" }} />
@@ -64,19 +21,12 @@ export function SpecialistProfileSection() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-radial-gradient from-[#09B98305] to-transparent blur-[100px]" />
       </div>
 
-      <Container className="relative z-10">
-        {/* ── MOBILE HEADER ── */}
-        <div className="lg:hidden mb-8 text-center flex flex-col items-center">
-            <p style={{ fontFamily: "'Furore', sans-serif", fontSize: "12px", color: CYAN, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "16px", opacity: 0.8 }}>Ваш специалист</p>
-            <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8vw, 40px)", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1, marginBottom: "24px" }}>Помощь в развитии</h3>
-            <div style={{ width: "80px", height: "4px", background: CYAN }} />
-        </div>
-
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-20 lg:gap-16 xl:gap-24">
+      <Container className="relative z-10 w-full max-w-[1200px] mx-auto px-4 md:px-6">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 xl:gap-20">
           
           {/* ── PHOTO COLUMN ── */}
-          <div className="w-full lg:w-[45%] max-w-[340px] lg:max-w-[540px]">
-            <div className="group relative" onMouseEnter={() => setHoveredPhoto(true)} onMouseLeave={() => setHoveredPhoto(false)}>
+          <div className="w-full lg:w-[40%] max-w-[260px] lg:max-w-[460px] mx-auto lg:mx-0 mt-4 lg:mt-0 relative">
+             <div className="group relative" onMouseEnter={() => setHoveredPhoto(true)} onMouseLeave={() => setHoveredPhoto(false)}>
                {/* Outer Glow */}
                <div style={{ 
                  position: "absolute", inset: "-10px", 
@@ -121,125 +71,226 @@ export function SpecialistProfileSection() {
                     <div className="absolute inset-0 pointer-events-none opacity-10 bg-repeat-y" style={{ backgroundImage: "linear-gradient(to bottom, transparent 0, rgba(111,230,193,0.5) 1px, transparent 2px)", backgroundSize: "100% 4px" }} />
                   </div>
                </div>
-
-               {/* Name Tag Float */}
+               
+               {/* Restored Floating Name Tag */}
                <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-12 z-20 scale-[0.85] lg:scale-100 origin-bottom-right" style={{ transition: "transform 0.5s ease", transform: hoveredPhoto ? "translate(-8px, -8px)" : "none" }}>
                   <div style={{ background: hoveredPhoto ? CYAN : CYAN + "60", clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)", padding: "1.5px", transition: "background 0.4s ease" }}>
                     <div className="bg-[#00281e]/95 backdrop-blur-xl p-5 lg:p-8" style={{ clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)" }}>
-                      <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "24px", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1 }} className="lg:text-[28px]">Ахметова<br/><span style={{ color: CYAN }}>Альбина</span></h2>
+                      <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "22px", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1 }} className="lg:text-[28px]">Ахметова<br/><span style={{ color: CYAN }}>Альбина</span></h2>
                     </div>
                   </div>
                </div>
-            </div>
+             </div>
           </div>
 
-          {/* ── CONTENT COLUMN ── */}
-          <div className="w-full lg:w-[55%] flex flex-col">
-             {/* Desktop Header */}
-             <div className="hidden lg:block mb-[60px] text-left">
-                <p style={{ fontFamily: "'Furore', sans-serif", fontSize: "12px", color: CYAN, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "16px", opacity: 0.8 }}>Ваш специалист</p>
-                <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(32px, 4vw, 48px)", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1, marginBottom: "24px" }}>Профессиональная помощь<br/>в развитии ребенка</h3>
-                <div style={{ width: "80px", height: "4px", background: CYAN }} />
+          {/* ── DASHBOARD COLUMN ── */}
+          <div className="w-full lg:w-[60%] flex flex-col gap-5 lg:gap-6 mt-8 lg:mt-0">
+             
+             {/* Dashboard Grid for Modules 1 & 2 */}
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+                
+                {/* Module 1: Competencies */}
+                <DashboardModule title="КОМПЕТЕНЦИИ">
+                   <ul style={{ 
+                      fontFamily: "'Montserrat', sans-serif", 
+                      fontSize: "13px", 
+                      color: "rgba(255,255,255,0.85)", 
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                      lineHeight: 1.8,
+                      listStyleType: "none",
+                      paddingLeft: 0,
+                      margin: 0
+                   }} className="flex flex-col gap-2">
+                      <li className="flex gap-2 items-start"><span style={{color: CYAN}}>▸</span> ЛОГОПЕД</li>
+                      <li className="flex gap-2 items-start"><span style={{color: CYAN}}>▸</span> ДЕФЕКТОЛОГ</li>
+                      <li className="flex gap-2 items-start"><span style={{color: CYAN}}>▸</span> НЕЙРОПСИХОЛОГ</li>
+                      <li className="flex gap-2 items-start"><span style={{color: CYAN}}>▸</span> АВА-СПЕЦИАЛИСТ</li>
+                      <li className="flex gap-2 items-start"><span style={{color: CYAN}}>▸</span> СПЕЦИАЛИСТ ЛОГОРИТМИКИ</li>
+                   </ul>
+                </DashboardModule>
+
+                {/* Module 2: Methods & Language */}
+                <DashboardModule title="ПРИМЕНЯЕТ (МЕТОДИКА)">
+                   <div className="flex flex-col h-full justify-between gap-4">
+                      <p style={{ 
+                         fontFamily: "'Montserrat', sans-serif", 
+                         fontSize: "13px", 
+                         color: "rgba(255,255,255,0.85)", 
+                         textTransform: "uppercase",
+                         fontWeight: 500,
+                         letterSpacing: "0.05em",
+                         lineHeight: 1.6,
+                         margin: 0
+                      }}>
+                         ЭЛЕМЕНТЫ АФК,<br/>
+                         СЕНСОРНАЯ ИНТЕГРАЦИЯ
+                      </p>
+                      {/* Language Badge */}
+                      <div className="self-start mt-auto">
+                        <div style={{
+                            background: `${CYAN}50`, // acts as border color
+                            padding: "1px", // acts as border width
+                            clipPath: "polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)",
+                            display: "inline-block"
+                        }}>
+                            <div style={{
+                                background: "rgba(0, 24, 16, 0.95)", // dark cyan-tinted inner background
+                                padding: "4px 12px",
+                                clipPath: "polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)",
+                                fontFamily: "'Furore', sans-serif",
+                                fontSize: "12px",
+                                color: "#6FE6C1",
+                                letterSpacing: "0.1em",
+                                boxShadow: "inset 0 0 10px rgba(111,230,193,0.15)" // optional subtle inner glow
+                            }}>
+                                ЯЗЫК: RUS
+                            </div>
+                        </div>
+                      </div>
+                   </div>
+                </DashboardModule>
              </div>
 
-            {/* Role Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-               {specialties.map((spec, i) => (
-                 <div 
-                   key={i}
-                   onMouseEnter={() => setHoveredCard(i)}
-                   onMouseLeave={() => setHoveredCard(null)}
-                   style={{
-                     position: "relative",
-                     background: hoveredCard === i ? CYAN : CYAN + "20",
-                     clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px))",
-                     padding: "1.5px",
-                     transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                     transform: hoveredCard === i ? "translateY(-6px)" : "none",
-                     zIndex: hoveredCard === i ? 10 : 1,
-                     filter: hoveredCard === i ? `drop-shadow(0 0 15px ${CYAN}30)` : "none",
-                   }}
-                 >
-                    <div style={{
-                      background: hoveredCard === i
-                         ? "linear-gradient(135deg, #003820 0%, #001810 100%)"
-                         : "linear-gradient(135deg, #002416 0%, #000e08 100%)",
-                      clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 30px))",
-                      padding: "32px 28px",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "16px",
-                      position: "relative",
-                      transition: "all 0.4s ease",
-                    }}>
-                       <div className="flex items-center justify-between relative z-10">
-                          <div style={{ padding: "8px", background: "#6FE6C110", borderRadius: "8px", transition: "all 0.4s ease" }}>
-                             <div style={{ color: CYAN, opacity: hoveredCard === i ? 1 : 0.7, filter: hoveredCard === i ? "brightness(1.2)" : "none" }}>{spec.icon}</div>
-                          </div>
-                          <div style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: CYAN, opacity: hoveredCard === i ? 0.8 : 0.3, transition: "all 0.4s ease" }}>0{i + 1}</div>
-                       </div>
-                       <h4 style={{ fontFamily: "'Furore', sans-serif", fontSize: "18px", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.05em", opacity: hoveredCard === i ? 1 : 0.9, transition: "all 0.4s ease" }}>{spec.title}</h4>
-                       <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: hoveredCard === i ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.6)", lineHeight: 1.5, transition: "all 0.4s ease" }}>{spec.description}</p>
-                       {/* HUD Corner Brackets */}
-                       <div style={{ position: "absolute", top: "10px", left: "10px", width: "14px", height: "14px", borderTop: `1.5px solid ${CYAN}`, borderLeft: `1.5px solid ${CYAN}`, opacity: hoveredCard === i ? 0.8 : 0, transform: hoveredCard === i ? "translate(0,0)" : "translate(-4px,-4px)", transition: "all 0.4s ease" }} />
-                       <div style={{ position: "absolute", bottom: "10px", right: "10px", width: "14px", height: "14px", borderBottom: `2.2px solid ${CYAN}`, borderRight: `2.2px solid ${CYAN}`, opacity: hoveredCard === i ? 1 : 0.4, transition: "all 0.4s ease" }} />
-                    </div>
+             {/* Module 3: Intensive Program */}
+             <div style={{ 
+                 background: `${CYAN}30`, 
+                 padding: "1.5px", 
+                 clipPath: CLIP_MODULE 
+             }}>
+                 <div style={{ 
+                     background: "linear-gradient(135deg, #002216 0%, #00120a 100%)", 
+                     clipPath: CLIP_MODULE,
+                     display: "flex",
+                     flexDirection: "column",
+                     height: "100%"
+                 }}>
+                     {/* Header */}
+                     <div style={{ padding: "16px 24px", borderBottom: `1px solid ${CYAN}20`, background: "rgba(111,230,193,0.05)" }}>
+                        <h4 style={{ fontFamily: "'Furore', sans-serif", fontSize: "16px", color: "#fff", letterSpacing: "0.1em", margin: 0 }}>
+                            ПРОГРАММА ИНТЕНСИВА
+                        </h4>
+                     </div>
+                     {/* Content Row */}
+                     <div className="p-6 flex flex-col sm:flex-row items-center sm:items-stretch justify-between gap-6">
+                        {/* Details */}
+                        <ul className="flex flex-col gap-3 text-left w-full sm:w-auto">
+                           <li className="flex items-start gap-3">
+                              <svg width="12" height="12" viewBox="0 0 12 12" style={{ marginTop: "4px", minWidth: "12px" }}>
+                                 <polygon points="0,0 12,6 0,12" fill={CYAN} opacity={0.6}/>
+                              </svg>
+                              <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
+                                 1,5 часа в центре
+                              </span>
+                           </li>
+                           <li className="flex items-start gap-3">
+                              <svg width="12" height="12" viewBox="0 0 12 12" style={{ marginTop: "4px", minWidth: "12px" }}>
+                                 <polygon points="0,0 12,6 0,12" fill={CYAN} opacity={0.6}/>
+                              </svg>
+                              <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
+                                 12 занятий 3 раза<br/>в неделю (пн, ср, пт)
+                              </span>
+                           </li>
+                        </ul>
+                        {/* Price Display */}
+                        <div className="w-full sm:w-auto flex items-center justify-center sm:justify-end sm:border-l border-[rgba(111,230,193,0.2)] sm:pl-6">
+                           <div style={{
+                               fontFamily: "'Furore', sans-serif",
+                               fontSize: "clamp(24px, 4vw, 32px)",
+                               color: CYAN,
+                               letterSpacing: "0.05em",
+                               textShadow: `0 0 20px ${CYAN}40`,
+                               textAlign: "center"
+                           }}>
+                               350 000 <span style={{ fontSize: "0.5em", opacity: 0.8, verticalAlign: "top" }}>ТГ</span>
+                           </div>
+                        </div>
+                     </div>
+                     {/* Bottom Decorative Edge */}
+                     <div style={{ height: "4px", background: `linear-gradient(90deg, ${CYAN} 0%, transparent 100%)`, opacity: 0.5 }} />
                  </div>
-               ))}
-            </div>
+             </div>
 
-            {/* Tracing Border Button */}
-            <div className="mt-12 flex justify-center sm:justify-start">
-               <div className="relative group/btn" style={{ width: "320px", height: "64px" }}>
-                  <style dangerouslySetInnerHTML={{__html: `
-                    @keyframes trace-spec-btn {
-                      0% { stroke-dashoffset: 1000; }
-                      100% { stroke-dashoffset: 0; }
-                    }
-                    .spec-cta-btn:hover .trace-spec-path {
-                      animation: trace-spec-btn 1.5s linear infinite;
-                    }
-                  `}} />
-                  <a
-                    href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="spec-cta-btn block w-full h-full relative"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <div style={{ position: "absolute", inset: "-3px", background: CYAN, opacity: 0, clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", filter: "blur(12px)", transition: "opacity 0.4s" }} className="group-hover/btn:opacity-30" />
-                    
-                    <button style={{
-                      position: "absolute", inset: 0, width: "100%", height: "100%",
-                      background: "rgba(111,230,193,0.1)", border: "none", 
-                      clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", 
-                      color: "#fff", fontFamily: "'Furore', sans-serif",
-                      fontSize: "13px", letterSpacing: "0.2em", textTransform: "uppercase",
-                      transition: "all 0.4s ease", cursor: "pointer"
-                    }} className="group-hover/btn:bg-[#09B983] group-hover/btn:scale-[1.01] group-hover/btn:-translate-y-0.5">
-                      Получить консультацию
-                    </button>
+             {/* Tracing Border Button (CTA) */}
+             <div className="mt-4 flex justify-center lg:justify-start">
+                <div className="relative group/btn" style={{ width: "320px", height: "64px" }}>
+                   <style dangerouslySetInnerHTML={{__html: `
+                     @keyframes trace-spec-btn {
+                       0% { stroke-dashoffset: 1000; }
+                       100% { stroke-dashoffset: 0; }
+                     }
+                     .spec-cta-btn:hover .trace-spec-path {
+                       animation: trace-spec-btn 1.5s linear infinite;
+                     }
+                   `}} />
+                   <a
+                     href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="spec-cta-btn block w-full h-full relative"
+                     style={{ textDecoration: "none" }}
+                   >
+                     <div style={{ position: "absolute", inset: "-3px", background: CYAN, opacity: 0, clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", filter: "blur(12px)", transition: "opacity 0.4s" }} className="group-hover/btn:opacity-30" />
+                     
+                     <button style={{
+                       position: "absolute", inset: 0, width: "100%", height: "100%",
+                       background: "rgba(111,230,193,0.1)", border: "none", 
+                       clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", 
+                       color: "#fff", fontFamily: "'Furore', sans-serif",
+                       fontSize: "13px", letterSpacing: "0.2em", textTransform: "uppercase",
+                       transition: "all 0.4s ease", cursor: "pointer"
+                     }} className="group-hover/btn:bg-[#09B983] group-hover/btn:scale-[1.01] group-hover/btn:-translate-y-0.5">
+                       Получить консультацию
+                     </button>
 
-                    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }} viewBox="0 0 320 64" preserveAspectRatio="none">
-                       <path d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" fill="none" stroke={CYAN} strokeWidth="1.5" strokeOpacity="0.3" />
-                       <path 
-                         d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" 
-                         fill="none" 
-                         stroke={CYAN} 
-                         strokeWidth="2"
-                         strokeDasharray="1000"
-                         strokeDashoffset="1000"
-                         className="trace-spec-path transition-opacity duration-300 opacity-0 group-hover/btn:opacity-100"
-                       />
-                    </svg>
-                  </a>
-               </div>
-            </div>
+                     <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }} viewBox="0 0 320 64" preserveAspectRatio="none">
+                        <path d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" fill="none" stroke={CYAN} strokeWidth="1.5" strokeOpacity="0.3" />
+                        <path 
+                          d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" 
+                          fill="none" 
+                          stroke={CYAN} 
+                          strokeWidth="2"
+                          strokeDasharray="1000"
+                          strokeDashoffset="1000"
+                          className="trace-spec-path transition-opacity duration-300 opacity-0 group-hover/btn:opacity-100"
+                        />
+                     </svg>
+                   </a>
+                </div>
+             </div>
+
           </div>
-
         </div>
       </Container>
     </section>
   );
+}
+
+function DashboardModule({ title, children }: { title: string, children: React.ReactNode }) {
+    return (
+        <div style={{ 
+            background: `${CYAN}20`, 
+            padding: "1px", 
+            clipPath: CLIP_MODULE,
+            height: "100%"
+        }}>
+            <div style={{ 
+                background: "rgba(0, 20, 14, 0.8)", 
+                clipPath: CLIP_MODULE,
+                height: "100%",
+                display: "flex",
+                flexDirection: "column"
+            }}>
+                <div style={{ padding: "14px 20px", borderBottom: `1px solid ${CYAN}15` }}>
+                   <div style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", color: CYAN, letterSpacing: "0.15em", opacity: 0.9 }}>
+                       // {title}
+                   </div>
+                </div>
+                <div style={{ padding: "20px", flex: 1 }}>
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
 }
