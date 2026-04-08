@@ -7,8 +7,10 @@ import NatalyaPhoto from "../assets/team/Natalya.png";
 import MichailPhoto from "../assets/team/Michail.png";
 import AlbinaPhoto from "../assets/team/Albina.png";
 
-const CLIP = (size: number) =>
-  `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
+const CYAN = "#6FE6C1";
+
+// Default clip path for bento cards
+const BENTO_CLIP = "polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px)";
 
 const specialists = [
   {
@@ -26,14 +28,14 @@ const specialists = [
     lastName: "Бегужинов",
     ghostName: "БЕГУЖИНОВ",
     role: "врач-остеопат\nкардиохирург\nруководитель и основатель",
-    tag: "Остеопатия",
+    tag: "Основатель",
     photo: DiyarPhoto.src,
   },
   {
     id: 3,
     firstName: "Наталья",
     lastName: "Маратовна",
-    ghostName: "НАТАЛЬЯ",
+    ghostName: "МАРАТОВНА",
     role: "краниопостуролог\nостеопат",
     tag: "Реабилитация",
     photo: NatalyaPhoto.src,
@@ -47,35 +49,43 @@ const specialists = [
     tag: "Остеопатия",
     photo: MichailPhoto.src,
   },
+  {
+    id: 5,
+    firstName: "Рано",
+    lastName: "Шаукетовна",
+    ghostName: "РАНО",
+    role: "массажист",
+    tag: "Массаж",
+    photo: "", // Placeholder will be handled by ImageWithFallback
+  },
 ];
 
-function DesktopTagChip({ label }: { label: string }) {
-  const cut = 7;
+function TagBadge({ label }: { label: string }) {
   return (
     <div
       style={{
         display: "inline-block",
-        background: "#6FE6C1",
-        clipPath: `polygon(${cut}px 0, 100% 0, 100% calc(100% - ${cut}px), calc(100% - ${cut}px) 100%, 0 100%, 0 ${cut}px)`,
+        background: `${CYAN}40`,
+        clipPath: "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)",
         padding: "1px",
       }}
     >
       <div
         style={{
-          background: "#001a0f",
-          clipPath: `polygon(${cut}px 0, 100% 0, 100% calc(100% - ${cut}px), calc(100% - ${cut}px) 100%, 0 100%, 0 ${cut}px)`,
-          padding: "4px 10px",
-          display: "inline-block",
+          background: "rgba(0,20,12,0.85)",
+          clipPath: "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)",
+          padding: "6px 14px",
+          backdropFilter: "blur(4px)",
         }}
       >
         <span
           style={{
             fontFamily: "'Furore', sans-serif",
-            fontSize: "9px",
-            letterSpacing: "0.22em",
-            color: "#6FE6C1",
+            fontSize: "10px",
+            letterSpacing: "0.15em",
+            color: CYAN,
             textTransform: "uppercase",
-            whiteSpace: "nowrap",
+            textShadow: `0 0 10px ${CYAN}40`,
           }}
         >
           {label}
@@ -85,371 +95,165 @@ function DesktopTagChip({ label }: { label: string }) {
   );
 }
 
-/* ── Desktop specialist card ─────────────────────────────────────────── */
-function DesktopSpecialistCard({
+/* ── Bento Card Component ─────────────────────────────────────────── */
+function BentoCard({
   specialist,
   index,
+  large = false,
 }: {
   specialist: (typeof specialists)[0];
   index: number;
+  large?: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        transition: "transform 0.4s cubic-bezier(0.34,1.56,0.64,1)",
-        transform: hovered ? "translateY(-10px)" : "translateY(0)",
-        cursor: "default",
-      }}
+      className="relative group h-full w-full"
+      style={{ minHeight: large ? "100%" : "320px" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Photo container */}
+      {/* Outer Border wrapper with clip-path */}
       <div
         style={{
-          position: "relative",
-          overflow: "hidden",
-          background: "#6FE6C1",
-          clipPath: CLIP(22),
+          position: "absolute",
+          inset: 0,
+          background: hovered ? CYAN : `${CYAN}25`,
+          clipPath: BENTO_CLIP,
           padding: "1.5px",
-          filter: hovered
-            ? "drop-shadow(0 0 30px rgba(111,230,193,0.45)) drop-shadow(0 16px 48px rgba(0,0,0,0.9))"
-            : "drop-shadow(0 0 10px rgba(111,230,193,0.12)) drop-shadow(0 8px 28px rgba(0,0,0,0.7))",
-          transition: "filter 0.4s ease",
+          transition: "all 0.4s ease",
+          boxShadow: hovered ? `0 0 25px ${CYAN}30` : "none",
         }}
       >
+        {/* Inner Background wrapper */}
         <div
           style={{
             position: "relative",
+            width: "100%",
+            height: "100%",
+            background: "#00120a",
+            clipPath: BENTO_CLIP,
             overflow: "hidden",
-            clipPath: CLIP(21),
-            aspectRatio: "3/4",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          {/* Ghost name behind photo */}
+          {/* Photo */}
           <div
             style={{
               position: "absolute",
               inset: 0,
+              zIndex: 1,
+            }}
+          >
+            <ImageWithFallback
+              src={specialist.photo}
+              alt={`${specialist.firstName} ${specialist.lastName}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
+                transform: hovered ? "scale(1.05)" : "scale(1)",
+                transition: "transform 0.7s cubic-bezier(0.34,1.56,0.64,1)",
+              }}
+            />
+          </div>
+
+          {/* Large Vertical Ghost Text */}
+          <div
+            style={{
+              position: "absolute",
+              right: "10px",
+              top: 0,
+              bottom: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              zIndex: 0,
+              zIndex: 2,
               pointerEvents: "none",
-              overflow: "hidden",
             }}
           >
             <span
               style={{
                 fontFamily: "'Furore', sans-serif",
-                fontSize: "clamp(42px, 5.5vw, 72px)",
-                fontWeight: 400,
+                fontSize: large ? "64px" : "42px",
                 color: "transparent",
                 WebkitTextStroke: hovered
-                  ? "1px rgba(111,230,193,0.25)"
-                  : "1px rgba(111,230,193,0.12)",
+                  ? `1px ${CYAN}30`
+                  : `1px ${CYAN}15`,
                 textTransform: "uppercase",
-                letterSpacing: "0.04em",
-                lineHeight: 1.1,
-                textAlign: "center",
-                wordBreak: "break-word",
-                padding: "0 8px",
-                transition: "all 0.4s ease",
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                transform: "rotate(180deg)",
+                whiteSpace: "nowrap",
+                transition: "all 0.5s ease",
               }}
             >
               {specialist.ghostName}
             </span>
           </div>
 
-          {/* Photo */}
-          <div
-            style={{
-              position: "relative",
-              zIndex: 1,
-              width: "100%",
-              height: "100%",
-              transform: hovered ? "scale(1.04)" : "scale(1)",
-              transition: "transform 0.6s cubic-bezier(0.34,1.56,0.64,1)",
-            }}
-          >
-            <ImageWithFallback
-              src={specialist.photo}
-              alt={`${specialist.firstName} ${specialist.lastName}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "top center",
-                display: "block",
-              }}
-            />
-            {/* Dark-to-transparent gradient overlay at bottom */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to top, rgba(0,18,10,0.85) 0%, rgba(0,18,10,0.2) 40%, transparent 70%)",
-              }}
-            />
-          </div>
-
-          {/* Index number bottom-left */}
+          {/* Gradient Overlay for Text Readability */}
           <div
             style={{
               position: "absolute",
-              bottom: "14px",
-              left: "16px",
+              inset: 0,
+              background: hovered
+              ? "linear-gradient(to top, rgba(0,24,16,0.95) 0%, rgba(0,24,16,0.3) 50%, transparent 100%)"
+              : "linear-gradient(to top, rgba(0,18,10,0.95) 0%, rgba(0,18,10,0.4) 45%, transparent 100%)",
               zIndex: 3,
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "11px",
-              letterSpacing: "0.18em",
-              color: "rgba(111,230,193,0.5)",
-            }}
-          >
-            0{index + 1}
-          </div>
-
-          {/* Tag chip bottom-right */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "14px",
-              right: "14px",
-              zIndex: 3,
-            }}
-          >
-            <DesktopTagChip label={specialist.tag} />
-          </div>
-        </div>
-      </div>
-
-      {/* Name + role card below */}
-      <div
-        style={{
-          marginTop: "12px",
-          background: "#6FE6C1",
-          clipPath: CLIP(14),
-          padding: "1.5px",
-        }}
-      >
-        <div
-          style={{
-            background: hovered
-              ? "linear-gradient(135deg, #003820 0%, #001810 100%)"
-              : "linear-gradient(135deg, #002416 0%, #000e08 100%)",
-            clipPath: CLIP(13),
-            padding: "16px 18px 18px",
-            transition: "background 0.4s ease",
-          }}
-        >
-          <div
-            style={{
-              height: "1px",
-              background:
-                "linear-gradient(90deg, rgba(111,230,193,0.5) 0%, rgba(111,230,193,0.1) 100%)",
-              marginBottom: "12px",
-            }}
-          />
-          <p
-            style={{
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "clamp(12px, 1.1vw, 15px)",
-              fontWeight: 400,
-              color: "#ffffff",
-              textTransform: "uppercase",
-              letterSpacing: "0.04em",
-              lineHeight: 1.3,
-              margin: 0,
-              marginBottom: "8px",
-            }}
-          >
-            {specialist.firstName} {specialist.lastName}
-          </p>
-          <p
-            style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "12px",
-              fontWeight: 400,
-              color: "rgba(111,230,193,0.6)",
-              lineHeight: 1.6,
-              margin: 0,
-              whiteSpace: "pre-line",
-            }}
-          >
-            {specialist.role}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MobileSpecialistCard({
-  specialist,
-  index,
-}: {
-  specialist: (typeof specialists)[0];
-  index: number;
-}) {
-  return (
-    <div
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        marginBottom: "32px",
-        maxWidth: "300px",
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
-    >
-      {/* Photo container */}
-      <div
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: "#6FE6C1",
-          clipPath: CLIP(16),
-          padding: "1.5px",
-          filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.6))",
-        }}
-      >
-        <div
-          style={{
-            position: "relative",
-            overflow: "hidden",
-            clipPath: CLIP(15),
-            aspectRatio: "1",
-            background: "#001a10",
-          }}
-        >
-
-          {/* Photo */}
-          <div
-            style={{
-              position: "relative",
-              zIndex: 1,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <ImageWithFallback
-              src={specialist.photo}
-              alt={`${specialist.firstName} ${specialist.lastName}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "top center",
-                display: "block",
-              }}
-            />
-            {/* Dark-to-transparent gradient overlay at bottom */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to top, rgba(0,18,10,0.95) 0%, rgba(0,18,10,0.3) 45%, transparent 75%)",
-              }}
-            />
-          </div>
-
-          {/* Index number bottom-left */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "12px",
-              left: "14px",
-              zIndex: 3,
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "12px",
-              letterSpacing: "0.18em",
-              color: "rgba(111,230,193,0.5)",
-            }}
-          >
-            0{index + 1}
-          </div>
-
-          {/* Tag chip bottom-right */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "12px",
-              right: "12px",
-              zIndex: 3,
-            }}
-          >
-            <DesktopTagChip label={specialist.tag} />
-          </div>
-        </div>
-      </div>
-
-      {/* Name + role card below */}
-      <div
-        style={{
-          marginTop: "10px",
-          background: "linear-gradient(135deg, #6FE6C1 0%, #09B983 100%)",
-          clipPath: CLIP(14),
-          padding: "1px",
-        }}
-      >
-        <div
-          style={{
-            background: "linear-gradient(160deg, #002e1c 0%, #000e08 100%)",
-            clipPath: CLIP(13),
-            padding: "16px 20px",
-            position: "relative",
-          }}
-        >
-          {/* Top highlight glow inside the card */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: "10%",
-              right: "40%",
-              height: "1px",
-              background:
-                "linear-gradient(90deg, transparent, rgba(111,230,193,0.6), transparent)",
+              transition: "background 0.5s ease",
             }}
           />
 
-          <h3
-            style={{
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "16px",
-              fontWeight: 400,
-              color: "#ffffff",
-              textTransform: "uppercase",
-              letterSpacing: "0.04em",
-              lineHeight: 1.3,
-              margin: 0,
-              marginBottom: "8px",
-            }}
+          {/* Content Layer */}
+          <div
+            className="relative z-10 flex flex-col justify-between h-full w-full"
+            style={{ padding: large ? "32px" : "24px" }}
           >
-            {specialist.firstName} <br />{" "}
-            <span style={{ color: "#6FE6C1" }}>{specialist.lastName}</span>
-          </h3>
+            {/* Top: Tag */}
+            <div className="flex justify-end items-start w-full">
+              <TagBadge label={specialist.tag} />
+            </div>
 
-          <p
-            style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "12px",
-              fontWeight: 400,
-              color: "rgba(255,255,255,0.75)",
-              lineHeight: 1.5,
-              margin: 0,
-              whiteSpace: "pre-line",
-            }}
-          >
-            {specialist.role}
-          </p>
+            {/* Bottom: Name & Role */}
+            <div className="mt-auto transform transition-transform duration-500" style={{ transform: hovered ? "translateY(0)" : "translateY(4px)" }}>
+              <div className="mb-3 w-8 h-1" style={{ background: `linear-gradient(90deg, ${CYAN}, transparent)` }} />
+              <h3
+                style={{
+                  fontFamily: "'Furore', sans-serif",
+                  fontSize: large ? "32px" : "22px",
+                  fontWeight: 400,
+                  color: "#ffffff",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
+                  lineHeight: 1.1,
+                  margin: "0 0 8px 0",
+                  textShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                }}
+              >
+                {specialist.firstName} <br />
+                <span style={{ color: CYAN }}>{specialist.lastName}</span>
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: large ? "15px" : "13px",
+                  fontWeight: 500,
+                  color: "rgba(255,255,255,0.75)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                  whiteSpace: "pre-line",
+                  opacity: hovered ? 1 : 0.85,
+                  transition: "opacity 0.4s ease",
+                }}
+              >
+                {specialist.role}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -458,46 +262,39 @@ function MobileSpecialistCard({
 
 /* ── Main section ────────────────────────────────────────────────────── */
 export function SpecialistsSection() {
-  return (
-    <section
-      style={{ backgroundColor: "#001d14", position: "relative", overflow: "hidden" }}
-    >
-      {/* Subtle radial glow top-center */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-80px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "700px",
-          height: "400px",
-          background:
-            "radial-gradient(ellipse at center, rgba(111,230,193,0.07) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
+  const founder = specialists.find(s => s.id === 2)!;
+  const team = specialists.filter(s => s.id !== 2);
 
-      {/* ── MOBILE ── */}
-      <div className="md:hidden py-10">
-        <Container>
-          {/* Section heading */}
-          <div style={{ marginBottom: "32px", textAlign: "center" }}>
+  return (
+    <section className="relative overflow-hidden py-14 md:py-24" style={{ backgroundColor: "#001d14" }}>
+      {/* Background Decor */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: `radial-gradient(circle, ${CYAN} 1px, transparent 1px)`, backgroundSize: "40px 40px" }} />
+        <div className="absolute top-0 right-[-10%] w-[60%] h-[50%] bg-radial-gradient from-[#6FE6C108] to-transparent blur-[120px]" />
+        <div className="absolute bottom-0 left-[-10%] w-[40%] h-[40%] bg-radial-gradient from-[#003B2615] to-transparent blur-[100px]" />
+        <div style={{ position: "absolute", top: "10%", right: "8%", width: "40px", height: "40px", background: "rgba(111,230,193,0.08)", border: "1px solid rgba(111,230,193,0.2)", transform: "rotate(15deg)" }} />
+      </div>
+
+      <Container className="relative z-10 w-full max-w-[1300px] mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
+          <div>
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",
-                fontSize: "11px",
+                fontSize: "12px",
                 letterSpacing: "0.25em",
-                color: "rgba(111,230,193,0.5)",
+                color: "rgba(111,230,193,0.45)",
                 textTransform: "uppercase",
-                margin: "0 0 10px",
+                margin: "0 0 12px",
               }}
             >
-              команда
+              команда центра
             </p>
             <h2
               style={{
                 fontFamily: "'Furore', sans-serif",
-                fontSize: "42px",
+                fontSize: "clamp(42px, 5vw, 76px)",
                 fontWeight: 400,
                 color: "#fff",
                 textTransform: "uppercase",
@@ -506,235 +303,58 @@ export function SpecialistsSection() {
                 margin: 0,
               }}
             >
-              Специа&shy;листы
+              Специалисты
             </h2>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {specialists.map((s, i) => (
-              <MobileSpecialistCard key={s.id} specialist={s} index={i} />
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div style={{ marginTop: "36px" }}>
-            <div
-              style={{
-                background: "#6FE6C1",
-                clipPath: CLIP(14),
-                padding: "1.5px",
-              }}
+          <div style={{ background: "#6FE6C1", clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", padding: "1.5px", display: "inline-block", alignSelf: "flex-start" }}>
+            <a
+              href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "block", textDecoration: "none" }}
             >
-              <a
-                href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Записаться на консультацию через WhatsApp"
-                style={{ display: "block", textDecoration: "none" }}
+              <button
+                className="site-btn relative overflow-hidden group"
+                style={{
+                  background: "linear-gradient(135deg, #002416 0%, #000e08 100%)",
+                  clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
+                  border: "none", padding: "18px 36px", cursor: "pointer",
+                  fontFamily: "'Furore', sans-serif", fontSize: "12px", letterSpacing: "0.16em",
+                  color: "#6FE6C1", textTransform: "uppercase", display: "inline-flex", alignItems: "center", gap: "14px",
+                  transition: "color 0.3s ease",
+                }}
               >
-                <button
-                  style={{
-                    width: "100%",
-                    background: "linear-gradient(135deg, #002416 0%, #000e08 100%)",
-                    clipPath: CLIP(13),
-                    border: "none",
-                    padding: "18px 24px",
-                    cursor: "pointer",
-                    fontFamily: "'Furore', sans-serif",
-                    fontSize: "13px",
-                    letterSpacing: "0.14em",
-                    color: "#6FE6C1",
-                    textTransform: "uppercase",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "12px",
-                  }}
-                >
-                  Получить консультацию
-                  <svg width="20" height="8" viewBox="0 0 20 8" fill="none">
-                    <path
-                      d="M0 4H18M14 1L18 4L14 7"
-                      stroke="#6FE6C1"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </a>
-            </div>
+                {/* Glow sweep */}
+                <div className="absolute inset-0 bg-[#6FE6C1] -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+                
+                <span className="relative z-10 group-hover:text-[#00120a]">Получить консультацию</span>
+                <svg width="22" height="8" viewBox="0 0 22 8" fill="none" className="relative z-10">
+                  <path d="M0 4H20M16 1L20 4L16 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        {/* ── Bento Grid ── */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-5 lg:gap-6 min-h-[600px] lg:h-[700px]">
+          
+          {/* Left Column (Founder, Large) */}
+          <div className="lg:col-span-5 h-[500px] lg:h-full">
+            <BentoCard specialist={founder} index={founder.id - 1} large={true} />
           </div>
 
-          <div
-            style={{
-              marginTop: "40px",
-              height: "1px",
-              background:
-                "linear-gradient(90deg, transparent, rgba(111,230,193,0.18) 40%, rgba(111,230,193,0.18) 60%, transparent)",
-            }}
-          />
-        </Container>
-      </div>
-
-      {/* ── DESKTOP ── */}
-      <div
-        className="hidden md:block relative" style={{ padding: "100px 0" }}
-      >
-        {/* Decorative background shapes (Solid Figures) */}
-        {/* Massive slanted block */}
-        <div style={{
-          position: "absolute",
-          top: "0", left: "-20%",
-          width: "800px", height: "400px",
-          background: "linear-gradient(90deg, rgba(111,230,193,0.03) 0%, transparent 100%)",
-          transform: "skewY(-15deg)",
-          borderTop: "1px solid rgba(111,230,193,0.1)",
-          pointerEvents: "none",
-        }} />
-        {/* Solid Circle with inner gradient */}
-        <div style={{
-          position: "absolute",
-          bottom: "10%", right: "-100px",
-          width: "400px", height: "400px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle at 30% 30%, rgba(111,230,193,0.06) 0%, rgba(0,0,0,0) 80%)",
-          pointerEvents: "none",
-        }} />
-        {/* Floating Accent Square */}
-        <div style={{
-          position: "absolute",
-          top: "20%", right: "8%",
-          width: "40px", height: "40px",
-          background: "rgba(111,230,193,0.08)",
-          border: "1px solid rgba(111,230,193,0.2)",
-          transform: "rotate(15deg)",
-          pointerEvents: "none",
-        }} />
-
-        <Container className="relative z-10">
-          {/* Heading row */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              marginBottom: "52px",
-            }}
-          >
-            <div>
-              <p
-                style={{
-                  fontFamily: "'Furore', sans-serif",
-                  fontSize: "11px",
-                  letterSpacing: "0.28em",
-                  color: "rgba(111,230,193,0.45)",
-                  textTransform: "uppercase",
-                  margin: "0 0 12px",
-                }}
-              >
-                команда центра
-              </p>
-              <h2
-                style={{
-                  fontFamily: "'Furore', sans-serif",
-                  fontSize: "clamp(52px, 5.5vw, 80px)",
-                  fontWeight: 400,
-                  color: "#fff",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.02em",
-                  lineHeight: 0.92,
-                  margin: 0,
-                }}
-              >
-                Специалисты
-              </h2>
-            </div>
-
-            {/* CTA desktop */}
-            <div style={{ paddingBottom: "6px" }}>
-              <div
-                style={{
-                  background: "#6FE6C1",
-                  clipPath: CLIP(14),
-                  padding: "1.5px",
-                  display: "inline-block",
-                }}
-              >
-                <a
-                  href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Записаться на консультацию через WhatsApp"
-                  style={{ display: "block", textDecoration: "none" }}
-                >
-                  <button
-                    className="site-btn"
-                    style={{
-                      background: "linear-gradient(135deg, #002416 0%, #000e08 100%)",
-                      clipPath: CLIP(13),
-                      border: "none",
-                      padding: "16px 36px",
-                      cursor: "pointer",
-                      fontFamily: "'Furore', sans-serif",
-                      fontSize: "11px",
-                      letterSpacing: "0.16em",
-                      color: "#6FE6C1",
-                      textTransform: "uppercase",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "14px",
-                      transition: "background 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background =
-                        "linear-gradient(135deg, #003820 0%, #001810 100%)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background =
-                        "linear-gradient(135deg, #002416 0%, #000e08 100%)";
-                    }}
-                  >
-                    Получить консультацию
-                    <svg width="22" height="8" viewBox="0 0 22 8" fill="none">
-                      <path
-                        d="M0 4H20M16 1L20 4L16 7"
-                        stroke="#6FE6C1"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Cards grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "18px",
-              alignItems: "start",
-            }}
-          >
-            {specialists.map((s, i) => (
-              <DesktopSpecialistCard key={s.id} specialist={s} index={i} />
+          {/* Right Column (2x2 Grid for Team) */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6 h-full">
+            {team.map((s) => (
+              <BentoCard key={s.id} specialist={s} index={s.id - 1} large={false} />
             ))}
           </div>
 
-          <div
-            style={{
-              marginTop: "64px",
-              height: "1px",
-              background:
-                "linear-gradient(90deg, transparent, rgba(111,230,193,0.18) 40%, rgba(111,230,193,0.18) 60%, transparent)",
-            }}
-          />
-        </Container>
-      </div>
+        </div>
+
+      </Container>
     </section>
   );
 }
