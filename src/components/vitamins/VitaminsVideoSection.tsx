@@ -12,7 +12,7 @@ export function VitaminsVideoSection() {
   const isMobile = useIsMobile();
 
   return (
-    <section id="vitamins-videos" className="relative overflow-hidden py-[60px] md:py-[100px]">
+    <section id="vitamins-videos" className="relative overflow-hidden pt-[60px] pb-[30px] md:pt-[100px] md:pb-[50px]">
       
       {/* ── BACKGROUND ORNAMENTS ── */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 30%, rgba(111,230,193,0.1) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(111,230,193,0.05) 0%, transparent 50%)", pointerEvents: "none" }} />
