@@ -217,121 +217,158 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
               </div>
             )}
 
-            {/* Content organised into PLATED LAYERS */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: mobile ? "6px" : "10px", marginTop: mobile ? "12px" : "20px" }}>
-                
-                {/* Plate 1: Tag & Title (Saturated Wrapper) */}
-                <div style={{ 
-                    background: `${CYAN}50`, 
-                    padding: "1px", 
-                    clipPath: CLIP(mobile ? 10 : 12) 
-                }}>
-                    <div style={{ 
-                        background: "rgba(111,230,193,0.1)", 
-                        padding: mobile ? "14px 18px" : "20px 24px", 
-                        clipPath: CLIP(mobile ? 9.5 : 11.5),
-                        height: "100%"
-                    }}>
-                        {!mobile && (
-                          <div style={{ 
-                              fontFamily: "'Furore', sans-serif", fontSize: "9px", 
-                              color: CYAN, letterSpacing: "0.2em", marginBottom: "12px", 
-                              opacity: 0.9, textTransform: "uppercase" 
-                          }}>
-                              // {item.tag}
-                          </div>
-                        )}
+            {/* Content Section */}
+            <div style={{ 
+                flex: 1, 
+                display: "flex", 
+                flexDirection: "column", 
+                gap: mobile ? "12px" : "10px", 
+                marginTop: mobile ? "8px" : "20px" 
+            }}>
+                {mobile ? (
+                    /* FLAT MOBILE CONTENT (Reduced Nesting) */
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                         <h3 style={{ 
                             fontFamily: "'Furore', sans-serif", 
-                            fontSize: mobile ? "13px" : (isLarge ? "28px" : "15px"), 
-                            color: "#ffffff", textTransform: "uppercase", 
-                            letterSpacing: "0.03em", lineHeight: 1.25, margin: 0
+                            fontSize: "14.5px", 
+                            color: CYAN, 
+                            textTransform: "uppercase", 
+                            letterSpacing: "0.03em", 
+                            lineHeight: 1.3, 
+                            margin: 0
                         }}>
                             {item.title}
                         </h3>
-                    </div>
-                </div>
-
-                {/* Plate 2: Description (Saturated Wrapper) */}
-                <div style={{ 
-                    background: `${CYAN}35`, 
-                    padding: "1px", 
-                    clipPath: CLIP(12),
-                    flex: 1
-                }}>
-                    <div style={{ 
-                        background: "rgba(0,0,0,0.35)", 
-                        padding: mobile ? "16px 18px" : "24px", 
-                        clipPath: CLIP(mobile ? 9.5 : 11.5),
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: mobile ? "12px" : "24px"
-                    }}>
                         <p style={{ 
                             fontFamily: "'Montserrat', sans-serif", 
-                            fontSize: mobile ? "11.5px" : (isLarge ? "15px" : "13.5px"), color: "rgba(255,255,255,0.85)", 
-                            lineHeight: 1.6, margin: 0, fontWeight: 400
+                            fontSize: "12.5px", 
+                            color: "rgba(255,255,255,0.85)", 
+                            lineHeight: 1.6, 
+                            margin: 0, 
+                            fontWeight: 400
                         }}>
                             {item.description}
                         </p>
-
-                        {/* ── PREMIUM TECHNICAL GLOBE (Below Text) ── */}
-                        {isLarge && (
-                            <div style={{ width: "100%", height: "260px", opacity: 0.9, pointerEvents: "none", marginTop: "10px" }}>
-                                <svg viewBox="0 0 400 300" style={{ width: "100%", height: "100%" }}>
-                                    <defs>
-                                        <filter id="globe-glow-refined">
-                                            <feGaussianBlur stdDeviation="2.5" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                    </defs>
-                                    <g transform="translate(200, 150) rotate(-15)">
-                                        {/* Atmosphere Glow */}
-                                        <circle r="102" fill="none" stroke={CYAN} strokeWidth="0.5" opacity="0.15" />
-                                        
-                                        {/* Primary Sphere Body - STATIC */}
-                                        <circle r="100" stroke={CYAN} strokeWidth="2.5" fill="rgba(111,230,193,0.03)" filter="url(#globe-glow-refined)" />
-                                        
-                                        {/* Rotating Meridians (Simulated 3D rx animation) */}
-                                        <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "0s" }} />
-                                        <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "-2.5s" }} />
-                                        <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "-5s" }} />
-                                        <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "-7.5s" }} />
-
-                                        {/* Static Parallels (Horizontal depth) */}
-                                        <ellipse rx="100" ry="30" stroke={CYAN} strokeWidth="1.0" fill="none" opacity="0.3" />
-                                        <ellipse rx="86" ry="20" stroke={CYAN} strokeWidth="0.8" fill="none" opacity="0.2" transform="translate(0, -50)" />
-                                        <ellipse rx="86" ry="20" stroke={CYAN} strokeWidth="0.8" fill="none" opacity="0.2" transform="translate(0, 50)" />
-                                        <line x1="-100" y1="0" x2="100" y2="0" stroke={CYAN} strokeWidth="1.0" opacity="0.4" />
-
-                                        {/* Technical Accents (Bounding Corners) - STATIC */}
-                                        <g stroke={CYAN} strokeWidth="1" opacity="0.4">
-                                            <path d="M-120,-120 L-110,-120 M-120,-120 L-120,-110" />
-                                            <path d="M120,-120 L110,-120 M120,-120 L120,-110" />
-                                            <path d="M-120,120 L-110,120 M-120,120 L-120,110" />
-                                            <path d="M120,120 L110,120 M120,120 L120,110" />
-                                        </g>
-                                    </g>
-                                </svg>
-                            </div>
-                        )}
                     </div>
-                </div>
+                ) : (
+                    /* PLATED DESKTOP CONTENT (Original Rich Design) */
+                    <>
+                        {/* Plate 1: Tag & Title (Saturated Wrapper) */}
+                        <div style={{ 
+                            background: `${CYAN}50`, 
+                            padding: "1px", 
+                            clipPath: CLIP(12) 
+                        }}>
+                            <div style={{ 
+                                background: "rgba(111,230,193,0.1)", 
+                                padding: "20px 24px", 
+                                clipPath: CLIP(11.5),
+                                height: "100%"
+                            }}>
+                                <div style={{ 
+                                    fontFamily: "'Furore', sans-serif", fontSize: "9px", 
+                                    color: CYAN, letterSpacing: "0.2em", marginBottom: "12px", 
+                                    opacity: 0.9, textTransform: "uppercase" 
+                                }}>
+                                    // {item.tag}
+                                </div>
+                                <h3 style={{ 
+                                    fontFamily: "'Furore', sans-serif", 
+                                    fontSize: isLarge ? "28px" : "15px", 
+                                    color: "#ffffff", textTransform: "uppercase", 
+                                    letterSpacing: "0.03em", lineHeight: 1.25, margin: 0
+                                }}>
+                                    {item.title}
+                                </h3>
+                            </div>
+                        </div>
 
+                        {/* Plate 2: Description (Saturated Wrapper) */}
+                        <div style={{ 
+                            background: `${CYAN}35`, 
+                            padding: "1px", 
+                            clipPath: CLIP(12),
+                            flex: 1
+                        }}>
+                            <div style={{ 
+                                background: "rgba(0,0,0,0.35)", 
+                                padding: "24px", 
+                                clipPath: CLIP(11.5),
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "24px"
+                            }}>
+                                <p style={{ 
+                                    fontFamily: "'Montserrat', sans-serif", 
+                                    fontSize: isLarge ? "15px" : "13.5px", color: "rgba(255,255,255,0.85)", 
+                                    lineHeight: 1.7, margin: 0, fontWeight: 400
+                                }}>
+                                    {item.description}
+                                </p>
+
+                                {/* ── PREMIUM TECHNICAL GLOBE (Below Text) ── */}
+                                {isLarge && (
+                                    <div style={{ width: "100%", height: "260px", opacity: 0.9, pointerEvents: "none", marginTop: "10px" }}>
+                                        <svg viewBox="0 0 400 300" style={{ width: "100%", height: "100%" }}>
+                                            <defs>
+                                                <filter id="globe-glow-refined">
+                                                    <feGaussianBlur stdDeviation="2.5" result="blur" />
+                                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                                </filter>
+                                            </defs>
+                                            <g transform="translate(200, 150) rotate(-15)">
+                                                {/* Atmosphere Glow */}
+                                                <circle r="102" fill="none" stroke={CYAN} strokeWidth="0.5" opacity="0.15" />
+                                                
+                                                {/* Primary Sphere Body - STATIC */}
+                                                <circle r="100" stroke={CYAN} strokeWidth="2.5" fill="rgba(111,230,193,0.03)" filter="url(#globe-glow-refined)" />
+                                                
+                                                {/* Rotating Meridians (Simulated 3D rx animation) */}
+                                                <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "0s" }} />
+                                                <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "-2.5s" }} />
+                                                <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "-5s" }} />
+                                                <ellipse rx="100" ry="100" stroke={CYAN} strokeWidth="1.2" fill="none" className="animate-spin-meridian" style={{ animationDelay: "-7.5s" }} />
+
+                                                {/* Static Parallels (Horizontal depth) */}
+                                                <ellipse rx="100" ry="30" stroke={CYAN} strokeWidth="1.0" fill="none" opacity="0.3" />
+                                                <ellipse rx="86" ry="20" stroke={CYAN} strokeWidth="0.8" fill="none" opacity="0.2" transform="translate(0, -50)" />
+                                                <ellipse rx="86" ry="20" stroke={CYAN} strokeWidth="0.8" fill="none" opacity="0.2" transform="translate(0, 50)" />
+                                                <line x1="-100" y1="0" x2="100" y2="0" stroke={CYAN} strokeWidth="1.0" opacity="0.4" />
+
+                                                {/* Technical Accents (Bounding Corners) - STATIC */}
+                                                <g stroke={CYAN} strokeWidth="1" opacity="0.4">
+                                                    <path d="M-120,-120 L-110,-120 M-120,-120 L-120,-110" />
+                                                    <path d="M120,-120 L110,-120 M120,-120 L120,-110" />
+                                                    <path d="M-120,120 L-110,120 M-120,120 L-120,110" />
+                                                    <path d="M120,120 L110,120 M120,120 L120,110" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </>
+                )}
             </div>
 
             {/* Ghost Detail */}
-            {!mobile && (
-              <div style={{
-                  position: "absolute", bottom: "-10px", right: "15px",
-                  fontFamily: "'Furore', sans-serif", fontSize: "100px",
-                  color: "transparent", WebkitTextStroke: `1px ${CYAN}04`,
-                  zIndex: -1, pointerEvents: "none"
-              }}>
-                  0{item.id}
-              </div>
-            )}
+            <div style={{
+                position: "absolute", 
+                bottom: mobile ? "0px" : "-10px", 
+                right: mobile ? "8px" : "15px",
+                fontFamily: "'Furore', sans-serif", 
+                fontSize: mobile ? "72px" : "100px",
+                color: "transparent", 
+                WebkitTextStroke: mobile ? `1px ${CYAN}25` : `1px ${CYAN}06`,
+                zIndex: -1, 
+                pointerEvents: "none",
+                opacity: mobile ? 0.8 : 1,
+                lineHeight: 1
+            }}>
+                0{item.id}
+            </div>
           </div>
         </div>
     );
