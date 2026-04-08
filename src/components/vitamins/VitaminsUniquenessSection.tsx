@@ -195,25 +195,27 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
           >
 
             {/* Node Number */}
-            <div style={{ 
-                position: "absolute", 
-                top: mobile ? "16px" : "22px", 
-                left: mobile ? "16px" : "22px", 
-                width: mobile ? "18px" : "24px", 
-                height: mobile ? "18px" : "24px", 
-                borderRadius: "50%",
-                border: `1px solid ${CYAN}60`, display: "flex", 
-                alignItems: "center", justifyContent: "center",
-                background: "rgba(0,0,0,0.5)",
-                zIndex: 10
-            }}>
-                <span style={{ 
-                    fontFamily: "'Furore', sans-serif", fontSize: mobile ? "8px" : "10px", 
-                    color: CYAN, opacity: 0.9 
-                }}>
-                    {item.id}
-                </span>
-            </div>
+            {!mobile && (
+              <div style={{ 
+                  position: "absolute", 
+                  top: "22px", 
+                  left: "22px", 
+                  width: "24px", 
+                  height: "24px", 
+                  borderRadius: "50%",
+                  border: `1px solid ${CYAN}60`, display: "flex", 
+                  alignItems: "center", justifyContent: "center",
+                  background: "rgba(0,0,0,0.5)",
+                  zIndex: 10
+              }}>
+                  <span style={{ 
+                      fontFamily: "'Furore', sans-serif", fontSize: "10px", 
+                      color: CYAN, opacity: 0.9 
+                  }}>
+                      {item.id}
+                  </span>
+              </div>
+            )}
 
             {/* Content organised into PLATED LAYERS */}
             <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: mobile ? "6px" : "10px", marginTop: mobile ? "12px" : "20px" }}>
@@ -230,13 +232,15 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
                         clipPath: CLIP(mobile ? 9.5 : 11.5),
                         height: "100%"
                     }}>
-                        <div style={{ 
-                            fontFamily: "'Furore', sans-serif", fontSize: mobile ? "8px" : "9px", 
-                            color: CYAN, letterSpacing: "0.2em", marginBottom: mobile ? "6px" : "12px", 
-                            opacity: 0.9, textTransform: "uppercase" 
-                        }}>
-                            // {item.tag}
-                        </div>
+                        {!mobile && (
+                          <div style={{ 
+                              fontFamily: "'Furore', sans-serif", fontSize: "9px", 
+                              color: CYAN, letterSpacing: "0.2em", marginBottom: "12px", 
+                              opacity: 0.9, textTransform: "uppercase" 
+                          }}>
+                              // {item.tag}
+                          </div>
+                        )}
                         <h3 style={{ 
                             fontFamily: "'Furore', sans-serif", 
                             fontSize: mobile ? "13px" : (isLarge ? "28px" : "15px"), 
@@ -318,14 +322,16 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
             </div>
 
             {/* Ghost Detail */}
-            <div style={{
-                position: "absolute", bottom: "-10px", right: "15px",
-                fontFamily: "'Furore', sans-serif", fontSize: mobile ? "60px" : "100px",
-                color: "transparent", WebkitTextStroke: `1px ${CYAN}04`,
-                zIndex: -1, pointerEvents: "none"
-            }}>
-                0{item.id}
-            </div>
+            {!mobile && (
+              <div style={{
+                  position: "absolute", bottom: "-10px", right: "15px",
+                  fontFamily: "'Furore', sans-serif", fontSize: "100px",
+                  color: "transparent", WebkitTextStroke: `1px ${CYAN}04`,
+                  zIndex: -1, pointerEvents: "none"
+              }}>
+                  0{item.id}
+              </div>
+            )}
           </div>
         </div>
     );
