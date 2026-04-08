@@ -276,7 +276,7 @@ export function SpecialistsSection() {
       <Container className="relative z-10 w-full max-w-[1300px] mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
-          <div>
+          <div className="text-center md:text-left">
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",
