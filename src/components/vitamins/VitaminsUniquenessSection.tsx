@@ -47,7 +47,7 @@ const uniquenessItems = [
 
 export function VitaminsUniquenessSection() {
   return (
-    <section id="vitamins-uniqueness" className="relative overflow-hidden py-[60px] md:py-[100px]" 
+    <section id="vitamins-uniqueness" className="relative overflow-hidden py-[40px] md:py-[100px]" 
              style={{ backgroundColor: BG_DARK }}>
       
       {/* ── GLOBAL SCHEMATIC BACKGROUND ── */}
@@ -85,10 +85,10 @@ export function VitaminsUniquenessSection() {
       <Container className="relative z-10">
         
         {/* Заголовок секции */}
-        <div className="mb-8 md:mb-[60px]" style={{ textAlign: "left" }}>
+        <div className="mb-6 md:mb-[60px]" style={{ textAlign: "left" }}>
             <h2 style={{ 
                 fontFamily: "'Furore', sans-serif", 
-                fontSize: "clamp(34px, 5.5vw, 68px)", 
+                fontSize: "clamp(30px, 5.5vw, 68px)", 
                 fontWeight: 400, 
                 textTransform: "uppercase", 
                 color: "#fff",
@@ -98,7 +98,7 @@ export function VitaminsUniquenessSection() {
             }}>
                 Наша <span style={{ color: CYAN }}>Уникальность</span>
             </h2>
-            <div style={{ width: "80px", height: "1px", background: CYAN, marginTop: "20px", opacity: 0.8 }} />
+            <div style={{ width: "60px", height: "1px", background: CYAN, marginTop: "16px", opacity: 0.8 }} />
         </div>
 
         {/* ── PLATES & SHAPES 1+4 GRID (Desktop) ── */}
@@ -119,7 +119,7 @@ export function VitaminsUniquenessSection() {
         </div>
 
         {/* ── MOBILE STACK ── */}
-        <div className="md:hidden flex flex-col gap-6">
+        <div className="md:hidden flex flex-col gap-4">
             {uniquenessItems.map((item) => (
                 <div key={item.id}>
                     <UniquenessCard item={item} mobile />
@@ -170,21 +170,21 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
           onMouseLeave={() => !mobile && setHovered(false)}
           style={{
             background: hovered ? `${CYAN}` : `${CYAN}80`,
-            clipPath: CLIP(22),
-            padding: "2px",
+            clipPath: CLIP(mobile ? 16 : 22),
+            padding: "1.5px",
             transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            minHeight: isLarge ? "520px" : "250px",
+            minHeight: mobile ? "auto" : (isLarge ? "520px" : "250px"),
             boxShadow: hovered ? `0 0 35px ${CYAN}40` : `0 0 20px ${CYAN}15`,
             transform: hovered ? "translateY(-10px)" : "translateY(0)",
           }}
         >
           <div
             style={{
-              background: hovered 
+              background: (hovered || mobile) 
                 ? "linear-gradient(155deg, #003620 0%, #00150c 100%)" 
                 : "linear-gradient(155deg, #002818 0%, #00110c 100%)",
-              clipPath: CLIP(21),
-              padding: isLarge ? "48px" : "32px 28px",
+              clipPath: CLIP(mobile ? 15.5 : 21),
+              padding: mobile ? "24px 20px" : (isLarge ? "48px" : "32px 28px"),
               height: "100%",
               display: "flex",
               flexDirection: "column",
@@ -196,15 +196,19 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
 
             {/* Node Number */}
             <div style={{ 
-                position: "absolute", top: "22px", left: "22px", 
-                width: "24px", height: "24px", borderRadius: "50%",
+                position: "absolute", 
+                top: mobile ? "16px" : "22px", 
+                left: mobile ? "16px" : "22px", 
+                width: mobile ? "18px" : "24px", 
+                height: mobile ? "18px" : "24px", 
+                borderRadius: "50%",
                 border: `1px solid ${CYAN}60`, display: "flex", 
                 alignItems: "center", justifyContent: "center",
                 background: "rgba(0,0,0,0.5)",
                 zIndex: 10
             }}>
                 <span style={{ 
-                    fontFamily: "'Furore', sans-serif", fontSize: "10px", 
+                    fontFamily: "'Furore', sans-serif", fontSize: mobile ? "8px" : "10px", 
                     color: CYAN, opacity: 0.9 
                 }}>
                     {item.id}
@@ -212,30 +216,30 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
             </div>
 
             {/* Content organised into PLATED LAYERS */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "10px", marginTop: "20px" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: mobile ? "6px" : "10px", marginTop: mobile ? "12px" : "20px" }}>
                 
                 {/* Plate 1: Tag & Title (Saturated Wrapper) */}
                 <div style={{ 
                     background: `${CYAN}50`, 
                     padding: "1px", 
-                    clipPath: CLIP(12) 
+                    clipPath: CLIP(mobile ? 10 : 12) 
                 }}>
                     <div style={{ 
                         background: "rgba(111,230,193,0.1)", 
-                        padding: "20px 24px", 
-                        clipPath: CLIP(11.5),
+                        padding: mobile ? "14px 18px" : "20px 24px", 
+                        clipPath: CLIP(mobile ? 9.5 : 11.5),
                         height: "100%"
                     }}>
                         <div style={{ 
-                            fontFamily: "'Furore', sans-serif", fontSize: "9px", 
-                            color: CYAN, letterSpacing: "0.2em", marginBottom: "12px", 
+                            fontFamily: "'Furore', sans-serif", fontSize: mobile ? "8px" : "9px", 
+                            color: CYAN, letterSpacing: "0.2em", marginBottom: mobile ? "6px" : "12px", 
                             opacity: 0.9, textTransform: "uppercase" 
                         }}>
                             // {item.tag}
                         </div>
                         <h3 style={{ 
                             fontFamily: "'Furore', sans-serif", 
-                            fontSize: isLarge ? "28px" : "15px", 
+                            fontSize: mobile ? "13px" : (isLarge ? "28px" : "15px"), 
                             color: "#ffffff", textTransform: "uppercase", 
                             letterSpacing: "0.03em", lineHeight: 1.25, margin: 0
                         }}>
@@ -253,17 +257,17 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
                 }}>
                     <div style={{ 
                         background: "rgba(0,0,0,0.35)", 
-                        padding: "24px", 
-                        clipPath: CLIP(11.5),
+                        padding: mobile ? "16px 18px" : "24px", 
+                        clipPath: CLIP(mobile ? 9.5 : 11.5),
                         height: "100%",
                         display: "flex",
                         flexDirection: "column",
-                        gap: "24px"
+                        gap: mobile ? "12px" : "24px"
                     }}>
                         <p style={{ 
                             fontFamily: "'Montserrat', sans-serif", 
-                            fontSize: isLarge ? "15px" : "13.5px", color: "rgba(255,255,255,0.85)", 
-                            lineHeight: 1.7, margin: 0, fontWeight: 400
+                            fontSize: mobile ? "11.5px" : (isLarge ? "15px" : "13.5px"), color: "rgba(255,255,255,0.85)", 
+                            lineHeight: 1.6, margin: 0, fontWeight: 400
                         }}>
                             {item.description}
                         </p>
@@ -316,7 +320,7 @@ function UniquenessCard({ item, mobile }: { item: any; mobile?: boolean }) {
             {/* Ghost Detail */}
             <div style={{
                 position: "absolute", bottom: "-10px", right: "15px",
-                fontFamily: "'Furore', sans-serif", fontSize: "100px",
+                fontFamily: "'Furore', sans-serif", fontSize: mobile ? "60px" : "100px",
                 color: "transparent", WebkitTextStroke: `1px ${CYAN}04`,
                 zIndex: -1, pointerEvents: "none"
             }}>
