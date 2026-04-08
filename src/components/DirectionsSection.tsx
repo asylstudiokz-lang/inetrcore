@@ -530,6 +530,7 @@ export function DirectionsSection() {
               lineHeight: 0.95,
               margin: 0,
               marginBottom: "32px",
+              textAlign: "center",
             }}
           >
             Направления
