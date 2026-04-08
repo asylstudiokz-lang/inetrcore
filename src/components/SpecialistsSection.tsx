@@ -146,28 +146,18 @@ function BentoCard({
               zIndex: 1,
             }}
           >
-            {(() => {
-              const isDiyar = specialist.lastName === "Бегужинов";
-              const diyarBase = "translateY(-4%) scale(1.1)";
-              const diyarHover = "translateY(-4%) scale(1.15)";
-              const normalBase = "scale(1)";
-              const normalHover = "scale(1.05)";
-
-              return (
-                <ImageWithFallback
-                  src={specialist.photo}
-                  alt={`${specialist.firstName} ${specialist.lastName}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "top center",
-                    transform: isDiyar ? (hovered ? diyarHover : diyarBase) : (hovered ? normalHover : normalBase),
-                    transition: "transform 0.7s cubic-bezier(0.34,1.56,0.64,1)",
-                  }}
-                />
-              );
-            })()}
+            <ImageWithFallback
+              src={specialist.photo}
+              alt={`${specialist.firstName} ${specialist.lastName}`}
+              className={specialist.id === 2 ? "object-[center_12%] md:object-top" : "object-top"}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: hovered ? "scale(1.05)" : "scale(1)",
+                transition: "transform 0.7s cubic-bezier(0.34,1.56,0.64,1)",
+              }}
+            />
           </div>
 
           {/* Large Vertical Ghost Text */}
@@ -223,7 +213,7 @@ function BentoCard({
           >
             {/* Top Right: Tag */}
             <div className="flex justify-end items-start w-full">
-              <div className={`${large ? 'block' : 'hidden md:block'} origin-top-right transform scale-[0.85] lg:scale-100`}>
+              <div className={`${large ? 'block' : 'hidden md:block'} origin-top-right transform scale-[0.85] lg:scale-100 ${!large ? "lg:-mt-3 lg:-mr-3" : ""}`}>
                 <TagBadge label={specialist.tag} />
               </div>
             </div>
