@@ -53,14 +53,14 @@ export function VitaminsHeroSection() {
              <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "16px" }}>
                <div style={{ width: "24px", height: "1px", background: CYAN, opacity: 0.7 }} />
                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em", color: CYAN, textTransform: "uppercase" }}>
-                 ФУНКЦИОНАЛЬНОЕ ПИТАНИЕ
+                 Растительное функциональное питание
                </span>
                <div style={{ width: "24px", height: "1px", background: CYAN, opacity: 0.7 }} />
              </div>
 
              <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(26px, 8vw, 40px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", marginBottom: "16px" }}>
-                РАСТИТЕЛЬНЫЕ<br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>ВИТАМИНЫ</span>
+                витаминно минеральные<br/>
+                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>комплексы</span>
              </h1>
 
              <div style={{ width: "100%", height: "1px", background: `linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)`, marginBottom: "16px", maxWidth: "280px" }} />
@@ -199,13 +199,13 @@ export function VitaminsHeroSection() {
              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
                <div style={{ width: "36px", height: "1px", background: CYAN, opacity: 0.7 }} />
                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.25em", color: CYAN, textTransform: "uppercase" }}>
-                 ФУНКЦИОНАЛЬНОЕ ПИТАНИЕ
+                 Растительное функциональное питание
                </span>
              </div>
 
              <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(34px, 4vw, 58px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.05, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 16px 0", position: "relative" }}>
-                РАСТИТЕЛЬНЫЕ<br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>ВИТАМИНЫ</span>
+                витаминно минеральные<br/>
+                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>комплексы</span>
              </h1>
 
              <div style={{ width: "100%", height: "1px", background: `linear-gradient(90deg, ${CYAN} 0%, rgba(111,230,193,0.15) 50%, transparent 100%)`, marginBottom: "20px", maxWidth: "480px" }} />

@@ -14,6 +14,8 @@ const advantages = [
     description: "Мы используем только растительное сырье без химических реагентов, сохраняя природную чистоту и эффективность продукта.",
     tag: "СОСТАВ",
     span: "col-span-1 md:col-span-2",
+    // Tabler: plant-2
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"><path d="M2 9a10 10 0 1 0 20 0"/><path d="M12 19A10 10 0 0 1 22 9M2 9a10 10 0 0 1 10 10"/><path d="M12 4a9.7 9.7 0 0 1 2.99 7.5m-5.98 0A9.7 9.7 0 0 1 12 4"/></g></svg>`,
   },
   {
     id: 2,
@@ -21,6 +23,8 @@ const advantages = [
     description: "Высокая биодоступность и легкое усвоение — максимум пользы с минимальной нагрузкой на организм.",
     tag: "БИОЛОГИЯ",
     span: "col-span-1",
+    // Tabler: dna
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"><path d="M14.828 14.828a4 4 0 1 0-5.656-5.656a4 4 0 0 0 5.656 5.656"/><path d="M9.172 20.485a4 4 0 1 0-5.657-5.657M14.828 3.515a4 4 0 0 0 5.657 5.657"/></g></svg>`,
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const advantages = [
     description: "Все составы разрабатываются на основе актуальных научных исследований и проверенных клинических данных.",
     tag: "НАУКА",
     span: "col-span-1",
+    // Tabler: flask
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M9 3h6m-5 6h4m-4-6v6L6 20a.7.7 0 0 0 .5 1h11a.7.7 0 0 0 .5-1L14 9V3"/></svg>`,
   },
   {
     id: 4,
@@ -35,6 +41,8 @@ const advantages = [
     description: "Собственная разработка и тестирование на базе ведущих технопарков Академгородка и Кольцово.",
     tag: "РАЗРАБОТКА",
     span: "col-span-1",
+    // Tabler: microscope
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M5 21h14M6 18h2m-1 0v3m2-10l3 3l6-6l-3-3zm1.5 1.5L9 14m8-11l3 3m-8 15a6 6 0 0 0 3.715-10.712"/></svg>`,
   },
   {
     id: 5,
@@ -42,6 +50,8 @@ const advantages = [
     description: "Уникальный технологический процесс обеспечивает сохранение всех полезных свойств компонентов.",
     tag: "ТЕХНОЛОГИИ",
     span: "col-span-1",
+    // Tabler: cpu
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"><path d="M5 6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M9 9h6v6H9zm-6 1h2m-2 4h2m5-11v2m4-2v2m7 5h-2m2 4h-2m-5 7v-2m-4 2v-2"/></g></svg>`,
   },
   {
     id: 6,
@@ -49,6 +59,8 @@ const advantages = [
     description: "Строгий контроль качества на каждом этапе производства гарантирует отсутствие побочных эффектов.",
     tag: "КОНТРОЛЬ",
     span: "col-span-1 md:col-span-3",
+    // Tabler: certificate
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"><path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/><path d="M13 17.5V22l2-1.5l2 1.5v-4.5"/><path d="M10 19H5a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-1 1.73M6 9h12M6 12h3m-3 3h2"/></g></svg>`,
   }
 ];
 
@@ -124,8 +136,13 @@ export function VitaminsAdvantagesSection() {
             </h2>
         </div>
 
-        {/* Асимметричная сетка Bento */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        {/* Mobile: slider (1 card at a time) */}
+        <div className="md:hidden">
+          <MobileSlider />
+        </div>
+
+        {/* Desktop: asymmetric bento grid */}
+        <div className="hidden md:grid grid-cols-3 gap-5 lg:gap-6">
           {advantages.map((adv) => (
             <ModuleCard key={adv.id} adv={adv} />
           ))}
@@ -205,13 +222,146 @@ export function VitaminsAdvantagesSection() {
     </section>
   );
 }
+function MobileSlider() {
+  const [current, setCurrent] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const total = advantages.length;
 
-function ModuleCard({ adv }: { adv: any }) {
+  const prev = () => setCurrent((c) => Math.max(0, c - 1));
+  const next = () => setCurrent((c) => Math.min(total - 1, c + 1));
+
+  const isFirst = current === 0;
+  const isLast = current === total - 1;
+
+  return (
+    <div style={{ position: "relative", userSelect: "none" }}>
+      {/* Track */}
+      <div
+        style={{ overflow: "hidden" }}
+        onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+        onTouchEnd={(e) => {
+          if (touchStartX === null) return;
+          const delta = e.changedTouches[0].clientX - touchStartX;
+          if (delta > 50) prev();
+          else if (delta < -50) next();
+          setTouchStartX(null);
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "stretch", // Ensure cards stretch to same height
+            transition: "transform 0.4s cubic-bezier(0.4,0,0.2,1)",
+            transform: `translateX(-${current * 100}%)`,
+          }}
+        >
+          {advantages.map((adv) => (
+            <div key={adv.id} style={{ minWidth: "100%", padding: "0 10px", display: "flex" }}>
+              <ModuleCard adv={adv} isMobileSlider />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Dot indicators & Arrows & Rectangular Buttons */}
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", marginTop: "14px" }}>
+        {/* Left Arrow Button (Rectangular) */}
+        <button
+          onClick={prev}
+          disabled={isFirst}
+          style={{
+            width: "50px",
+            height: "42px",
+            background: isFirst ? "rgba(111,230,193,0.1)" : `${CYAN}40`,
+            padding: "1.5px",
+            clipPath: CLIP(8),
+            cursor: isFirst ? "default" : "pointer",
+            border: "none",
+            transition: "all 0.3s ease",
+            WebkitTapHighlightColor: "transparent",
+            display: "flex",
+            opacity: isFirst ? 0.3 : 1
+          }}
+        >
+          <div style={{ 
+            width: "100%", 
+            height: "100%", 
+            background: "#00100a", 
+            clipPath: CLIP(7.5), 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            color: CYAN
+          }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </div>
+        </button>
+
+        <div style={{ display: "flex", gap: "8px" }}>
+          {advantages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              style={{
+                width: i === current ? "20px" : "6px",
+                height: "6px",
+                borderRadius: "3px",
+                background: i === current ? CYAN : `${CYAN}40`,
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Right Arrow Button (Rectangular) */}
+        <button
+          onClick={next}
+          disabled={isLast}
+          style={{
+            width: "50px",
+            height: "42px",
+            background: isLast ? "rgba(111,230,193,0.1)" : `${CYAN}40`,
+            padding: "1.5px",
+            clipPath: CLIP(8),
+            cursor: isLast ? "default" : "pointer",
+            border: "none",
+            transition: "all 0.3s ease",
+            WebkitTapHighlightColor: "transparent",
+            display: "flex",
+            opacity: isLast ? 0.3 : 1
+          }}
+        >
+          <div style={{ 
+            width: "100%", 
+            height: "100%", 
+            background: "#00100a", 
+            clipPath: CLIP(7.5), 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            color: CYAN
+          }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ModuleCard({ adv, isMobileSlider }: { adv: any; isMobileSlider?: boolean }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div 
-      className={`${adv.span} group relative`}
+      className={`${adv.span} group relative w-full`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -220,6 +370,9 @@ function ModuleCard({ adv }: { adv: any }) {
         padding: "1.5px",
         transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
         transform: hovered ? "translateY(-8px)" : "translateY(0)",
+        minHeight: isMobileSlider ? "260px" : "auto", // Reduced height for more compact look
+        display: "flex",
+        flexDirection: "column"
       }}
     >
         {/* Внешнее свечение */}
@@ -237,7 +390,7 @@ function ModuleCard({ adv }: { adv: any }) {
             ? "linear-gradient(155deg, #003620 0%, #00150c 100%)" 
             : "linear-gradient(155deg, #002818 0%, #000e08 100%)",
           clipPath: CLIP(21),
-          padding: "40px 30px",
+          padding: isMobileSlider ? "30px 24px" : "40px 30px", // Reduced padding on mobile
           height: "100%",
           display: "flex",
           flexDirection: "column",
@@ -256,25 +409,23 @@ function ModuleCard({ adv }: { adv: any }) {
             </svg>
         </div>
 
-        {/* Призрачный номер */}
+        {/* Тематическая иконка-водяной знак */}
         <div
           style={{
             position: "absolute",
             bottom: "-15px",
-            right: "15px",
-            fontFamily: "'Furore', sans-serif",
-            fontSize: "130px",
-            lineHeight: 1,
-            color: "transparent",
-            WebkitTextStroke: `1px ${CYAN}15`,
+            right: "-5px",
+            width: "130px",
+            height: "130px",
+            color: CYAN,
+            opacity: 0.06,
             userSelect: "none",
             pointerEvents: "none",
             transition: "all 0.4s ease",
           }}
-          className="group-hover:opacity-40 group-hover:scale-105"
-        >
-          0{adv.id}
-        </div>
+          className="group-hover:opacity-[0.12] group-hover:scale-105"
+          dangerouslySetInnerHTML={{ __html: adv.icon }}
+        />
 
         {/* ТЕХНИЧЕСКАЯ ПЛАШКА (PLATE) С SVG БОРДЕРОМ */}
         <div style={{ position: "absolute", top: "25px", left: "25px", zIndex: 5, height: "22px", display: "inline-flex", alignItems: "center" }}>

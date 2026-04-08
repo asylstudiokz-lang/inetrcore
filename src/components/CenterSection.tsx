@@ -75,7 +75,6 @@ export function CenterSection() {
       {/* ── MOBILE ── */}
       <div className="md:hidden py-10">
         <Container className="relative">
-          {/* Section heading */}
           <div
             className="text-center uppercase w-full mb-[32px]"
             style={{
@@ -90,21 +89,10 @@ export function CenterSection() {
             <p style={{ margin: 0, fontSize: "22px", color: "#6fe6c1", letterSpacing: "0.5px" }}>
               оздоровительный центр
             </p>
+            <p style={{ margin: "6px 0 0 0", fontSize: "16px", color: "rgba(255,255,255,0.65)", letterSpacing: "0.5px", fontWeight: 400, textTransform: "none", fontFamily: "'Montserrat', sans-serif" }}>
+              объединяющий передовые технологии
+            </p>
           </div>
-
-          {/* Section description */}
-          <p
-            className="text-center text-white w-full"
-            style={{
-              margin: "10px 0 0 0",
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "13px",
-              fontWeight: 400,
-              lineHeight: "1.6",
-            }}
-          >
-            Это многопрофильный оздоровительный центр, объединяющий передовые технологии.
-          </p>
 
           {/* Person card — photo overflows top, border SVG overlay */}
           <div className="relative mb-6" style={{ height: "550px", overflow: "hidden" }}>
