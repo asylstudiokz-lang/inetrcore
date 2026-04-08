@@ -10,22 +10,24 @@ export function SpecialistProfileSection() {
   const [hoveredPhoto, setHoveredPhoto] = useState(false);
 
   return (
-    <section className="relative overflow-hidden py-12 md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
+    <section className="relative overflow-hidden py-8 md:py-[100px]" style={{ backgroundColor: "#001d14" }}>
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: `radial-gradient(circle, ${CYAN} 1px, transparent 1px)`, backgroundSize: "40px 40px" }} />
         <div className="absolute right-[5%] top-[10%] w-[25%] h-[35%] opacity-[0.03] hidden lg:block" style={{ background: CYAN, clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)", filter: "blur(40px)" }} />
         <div className="absolute left-[10%] bottom-[10%] w-[20%] h-[30%] opacity-[0.04] hidden lg:block" style={{ background: `linear-gradient(135deg, ${CYAN} 0%, transparent 100%)`, clipPath: "polygon(100% 0, 100% 100%, 0 100%)", filter: "blur(20px)" }} />
-        <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[12%] h-[18%] opacity-[0.03] hidden lg:block" style={{ background: CYAN, clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)", filter: "blur(10px)" }} />
+        <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[12%] h-[18%] opacity-[0.03] hidden lg:block" style={{ background: CYAN, clipPath: "polygon(50% 0%, 100% 50%, 100% 100%, 0% 50%)", filter: "blur(10px)" }} />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-radial-gradient from-[#6FE6C108] to-transparent blur-[120px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-radial-gradient from-[#09B98305] to-transparent blur-[100px]" />
       </div>
 
       <Container className="relative z-10 w-full max-w-[1200px] mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 xl:gap-20">
+        
+        {/* ── DESKTOP LAYOUT (Dashboard) ── */}
+        <div className="hidden lg:flex flex-row items-start gap-16 xl:gap-20 w-full">
           
-          {/* ── PHOTO COLUMN ── */}
-          <div className="w-full lg:w-[40%] max-w-[260px] lg:max-w-[460px] mx-auto lg:mx-0 mt-4 lg:mt-0 relative">
+          {/* ── DESKTOP PHOTO COLUMN ── */}
+          <div className="w-[40%] max-w-[460px] relative mt-4 lg:mt-0">
              <div className="group relative" onMouseEnter={() => setHoveredPhoto(true)} onMouseLeave={() => setHoveredPhoto(false)}>
                {/* Outer Glow */}
                <div style={{ 
@@ -73,21 +75,21 @@ export function SpecialistProfileSection() {
                </div>
                
                {/* Restored Floating Name Tag */}
-               <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-12 z-20 scale-[0.85] lg:scale-100 origin-bottom-right" style={{ transition: "transform 0.5s ease", transform: hoveredPhoto ? "translate(-8px, -8px)" : "none" }}>
+               <div className="absolute -bottom-6 -right-12 z-20 origin-bottom-right" style={{ transition: "transform 0.5s ease", transform: hoveredPhoto ? "translate(-8px, -8px)" : "none" }}>
                   <div style={{ background: hoveredPhoto ? CYAN : CYAN + "60", clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)", padding: "1.5px", transition: "background 0.4s ease" }}>
-                    <div className="bg-[#00281e]/95 backdrop-blur-xl p-5 lg:p-8" style={{ clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)" }}>
-                      <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "22px", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1 }} className="lg:text-[28px]">Ахметова<br/><span style={{ color: CYAN }}>Альбина</span></h2>
+                    <div className="bg-[#00281e]/95 backdrop-blur-xl p-8" style={{ clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)" }}>
+                      <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "28px", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1 }}>Ахметова<br/><span style={{ color: CYAN }}>Альбина</span></h2>
                     </div>
                   </div>
                </div>
              </div>
           </div>
 
-          {/* ── DASHBOARD COLUMN ── */}
-          <div className="w-full lg:w-[60%] flex flex-col gap-5 lg:gap-6 mt-8 lg:mt-0">
+          {/* ── DESKTOP DASHBOARD COLUMN ── */}
+          <div className="w-[60%] flex flex-col gap-6">
              
              {/* Dashboard Grid for Modules 1 & 2 */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+             <div className="grid grid-cols-2 gap-6">
                 
                 {/* Module 1: Competencies */}
                 <DashboardModule title="КОМПЕТЕНЦИИ">
@@ -143,7 +145,7 @@ export function SpecialistProfileSection() {
                                 fontSize: "12px",
                                 color: "#6FE6C1",
                                 letterSpacing: "0.1em",
-                                boxShadow: "inset 0 0 10px rgba(111,230,193,0.15)" // optional subtle inner glow
+                                boxShadow: "inset 0 0 10px rgba(111,230,193,0.15)"
                             }}>
                                 ЯЗЫК: RUS
                             </div>
@@ -167,17 +169,17 @@ export function SpecialistProfileSection() {
                      height: "100%"
                  }}>
                      {/* Header */}
-                     <div style={{ padding: "16px 24px", borderBottom: `1px solid ${CYAN}20`, background: "rgba(111,230,193,0.05)" }}>
+                     <div className="p-[16px_24px]" style={{ borderBottom: `1px solid ${CYAN}20`, background: "rgba(111,230,193,0.05)" }}>
                         <h4 style={{ fontFamily: "'Furore', sans-serif", fontSize: "16px", color: "#fff", letterSpacing: "0.1em", margin: 0 }}>
                             ПРОГРАММА ИНТЕНСИВА
                         </h4>
                      </div>
                      {/* Content Row */}
-                     <div className="p-6 flex flex-col sm:flex-row items-center sm:items-stretch justify-between gap-6">
+                     <div className="p-6 flex flex-row items-stretch justify-between gap-6">
                         {/* Details */}
-                        <ul className="flex flex-col gap-3 text-left w-full sm:w-auto">
+                        <ul className="flex flex-col justify-center gap-3 text-left w-auto">
                            <li className="flex items-start gap-3">
-                              <svg width="12" height="12" viewBox="0 0 12 12" style={{ marginTop: "4px", minWidth: "12px" }}>
+                              <svg width="12" height="12" viewBox="0 0 12 12" style={{ marginTop: "3px", minWidth: "12px" }}>
                                  <polygon points="0,0 12,6 0,12" fill={CYAN} opacity={0.6}/>
                               </svg>
                               <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
@@ -185,7 +187,7 @@ export function SpecialistProfileSection() {
                               </span>
                            </li>
                            <li className="flex items-start gap-3">
-                              <svg width="12" height="12" viewBox="0 0 12 12" style={{ marginTop: "4px", minWidth: "12px" }}>
+                              <svg width="12" height="12" viewBox="0 0 12 12" style={{ marginTop: "3px", minWidth: "12px" }}>
                                  <polygon points="0,0 12,6 0,12" fill={CYAN} opacity={0.6}/>
                               </svg>
                               <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
@@ -194,10 +196,10 @@ export function SpecialistProfileSection() {
                            </li>
                         </ul>
                         {/* Price Display */}
-                        <div className="w-full sm:w-auto flex items-center justify-center sm:justify-end sm:border-l border-[rgba(111,230,193,0.2)] sm:pl-6">
+                        <div className="w-auto flex items-center justify-end border-l border-[rgba(111,230,193,0.2)] pl-8">
                            <div style={{
                                fontFamily: "'Furore', sans-serif",
-                               fontSize: "clamp(24px, 4vw, 32px)",
+                               fontSize: "32px",
                                color: CYAN,
                                letterSpacing: "0.05em",
                                textShadow: `0 0 20px ${CYAN}40`,
@@ -213,22 +215,22 @@ export function SpecialistProfileSection() {
              </div>
 
              {/* Tracing Border Button (CTA) */}
-             <div className="mt-4 flex justify-center lg:justify-start">
+             <div className="mt-4 flex justify-start">
                 <div className="relative group/btn" style={{ width: "320px", height: "64px" }}>
                    <style dangerouslySetInnerHTML={{__html: `
-                     @keyframes trace-spec-btn {
+                     @keyframes trace-spec-btn-desk {
                        0% { stroke-dashoffset: 1000; }
                        100% { stroke-dashoffset: 0; }
                      }
-                     .spec-cta-btn:hover .trace-spec-path {
-                       animation: trace-spec-btn 1.5s linear infinite;
+                     .spec-cta-btn-desk:hover .trace-spec-path-desk {
+                       animation: trace-spec-btn-desk 1.5s linear infinite;
                      }
                    `}} />
                    <a
                      href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="spec-cta-btn block w-full h-full relative"
+                     className="spec-cta-btn-desk block w-full h-full relative"
                      style={{ textDecoration: "none" }}
                    >
                      <div style={{ position: "absolute", inset: "-3px", background: CYAN, opacity: 0, clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", filter: "blur(12px)", transition: "opacity 0.4s" }} className="group-hover/btn:opacity-30" />
@@ -253,15 +255,145 @@ export function SpecialistProfileSection() {
                           strokeWidth="2"
                           strokeDasharray="1000"
                           strokeDashoffset="1000"
-                          className="trace-spec-path transition-opacity duration-300 opacity-0 group-hover/btn:opacity-100"
+                          className="trace-spec-path-desk transition-opacity duration-300 opacity-0 group-hover/btn:opacity-100"
                         />
                      </svg>
                    </a>
                 </div>
              </div>
-
           </div>
         </div>
+
+        {/* ── MOBILE LAYOUT (Neon ID Card) ── */}
+        <div className="flex lg:hidden flex-col w-full max-w-[480px] mx-auto gap-4">
+           
+           {/* Single ID Card Container */}
+           <div style={{ background: `${CYAN}30`, padding: "1px", clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}>
+              <div style={{ background: "#001811", clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}>
+                 
+                 {/* Top: Large Photo & Name */}
+                 <div className="flex flex-col items-center pt-8 pb-6 px-4 border-b" style={{ borderColor: `${CYAN}15` }}>
+                    <div className="w-[150px] h-[150px] rounded-full overflow-hidden shrink-0 border-[2px] relative mb-5" style={{ borderColor: `${CYAN}60`, boxShadow: `0 0 20px ${CYAN}30`, padding: "3px" }}>
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#00120a] relative">
+                           <img src={AlbinaPhoto.src} alt="Альбина Ахметова" className="w-full h-full object-cover object-top" />
+                           <div className="absolute inset-0 pointer-events-none bg-cyan-900/10 mix-blend-color" />
+                        </div>
+                    </div>
+                    <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "28px", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.2, textAlign: "center" }}>
+                      АХМЕТОВА<br/>
+                      <span style={{ color: CYAN }}>АЛЬБИНА</span>
+                    </h2>
+                 </div>
+
+                 {/* Middle: Competencies Tags (Compact Layout) */}
+                 <div className="p-5 border-b" style={{ borderColor: `${CYAN}15` }}>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                       {[
+                         "ЛОГОПЕД", "ДЕФЕКТОЛОГ", "НЕЙРОПСИХОЛОГ", 
+                         "АВА-СПЕЦИАЛИСТ", "ЛОГОРИТМИКА"
+                       ].map((tag, i) => (
+                         <div key={i} style={{
+                            background: "rgba(111,230,193,0.08)", border: `1px solid ${CYAN}30`,
+                            padding: "6px 14px", borderRadius: "100px",
+                            fontFamily: "'Montserrat', sans-serif", fontSize: "11px",
+                            color: "rgba(255,255,255,0.9)", textTransform: "uppercase",
+                            letterSpacing: "0.05em", fontWeight: 600
+                         }}>
+                           {tag}
+                         </div>
+                       ))}
+                    </div>
+                 </div>
+
+                 {/* Middle: Methods & Language */}
+                 <div className="p-5 border-b flex flex-col items-center text-center gap-4" style={{ borderColor: `${CYAN}15` }}>
+                    <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.85)", textTransform: "uppercase", fontWeight: 500, letterSpacing: "0.05em", lineHeight: 1.6, margin: 0 }}>
+                       ПРИМЕНЯЕТ: ЭЛЕМЕНТЫ АФК,<br/>
+                       СЕНСОРНАЯ ИНТЕГРАЦИЯ
+                    </p>
+                    
+                    {/* Language Badge */}
+                    <div style={{ background: `${CYAN}50`, padding: "1px", clipPath: "polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)" }}>
+                        <div style={{ background: "rgba(0,24,16,0.95)", padding: "4px 12px", clipPath: "polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)", fontFamily: "'Furore', sans-serif", fontSize: "12px", color: "#6FE6C1", letterSpacing: "0.1em" }}>
+                            ЯЗЫК: RUS
+                        </div>
+                    </div>
+                 </div>
+
+                 {/* Bottom: Intensive Product Formatted Base */}
+                 <div className="p-6 bg-[rgba(111,230,193,0.03)] flex flex-col items-center">
+                     <h4 style={{ fontFamily: "'Furore', sans-serif", fontSize: "14px", color: "#fff", letterSpacing: "0.1em", marginBottom: "16px" }}>
+                         ПРОГРАММА ИНТЕНСИВА
+                     </h4>
+                     <ul className="flex flex-col gap-2 text-center mb-6">
+                        <li style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
+                           <span style={{color: CYAN}}>▸</span> 1,5 часа в центре
+                        </li>
+                        <li style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
+                           <span style={{color: CYAN}}>▸</span> 12 занятий 3 раза в неделю
+                        </li>
+                     </ul>
+                     <div style={{
+                         fontFamily: "'Furore', sans-serif",
+                         fontSize: "30px", color: CYAN,
+                         letterSpacing: "0.05em",
+                         textShadow: `0 0 20px ${CYAN}40`,
+                     }}>
+                         350 000 <span style={{ fontSize: "0.5em", opacity: 0.8, verticalAlign: "top" }}>ТГ</span>
+                     </div>
+                 </div>
+              </div>
+           </div>
+
+           {/* Mobile Tracing Border Button (CTA) */}
+           <div className="mt-2 flex justify-center w-full">
+              <div className="relative group/btn" style={{ width: "320px", height: "64px" }}>
+                 <style dangerouslySetInnerHTML={{__html: `
+                   @keyframes trace-spec-btn-mob {
+                     0% { stroke-dashoffset: 1000; }
+                     100% { stroke-dashoffset: 0; }
+                   }
+                   .spec-cta-btn-mob:hover .trace-spec-path-mob {
+                     animation: trace-spec-btn-mob 1.5s linear infinite;
+                   }
+                 `}} />
+                 <a
+                   href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="spec-cta-btn-mob block w-full h-full relative"
+                   style={{ textDecoration: "none" }}
+                 >
+                   <div style={{ position: "absolute", inset: "-3px", background: CYAN, opacity: 0, clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", filter: "blur(12px)", transition: "opacity 0.4s" }} className="group-hover/btn:opacity-30" />
+                   
+                   <button style={{
+                     position: "absolute", inset: 0, width: "100%", height: "100%",
+                     background: "rgba(111,230,193,0.1)", border: "none", 
+                     clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", 
+                     color: "#fff", fontFamily: "'Furore', sans-serif",
+                     fontSize: "14px", letterSpacing: "0.2em", textTransform: "uppercase",
+                     transition: "all 0.4s ease", cursor: "pointer"
+                   }} className="group-hover/btn:bg-[#09B983] group-hover/btn:scale-[1.01] group-hover/btn:-translate-y-0.5">
+                     Получить консультацию
+                   </button>
+
+                   <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }} viewBox="0 0 320 64" preserveAspectRatio="none">
+                      <path d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" fill="none" stroke={CYAN} strokeWidth="1.5" strokeOpacity="0.3" />
+                      <path 
+                        d="M14,0 L320,0 L320,50 L306,64 L0,64 L0,14 Z" 
+                        fill="none" 
+                        stroke={CYAN} 
+                        strokeWidth="2"
+                        strokeDasharray="1000"
+                        strokeDashoffset="1000"
+                        className="trace-spec-path-mob transition-opacity duration-300 opacity-0 group-hover/btn:opacity-100"
+                      />
+                   </svg>
+                 </a>
+              </div>
+           </div>
+        </div>
+
       </Container>
     </section>
   );
@@ -282,12 +414,12 @@ function DashboardModule({ title, children }: { title: string, children: React.R
                 display: "flex",
                 flexDirection: "column"
             }}>
-                <div style={{ padding: "14px 20px", borderBottom: `1px solid ${CYAN}15` }}>
+                <div className="p-[14px_20px]" style={{ borderBottom: `1px solid ${CYAN}15` }}>
                    <div style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", color: CYAN, letterSpacing: "0.15em", opacity: 0.9 }}>
                        // {title}
                    </div>
                 </div>
-                <div style={{ padding: "20px", flex: 1 }}>
+                <div className="p-5 flex-1">
                     {children}
                 </div>
             </div>
