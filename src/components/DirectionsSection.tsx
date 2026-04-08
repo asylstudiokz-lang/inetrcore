@@ -1,6 +1,6 @@
 import { Container } from "./ui/Container";
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
-import { Skull, Pill, ToyBrick, Bone, Bandage } from "lucide-react";
+import { DetailedBrainIcon, DetailedPillIcon, DetailedPedagogicsIcon, DetailedJawIcon, DetailedHealingIcon } from "./DirectionsIcons";
 
 const cards = [
   {
@@ -9,7 +9,7 @@ const cards = [
     description:
       "Новые научные решения для медицины будущего, где лечение основано на глубоком понимании организма и его самовосстанавливающем потенциале.",
     tag: "Неврология",
-    icon: Skull,
+    icon: DetailedBrainIcon,
     wide: true,
     accent: true,
   },
@@ -18,7 +18,7 @@ const cards = [
     title: "Витаминно-минеральные комплексы",
     description: "Функциональное питание на растительной основе.",
     tag: "Нутрициология",
-    icon: Pill,
+    icon: DetailedPillIcon,
     wide: false,
     accent: false,
   },
@@ -28,7 +28,7 @@ const cards = [
     description:
       "С РАС, ЗПРР, Аутизмом — комплексные занятия с логопедом, дефектологом, нейропсихологом.",
     tag: "Педагогика",
-    icon: ToyBrick,
+    icon: DetailedPedagogicsIcon,
     wide: false,
     accent: false,
   },
@@ -37,7 +37,7 @@ const cards = [
     title: "Исправление прикуса",
     description: "Остеопатическая методика и корректор Миката.",
     tag: "Стоматология",
-    icon: Bone,
+    icon: DetailedJawIcon,
     wide: false,
     accent: false,
   },
@@ -47,7 +47,7 @@ const cards = [
     description:
       "Трофических язв, ожогов и пролежней. Инновационная квантовая матрица.",
     tag: "Регенерация",
-    icon: Bandage,
+    icon: DetailedHealingIcon,
     wide: false,
     accent: false,
   },
@@ -107,7 +107,7 @@ function MobileCard({
             ? "linear-gradient(150deg, #00391e 0%, #001810 100%)"
             : "linear-gradient(150deg, #002214 0%, #000e08 100%)",
           clipPath: CLIP(17),
-          padding: "20px 20px 20px",
+          padding: "24px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
@@ -116,38 +116,42 @@ function MobileCard({
           overflow: "hidden",
         }}
       >
-        {/* Background Icon */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-10px",
-            right: "-10px",
-            color: "rgba(111,230,193,0.06)",
-            userSelect: "none",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        >
-          {card.icon && <card.icon size={120} strokeWidth={1.5} />}
-        </div>
-
         {/* Content */}
         <div style={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 10, flex: 1 }}>
-          <h3
-            style={{
-              fontFamily: "'Furore', sans-serif",
-              fontSize: "18px",
-              fontWeight: 400,
-              color: "#ffffff",
-              textTransform: "uppercase",
-              lineHeight: 1.25,
-              margin: 0,
-              marginBottom: "10px",
-              letterSpacing: "0.03em",
-            }}
-          >
-            {card.title}
-          </h3>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+            <h3
+              style={{
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+                color: "#ffffff",
+                textTransform: "uppercase",
+                lineHeight: 1.25,
+                margin: 0,
+                letterSpacing: "0.03em",
+                flex: 1,
+                paddingRight: "12px",
+              }}
+            >
+              {card.title}
+            </h3>
+            {card.icon && (
+              <div style={{ 
+                width: "56px", 
+                height: "56px", 
+                borderRadius: "50%", 
+                background: "rgba(0,18,13,0.8)", 
+                border: "1px solid rgba(111,230,193,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+                color: "#6FE6C1",
+              }}>
+                <card.icon width={36} height={36} strokeWidth={1.2} />
+              </div>
+            )}
+          </div>
 
           <p
             style={{
@@ -314,20 +318,25 @@ function DesktopCard({
           overflow: "hidden",
         }}
       >
-        {/* Background Icon */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-20px",
-            right: "-20px",
-            color: "rgba(111,230,193,0.06)",
-            userSelect: "none",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        >
-          {card.icon && <card.icon size={220} strokeWidth={1} />}
-        </div>
+        {/* Background Icon — card 1: above title (top-left area); others: top-right corner */}
+        {card.icon && (
+          <div
+            style={{
+              position: "absolute",
+              ...(card.wide
+                ? { top: "80px", left: "24px" }
+                : { top: "-10px", right: "-10px" }),
+              color: "rgba(111,230,193,0.07)",
+              userSelect: "none",
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          >
+            {card.wide
+              ? <card.icon width={220} height={220} strokeWidth={0.4} />
+              : <card.icon width={108} height={108} strokeWidth={0.4} />}
+          </div>
+        )}
 
         {/* Top: tag */}
         <div

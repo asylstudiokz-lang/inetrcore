@@ -177,32 +177,34 @@ function PartnerCard({
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",
-                fontSize: mobile ? "12px" : "13px",
+                fontSize: mobile ? "11px" : "13px",
                 fontWeight: 400,
                 color: hovered ? "#ffffff" : "rgba(255,255,255,0.75)",
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
                 lineHeight: 1.4,
                 margin: 0,
-                marginBottom: "6px",
+                marginBottom: mobile ? 0 : "6px",
                 whiteSpace: "pre-line",
                 transition: "color 0.4s ease",
               }}
             >
               {partner.name}
             </p>
-            <p
-              style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: "10px",
-                color: "rgba(111,230,193,0.5)",
-                lineHeight: 1.5,
-                margin: 0,
-                whiteSpace: "pre-line",
-              }}
-            >
-              {partner.description}
-            </p>
+            {!mobile && (
+              <p
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: "10px",
+                  color: "rgba(111,230,193,0.5)",
+                  lineHeight: 1.5,
+                  margin: 0,
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {partner.description}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -235,7 +237,7 @@ export function PartnersSection() {
       <div className="md:hidden py-10">
         <Container>
           {/* Heading */}
-          <div style={{ marginBottom: "32px" }}>
+          <div style={{ marginBottom: "32px", textAlign: "center" }}>
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",
@@ -260,13 +262,15 @@ export function PartnersSection() {
                 margin: 0,
               }}
             >
-              Наши<br />партнёры
+              Наши партнёры
             </h2>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "12px" }}>
             {partners.map((p, i) => (
-              <PartnerCard key={p.id} partner={p} index={i} mobile />
+              <div key={p.id} style={{ flex: 1 }}>
+                <PartnerCard partner={p} index={i} mobile />
+              </div>
             ))}
           </div>
 

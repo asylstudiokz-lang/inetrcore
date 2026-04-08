@@ -214,7 +214,7 @@ export function LocationSection() {
       <div className="md:hidden" style={{ padding: "48px 0 52px" }}>
         <Container>
           {/* Heading */}
-          <div style={{ marginBottom: "28px" }}>
+          <div style={{ marginBottom: "28px", textAlign: "center" }}>
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",
