@@ -146,18 +146,28 @@ function BentoCard({
               zIndex: 1,
             }}
           >
-            <ImageWithFallback
-              src={specialist.photo}
-              alt={`${specialist.firstName} ${specialist.lastName}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "top center",
-                transform: hovered ? "scale(1.05)" : "scale(1)",
-                transition: "transform 0.7s cubic-bezier(0.34,1.56,0.64,1)",
-              }}
-            />
+            {(() => {
+              const isDiyar = specialist.lastName === "Бегужинов";
+              const diyarBase = "translateY(-4%) scale(1.1)";
+              const diyarHover = "translateY(-4%) scale(1.15)";
+              const normalBase = "scale(1)";
+              const normalHover = "scale(1.05)";
+
+              return (
+                <ImageWithFallback
+                  src={specialist.photo}
+                  alt={`${specialist.firstName} ${specialist.lastName}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                    transform: isDiyar ? (hovered ? diyarHover : diyarBase) : (hovered ? normalHover : normalBase),
+                    transition: "transform 0.7s cubic-bezier(0.34,1.56,0.64,1)",
+                  }}
+                />
+              );
+            })()}
           </div>
 
           {/* Large Vertical Ghost Text */}
