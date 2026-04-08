@@ -109,8 +109,7 @@ function BentoCard({
 
   return (
     <div
-      className="relative group h-full w-full"
-      style={{ minHeight: large ? "100%" : "320px" }}
+      className={`relative group w-full ${large ? 'min-h-[340px] lg:min-h-full lg:h-full' : 'min-h-[260px] md:min-h-[300px] lg:min-h-[320px]'}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -178,7 +177,6 @@ function BentoCard({
             <span
               style={{
                 fontFamily: "'Furore', sans-serif",
-                fontSize: large ? "64px" : "42px",
                 color: "transparent",
                 WebkitTextStroke: hovered
                   ? `1px ${CYAN}30`
@@ -190,6 +188,7 @@ function BentoCard({
                 whiteSpace: "nowrap",
                 transition: "all 0.5s ease",
               }}
+              className={`${large ? 'text-[42px] lg:text-[64px]' : 'text-[28px] lg:text-[42px]'}`}
             >
               {specialist.ghostName}
             </span>
@@ -210,29 +209,29 @@ function BentoCard({
 
           {/* Content Layer */}
           <div
-            className="relative z-10 flex flex-col justify-between h-full w-full"
-            style={{ padding: large ? "32px" : "24px" }}
+            className={`relative z-10 flex flex-col justify-between h-full w-full ${large ? 'p-4 md:p-6 lg:p-8' : 'p-3 md:p-4 lg:p-6'}`}
           >
-            {/* Top: Tag */}
+            {/* Top Right: Tag */}
             <div className="flex justify-end items-start w-full">
-              <TagBadge label={specialist.tag} />
+              <div className={`${large ? 'block' : 'hidden md:block'} origin-top-right transform scale-[0.85] lg:scale-100`}>
+                <TagBadge label={specialist.tag} />
+              </div>
             </div>
 
             {/* Bottom: Name & Role */}
             <div className="mt-auto transform transition-transform duration-500" style={{ transform: hovered ? "translateY(0)" : "translateY(4px)" }}>
-              <div className="mb-3 w-8 h-1" style={{ background: `linear-gradient(90deg, ${CYAN}, transparent)` }} />
+              <div className="mb-2 lg:mb-3 w-8 h-1" style={{ background: `linear-gradient(90deg, ${CYAN}, transparent)` }} />
               <h3
                 style={{
                   fontFamily: "'Furore', sans-serif",
-                  fontSize: large ? "32px" : "22px",
                   fontWeight: 400,
                   color: "#ffffff",
                   textTransform: "uppercase",
                   letterSpacing: "0.04em",
                   lineHeight: 1.1,
-                  margin: "0 0 8px 0",
                   textShadow: "0 4px 12px rgba(0,0,0,0.5)",
                 }}
+                className={`mb-1 lg:mb-2 ${large ? 'text-[24px] md:text-[24px] lg:text-[32px]' : 'text-[17px] md:text-[18px] lg:text-[22px]'}`}
               >
                 {specialist.firstName} <br />
                 <span style={{ color: CYAN }}>{specialist.lastName}</span>
@@ -240,15 +239,14 @@ function BentoCard({
               <p
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
-                  fontSize: large ? "15px" : "13px",
                   fontWeight: 500,
                   color: "rgba(255,255,255,0.75)",
-                  lineHeight: 1.6,
                   margin: 0,
                   whiteSpace: "pre-line",
                   opacity: hovered ? 1 : 0.85,
                   transition: "opacity 0.4s ease",
                 }}
+                className={`leading-tight lg:leading-relaxed ${large ? 'text-[13px] lg:text-[15px]' : 'text-[11px] lg:text-[13px]'}`}
               >
                 {specialist.role}
               </p>
@@ -275,7 +273,7 @@ export function SpecialistsSection() {
         <div style={{ position: "absolute", top: "10%", right: "8%", width: "40px", height: "40px", background: "rgba(111,230,193,0.08)", border: "1px solid rgba(111,230,193,0.2)", transform: "rotate(15deg)" }} />
       </div>
 
-      <Container className="relative z-10 w-full max-w-[1300px] mx-auto">
+      <Container className="relative z-10 w-full max-w-[1300px] mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
           <div>
@@ -307,7 +305,7 @@ export function SpecialistsSection() {
             </h2>
           </div>
 
-          <div style={{ background: "#6FE6C1", clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", padding: "1.5px", display: "inline-block", alignSelf: "flex-start" }}>
+          <div className="hidden md:inline-block" style={{ background: "#6FE6C1", clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", padding: "1.5px", alignSelf: "flex-start" }}>
             <a
               href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
               target="_blank"
@@ -338,20 +336,48 @@ export function SpecialistsSection() {
         </div>
 
         {/* ── Bento Grid ── */}
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-5 lg:gap-6 min-h-[600px] lg:h-[700px]">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-3 sm:gap-5 lg:gap-6 min-h-[400px] lg:h-[700px]">
           
           {/* Left Column (Founder, Large) */}
-          <div className="lg:col-span-5 h-[500px] lg:h-full">
+          <div className="lg:col-span-5 h-auto lg:h-full">
             <BentoCard specialist={founder} index={founder.id - 1} large={true} />
           </div>
 
           {/* Right Column (2x2 Grid for Team) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6 h-full">
+          <div className="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-5 lg:gap-6 h-full">
             {team.map((s) => (
               <BentoCard key={s.id} specialist={s} index={s.id - 1} large={false} />
             ))}
           </div>
 
+        </div>
+
+        {/* Mobile CTA Button */}
+        <div className="mt-10 md:hidden flex justify-center">
+          <div style={{ background: "#6FE6C1", clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)", padding: "1.5px" }}>
+            <a
+              href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "block", textDecoration: "none" }}
+            >
+              <button
+                className="site-btn relative overflow-hidden group"
+                style={{
+                  background: "linear-gradient(135deg, #002416 0%, #000e08 100%)",
+                  clipPath: "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
+                  border: "none", padding: "18px 36px", cursor: "pointer",
+                  fontFamily: "'Furore', sans-serif", fontSize: "12px", letterSpacing: "0.16em",
+                  color: "#6FE6C1", textTransform: "uppercase", display: "inline-flex", alignItems: "center", gap: "14px",
+                }}
+              >
+                <span className="relative z-10">Получить консультацию</span>
+                <svg width="22" height="8" viewBox="0 0 22 8" fill="none" className="relative z-10">
+                  <path d="M0 4H20M16 1L20 4L16 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </a>
+          </div>
         </div>
 
       </Container>

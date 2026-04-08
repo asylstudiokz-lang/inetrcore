@@ -16,10 +16,10 @@ import { useState } from "react";
 export function BookSection() {
   const [hovered, setHovered] = useState(false);
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: "#001d14", marginBottom: "32px" }}>
+    <section className="relative overflow-hidden mb-2 md:mb-8" style={{ backgroundColor: "#001d14" }}>
 
       {/* ── MOBILE ── */}
-      <div className="md:hidden py-10">
+      <div className="md:hidden pt-0 pb-6">
         <Container className="relative">
           {/* Card background SVG — full container width */}
           <div
