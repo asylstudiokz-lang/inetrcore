@@ -311,6 +311,23 @@ export function ZprrArticlesSection() {
             from { opacity: 0; }
             to { opacity: 1; }
           }
+          @media (max-width: 767px) {
+            .mobile-no-clip {
+              clip-path: none !important;
+            }
+            .mobile-full-btn {
+              width: 100% !important;
+              display: block !important;
+              text-align: center;
+            }
+            .mobile-article-card {
+              min-height: 200px !important;
+              height: auto !important;
+            }
+            .mobile-article-title {
+              font-size: 18px !important;
+            }
+          }
         `}</style>
       </section>
 
@@ -322,7 +339,7 @@ export function ZprrArticlesSection() {
           onClick={() => setSelectedArticle(null)}
         >
           <div 
-            className="relative w-full max-w-[960px] md:my-12 shadow-[0_0_120px_rgba(111,230,193,0.3)] min-h-screen md:min-h-0"
+            className="relative w-full max-w-[960px] md:my-12 shadow-[0_0_120px_rgba(111,230,193,0.3)] min-h-screen md:min-h-0 mobile-no-clip"
             style={{ 
                 background: "#6FE6C1", 
                 clipPath: CLIP_DOUBLE(42),
@@ -331,7 +348,7 @@ export function ZprrArticlesSection() {
             onClick={(e) => e.stopPropagation()}
           >
              <div 
-               className="relative w-full h-full flex flex-col min-h-screen md:min-h-0" 
+               className="relative w-full h-full flex flex-col min-h-screen md:min-h-0 mobile-no-clip" 
                style={{ background: "#00100a", clipPath: CLIP_DOUBLE(41) }}
              >
                 {/* STICKY HEADER FIXED AT SCREEN TOP */}
@@ -365,7 +382,7 @@ export function ZprrArticlesSection() {
                           href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="site-btn"
+                          className="site-btn mobile-full-btn"
                           style={{ 
                               display: "inline-block",
                               fontFamily: "'Furore', sans-serif", 
@@ -415,7 +432,7 @@ function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" 
        />
 
        <div 
-         className="relative h-full overflow-hidden flex flex-col justify-between" 
+         className="relative h-full overflow-hidden flex flex-col justify-between mobile-article-card" 
          style={{ 
             background: "linear-gradient(145deg, #00150f 0%, #000805 100%)", 
             clipPath: CLIP_DOUBLE(isLarge ? 27.5 : 21.5),
@@ -446,6 +463,7 @@ function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" 
           </div>
 
           <h3 
+            className="group-hover:text-[#6FE1C1] transition-colors duration-300 mobile-article-title"
             style={{ 
               fontFamily: "'Furore', sans-serif", 
               fontSize: isLarge ? "clamp(20px, 2.5vw, 28px)" : "clamp(16px, 1.8vw, 22px)", 
@@ -454,7 +472,6 @@ function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" 
               textTransform: "uppercase",
               margin: 0
             }} 
-            className="group-hover:text-[#6FE1C1] transition-colors duration-300"
           >
              {art.title}
           </h3>

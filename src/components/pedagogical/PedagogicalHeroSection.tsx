@@ -63,7 +63,7 @@ function CTAButton({ text = "Консультация" }: { text?: string } = {}
               background: "#09B983",
               cursor: "pointer",
               fontFamily: "'Furore', 'Exo 2', sans-serif",
-              fontSize: "20.6px",
+              fontSize: "clamp(12px, 3.5vw, 18px)",
               fontWeight: 400,
               letterSpacing: "0.1em",
               color: "#ffffff",

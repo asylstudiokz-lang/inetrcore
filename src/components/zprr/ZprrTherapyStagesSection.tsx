@@ -191,7 +191,7 @@ export function ZprrTherapyStagesSection() {
           <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
             {stages.map(stage => (
               <div key={stage.num} style={{ minHeight: "240px" }}>
-                <StageCard stage={stage} large={stage.num === 1} />
+                <StageCard stage={stage} large={false} />
               </div>
             ))}
           </div>

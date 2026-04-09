@@ -253,6 +253,29 @@ export function VitaminsArticlesSection() {
           {/* ── SOCIAL MEDIA BAR ── */}
           <SocialBar />
         </Container>
+        <style>{`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @media (max-width: 767px) {
+            .mobile-no-clip {
+              clip-path: none !important;
+            }
+            .mobile-full-btn {
+              width: 100% !important;
+              display: block !important;
+              text-align: center;
+            }
+            .mobile-article-card {
+              min-height: 200px !important;
+              height: auto !important;
+            }
+            .mobile-article-title {
+              font-size: 18px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── ARTICLE MODAL RENDERED VIA PORTAL ── */}
@@ -263,11 +286,11 @@ export function VitaminsArticlesSection() {
           onClick={() => setSelectedArticle(null)}
         >
           <div 
-            className="relative w-full max-w-[960px] md:my-12 shadow-[0_0_120px_rgba(111,230,193,0.3)] min-h-screen md:min-h-0"
+            className="relative w-full max-w-[960px] md:my-12 shadow-[0_0_120px_rgba(111,230,193,0.3)] min-h-screen md:min-h-0 mobile-no-clip"
             style={{ background: "#6FE6C1", clipPath: CLIP_QUAD(42), padding: "2px" }}
             onClick={(e) => e.stopPropagation()}
           >
-             <div className="relative w-full h-full flex flex-col min-h-screen md:min-h-0" style={{ background: "#00100a", clipPath: CLIP_QUAD(41) }}>
+             <div className="relative w-full h-full flex flex-col min-h-screen md:min-h-0 mobile-no-clip" style={{ background: "#00100a", clipPath: CLIP_QUAD(41) }}>
                 {/* STICKY HEADER */}
                 <div className="sticky top-0 z-[200] p-6 md:p-10 pb-4 flex justify-between items-start bg-[#00100a]/90 backdrop-blur-xl border-b border-white/10">
                    <div className="flex flex-col gap-2">
@@ -292,7 +315,7 @@ export function VitaminsArticlesSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Получить консультацию в WhatsApp"
-                        className="site-btn" 
+                        className="site-btn mobile-full-btn" 
                         style={{ 
                           display: "inline-block",
                           fontFamily: "'Furore', sans-serif", 
@@ -452,7 +475,7 @@ function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" 
     >
        <div className="absolute inset-0 bg-[#6FE6C1]/10 group-hover:bg-[#6FE6C1]/40 transition-all duration-500 opacity-60" style={{ clipPath: CLIP_ARTICLE(isLarge ? 28 : 22) }} />
        <div 
-         className="relative h-full overflow-hidden flex flex-col justify-between transition-colors duration-400" 
+         className="relative h-full overflow-hidden flex flex-col justify-between transition-colors duration-400 mobile-article-card" 
          style={{ 
            background: hovered 
              ? "linear-gradient(145deg, #00221a 0%, #00100a 100%)" 
@@ -472,7 +495,7 @@ function ArticleModule({ art, size, index, onClick }: { art: any, size: "large" 
                 <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "10px", fontWeight: 600, color: "#6FE6C1", letterSpacing: "0.1em" }}>АКТУАЛЬНО</span>
              </div>
           </div>
-          <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: isLarge ? "clamp(20px, 2.5vw, 28px)" : "clamp(16px, 1.8vw, 22px)", color: "#fff", lineHeight: 1.25, textTransform: "uppercase", margin: 0 }} className="group-hover:text-[#6FE1C1] transition-colors duration-300">{art.title}</h3>
+          <h3 className="group-hover:text-[#6FE1C1] transition-colors duration-300 mobile-article-title" style={{ fontFamily: "'Furore', sans-serif", fontSize: isLarge ? "clamp(20px, 2.5vw, 28px)" : "clamp(16px, 1.8vw, 22px)", color: "#fff", lineHeight: 1.25, textTransform: "uppercase", margin: 0 }}>{art.title}</h3>
           <div className="mt-8 flex items-center gap-3 md:gap-5 overflow-hidden">
              <div className="h-[1px] flex-1 bg-gradient-to-r from-[#6FE6C1]/40 to-transparent" />
              <div className="flex items-center gap-2 group-hover:scale-110 transition-transform duration-300">

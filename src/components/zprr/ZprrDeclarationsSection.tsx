@@ -138,20 +138,20 @@ export function ZprrDeclarationsSection() {
       {/* ── MOBILE ── */}
       <div className="md:hidden py-[60px]" style={{ position: "relative" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
-          <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8.5vw, 42px)", fontWeight: 400, color: "#fff", lineHeight: 0.95, textTransform: "uppercase", letterSpacing: "0.01em", margin: "0 0 32px 0" }}>
+          <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8.5vw, 42px)", fontWeight: 400, color: "#fff", lineHeight: 0.95, textTransform: "uppercase", letterSpacing: "0.01em", margin: "0 0 32px 0", textAlign: "center" }}>
             Декларации о<br />
             <span style={{ WebkitTextStroke: "1px #6FE6C1", color: "transparent" }}>Соответствии</span>
           </h2>
           <div style={{ background: "rgba(111,230,193,0.15)", clipPath: CLIP(20), padding: "1.5px", marginBottom: "40px" }}>
             <div style={{ background: "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)", clipPath: CLIP(19), padding: "28px 24px" }}>
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", margin: "0 0 24px 0" }}>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", margin: "0 0 24px 0", textAlign: "center" }}>
                 Инновационная продукция витаминно-минеральных комплексов. Не имеет аналогов в мире — первая восстанавливающая продукция в <span style={{ color: "#6FE6C1" }}>хелатной водорастворимой форме.</span>
               </p>
               <a 
                 href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{ textDecoration: "none", display: "inline-block" }}
+                style={{ textDecoration: "none", display: "block" }}
               >
                 <button 
                   className="site-btn"
@@ -167,7 +167,8 @@ export function ZprrDeclarationsSection() {
                     border: "none",
                     cursor: "pointer",
                     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    boxShadow: "0 0 20px rgba(111,230,193,0.3)"
+                    boxShadow: "0 0 20px rgba(111,230,193,0.3)",
+                    width: "100%"
                   }}
                 >
                   Получить консультацию

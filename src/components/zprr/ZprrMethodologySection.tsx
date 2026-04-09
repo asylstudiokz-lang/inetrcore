@@ -131,7 +131,10 @@ export function ZprrMethodologySection() {
                         </div>
                       </div>
 
-                      <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", color: "rgba(111,230,193,0.6)", letterSpacing: "0.2em", marginBottom: "12px", display: "block", textTransform: "uppercase" }}>
+                      <span 
+                        className="hidden md:block"
+                        style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", color: "rgba(111,230,193,0.6)", letterSpacing: "0.2em", marginBottom: "12px", textTransform: "uppercase" }}
+                      >
                         0{idx + 1} — Этап
                       </span>
 

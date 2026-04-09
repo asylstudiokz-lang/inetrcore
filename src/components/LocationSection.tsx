@@ -110,10 +110,8 @@ function MapFrame({ height, cut = 22 }: { height: string; cut?: number }) {
     >
       {/* Corner accents */}
       {[
-        { top: "10px", left: "10px", borderTop: true, borderLeft: true },
         { top: "10px", right: "10px", borderTop: true, borderRight: true },
         { bottom: "10px", left: "10px", borderBottom: true, borderLeft: true },
-        { bottom: "10px", right: "10px", borderBottom: true, borderRight: true },
       ].map((pos, i) => (
         <div
           key={i}
