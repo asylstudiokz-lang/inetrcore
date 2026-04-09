@@ -51,9 +51,37 @@ export function ZprrHeroSection() {
                </span>
              </div>
 
-             {/* Mobile Image Placeholder */}
-             <div style={{ flexShrink: 0, width: "100%", maxWidth: "400px", aspectRatio: "16 / 10", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", margin: "0 auto 24px auto", overflow: "hidden" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "center", padding: "20px" }}>Здесь должно быть изображение</span>
+             {/* Mobile Video Replacement */}
+             <div style={{ 
+               flexShrink: 0, 
+               width: "100%", 
+               maxWidth: "400px", 
+               aspectRatio: "16 / 9", 
+               position: "relative", 
+               background: "linear-gradient(135deg, rgba(111,230,193,0.5) 0%, rgba(111,230,193,0.1) 100%)",
+               padding: "1.5px",
+               clipPath: CLIP(16),
+               margin: "0 auto 32px auto", 
+               overflow: "hidden" 
+             }}>
+               <div style={{ 
+                 width: "100%", 
+                 height: "100%", 
+                 background: "#000805",
+                 clipPath: CLIP(15),
+                 overflow: "hidden"
+               }}>
+                 <iframe
+                   width="100%"
+                   height="100%"
+                   src="https://www.youtube.com/embed/K7HDqvZI0YQ?start=3"
+                   title="ЗПРР Видео"
+                   frameBorder="0"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                   allowFullScreen
+                   style={{ position: "absolute", inset: 0 }}
+                 ></iframe>
+               </div>
              </div>
 
              <div style={{ width: "310px", margin: "0 auto" }}>
@@ -255,7 +283,7 @@ export function ZprrHeroSection() {
       </div>
 
       {/* ── VIDEO SECTION ── */}
-      <Container>
+      <Container className="hidden md:block">
         <div id="zprr-video" className="relative w-full max-w-[1024px] mx-auto mt-12 md:mt-20 mb-8 md:mb-12 z-10">
           
           {/* ── BACKGROUND VIDEO DECO (HEXAGON) ── */}
