@@ -116,21 +116,13 @@ export function BiteCorrectionHowItWorksSection() {
 
         <Container style={{ position: "relative", zIndex: 1 }}>
 
-          {/* Section label */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-            <span style={{
-              fontFamily: "'Furore', sans-serif", fontSize: "9px",
-              letterSpacing: "0.22em", color: CYAN, textTransform: "uppercase", flexShrink: 0,
-            }}>// принцип действия</span>
-            <div style={{ flex: 1, height: "1px", background: `linear-gradient(90deg, rgba(111,230,193,0.35) 0%, transparent 100%)` }} />
-          </div>
 
           {/* Heading */}
           <h2 style={{
             fontFamily: "'Furore', sans-serif",
             fontSize: "clamp(24px, 8vw, 36px)", fontWeight: 400,
             color: "#fff", lineHeight: 1.1, textTransform: "uppercase",
-            letterSpacing: "0.04em", margin: "0 0 32px 0",
+            letterSpacing: "0.04em", margin: "0 0 32px 0", textAlign: "center",
           }}>
             Как работает<br />
             <span style={{ color: "transparent", WebkitTextStroke: `1px ${CYAN}` }}>корректор</span>{" "}

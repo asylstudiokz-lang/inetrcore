@@ -38,7 +38,7 @@ export function BiteCorrectionHeroSection() {
               <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "16px" }}>
                 <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
                 <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em", color: "#6FE6C1", textTransform: "uppercase" }}>
-                  ИННОВАЦИОННАЯ МЕТОДИКА
+                  исправление прикуса
                 </span>
                 <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
               </div>
@@ -172,7 +172,7 @@ export function BiteCorrectionHeroSection() {
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
                 <div style={{ width: "36px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
                 <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.25em", color: "#6FE6C1", textTransform: "uppercase" }}>
-                  ИННОВАЦИОННАЯ МЕТОДИКА
+                  исправление прикуса
                 </span>
               </div>
 

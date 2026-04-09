@@ -55,7 +55,7 @@ export function BiteCorrectionNightCtaSection() {
       <div className="md:hidden">
         <Container>
           {/* Text */}
-          <div style={{ marginBottom: "28px" }}>
+          <div className="flex flex-col items-center text-center" style={{ marginBottom: "28px" }}>
             <p
               style={{
                 fontFamily: "'Furore', sans-serif",

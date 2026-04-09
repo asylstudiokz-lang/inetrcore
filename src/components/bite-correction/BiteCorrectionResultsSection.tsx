@@ -108,7 +108,7 @@ export function BiteCorrectionResultsSection() {
         <Container style={{ position: "relative", zIndex: 1 }}>
 
           {/* Problems */}
-          <Eyebrow label="// проблемы" />
+
           <h2 style={{ ...mobileH2, marginBottom: "32px" }}>
             Какие проблемы{" "}
             <span style={{ color: CYAN, textShadow: "0 0 18px rgba(111,230,193,0.45)" }}>
@@ -123,7 +123,6 @@ export function BiteCorrectionResultsSection() {
           </div>
 
           {/* Results slider */}
-          <Eyebrow label="// результаты" />
           <h2 style={{ ...mobileH2, marginBottom: "32px" }}>
             Результаты{" "}
             <span style={{ color: CYAN, textShadow: "0 0 18px rgba(111,230,193,0.45)" }}>

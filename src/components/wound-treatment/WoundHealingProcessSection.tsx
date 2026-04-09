@@ -43,7 +43,7 @@ export function WoundHealingProcessSection() {
       <Container className="relative z-10">
         
         {/* ── PREMIUM HEADER ── */}
-        <div className="mb-[32px] md:mb-[60px] text-center lg:text-left">
+        <div className="mb-[32px] md:mb-[60px] text-center">
            <h2 style={{ 
              fontFamily: "'Furore', sans-serif", fontSize: "clamp(28px, 4.5vw, 56px)", 
              color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.03em", lineHeight: 1.15

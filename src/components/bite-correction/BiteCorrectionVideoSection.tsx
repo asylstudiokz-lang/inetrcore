@@ -91,10 +91,10 @@ export function BiteCorrectionVideoSection() {
       {/* ─── MOBILE ─── */}
       <div className="md:hidden">
         <Container>
-          {/* Section label */}
+          {/* Section label - Hidden on Mobile */}
           <div
+            className="hidden md:flex"
             style={{
-              display: "flex",
               alignItems: "center",
               gap: "10px",
               marginBottom: "20px",
@@ -126,6 +126,7 @@ export function BiteCorrectionVideoSection() {
               letterSpacing: "0.04em",
               textTransform: "uppercase",
               margin: "0 0 32px 0",
+              textAlign: "center",
             }}
           >
             Так что же такое{" "}

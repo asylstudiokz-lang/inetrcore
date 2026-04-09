@@ -171,7 +171,7 @@ export function BiteCorrectionMethodSection() {
       <Container>
         {/* Section Heading */}
         <div className="section-heading" style={{ marginBottom: "60px" }}>
-          <p style={{
+          <p className="hidden md:block" style={{
             fontFamily: "'Furore', sans-serif",
             fontSize: "11px",
             letterSpacing: "0.25em",
@@ -304,7 +304,7 @@ export function BiteCorrectionMethodSection() {
           <div style={{ background: "linear-gradient(135deg, #001a12 0%, #000a06 100%)", clipPath: CLIP(29), display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
             
             {/* Left Column: Information */}
-            <div className="w-full lg:w-[62%] p-6 md:p-12 lg:p-16 relative">
+            <div className="w-full lg:w-[62%] p-6 pb-0 md:p-12 lg:p-16 relative">
                <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.03) 1px, transparent 1px)", backgroundSize: "30px 30px", pointerEvents: "none" }} />
                
                <div className="relative z-10" style={{ paddingTop: "10px" }}>
@@ -317,7 +317,7 @@ export function BiteCorrectionMethodSection() {
                  <div style={{ width: "80px", height: "2px", background: CYAN, marginBottom: "40px" }} />
 
                  {/* List of Points (HUD Style) */}
-                 <div className="flex flex-col gap-6 mb-12">
+                 <div className="flex flex-col gap-6 mb-6 md:mb-12">
                    {[
                      "Исправление прикуса через расслабление мышц",
                      "Налаживание правильного носового дыхания",
@@ -338,14 +338,14 @@ export function BiteCorrectionMethodSection() {
                    ))}
                  </div>
 
-                 <div style={{ maxWidth: "340px" }}>
-                   <CustomInnovationCTA text="Получить консультацию" />
-                 </div>
+                  <div className="hidden lg:block" style={{ maxWidth: "340px" }}>
+                    <CustomInnovationCTA text="Получить консультацию" />
+                  </div>
                </div>
             </div>
 
             {/* Right Column: Visualization Frame with Slider */}
-            <div className="w-full lg:w-[38%] bg-[#00140f] border-l border-white/5 relative flex flex-col items-center justify-center p-8 md:p-12 lg:p-14 overflow-hidden">
+            <div className="w-full lg:w-[38%] bg-[#00140f] border-l border-white/5 relative flex flex-col items-center justify-center p-8 pt-2 md:p-12 lg:p-14 overflow-hidden">
                <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px)", backgroundSize: "30px 30px", pointerEvents: "none" }} />
                
                {/* 3:4 Aspect Ratio Slider Outer Wrapper */}
@@ -471,6 +471,13 @@ export function BiteCorrectionMethodSection() {
                      </svg>
                    </div>
                 </div>
+             </div>
+
+             {/* Mobile Button: Below Slider */}
+             <div className="w-full px-6 pb-10 flex justify-center lg:hidden relative z-10">
+               <div style={{ width: "100%" }}>
+                 <CustomInnovationCTA text="Получить консультацию" />
+               </div>
              </div>
           </div>
         </div>

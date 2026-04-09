@@ -7,7 +7,7 @@ const CLIP_OUTER = (s: number) =>
 const products = [
   {
     id: "01",
-    tag: "ПРЕПАРАТ",
+    tag: "ЖКИМ",
     title: "ЖКИМ",
     subtitle: "Жидкая Квантовая\nИнформационная Матрица",
     description:
@@ -50,7 +50,7 @@ export function WoundTreatmentProductsSection() {
             <div key={p.id} style={{ marginBottom: "32px" }}>
               {/* Photo block */}
               <div style={{ position: "relative", background: "#6FE6C1", clipPath: CLIP_OUTER(18), padding: "1.5px", marginBottom: "12px", filter: "drop-shadow(0 6px 24px rgba(0,0,0,0.7))" }}>
-                <div style={{ position: "relative", background: "#000c06", clipPath: CLIP_OUTER(17), aspectRatio: "1 / 1", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                <div style={{ position: "relative", background: "#000c06", clipPath: CLIP_OUTER(17), aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
                   <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.08) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
                   <div style={{ position: "absolute", top: 20, left: 20, width: 40, height: 40, borderTop: "2px solid rgba(111,230,193,0.5)", borderLeft: "2px solid rgba(111,230,193,0.5)" }} />
                   <div style={{ position: "absolute", bottom: 20, right: 20, width: 40, height: 40, borderBottom: "2px solid rgba(111,230,193,0.5)", borderRight: "2px solid rgba(111,230,193,0.5)" }} />
