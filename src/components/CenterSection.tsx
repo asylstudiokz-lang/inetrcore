@@ -511,7 +511,8 @@ export function CenterSection() {
                 ))}
               </div>
 
-              {/* Stats row */}
+              {/* Stats row (Hidden for now on desktop) */}
+              {/* 
               <div style={{ display: "flex", gap: "40px" }}>
                 {[
                   { num: "20+", label: "лет опыта" },
@@ -540,6 +541,7 @@ export function CenterSection() {
                   </div>
                 ))}
               </div>
+              */}
             </div>
           </div>
         </Container>

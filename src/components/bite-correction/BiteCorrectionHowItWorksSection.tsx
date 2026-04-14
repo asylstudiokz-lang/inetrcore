@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Container } from "../ui/Container";
+import HeroMobile from "../../assets/mikata/mikata_hero_m.png";
+import HeroDesktop from "../../assets/mikata/mikata_hero_d.png";
 
 const CYAN = "#6FE6C1";
 const CLIP_INV = (size: number) =>
@@ -163,19 +165,19 @@ export function BiteCorrectionHowItWorksSection() {
                 </div>
               </div>
             </div>
-            {/* Placeholder icon */}
-            <div style={{
-              position: "absolute", inset: 0, zIndex: 3,
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: "10px", color: `rgba(111,230,193,0.25)`,
-            }}>
-              <div style={{ width: "44px", height: "44px", borderRadius: "50%", border: "1px solid rgba(111,230,193,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" />
-                </svg>
-              </div>
-              <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase", opacity: 0.5 }}>Фото / видео</span>
-            </div>
+            {/* Image */}
+            <img 
+              src={HeroMobile.src} 
+              alt="Как работает Миката"
+              style={{
+                position: "absolute", 
+                inset: "25px", 
+                zIndex: 1,
+                width: "calc(100% - 50px)", height: "calc(100% - 50px)", 
+                objectFit: "cover",
+                clipPath: CLIP(12),
+              }}
+            />
           </div>
 
           {/* Text content */}
@@ -378,25 +380,20 @@ export function BiteCorrectionHowItWorksSection() {
                   zIndex: 2, pointerEvents: "none",
                 }} />
 
-                {/* Placeholder content */}
-                <div style={{
-                  position: "absolute", inset: 0, zIndex: 3,
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                  gap: "14px", color: `rgba(111,230,193,0.25)`,
-                }}>
-                  <div style={{
-                    width: "64px", height: "64px", borderRadius: "50%",
-                    border: "1px solid rgba(111,230,193,0.2)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                      <circle cx="8.5" cy="8.5" r="1.5" />
-                      <polyline points="21 15 16 10 5 21" />
-                    </svg>
-                  </div>
-                  <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", opacity: 0.5 }}>Фото / видео</span>
-                </div>
+                  {/* Image */}
+                  <img 
+                    src={HeroDesktop.src} 
+                    alt="Как работает Миката"
+                    style={{
+                      position: "absolute", 
+                      inset: "25px", 
+                      zIndex: 1,
+                      width: "calc(100% - 50px)", height: "calc(100% - 50px)", 
+                      objectFit: "contain",
+                      transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                      transform: hoveredLeft ? "scale(1.05)" : "scale(1)",
+                    }}
+                  />
 
               </div>
             </div>
