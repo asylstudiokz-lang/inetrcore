@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Container } from "../ui/Container";
 import { CTAButton } from "../HeroSection";
+import HeroMobile from "../../assets/vitamins/vitamins_hero_m.png";
+import HeroDesktop from "../../assets/vitamins/vitamins_hero_d.png";
 
 const CYAN = "#6FE6C1";
 
@@ -71,10 +73,14 @@ export function VitaminsHeroSection() {
                </span>
              </div>
 
-             {/* Mobile Image Placeholder */}
-             <div style={{ flexShrink: 0, width: "100%", maxWidth: "400px", aspectRatio: "16 / 10", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", margin: "0 auto 24px auto", overflow: "hidden" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "center", padding: "20px" }}>Здесь должно быть изображение</span>
-             </div>
+              {/* Mobile Image */}
+              <div style={{ flexShrink: 0, width: "100%", maxWidth: "200px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px auto", overflow: "hidden", clipPath: CLIP(20) }}>
+                <img 
+                  src={HeroMobile.src} 
+                  alt="Витаминные комплексы"
+                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                />
+              </div>
 
               <div className="w-full flex justify-center mt-4">
                 <div style={{ width: "310px", margin: "0 auto" }}>
@@ -219,12 +225,14 @@ export function VitaminsHeroSection() {
              <CTAButton text="Консультация" />
            </div>
 
-           {/* Desktop Image Placeholder */}
-           <div style={{ flexShrink: 0, width: "clamp(300px, 30vw, 400px)", aspectRatio: "3 / 4", position: "relative", display: "flex", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
-             <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(111,230,193,0.2)" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "12px", color: "#6FE6C1", textTransform: "uppercase", letterSpacing: "0.05em" }}>Здесь должно быть изображение</span>
-             </div>
-           </div>
+            {/* Desktop Image */}
+            <div style={{ flexShrink: 0, width: "clamp(300px, 32vw, 420px)", position: "relative", display: "flex", clipPath: CLIP(32), overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,0.5)" }}>
+              <img 
+                src={HeroDesktop.src} 
+                alt="Витаминно-минеральные комплексы"
+                style={{ width: "100%", height: "auto", objectFit: "cover" }}
+              />
+            </div>
         </div>
 
         {/* Pulsing Scroll Arrow for Desktop Hero */}

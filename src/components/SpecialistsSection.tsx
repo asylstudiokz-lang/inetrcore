@@ -6,6 +6,7 @@ import DiyarPhoto from "../assets/team/Diyar.png";
 import NatalyaPhoto from "../assets/team/Natalya.png";
 import MichailPhoto from "../assets/team/Michail.png";
 import AlbinaPhoto from "../assets/team/Albina.png";
+import RanoPhoto from "../assets/team/Rano.png";
 
 const CYAN = "#6FE6C1";
 
@@ -56,7 +57,7 @@ const specialists = [
     ghostName: "РАНО",
     role: "массажист",
     tag: "Массаж",
-    photo: "", // Placeholder will be handled by ImageWithFallback
+    photo: RanoPhoto.src,
   },
 ];
 
