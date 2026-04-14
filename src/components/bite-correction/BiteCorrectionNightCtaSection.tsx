@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container } from "../ui/Container";
+import PillowImage from "../../assets/mikata/pillow.png";
 
 const CYAN = "#6FE6C1";
 const CLIP = (size: number) =>
@@ -144,56 +145,19 @@ export function BiteCorrectionNightCtaSection() {
                 strokeOpacity="0.55"
               />
             </svg>
-            {/* Placeholder icon */}
-            <div
+            {/* Image */}
+            <img 
+              src={PillowImage.src} 
+              alt="Надевайте корректор на ночь"
               style={{
                 position: "absolute",
                 inset: 0,
-                zIndex: 3,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                color: "rgba(111,230,193,0.25)",
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                zIndex: 1,
               }}
-            >
-              <div
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(111,230,193,0.2)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" />
-                </svg>
-              </div>
-              <span
-                style={{
-                  fontFamily: "'Furore', sans-serif",
-                  fontSize: "7px",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  opacity: 0.5,
-                }}
-              >
-                Фото / видео
-              </span>
-            </div>
+            />
           </div>
         </Container>
       </div>
@@ -365,56 +329,21 @@ export function BiteCorrectionNightCtaSection() {
                   zIndex: 1,
                 }}
               />
-              {/* Placeholder icon */}
-              <div
+              {/* Image */}
+              <img 
+                src={PillowImage.src} 
+                alt="Надевайте корректор на ночь"
                 style={{
                   position: "absolute",
                   inset: 0,
-                  zIndex: 3,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "10px",
-                  color: "rgba(111,230,193,0.25)",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  zIndex: 1,
+                  transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  transform: hoveredPhoto ? "scale(1.05)" : "scale(1)",
                 }}
-              >
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    border: "1px solid rgba(111,230,193,0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <polyline points="21 15 16 10 5 21" />
-                  </svg>
-                </div>
-                <span
-                  style={{
-                    fontFamily: "'Furore', sans-serif",
-                    fontSize: "7px",
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    opacity: 0.5,
-                  }}
-                >
-                  Фото / видео
-                </span>
-              </div>
+              />
             </div>
           </div>
         </Container>

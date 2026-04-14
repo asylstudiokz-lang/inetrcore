@@ -1,4 +1,6 @@
 import { Container } from "../ui/Container";
+import JKIMMobile from "../../assets/wounds/jkm_m.png";
+import BiomatrixMobile from "../../assets/wounds/biom_m.png";
 
 const CYAN = "#6FE6C1";
 const CLIP_OUTER = (s: number) =>
@@ -13,6 +15,7 @@ const products = [
     description:
       "Инновационный состав для обработки и эффективного лечения раневых поверхностей. Технология обеспечивает глубокое проникновение активных компонентов и стимулирует естественные процессы самоочищения раны.",
     chips: ["Антимикробный эффект", "Регенерация тканей", "Аппликация"],
+    imageMobile: JKIMMobile,
   },
   {
     id: "02",
@@ -20,8 +23,9 @@ const products = [
     title: "Биоматрица Гаряева",
     subtitle: "КИК-1, 2, 3",
     description:
-      "Комплекс информационных матриц для глубокой активации регенеративных процессов на клеточном уровне. Способствует быстрому восстановлению тканей без образования гипертрофированных рубцов.",
+      "Комплекс информационных матриц для глубокой активации регенеративных процессов на клеточном уровне. Способ способствует быстрому восстановлению тканей без образования гипертрофированных рубцов.",
     chips: ["Клеточный уровень", "Нет рубцов", "Информационная матрица"],
+    imageMobile: BiomatrixMobile,
   },
 ];
 
@@ -55,10 +59,11 @@ export function WoundTreatmentProductsSection() {
                   <div style={{ position: "absolute", top: 20, left: 20, width: 40, height: 40, borderTop: "2px solid rgba(111,230,193,0.5)", borderLeft: "2px solid rgba(111,230,193,0.5)" }} />
                   <div style={{ position: "absolute", bottom: 20, right: 20, width: 40, height: 40, borderBottom: "2px solid rgba(111,230,193,0.5)", borderRight: "2px solid rgba(111,230,193,0.5)" }} />
                   <div style={{ position: "absolute", bottom: -16, right: 8, fontFamily: "'Furore', sans-serif", fontSize: 120, color: "transparent", WebkitTextStroke: "2px rgba(111,230,193,0.08)", lineHeight: 0.8, userSelect: "none" }}>{p.id}</div>
-                  <svg style={{ width: 64, height: 64, color: CYAN, opacity: 0.5, marginBottom: 16 }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 12, color: CYAN, letterSpacing: "0.25em", opacity: 0.6 }}>МЕСТО ДЛЯ ФОТО</span>
+                  <img 
+                    src={(p as any).imageMobile?.src} 
+                    alt={p.title}
+                    style={{ position: "absolute", inset: "15px", width: "calc(100% - 30px)", height: "calc(100% - 30px)", objectFit: "contain", zIndex: 1 }}
+                  />
                   {/* Tag chip */}
                   <div style={{ position: "absolute", bottom: 14, right: 14, background: "rgba(111,230,193,0.35)", clipPath: "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)", padding: "1px" }}>
                     <div style={{ background: "rgba(0,18,12,0.88)", clipPath: "polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)", padding: "5px 12px" }}>

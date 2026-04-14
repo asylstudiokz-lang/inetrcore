@@ -1,5 +1,6 @@
 import { Container } from "../ui/Container";
 import { CTAButton } from "../HeroSection";
+import HeroMobile from "../../assets/wounds/wounds_hero_m.png";
 
 const CYAN = "#6FE6C1";
 
@@ -66,10 +67,14 @@ export function WoundTreatmentHeroSection() {
                 </span>
               </div>
 
-             {/* Mobile Image Placeholder */}
-             <div style={{ flexShrink: 0, width: "100%", maxWidth: "400px", aspectRatio: "16 / 10", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", margin: "0 auto 24px auto", overflow: "hidden" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "center", padding: "20px" }}>Здесь должно быть изображение</span>
-             </div>
+              {/* Mobile Image */}
+              <div style={{ flexShrink: 0, width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px auto", overflow: "hidden", clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}>
+                <img 
+                  src={HeroMobile.src} 
+                  alt="Лечение ран"
+                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                />
+              </div>
 
              <div style={{ width: "310px", margin: "0 auto" }}>
                <CTAButton text="Консультация" />
