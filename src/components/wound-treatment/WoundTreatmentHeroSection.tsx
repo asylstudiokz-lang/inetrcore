@@ -72,7 +72,7 @@ export function WoundTreatmentHeroSection() {
                 <img 
                   src={HeroMobile.src} 
                   alt="Лечение ран"
-                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                  style={{ width: "115%", height: "auto", objectFit: "cover" }}
                 />
               </div>
 
