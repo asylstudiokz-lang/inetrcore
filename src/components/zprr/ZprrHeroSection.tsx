@@ -1,5 +1,6 @@
 import { Container } from "../ui/Container";
 import { CTAButton } from "../HeroSection";
+import ZprrHeroImg from "../../assets/zprr/zprr_hero.png";
 
 const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
@@ -45,43 +46,27 @@ export function ZprrHeroSection() {
 
              <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)", marginBottom: "16px", maxWidth: "280px" }} />
 
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", marginBottom: "32px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
+             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", marginBottom: "6px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
                <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "10px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                  ЗПРР • РАС • АУТИЗМ • ЗРР • СДВГ • ДЦП
                </span>
              </div>
 
-             {/* Mobile Video Replacement */}
-             <div style={{ 
-               flexShrink: 0, 
-               width: "100%", 
-               maxWidth: "400px", 
-               aspectRatio: "16 / 9", 
-               position: "relative", 
-               background: "linear-gradient(135deg, rgba(111,230,193,0.5) 0%, rgba(111,230,193,0.1) 100%)",
-               padding: "1.5px",
-               clipPath: CLIP(16),
-               margin: "0 auto 32px auto", 
-               overflow: "hidden" 
+             {/* Mobile Image */}
+             <div style={{
+               flexShrink: 0,
+               width: "100%",
+               maxWidth: "340px",
+               position: "relative",
+               margin: "0 auto 6px auto",
+               overflow: "hidden",
+               borderRadius: "12px",
              }}>
-               <div style={{ 
-                 width: "100%", 
-                 height: "100%", 
-                 background: "#000805",
-                 clipPath: CLIP(15),
-                 overflow: "hidden"
-               }}>
-                 <iframe
-                   width="100%"
-                   height="100%"
-                   src="https://www.youtube.com/embed/K7HDqvZI0YQ?start=3"
-                   title="ЗПРР Видео"
-                   frameBorder="0"
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                   allowFullScreen
-                   style={{ position: "absolute", inset: 0 }}
-                 ></iframe>
-               </div>
+               <img
+                 src={ZprrHeroImg.src}
+                 alt="ЗПРР — Сенсомоторная алалия"
+                 style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+               />
              </div>
 
              <div style={{ width: "310px", margin: "0 auto" }}>
@@ -243,11 +228,13 @@ export function ZprrHeroSection() {
              <CTAButton text="Консультация" />
            </div>
 
-           {/* Desktop Image Placeholder */}
-           <div style={{ flexShrink: 0, width: "clamp(300px, 30vw, 400px)", aspectRatio: "3 / 4", position: "relative", display: "flex", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
-             <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(111,230,193,0.2)" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "12px", color: "#6FE6C1", textTransform: "uppercase", letterSpacing: "0.05em" }}>Здесь должно быть изображение</span>
-             </div>
+           {/* Desktop Image */}
+           <div style={{ flexShrink: 0, width: "clamp(440px, 46vw, 620px)", position: "relative", overflow: "hidden", borderRadius: "16px" }}>
+             <img
+               src={ZprrHeroImg.src}
+               alt="ЗПРР — Сенсомоторная алалия"
+               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+             />
            </div>
         </div>
         
@@ -282,7 +269,7 @@ export function ZprrHeroSection() {
         </div>
       </div>
 
-      {/* ── VIDEO SECTION ── */}
+      {/* ── VIDEO SECTION (desktop only) ── */}
       <Container className="hidden md:block">
         <div id="zprr-video" className="relative w-full max-w-[1024px] mx-auto mt-12 md:mt-20 mb-8 md:mb-12 z-10">
           

@@ -93,6 +93,40 @@ export default function ZprrApp() {
 
       <main style={{ paddingTop: "80px", position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
         <ZprrHeroSection />
+
+        {/* ── MOBILE VIDEO SECTION (mobile only) ── */}
+        <div className="md:hidden w-full" style={{ paddingTop: "10px", paddingBottom: "20px", paddingLeft: "16px", paddingRight: "16px" }}>
+          <div style={{
+            width: "100%",
+            maxWidth: "480px",
+            margin: "0 auto",
+            position: "relative",
+            background: "linear-gradient(135deg, rgba(111,230,193,0.5) 0%, rgba(111,230,193,0.1) 100%)",
+            padding: "1.5px",
+            clipPath: "polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)",
+            filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.6))",
+          }}>
+            <div style={{
+              background: "#000805",
+              clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)",
+              aspectRatio: "16 / 9",
+              position: "relative",
+              overflow: "hidden",
+            }}>
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/K7HDqvZI0YQ?start=3"
+                title="ЗПРР Видео"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: "absolute", inset: 0 }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
         <ZprrCausesSection />
         <ZprrMethodologySection />
         <ZprrTherapyStagesSection />

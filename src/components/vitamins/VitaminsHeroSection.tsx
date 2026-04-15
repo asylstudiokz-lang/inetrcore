@@ -74,12 +74,14 @@ export function VitaminsHeroSection() {
              </div>
 
               {/* Mobile Image */}
-              <div style={{ flexShrink: 0, width: "100%", maxWidth: "200px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px auto", overflow: "hidden", clipPath: CLIP(20) }}>
-                <img 
-                  src={HeroMobile.src} 
-                  alt="Витаминные комплексы"
-                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
-                />
+              <div style={{ margin: "0 auto 24px auto", width: "100%", maxWidth: "200px", filter: "drop-shadow(0 0 14px rgba(111,230,193,0.7)) drop-shadow(0 4px 24px rgba(111,230,193,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.5))" }}>
+                <div style={{ flexShrink: 0, width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", clipPath: CLIP(20), overflow: "hidden" }}>
+                  <img 
+                    src={HeroMobile.src} 
+                    alt="Витаминные комплексы"
+                    style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                  />
+                </div>
               </div>
 
               <div className="w-full flex justify-center mt-4">
@@ -226,12 +228,14 @@ export function VitaminsHeroSection() {
            </div>
 
             {/* Desktop Image */}
-            <div style={{ flexShrink: 0, width: "clamp(300px, 32vw, 420px)", position: "relative", display: "flex", clipPath: CLIP(32), overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,0.5)" }}>
-              <img 
-                src={HeroDesktop.src} 
-                alt="Витаминно-минеральные комплексы"
-                style={{ width: "100%", height: "auto", objectFit: "cover" }}
-              />
+            <div style={{ flexShrink: 0, width: "clamp(300px, 32vw, 420px)", position: "relative", filter: "drop-shadow(0 0 16px rgba(111,230,193,0.65)) drop-shadow(0 4px 28px rgba(111,230,193,0.38)) drop-shadow(0 8px 20px rgba(0,0,0,0.55))" }}>
+              <div style={{ clipPath: CLIP(32), overflow: "hidden" }}>
+                <img 
+                  src={HeroDesktop.src} 
+                  alt="Витаминно-минеральные комплексы"
+                  style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
+                />
+              </div>
             </div>
         </div>
 

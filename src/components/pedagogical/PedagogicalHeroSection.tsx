@@ -1,5 +1,6 @@
 import { Container } from "../ui/Container";
 import { useState } from "react";
+import PedagogicalHeroImg from "../../assets/pedagogical/pedagogical_hero.png";
 
 const CYAN = "#6FE6C1";
 
@@ -162,20 +163,23 @@ export function PedagogicalHeroSection() {
 
              <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)", marginBottom: "16px", maxWidth: "280px" }} />
 
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset", marginBottom: "32px" }}>
+             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset", marginBottom: "6px" }}>
                <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "10px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                  С РАС • ЗПРР • АУТИЗМОМ
                </span>
              </div>
 
-             {/* Mobile Image Placeholder */}
-             <div style={{ flexShrink: 0, width: "100%", maxWidth: "400px", aspectRatio: "16 / 10", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", margin: "0 auto 24px auto", overflow: "hidden" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "14px", color: "rgba(111,230,193,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "center", padding: "20px" }}>Здесь должно быть изображение</span>
-             </div>
-
-             <div style={{ width: "310px", margin: "0 auto" }}>
-               <CTAButton />
-             </div>
+              {/* Mobile Image + CTA overlay */}
+              <div style={{ width: "100%", maxWidth: "272px", position: "relative", margin: "0 auto", filter: "drop-shadow(0 0 18px rgba(111,230,193,0.35)) drop-shadow(0 8px 24px rgba(0,0,0,0.4))" }}>
+                <img
+                  src={PedagogicalHeroImg.src}
+                  alt="Педагогическая коррекция детей"
+                  style={{ width: "100%", height: "auto", display: "block", objectFit: "cover", borderRadius: "12px" }}
+                />
+                <div style={{ position: "absolute", bottom: "0", left: "50%", transform: "translateX(-50%)", width: "100%", padding: "0 8px" }}>
+                  <CTAButton />
+                </div>
+              </div>
            </div>
         </div>
       </Container>
@@ -325,10 +329,15 @@ export function PedagogicalHeroSection() {
              <CTAButton />
            </div>
 
-           {/* Desktop Image Placeholder */}
-           <div style={{ flexShrink: 0, width: "clamp(300px, 30vw, 400px)", aspectRatio: "3 / 4", position: "relative", display: "flex", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
-             <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(111,230,193,0.2)" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "12px", color: "#6FE6C1", textTransform: "uppercase", letterSpacing: "0.05em" }}>Здесь должно быть изображение</span>
+
+           {/* Desktop Image */}
+           <div style={{ flexShrink: 0, width: "clamp(280px, 30vw, 400px)", position: "relative", filter: "drop-shadow(0 0 16px rgba(111,230,193,0.65)) drop-shadow(0 4px 28px rgba(111,230,193,0.38)) drop-shadow(0 8px 20px rgba(0,0,0,0.55))" }}>
+             <div style={{ overflow: "hidden", borderRadius: "16px" }}>
+               <img
+                 src={PedagogicalHeroImg.src}
+                 alt="Педагогическая коррекция детей"
+                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+               />
              </div>
            </div>
         </div>

@@ -61,24 +61,25 @@ export function WoundTreatmentHeroSection() {
 
               <div style={{ width: "100%", height: "1px", background: `linear-gradient(90deg, transparent 0%, ${CYAN}40 50%, transparent 100%)`, marginBottom: "16px", maxWidth: "280px" }} />
 
-              <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", marginBottom: "32px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
+              <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", marginBottom: "6px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
                 <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   ЖКИМ • КВАНТОВО-ИНФОРМАЦИОННЫЕ КРЕМА
                 </span>
               </div>
 
-              {/* Mobile Image */}
-              <div style={{ flexShrink: 0, width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px auto", overflow: "hidden", clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}>
-                <img 
-                  src={HeroMobile.src} 
-                  alt="Лечение ран"
-                  style={{ width: "115%", height: "auto", objectFit: "cover" }}
-                />
+              {/* Mobile Image + CTA overlay */}
+              <div style={{ position: "relative", width: "100%", margin: "0 auto" }}>
+                <div style={{ flexShrink: 0, width: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}>
+                  <img
+                    src={HeroMobile.src}
+                    alt="Лечение ран"
+                    style={{ width: "254%", height: "auto", objectFit: "cover" }}
+                  />
+                </div>
+                <div style={{ position: "absolute", bottom: "-12%", left: "50%", transform: "translateX(-50%)", width: "310px" }}>
+                  <CTAButton text="Консультация" />
+                </div>
               </div>
-
-             <div style={{ width: "310px", margin: "0 auto" }}>
-               <CTAButton text="Консультация" />
-             </div>
             </div>
         </div>
       </Container>
@@ -170,11 +171,13 @@ export function WoundTreatmentHeroSection() {
              <CTAButton text="Консультация" />
            </div>
 
-           {/* Desktop Image Placeholder */}
-           <div style={{ flexShrink: 0, width: "clamp(300px, 30vw, 400px)", aspectRatio: "3 / 4", position: "relative", display: "flex", backgroundColor: "rgba(111,230,193,0.05)", border: "1px dashed rgba(111,230,193,0.3)", borderRadius: "16px", overflow: "hidden" }}>
-             <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(111,230,193,0.2)" }}>
-               <span style={{ fontFamily: "'Exo 2', sans-serif", fontSize: "12px", color: "#6FE6C1", textTransform: "uppercase", letterSpacing: "0.05em" }}>Здесь должно быть изображение</span>
-             </div>
+           {/* Desktop Image */}
+           <div style={{ flexShrink: 0, width: "clamp(520px, 54vw, 760px)", position: "relative", overflow: "hidden", borderRadius: "16px" }}>
+             <img
+               src={HeroMobile.src}
+               alt="Лечение ран"
+               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+             />
            </div>
         </div>
         

@@ -99,7 +99,7 @@ export function BiteCorrectionHowItWorksSection() {
       style={{ backgroundColor: "#001d14" }}
     >
       {/* ────────────────────────────── MOBILE ─────────────────────────── */}
-      <div className="md:hidden" style={{ position: "relative", padding: "60px 0", overflow: "hidden" }}>
+      <div className="md:hidden" style={{ position: "relative", padding: "60px 0" }}>
 
         {/* Background glow */}
         <div style={{
@@ -392,6 +392,7 @@ export function BiteCorrectionHowItWorksSection() {
                       objectFit: "contain",
                       transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
                       transform: hoveredLeft ? "scale(1.05)" : "scale(1)",
+                      filter: "drop-shadow(0 0 16px rgba(111,230,193,0.65)) drop-shadow(0 4px 28px rgba(111,230,193,0.38)) drop-shadow(0 8px 20px rgba(0,0,0,0.5))",
                     }}
                   />
 

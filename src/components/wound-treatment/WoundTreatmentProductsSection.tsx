@@ -53,21 +53,23 @@ export function WoundTreatmentProductsSection() {
           {products.map((p) => (
             <div key={p.id} style={{ marginBottom: "32px" }}>
               {/* Photo block */}
-              <div style={{ position: "relative", background: "#6FE6C1", clipPath: CLIP_OUTER(18), padding: "1.5px", marginBottom: "12px", filter: "drop-shadow(0 6px 24px rgba(0,0,0,0.7))" }}>
-                <div style={{ position: "relative", background: "#000c06", clipPath: CLIP_OUTER(17), aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.08) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-                  <div style={{ position: "absolute", top: 20, left: 20, width: 40, height: 40, borderTop: "2px solid rgba(111,230,193,0.5)", borderLeft: "2px solid rgba(111,230,193,0.5)" }} />
-                  <div style={{ position: "absolute", bottom: 20, right: 20, width: 40, height: 40, borderBottom: "2px solid rgba(111,230,193,0.5)", borderRight: "2px solid rgba(111,230,193,0.5)" }} />
-                  <div style={{ position: "absolute", bottom: -16, right: 8, fontFamily: "'Furore', sans-serif", fontSize: 120, color: "transparent", WebkitTextStroke: "2px rgba(111,230,193,0.08)", lineHeight: 0.8, userSelect: "none" }}>{p.id}</div>
-                  <img 
-                    src={(p as any).imageMobile?.src} 
-                    alt={p.title}
-                    style={{ position: "absolute", inset: "15px", width: "calc(100% - 30px)", height: "calc(100% - 30px)", objectFit: "contain", zIndex: 1 }}
-                  />
-                  {/* Tag chip */}
-                  <div style={{ position: "absolute", bottom: 14, right: 14, background: "rgba(111,230,193,0.35)", clipPath: "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)", padding: "1px" }}>
-                    <div style={{ background: "rgba(0,18,12,0.88)", clipPath: "polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)", padding: "5px 12px" }}>
-                      <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 10, letterSpacing: "0.2em", color: CYAN, textTransform: "uppercase" }}>{p.tag}</span>
+              <div style={{ marginBottom: "12px", filter: "drop-shadow(0 0 20px rgba(111,230,193,0.55)) drop-shadow(0 6px 20px rgba(0,0,0,0.7))" }}>
+                <div style={{ position: "relative", background: "#6FE6C1", clipPath: CLIP_OUTER(18), padding: "1.5px" }}>
+                  <div style={{ position: "relative", background: "#000c06", clipPath: CLIP_OUTER(17), aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.08) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+                    <div style={{ position: "absolute", top: 20, left: 20, width: 40, height: 40, borderTop: "2px solid rgba(111,230,193,0.5)", borderLeft: "2px solid rgba(111,230,193,0.5)" }} />
+                    <div style={{ position: "absolute", bottom: 20, right: 20, width: 40, height: 40, borderBottom: "2px solid rgba(111,230,193,0.5)", borderRight: "2px solid rgba(111,230,193,0.5)" }} />
+                    <div style={{ position: "absolute", bottom: -16, right: 8, fontFamily: "'Furore', sans-serif", fontSize: 120, color: "transparent", WebkitTextStroke: "2px rgba(111,230,193,0.08)", lineHeight: 0.8, userSelect: "none" }}>{p.id}</div>
+                    <img 
+                      src={(p as any).imageMobile?.src} 
+                      alt={p.title}
+                      style={{ position: "absolute", inset: "15px", width: "calc(100% - 30px)", height: "calc(100% - 30px)", objectFit: "contain", zIndex: 1, filter: "drop-shadow(0 0 12px rgba(111,230,193,0.7)) drop-shadow(0 4px 20px rgba(111,230,193,0.4)) drop-shadow(0 8px 16px rgba(0,0,0,0.6))" }}
+                    />
+                    {/* Tag chip */}
+                    <div style={{ position: "absolute", bottom: 14, right: 14, background: "rgba(111,230,193,0.35)", clipPath: "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)", padding: "1px" }}>
+                      <div style={{ background: "rgba(0,18,12,0.88)", clipPath: "polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px)", padding: "5px 12px" }}>
+                        <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 10, letterSpacing: "0.2em", color: CYAN, textTransform: "uppercase" }}>{p.tag}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -127,27 +129,28 @@ export function WoundTreatmentProductsSection() {
                     <div style={{ display: "flex", gap: "48px", alignItems: "center", flexDirection: i % 2 === 0 ? "row" : "row-reverse" }}>
 
                       {/* Photo card */}
-                      <div style={{ flexShrink: 0, width: "380px", height: "380px", position: "relative", background: "#000c06", clipPath: "polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px)", overflow: "hidden" }}>
-                        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.07) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
-                        <div style={{ position: "absolute", top: 28, left: 28, width: 50, height: 50, borderTop: "1.5px solid rgba(111,230,193,0.5)", borderLeft: "1.5px solid rgba(111,230,193,0.5)" }} />
-                        <div style={{ position: "absolute", bottom: 28, right: 28, width: 50, height: 50, borderBottom: "1.5px solid rgba(111,230,193,0.5)", borderRight: "1.5px solid rgba(111,230,193,0.5)" }} />
-                        <div style={{ position: "absolute", bottom: -20, right: 10, fontFamily: "'Furore', sans-serif", fontSize: 160, color: "transparent", WebkitTextStroke: "2px rgba(111,230,193,0.06)", lineHeight: 0.8, userSelect: "none" }}>{p.id}</div>
-                        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                          <svg style={{ width: 80, height: 80, color: CYAN, opacity: 0.4, marginBottom: 20 }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.7} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 13, color: CYAN, letterSpacing: "0.25em", opacity: 0.5 }}>МЕСТО ДЛЯ ФОТО</span>
-                        </div>
-                        <div style={{ position: "absolute", bottom: 18, left: 22, fontFamily: "'Furore', sans-serif", fontSize: 12, letterSpacing: "0.18em", color: "rgba(111,230,193,0.45)" }}>{p.id}</div>
-                        <div style={{ position: "absolute", bottom: 14, right: 16, background: "rgba(111,230,193,0.35)", clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)", padding: "1px" }}>
-                          <div style={{ background: "rgba(0,18,12,0.82)", clipPath: "polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px)", padding: "6px 16px" }}>
-                            <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 11, letterSpacing: "0.22em", color: CYAN, textTransform: "uppercase" }}>{p.tag}</span>
+                      <div style={{ filter: "drop-shadow(0 0 22px rgba(111,230,193,0.5)) drop-shadow(0 8px 30px rgba(0,0,0,0.7))", flexShrink: 0 }}>
+                        <div style={{ width: "380px", height: "380px", position: "relative", background: "#000c06", clipPath: "polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px)", overflow: "hidden" }}>
+                          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(111,230,193,0.07) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+                          <div style={{ position: "absolute", top: 28, left: 28, width: 50, height: 50, borderTop: "1.5px solid rgba(111,230,193,0.5)", borderLeft: "1.5px solid rgba(111,230,193,0.5)" }} />
+                          <div style={{ position: "absolute", bottom: 28, right: 28, width: 50, height: 50, borderBottom: "1.5px solid rgba(111,230,193,0.5)", borderRight: "1.5px solid rgba(111,230,193,0.5)" }} />
+                          <div style={{ position: "absolute", bottom: -20, right: 10, fontFamily: "'Furore', sans-serif", fontSize: 160, color: "transparent", WebkitTextStroke: "2px rgba(111,230,193,0.06)", lineHeight: 0.8, userSelect: "none" }}>{p.id}</div>
+                          <img
+                            src={(p as any).imageMobile?.src}
+                            alt={p.title}
+                            style={{ position: "absolute", inset: "20px", width: "calc(100% - 40px)", height: "calc(100% - 40px)", objectFit: "contain", zIndex: 1, filter: "drop-shadow(0 0 14px rgba(111,230,193,0.65)) drop-shadow(0 4px 24px rgba(111,230,193,0.35)) drop-shadow(0 8px 16px rgba(0,0,0,0.6))" }}
+                          />
+                          <div style={{ position: "absolute", bottom: 18, left: 22, fontFamily: "'Furore', sans-serif", fontSize: 12, letterSpacing: "0.18em", color: "rgba(111,230,193,0.45)" }}>{p.id}</div>
+                          <div style={{ position: "absolute", bottom: 14, right: 16, background: "rgba(111,230,193,0.35)", clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)", padding: "1px" }}>
+                            <div style={{ background: "rgba(0,18,12,0.82)", clipPath: "polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px)", padding: "6px 16px" }}>
+                              <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 11, letterSpacing: "0.22em", color: CYAN, textTransform: "uppercase" }}>{p.tag}</span>
+                            </div>
                           </div>
+                          {/* SVG border overlay */}
+                          <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", filter: "drop-shadow(0 0 6px rgba(111,230,193,0.6))", overflow: "visible" }} viewBox="0 0 380 380" preserveAspectRatio="none" fill="none">
+                            <polyline points="16,1 364,1 379,16 379,364 364,379 16,379 1,364 1,16 16,1" stroke="#6FE6C1" strokeWidth="1.5" fill="none" />
+                          </svg>
                         </div>
-                        {/* SVG border overlay */}
-                        <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", filter: "drop-shadow(0 0 6px rgba(111,230,193,0.6))", overflow: "visible" }} viewBox="0 0 380 380" preserveAspectRatio="none" fill="none">
-                          <polyline points="16,1 364,1 379,16 379,364 364,379 16,379 1,364 1,16 16,1" stroke="#6FE6C1" strokeWidth="1.5" fill="none" />
-                        </svg>
                       </div>
 
                       {/* Text block */}
