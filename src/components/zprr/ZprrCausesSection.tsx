@@ -39,7 +39,7 @@ export function ZprrCausesSection() {
       )
     },
     {
-      title: "НЕДОЗАКЛАДКА КОЛЛАТЕРАЛЬНОГО КРОВОТОКА",
+      title: "Недозакладка коллатерального кровотока в условиях дефицита",
       description: "Нарушение кровообращения в условиях дефицита питания тканей.",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#6FE6C1" stroke="none">
@@ -119,19 +119,6 @@ export function ZprrCausesSection() {
                 }}
               />
               
-              <p
-                className="mt-6 md:mt-8 max-w-[380px]"
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "clamp(13px, 1.2vw, 15px)",
-                  lineHeight: 1.6,
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                Комплексное понимание природы нарушений — первый шаг к эффективной нейромодуляции.
-              </p>
-              
-              {/* Gap to push the "04" counter down (hidden on mobile) */}
               <div className="hidden md:block flex-1 min-h-[30px] lg:min-h-[140px]"></div>
               
               <span

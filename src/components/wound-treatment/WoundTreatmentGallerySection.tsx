@@ -234,7 +234,7 @@ export function WoundTreatmentGallerySection() {
             <div style={{
               background: "linear-gradient(135deg, #001f16 0%, #000c08 100%)", 
               clipPath: CLIP(31.5), // Inner clip to reveal border
-              padding: "48px 40px", 
+              padding: isMobile ? "32px 24px" : "48px 40px", 
               height: "100%",
               width: "100%",
               boxSizing: "border-box",
@@ -242,11 +242,11 @@ export function WoundTreatmentGallerySection() {
               flexDirection: "column",
               textAlign: isMobile ? "center" : "left",
             }}>
-              <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "28px", color: "#fff", textTransform: "uppercase", lineHeight: 1.2, margin: "0 0 16px", letterSpacing: "0.02em" }}>
+              <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(20px, 6vw, 28px)", color: "#fff", textTransform: "uppercase", lineHeight: 1.25, margin: "0 0 16px", letterSpacing: "0.02em" }}>
                 Побочных эффектов<br />
                 <span style={{ color: CYAN }}>не обнаружено</span>
               </h2>
-              <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "28px", color: "#fff", textTransform: "uppercase", lineHeight: 1.2, margin: "0 0 40px", letterSpacing: "0.02em" }}>
+              <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(20px, 6vw, 28px)", color: "#fff", textTransform: "uppercase", lineHeight: 1.25, margin: "0 0 32px", letterSpacing: "0.02em" }}>
                 Противопоказаний<br />
                 <span style={{ color: CYAN }}>нет</span>
               </h2>

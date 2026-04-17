@@ -10,8 +10,8 @@ const CLIP = (size: number) =>
 const advantages = [
   {
     id: 1,
-    title: "100% натуральный состав",
-    description: "Мы используем только растительное сырье без химических реагентов, сохраняя природную чистоту и эффективность продукта.",
+    title: "100% НАТУРАЛЬНЫЙ СОСТАВ",
+    description: "Мы используем только растительное сырье без химических реагентов, сохраняя природную чистоту и эффективность.",
     tag: "СОСТАВ",
     span: "col-span-1 md:col-span-2",
     // Tabler: plant-2
@@ -19,8 +19,8 @@ const advantages = [
   },
   {
     id: 2,
-    title: "Хелатные формы",
-    description: "Высокая биодоступность и легкое усвоение — максимум пользы с минимальной нагрузкой на организм.",
+    title: "ХЕЛАТНЫЕ ФОРМЫ МИКРОЭЛЕМЕНТОВ",
+    description: "Высокая биодоступность и легкое усвоение организмом — максимум пользы с минимальной нагрузкой.",
     tag: "БИОЛОГИЯ",
     span: "col-span-1",
     // Tabler: dna
@@ -28,8 +28,8 @@ const advantages = [
   },
   {
     id: 3,
-    title: "Научная база",
-    description: "Все составы разрабатываются на основе актуальных научных исследований и проверенных клинических данных.",
+    title: "НАУЧНАЯ ДОКАЗАТЕЛЬНАЯ БАЗА",
+    description: "Все составы разрабатываются на основе актуальных научных исследований и клинических данных.",
     tag: "НАУКА",
     span: "col-span-1",
     // Tabler: flask
@@ -37,8 +37,8 @@ const advantages = [
   },
   {
     id: 4,
-    title: "R&D лаборатория",
-    description: "Собственная разработка и тестирование на базе ведущих технопарков Академгородка и Кольцово.",
+    title: "СОБСТВЕННАЯ R&D ЛАБОРАТОРИЯ",
+    description: "Разработка и тестирование ведется на базе технопарков Академгородка и Кольцово ведущими учеными.",
     tag: "РАЗРАБОТКА",
     span: "col-span-1",
     // Tabler: microscope
@@ -46,8 +46,8 @@ const advantages = [
   },
   {
     id: 5,
-    title: "Современные технологии",
-    description: "Уникальный технологический процесс обеспечивает сохранение всех полезных свойств компонентов.",
+    title: "СОВРЕМЕННЫЕ ПРОИЗВОДСТВЕННЫЕ ТЕХНОЛОГИИ",
+    description: "Уникальный технологический процесс обеспечивает 100% усвоение всех необходимых веществ.",
     tag: "ТЕХНОЛОГИИ",
     span: "col-span-1",
     // Tabler: cpu
@@ -55,8 +55,8 @@ const advantages = [
   },
   {
     id: 6,
-    title: "Безопасность и эффективность",
-    description: "Строгий контроль качества на каждом этапе производства гарантирует отсутствие побочных эффектов.",
+    title: "БЕЗОПАСНОСТЬ И ЭФФЕКТИВНОСТЬ",
+    description: "Подтвержденные результаты, натуральность и отсутствие побочных эффектов — идеальное решение для здоровья и восстановления.",
     tag: "КОНТРОЛЬ",
     span: "col-span-1 md:col-span-3",
     // Tabler: certificate
@@ -99,23 +99,6 @@ export function VitaminsAdvantagesSection() {
       <Container className="relative z-10">
         {/* Заголовок секции */}
         <div id="advantages-header-container" className="mb-8 md:mb-[60px]" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <div 
-                    style={{ 
-                        background: `${CYAN}15`, 
-                        borderLeft: `2px solid ${CYAN}`, 
-                        padding: "4px 12px", 
-                        display: "flex", 
-                        alignItems: "center", 
-                        gap: "8px" 
-                    }}
-                >
-                    <div className="blink-dot" style={{ width: "4px", height: "4px", background: CYAN, borderRadius: "50%" }} />
-                    <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: CYAN, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                        ТЕХНОЛОГИЧЕСКИЙ БАЗИС
-                    </span>
-                </div>
-            </div>
             <h2 
                 id="advantages-title"
                 style={{ 

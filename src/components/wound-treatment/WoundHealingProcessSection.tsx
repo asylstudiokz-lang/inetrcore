@@ -101,7 +101,7 @@ export function WoundHealingProcessSection() {
                          <div style={{ 
                            clipPath: CLIP(23), background: "linear-gradient(145deg, #00261a 0%, #000c08 100%)", 
                            position: "relative", overflow: "hidden", minHeight: "100%"
-                         }} className="p-8 md:p-[clamp(40px,6vw,60px)]">
+                         }} className="p-5 md:p-[clamp(40px,6vw,60px)]">
                             
                             {/* Inner Details: Diagonal Data Lines */}
                             <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(111,230,193,1) 10px, rgba(111,230,193,1) 11px)" }} />

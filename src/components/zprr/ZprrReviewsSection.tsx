@@ -401,11 +401,11 @@ export function ZprrReviewsSection() {
         <div className="w-full flex flex-col items-center relative z-10 text-center">
            <h2 className="mb-4" style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(28px, 4.5vw, 64px)", fontWeight: 400, letterSpacing: "0.02em", lineHeight: 1.1, textTransform: "uppercase", margin: "0 0 16px" }}>
              <span style={{ color: "#ffffff" }}>БОЛЬШЕ </span>
-             <span style={{ color: "transparent", WebkitTextStroke: "1px #6FE6C1" }}>НАСТОЯЩИХ</span><br />
-             <span style={{ color: "#00cf8f", textShadow: "0 0 28px rgba(0,207,143,0.5)" }}>ИСТОРИЙ</span>
+             <span style={{ color: "transparent", WebkitTextStroke: "1px #6FE6C1" }}>ОТЗЫВОВ И</span><br />
+             <span style={{ color: "#00cf8f", textShadow: "0 0 28px rgba(0,207,143,0.5)" }}>РЕЗУЛЬТАТОВ</span>
            </h2>
            <p className="mb-8" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(14px, 1.5vw, 18px)", fontWeight: 500, color: "rgba(255,255,255,0.7)", maxWidth: "500px", letterSpacing: "0.02em" }}>
-             Следите за результатами наших пациентов в социальных сетях:
+             смотрите по ссылкам в наших социальных сетях:
            </p>
 
            <div className="flex flex-col md:flex-row gap-6 w-full max-w-[800px] mx-auto justify-center">

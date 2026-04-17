@@ -141,7 +141,7 @@ export function WoundTreatmentHeroSection() {
              </div>
 
              <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(48px, 6vw, 84px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.05em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 24px 0", position: "relative", display: "flex", flexDirection: "column", gap: "8px" }}>
-                <span>ЛЕЧЕНИЕ РАН</span>
+                <span style={{ whiteSpace: "nowrap" }}>ЛЕЧЕНИЕ РАН</span>
              </h1>
 
              {/* Indented Highlight Block */}

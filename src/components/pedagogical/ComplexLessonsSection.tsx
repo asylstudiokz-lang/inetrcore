@@ -45,6 +45,7 @@ function LessonCard({
   titlePart1, 
   titlePart2, 
   subtitle, 
+  description,
   features, 
   icon: Icon 
 }: { 
@@ -52,6 +53,7 @@ function LessonCard({
   titlePart1: string; 
   titlePart2: string; 
   subtitle: string; 
+  description?: string;
   features: string[]; 
   icon: React.ElementType; 
 }) {
@@ -115,9 +117,9 @@ function LessonCard({
           <div className="absolute top-0 right-0 w-24 h-[1px] bg-gradient-to-r from-transparent to-[#6FE6C1] z-10" />
 
           {/* Header */}
-          <div className="relative z-10 mb-6 md:mb-12">
+          <div className="relative z-10 mb-4 md:mb-6">
             <h3 
-              className="text-[26px] sm:text-[28px] md:text-[36px] lg:text-[44px] leading-none text-white uppercase tracking-wider mb-4 md:mb-6"
+              className={`text-[26px] sm:text-[28px] md:text-[36px] lg:text-[44px] leading-none text-white uppercase tracking-wider ${subtitle ? "mb-4 md:mb-6" : "mb-0"}`}
               style={{ fontFamily: "'Furore', sans-serif" }}
             >
               {titlePart1}<br/>
@@ -129,31 +131,43 @@ function LessonCard({
               </span>
             </h3>
             
-            <div className="hidden md:flex items-center gap-3">
-              <div className="w-4 md:w-6 h-[2px] bg-[#6FE6C1]" />
-              <p className="font-montserrat text-[10px] md:text-[11px] font-bold text-[#6FE6C1] tracking-[0.2em] uppercase opacity-90 leading-none">
-                {subtitle}
-              </p>
-            </div>
+            {subtitle && (
+              <div className="hidden md:flex items-center gap-3">
+                <div className="w-4 md:w-6 h-[2px] bg-[#6FE6C1]" />
+                <p className="font-montserrat text-[10px] md:text-[11px] font-bold text-[#6FE6C1] tracking-[0.2em] uppercase opacity-90 leading-none">
+                  {subtitle}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Features List */}
           <div className="relative z-10 flex-grow mb-10 md:mb-14">
-            <ul className="flex flex-col gap-4 md:gap-5 list-none p-0 m-0">
-              {features.map((feature, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <div className="mt-2 w-1.5 h-1.5 bg-[#6FE6C1] flex-shrink-0 shadow-[0_0_8px_#6FE6C1]" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }} />
-                  <p className="font-montserrat text-[13px] md:text-[15px] text-white/80 leading-snug md:leading-relaxed m-0">
-                    {feature}
-                  </p>
-                </li>
-              ))}
+            {description && (
+              <p className="font-montserrat text-[14px] md:text-[16px] text-white/90 leading-relaxed mb-3 whitespace-pre-line">
+                {description}
+              </p>
+            )}
+            <ul className="flex flex-col gap-2 md:gap-3 list-none p-0 m-0">
+              {features.map((feature, i) => {
+                const isHeader = feature.endsWith(":");
+                return (
+                  <li key={i} className={`flex items-start ${isHeader ? "mt-4 mb-1" : "gap-4"}`}>
+                    {!isHeader && (
+                      <div className="mt-2 w-1.5 h-1.5 bg-[#6FE6C1] flex-shrink-0 shadow-[0_0_8px_#6FE6C1]" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }} />
+                    )}
+                    <p className={`font-montserrat leading-snug md:leading-relaxed m-0 ${isHeader ? "text-[#6FE6C1] font-bold text-[14px] md:text-[16px] uppercase tracking-wider" : "text-white/80 text-[13px] md:text-[15px]"}`}>
+                      {feature}
+                    </p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Footer CTA */}
           <div className="relative z-10 mt-auto">
-            <div className="bg-[#6FE6C1] p-[1.5px] inline-block" style={{ clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)" }}>
+            <div className="bg-[#6FE6C1] p-[1.5px] block md:inline-block w-full md:w-auto" style={{ clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)" }}>
               <a 
                 href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
                 target="_blank" 
@@ -161,7 +175,7 @@ function LessonCard({
                 className="block no-underline"
               >
                 <button 
-                  className="site-btn bg-gradient-to-br from-[#002416] to-[#000e08] border-none px-6 py-4 md:px-8 md:py-5 cursor-pointer font-furore text-[10px] md:text-[12px] tracking-widest text-[#6FE6C1] uppercase flex items-center gap-3 transition-colors duration-300" 
+                  className="site-btn bg-gradient-to-br from-[#002416] to-[#000e08] border-none px-6 py-4 md:px-8 md:py-5 cursor-pointer font-furore text-[10px] md:text-[12px] tracking-widest text-[#6FE6C1] uppercase flex items-center justify-between md:justify-center gap-3 transition-colors duration-300 w-full md:w-auto" 
                   style={{ clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)" }}
                 >
                   <span className="relative z-10 leading-none">Получить консультацию</span>
@@ -199,14 +213,22 @@ export function ComplexLessonsSection() {
             index="01"
             titlePart1="Индивидуальные"
             titlePart2="Занятия"
-            subtitle="Персональный протокол"
+            subtitle="логопед дефектолог нейропсихолог"
+            description={"График:\nДлительность — 1,5 часа\nЯзыки обучения : русский и казахский"}
             icon={NeuralIcon}
             features={[
-              "Разработка персонального плана коррекции на основе глубокой нейродиагностики",
-              "Интенсивный тренинг один на один с экспертными специалистами нашего центра",
-              "Тонкая адаптация программы под психоэмоциональный профиль вашего ребенка",
-              "Применение передовых аппаратных и мануальных методик развития мозга",
-              "Систематический мониторинг динамики и детальная отчетность для родителей"
+              "Что входит:",
+              "Персональная программа под ребёнка",
+              "Индивидуальный коррекционный маршрут",
+              "проработка речи, поведения и когнитивных функций",
+              "Работа со сложными случаями и выраженными нарушениями",
+              "Методики:",
+              "ABA-терапия",
+              "Сенсорная интеграция",
+              "АФК",
+              "Арт-терапия",
+              "Логоритмика",
+              "Логопедический массаж"
             ]}
           />
 
@@ -214,14 +236,24 @@ export function ComplexLessonsSection() {
             index="02"
             titlePart1="Групповые"
             titlePart2="Занятия"
-            subtitle="Социальный опыт"
+            subtitle="логопед дефектолог нейропсихолог"
+            description={"График:\nС 09:00 до 12:00\nЯзыки обучения : казахский и русский"}
             icon={WaveIcon}
             features={[
-              "Формирование коммуникативных стратегий для общения со сверстниками",
-              "Отработка социальных ролей и базовых правил поведения в коллективе",
-              "Развитие эмоционального интеллекта и навыков саморегуляции в группе",
-              "Стимулирование речевой активности через совместную игровую деятельность",
-              "Подготовка к успешной интеграции в школьную и социальную среду"
+              "Что входит:",
+              "Занятия в мини-группах",
+              "Развитие речи и навыков общения",
+              "Социализация и адаптация к детскому саду и школе",
+              "Формирование самостоятельности и дисциплины",
+              "Навыки самообслуживания",
+              "Работа на понимание",
+              "Развитие коммуникации",
+              "Методики:",
+              "ABA-терапия",
+              "Сенсорная интеграция",
+              "АФК",
+              "Арт-терапия",
+              "Ритмика и логоритмика"
             ]}
           />
 

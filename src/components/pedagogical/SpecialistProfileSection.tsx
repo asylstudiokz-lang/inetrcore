@@ -11,7 +11,7 @@ const specialists = [
     name: "Ахметова\nАльбина\nЕвгеньевна",
     photo: AlbinaPhoto,
     roles: ["ЛОГОПЕД", "ДЕФЕКТОЛОГ", "НЕЙРОПСИХОЛОГ", "АВА-СПЕЦИАЛИСТ", "СПЕЦИАЛИСТ\nЛОГОРИТМИКИ"],
-    lang: ["RUS"],
+    lang: ["KAZ", "RUS"],
     methods: "НА ЗАНЯТИЯХ ПРИМЕНЯЕТ: ЭЛЕМЕНТЫ АФК,\nСЕНСОРНУЮ ИНТЕГРАЦИЮ",
     price: "350 000",
     priceSub: "1,5 часа в центре\n12 занятий 3 раза в неделю\n(пн, ср, пт)",
@@ -77,7 +77,7 @@ export function SpecialistProfileSection() {
 
         {/* ── SINGLE BUTTON FOR MOBILE ── */}
         <div className="mt-[43px] block md:hidden flex justify-center">
-          <ConsultationButton showArrow={true} />
+          <ConsultationButton showArrow={false} />
         </div>
       </Container>
     </section>

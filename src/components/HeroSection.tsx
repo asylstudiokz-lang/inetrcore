@@ -662,7 +662,7 @@ export function HeroSection() {
                 {[
                   { value: "12+", label: "лет опыта" },
                   { value: "5 000+", label: "клиентов" },
-                  { value: "100+", label: "специалистов" },
+                  { value: "10+", label: "специалистов" },
                 ].map((stat, i) => (
                   <div
                     key={stat.label}

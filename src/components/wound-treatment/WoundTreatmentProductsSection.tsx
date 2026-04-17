@@ -11,9 +11,7 @@ const products = [
     id: "01",
     tag: "ЖКИМ",
     title: "ЖКИМ",
-    subtitle: "Жидкая Квантовая\nИнформационная Матрица",
-    description:
-      "Инновационный состав для обработки и эффективного лечения раневых поверхностей. Технология обеспечивает глубокое проникновение активных компонентов и стимулирует естественные процессы самоочищения раны.",
+    subtitle: "Информационная Матрица",
     chips: ["Антимикробный эффект", "Регенерация тканей", "Аппликация"],
     imageMobile: JKIMMobile,
   },
@@ -22,8 +20,6 @@ const products = [
     tag: "БИОМАТРИЦА",
     title: "Биоматрица Гаряева",
     subtitle: "КИК-1, 2, 3",
-    description:
-      "Комплекс информационных матриц для глубокой активации регенеративных процессов на клеточном уровне. Способ способствует быстрому восстановлению тканей без образования гипертрофированных рубцов.",
     chips: ["Клеточный уровень", "Нет рубцов", "Информационная матрица"],
     imageMobile: BiomatrixMobile,
   },
@@ -42,13 +38,6 @@ export function WoundTreatmentProductsSection() {
       {/* ════════ MOBILE ════════ */}
       <div className="md:hidden py-[60px]">
         <Container>
-          {/* Section heading */}
-          <div className="mb-[32px]">
-            <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "40px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.95, margin: 0 }}>
-              Применяемые<br />
-              <span style={{ WebkitTextStroke: "1.5px #6FE6C1", color: "transparent" }}>препараты</span>
-            </h2>
-          </div>
 
           {products.map((p) => (
             <div key={p.id} style={{ marginBottom: "32px" }}>
@@ -78,12 +67,9 @@ export function WoundTreatmentProductsSection() {
               {/* Text block */}
               <div style={{ background: "#6FE6C1", clipPath: CLIP_OUTER(14), padding: "1.5px" }}>
                 <div style={{ background: "linear-gradient(135deg, #002416 0%, #000c06 100%)", clipPath: CLIP_OUTER(13), padding: "24px 20px 28px" }}>
-                  <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: 24, fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.03em", lineHeight: 1.1, margin: "0 0 4px" }}>{p.title}</h3>
-                  <p style={{ fontFamily: "'Furore', sans-serif", fontSize: 14, color: CYAN, margin: "0 0 16px", lineHeight: 1.3, whiteSpace: "pre-line" }}>{p.subtitle}</p>
-                  <div style={{ height: 1, background: "linear-gradient(90deg, #6FE6C1, rgba(111,230,193,0.1) 60%, transparent)", marginBottom: 16 }} />
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 400, color: "rgba(255,255,255,0.8)", lineHeight: 1.75, margin: "0 0 20px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
-                    {p.description}
-                  </p>
+                  <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: 24, fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.03em", lineHeight: 1.1, margin: "0 0 4px", textAlign: "center" }}>{p.title}</h3>
+                  <p style={{ fontFamily: "'Furore', sans-serif", fontSize: 14, color: CYAN, margin: "0 0 16px", lineHeight: 1.3, whiteSpace: "pre-line", textAlign: "center" }}>{p.subtitle}</p>
+                  <div style={{ height: 1, background: "linear-gradient(90deg, transparent, #6FE6C1 50%, transparent)", marginBottom: 16 }} />
                   <button style={{ width: "100%", height: 60, background: CYAN, clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)", border: "none", cursor: "pointer", fontFamily: "'Furore', sans-serif", fontSize: 13, letterSpacing: "0.14em", color: "#001d14", textTransform: "uppercase", display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
                     Получить консультацию
                     <svg width="18" height="8" viewBox="0 0 18 8" fill="none"><path d="M0 4H16M12 1L16 4L12 7" stroke="#001d14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -102,13 +88,6 @@ export function WoundTreatmentProductsSection() {
         <div style={{ position: "absolute", bottom: "10%", right: "-100px", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle at 30% 30%, rgba(111,230,193,0.05) 0%, rgba(0,0,0,0) 80%)", border: "1px solid rgba(111,230,193,0.06)", pointerEvents: "none" }} />
 
         <Container style={{ position: "relative", zIndex: 1 }}>
-          {/* Section heading */}
-          <div style={{ marginBottom: "60px" }}>
-            <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(48px, 5vw, 72px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.92, margin: 0 }}>
-              Применяемые<br />
-              <span style={{ WebkitTextStroke: "1.5px #6FE6C1", color: "transparent" }}>препараты</span>
-            </h2>
-          </div>
 
           {/* Product cards — each wrapped in a border block */}
           <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
@@ -165,9 +144,6 @@ export function WoundTreatmentProductsSection() {
                         <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg, #6FE6C1 0%, rgba(111,230,193,0.1) 60%, transparent 100%)", margin: "20px 0" }} />
 
                         {/* Description — 2-line clamp */}
-                        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 400, lineHeight: 1.8, color: "rgba(255,255,255,0.8)", maxWidth: 520, marginBottom: 28, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
-                          {p.description}
-                        </p>
 
                         {/* Credential chips */}
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 36 }}>

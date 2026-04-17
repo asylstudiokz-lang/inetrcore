@@ -37,13 +37,7 @@ export function VitaminsVideoSection() {
       
       <Container>
         {/* ── SECTION HEADER ── */}
-        <div className="w-full flex flex-col items-start mb-12 md:mb-20 relative z-10">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-[32px] h-[1px] bg-[#6FE6C1] opacity-60"></div>
-            <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "11px", fontWeight: 700, color: "#6FE6C1", letterSpacing: "0.25em", textTransform: "uppercase" }}>
-              МЕДИА / КЛИНИЧЕСКИЙ РАЗБОР
-            </span>
-          </div>
+        <div className="w-full flex flex-col items-center md:items-start text-center md:text-left mb-12 md:mb-20 relative z-10">
           <h2 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(32px, 5vw, 64px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 1.1, margin: 0 }}>
             Экспертный <span style={{ color: "#00cf8f", textShadow: "0 0 30px rgba(0,207,143,0.4)" }}>Анализ</span>
           </h2>

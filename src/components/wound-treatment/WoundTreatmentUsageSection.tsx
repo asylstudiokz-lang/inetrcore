@@ -5,30 +5,12 @@ const CLIP = (s: number) =>
   `polygon(${s}px 0, 100% 0, 100% calc(100% - ${s}px), calc(100% - ${s}px) 100%, 0 100%, 0 ${s}px)`;
 
 const usageAreas = [
-  {
-    title: "Косметология",
-    desc: "Восстановление эстетического вида кожи и стимуляция клеточного обновления.",
-  },
-  {
-    title: "Некрозы",
-    desc: "Эффективная борьба с омертвением тканей и деструктивными процессами кожного покрова.",
-  },
-  {
-    title: "Обморожения",
-    desc: "Лечение термических поражений любой сложности, включая глубокие слои дермы.",
-  },
-  {
-    title: "Гангрена стопы",
-    desc: "Комплексная терапия тяжелых сосудистых осложнений и трофических нарушений.",
-  },
-  {
-    title: "Ожоги и пролежни",
-    desc: "Ускоренное заживление ран и предотвращение образования грубых рубцов.",
-  },
-  {
-    title: "Трофические язвы",
-    desc: "Стимуляция кровотока и регенерация длительно незаживающих раневых дефектов.",
-  },
+  { title: "В КОСМЕТОЛОГИИ" },
+  { title: "ОТ НЕКРОЗА КОЖНОГО ПОКРОВА" },
+  { title: "ПОСЛЕДСТВИЙ ОБМОРОЖЕНИЯ\n(в том числе глубокого)" },
+  { title: "ГАНГРЕНЫ СТОПЫ" },
+  { title: "ОЖОГОВ, ПРОЛЕЖНЕЙ, ОПРЕЛОСТЕЙ\n(в том числе и глубоких повреждений кожного покрова)" },
+  { title: "ТРОФИЧЕСКИХ ЯЗВ" },
 ];
 
 export function WoundTreatmentUsageSection() {
@@ -60,8 +42,7 @@ export function WoundTreatmentUsageSection() {
                      <span style={{ fontFamily: "'Furore', sans-serif", fontSize: 10, color: CYAN, opacity: 0.6, letterSpacing: "0.15em" }}>{String(i + 1).padStart(2, "0")}</span>
                      <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, rgba(111,230,193,0.2), transparent)" }} />
                    </div>
-                   <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: 18, color: "#fff", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.02em" }}>{area.title}</h3>
-                   <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, margin: 0 }}>{area.desc}</p>
+                   <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: 18, color: "#fff", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.02em", whiteSpace: "pre-line" }}>{area.title}</h3>
                 </div>
               </div>
             ))}
@@ -102,7 +83,7 @@ export function WoundTreatmentUsageSection() {
                   style={{
                     background: "linear-gradient(135deg, #000c06 0%, #00140a 100%)",
                     clipPath: CLIP(19),
-                    padding: "36px 32px 42px",
+                    padding: "24px 24px 28px",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
@@ -128,14 +109,10 @@ export function WoundTreatmentUsageSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "22px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.03em", lineHeight: 1.1, marginBottom: 14 }}>
+                  <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(16px, 1.8vw, 20px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.03em", lineHeight: 1.3, marginBottom: 0, whiteSpace: "pre-line" }}>
                     {area.title}
                   </h3>
 
-                  {/* Description */}
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
-                    {area.desc}
-                  </p>
 
                   {/* Bottom indicator */}
                   <div style={{ marginTop: "auto", paddingTop: 28, display: "flex", alignItems: "center", gap: 8 }}>

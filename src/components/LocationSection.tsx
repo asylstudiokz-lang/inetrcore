@@ -295,25 +295,6 @@ export function LocationSection() {
                 href="tel:+77021737192"
                 mobile
               />
-              <div
-                style={{
-                  height: "1px",
-                  background:
-                    "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 80%)",
-                }}
-              />
-              <InfoItem
-                icon={
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <rect x="1" y="3" width="14" height="10" rx="2" stroke="#6FE6C1" strokeWidth="1.4"/>
-                    <path d="M1 5L8 9.5L15 5" stroke="#6FE6C1" strokeWidth="1.4" strokeLinecap="round"/>
-                  </svg>
-                }
-                label="email"
-                value={"info@begumed.kz"}
-                href="mailto:info@begumed.kz"
-                mobile
-              />
             </div>
           </div>
 
@@ -452,33 +433,6 @@ export function LocationSection() {
                   href="tel:+77021737192"
                 />
 
-                <div
-                  style={{
-                    height: "1px",
-                    background:
-                      "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 80%)",
-                  }}
-                />
-
-                <InfoItem
-                  icon={
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <rect x="1" y="3.5" width="16" height="11" rx="2.5" stroke="#6FE6C1" strokeWidth="1.5"/>
-                      <path d="M1 6L9 11L17 6" stroke="#6FE6C1" strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                  }
-                  label="email"
-                  value={"info@begumed.kz"}
-                  href="mailto:info@begumed.kz"
-                />
-
-                <div
-                  style={{
-                    height: "1px",
-                    background:
-                      "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 80%)",
-                  }}
-                />
 
                 {/* CTA button */}
                 <div

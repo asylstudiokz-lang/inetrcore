@@ -139,13 +139,15 @@ export function ZprrDeclarationsSection() {
       <div className="md:hidden py-[60px]" style={{ position: "relative" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
           <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 8.5vw, 42px)", fontWeight: 400, color: "#fff", lineHeight: 0.95, textTransform: "uppercase", letterSpacing: "0.01em", margin: "0 0 32px 0", textAlign: "center" }}>
-            Декларации о<br />
-            <span style={{ WebkitTextStroke: "1px #6FE6C1", color: "transparent" }}>Соответствии</span>
+            Декларации о соответствии<br />
+            <span style={{ WebkitTextStroke: "1px #6FE6C1", color: "transparent" }}>ЕВРАЗИЙСКОГО ЭКОНОМИЧЕСКОГО СОЮЗА</span>
           </h2>
           <div style={{ background: "rgba(111,230,193,0.15)", clipPath: CLIP(20), padding: "1.5px", marginBottom: "40px" }}>
             <div style={{ background: "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)", clipPath: CLIP(19), padding: "28px 24px" }}>
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", margin: "0 0 24px 0", textAlign: "center" }}>
-                Инновационная продукция витаминно-минеральных комплексов. Не имеет аналогов в мире — первая восстанавливающая продукция в <span style={{ color: "#6FE6C1" }}>хелатной водорастворимой форме.</span>
+                Мы представляем инновационную продукцию витаминно минеральных комплексов на основе растительных компонентов для здоровья человека.
+                <br /><br />
+                Наша продукция не имеет аналогов в мире и мы первые кто может предложить восстанавливающую продукцию с комплексным подходом в <span style={{ color: "#6FE6C1" }}>хелатной водорастворимой форме.</span>
               </p>
               <a 
                 href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
@@ -187,52 +189,32 @@ export function ZprrDeclarationsSection() {
             <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "11px", letterSpacing: "0.2em", color: "#6FE6C1", textTransform: "uppercase" }}>// декларации</span>
             <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, rgba(111,230,193,0.3) 0%, transparent 100%)" }} />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 50%))", gap: "100px", alignItems: "start" }}>
+          <div 
+            className="grid grid-cols-1 xl:grid-cols-2" 
+            style={{ 
+              gap: "clamp(40px, 6vw, 100px)", 
+              alignItems: "center" 
+            }}
+          >
             <div className="flex-1" style={{ minWidth: 0 }}>
-              <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(24px, 3.8vw, 60px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.01em", lineHeight: 1.1, margin: "0 0 40px 0" }}>
-                <span style={{ whiteSpace: "nowrap" }}>Декларации о</span>
-                <br />
-                <span style={{ color: "transparent", WebkitTextStroke: "1px #6FE6C1" }}>Соответствии</span>
-                <br />
-                <span style={{ fontSize: "0.6em", color: "transparent", WebkitTextStroke: "0.8px rgba(111,230,193,0.5)", whiteSpace: "nowrap" }}>
-                  Евразийского Союза
+              <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(24px, 3.8vw, 60px)", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.01em", lineHeight: 0.85, margin: "0 0 40px 0" }}>
+                <span className="block xl:inline">Декларации о соответствии</span>
+                <br className="hidden xl:block" />
+                <span style={{ fontSize: "0.65em", color: "transparent", WebkitTextStroke: "0.8px #6FE6C1", display: "block", marginTop: "12px" }}>
+                  ЕВРАЗИЙСКОГО ЭКОНОМИЧЕСКОГО СОЮЗА
                 </span>
               </h2>
               <div style={{ background: "rgba(111,230,193,0.15)", clipPath: CLIP(20), padding: "1.5px", maxWidth: "560px" }}>
                 <div style={{ background: "linear-gradient(135deg, rgba(0,40,22,0.85) 0%, rgba(0,15,9,0.97) 100%)", clipPath: CLIP(19), padding: "28px 32px" }}>
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, margin: "0 0 32px 0" }}>
-                    Инновационная продукция витаминно-минеральных комплексов. Не имеет аналогов в мире — первая восстанавливающая продукция в <span style={{ color: "#6FE6C1", fontWeight: 500 }}>хелатной водорастворимой форме.</span>
+                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, margin: 0 }}>
+                    Мы представляем инновационную продукцию витаминно минеральных комплексов на основе растительных компонентов для здоровья человека.
+                    <br /><br />
+                    Наша продукция не имеет аналогов в мире и мы первые кто может предложить восстанавливающую продукцию с комплексным подходом в <span style={{ color: "#6FE6C1", fontWeight: 500 }}>хелатной водорастворимой форме.</span>
                   </p>
-                  <a 
-                    href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none", display: "inline-block" }}
-                  >
-                    <button 
-                      className="site-btn"
-                      style={{ 
-                        fontFamily: "'Furore', sans-serif", 
-                        fontSize: "13px", 
-                        color: "#000", 
-                        textTransform: "uppercase", 
-                        letterSpacing: "0.18em",
-                        padding: "18px 40px",
-                        background: "linear-gradient(135deg, #6FE6C1 0%, #059669 100%)",
-                        clipPath: CLIP(12),
-                        border: "none",
-                        cursor: "pointer",
-                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                        boxShadow: "0 0 25px rgba(111,230,193,0.35)"
-                      }}
-                    >
-                      Получить консультацию
-                    </button>
-                  </a>
                 </div>
               </div>
             </div>
-            <div className="flex-1" style={{ minWidth: 0, display: "flex", justifyContent: "flex-end" }}>
+            <div className="flex-1 flex justify-center xl:justify-end" style={{ minWidth: 0 }}>
               <CertSlider />
             </div>
           </div>

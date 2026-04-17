@@ -182,10 +182,10 @@ export function AboutCompanySection() {
                     <PlatedCard className="col-span-12 lg:col-span-8" tag="ИСТОРИЯ И СТАТУС" isMobile={isMobile}>
                          <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: isMobile ? "16px" : "20px", color: "#fff", marginBottom: "16px", letterSpacing: "0.04em" }}>НОВОСИБИРСКИЙ <span style={{ color: CYAN }}>БИОТЕХНОПАРК</span></h3>
                          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: isMobile ? "14px" : "16px", color: "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: 0 }}>
-                             ООО «Центр Внедрения Технологий» стартовало в качестве резидента Новосибирского технопарка, созданного по поручению Президента РФ В. В. Путина (№ Пр-91 от 22.01.2005). В настоящее время мы являемся резидентами <strong style={{ color: CYAN }}>Биотехнопарка</strong> — ведущей научно-производственной площадки Сибири.
+                             ООО «Центр Внедрения Технологий» стартовало в качестве резидента Новосибирского технопарка, созданного по поручению Президента РФ В. В. Путина (№ Пр-91 от 22.01.2005). В настоящее время мы являемся резидентами <strong style={{ color: CYAN }}>Биотехнопарка</strong> — ведущей научно-производственной площадки Сибири в сфере биотехнологий, фармацевтики и смежных областей.
                          </p>
                          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: isMobile ? "13px" : "15px", color: "rgba(255,255,255,0.6)", lineHeight: 1.6, marginTop: "20px" }}>
-                            Основным видом деятельности ООО «ЦВТ» является серийное производство инновационной продукции для здоровья человека, основанной на последних научных разработках.
+                            Основным видом деятельности ООО «ЦВТ» является серийное производство инновационной продукции для здоровья человека, основанной на последних научных разработках, выполненных с применением современных технологий.
                         </p>
                     </PlatedCard>
 
@@ -219,22 +219,18 @@ export function AboutCompanySection() {
                         </div>
                     </div>
 
-                    {/* Feature Cards */}
-                    <PlatedCard className="col-span-12 md:col-span-4" tag="МЕЖДУНАРОДНЫЙ" isMobile={isMobile}>
+                    {/* Feature Cards - Restructured to 2 blocks */}
+                    <PlatedCard className="col-span-12 md:col-span-6" tag="МЕЖДУНАРОДНЫЙ МАСШТАБ" isMobile={isMobile}>
                         <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0 }}>
-                            Мы — международная компания, и наш инновационный метод восстановления организма применяется не только по всей России, но и в странах ближнего и дальнего зарубежья.
+                            Мы — международная компания, и наш инновационный метод восстановления организма применяется и практикуется не только по всей России, но и в странах ближнего и дальнего зарубежья в рамках нашей франшизы.
                         </p>
                     </PlatedCard>
 
-                    <PlatedCard className="col-span-12 md:col-span-4" tag="ПРОИЗВОДСТВО" isMobile={isMobile}>
+                    <PlatedCard className="col-span-12 md:col-span-6" tag="НАУКА И ПРОИЗВОДСТВО" isMobile={isMobile}>
                          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0 }}>
-                            ООО «ЦВТ» занимается разработкой продукции растительного происхождения. Это растительные комплексы в виде хелатных соединений без химии.
-                        </p>
-                    </PlatedCard>
-
-                    <PlatedCard className="col-span-12 md:col-span-4" tag="НАУЧНЫЙ ЦЕНТР" isMobile={isMobile}>
-                        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
-                            Собственная научно-исследовательская база на территории технопарка Академгородка и Биотехнопарка Кольцово.
+                            ООО «ЦВТ» занимается разработкой и производством продукции растительного происхождения. Это растительные комплексы в виде хелатных соединений микроэлементов и натуральные витамины, полученные без применения химических реагентов.
+                            <br /><br />
+                            У нас есть собственная научно-исследовательская база на территории технопарка Академгородка и Биотехнопарка Кольцово, где наша команда учёных разработала совершенно инновационную технологию производства продукции.
                         </p>
                     </PlatedCard>
 
@@ -254,9 +250,15 @@ export function AboutCompanySection() {
                             flexDirection: "column",
                             gap: isMobile ? "16px" : "40px",
                         }}>
-                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                             <div style={{ 
+                                 display: "flex", 
+                                 justifyContent: isMobile ? "center" : "space-between", 
+                                 alignItems: "flex-end",
+                                 textAlign: isMobile ? "center" : "left",
+                                 width: "100%"
+                             }}>
                                 <div>
-                                    <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: isMobile ? "20px" : "28px", color: "#fff", margin: 0 }}>СЕРТИФИКАТЫ <span style={{ color: CYAN }}>КАЧЕСТВА</span></h3>
+                                     <h3 style={{ fontFamily: "'Furore', sans-serif", fontSize: isMobile ? "20px" : "28px", color: "#fff", margin: 0 }}>Сертификаты</h3>
                                 </div>
                                 {!isMobile && <SliderControls mobile={false} />}
                             </div>
