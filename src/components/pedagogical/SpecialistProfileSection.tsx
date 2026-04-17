@@ -54,6 +54,31 @@ export function SpecialistProfileSection() {
         />
       </div>
 
+      {/* ── DESKTOP BACKGROUND SHAPES ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block z-0">
+        {/* Top Left Shape */}
+        <div 
+          className="absolute top-[10%] left-[-5%] w-[400px] h-[400px] opacity-10"
+          style={{ 
+            background: `linear-gradient(135deg, ${CYAN} 0%, transparent 70%)`,
+            clipPath: "polygon(0 0, 100% 0, 0 100%)",
+            filter: "blur(40px)"
+          }}
+        />
+        {/* Bottom Right Shape */}
+        <div 
+          className="absolute bottom-[5%] right-[-5%] w-[500px] h-[500px] opacity-[0.08]"
+          style={{ 
+            background: `radial-gradient(circle at center, ${CYAN} 0%, transparent 70%)`,
+            clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+            filter: "blur(60px)"
+          }}
+        />
+        {/* HUD Brackets (Middle) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[80%] border border-[#6FE6C1]/10 pointer-events-none" 
+             style={{ clipPath: "polygon(0 0, 10% 0, 10% 2px, 2px 2px, 2px 10%, 0 10%, 0 0, 90% 0, 90% 2px, 98% 2px, 98% 10%, 100% 10%, 100% 0, 100% 90%, 98% 90%, 98% 98%, 90% 98%, 90% 100%, 100% 100%, 0 100%, 0 90%, 2px 90%, 2px 10%, 0 10%)" }} />
+      </div>
+
       <Container className="relative z-10 w-full max-w-[1440px] mx-auto px-4">
         <div className="text-center mb-24 md:mb-32">
           <h2 style={{ 
