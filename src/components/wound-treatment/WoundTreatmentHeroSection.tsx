@@ -46,24 +46,15 @@ export function WoundTreatmentHeroSection() {
             </div>
 
             {/* Mobile Text */}
-            <div className="z-10 w-full flex flex-col items-center relative">
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "16px" }}>
-                <div style={{ width: "24px", height: "1px", background: CYAN, opacity: 0.7 }} />
-                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em", color: CYAN, textTransform: "uppercase" }}>
-                  Инновационная регенерация
-                </span>
-                <div style={{ width: "24px", height: "1px", background: CYAN, opacity: 0.7 }} />
-              </div>
-
-              <h1 style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(24px, 8vw, 36px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.06em", textShadow: `0px 4px 40px ${CYAN}70`, marginBottom: "16px", whiteSpace: "nowrap" }}>
-                 ЛЕЧЕНИЕ РАН
+            <div className="z-10 w-full flex flex-col items-center relative gap-0">
+              <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(32px, 10vw, 48px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.15, letterSpacing: "0.04em", textAlign: "center", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", marginBottom: "16px" }}>
+                <span style={{ textShadow: "0px 4px 40px rgba(0,238,163,0.45)" }}>ЛЕЧЕНИЕ РАН</span>
               </h1>
 
-              <div style={{ width: "100%", height: "1px", background: `linear-gradient(90deg, transparent 0%, ${CYAN}40 50%, transparent 100%)`, marginBottom: "16px", maxWidth: "280px" }} />
-
-              <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", marginBottom: "6px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
-                <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "10px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                  ЖКИМ • КВАНТОВО-ИНФОРМАЦИОННЫЕ КРЕМА
+              {/* Centered Highlight Block */}
+              <div style={{ padding: "12px 20px", border: `1px solid rgba(111,230,193,0.3)`, background: "rgba(111,230,193,0.08)", borderRadius: "12px", marginBottom: 0, textAlign: "center", display: "inline-block", boxShadow: "0 0 16px rgba(111,230,193,0.1) inset" }}>
+                <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(14px, 5vw, 22px)", color: CYAN, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.3 }}>
+                  ЖКИМ И КВАНТОВО-<br/>ИНФОРМАЦИОННЫЕ КРЕМА
                 </span>
               </div>
 
@@ -149,22 +140,14 @@ export function WoundTreatmentHeroSection() {
                регенерация
              </div>
 
-             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-               <div style={{ width: "36px", height: "1px", background: CYAN, opacity: 0.7 }} />
-               <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.25em", color: CYAN, textTransform: "uppercase" }}>
-                 Инновационная регенерация
-               </span>
-             </div>
-
-             <h1 className="uppercase" style={{ fontFamily: "'Furore', sans-serif", fontSize: "clamp(30px, 4vw, 60px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.05, letterSpacing: "0.06em", textShadow: `0px 4px 40px ${CYAN}70`, margin: "0 0 16px 0", whiteSpace: "nowrap", position: "relative" }}>
-                ЛЕЧЕНИЕ РАН
+             <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(48px, 6vw, 84px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.05em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 24px 0", position: "relative", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span>ЛЕЧЕНИЕ РАН</span>
              </h1>
 
-             <div style={{ width: "100%", height: "1px", background: `linear-gradient(90deg, ${CYAN} 0%, ${CYAN}20 50%, transparent 100%)`, marginBottom: "20px", maxWidth: "480px" }} />
-
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 24px", borderRadius: "100px", marginBottom: "40px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
-               <span style={{ fontFamily: "'Furore', sans-serif", fontSize: "12px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                 ЖКИМ • КВАНТОВО-ИНФОРМАЦИОННЫЕ КРЕМА
+             {/* Indented Highlight Block */}
+             <div style={{ padding: "16px 24px", borderLeft: `4px solid ${CYAN}`, background: "linear-gradient(90deg, rgba(111,230,193,0.12) 0%, rgba(111,230,193,0.02) 100%)", borderRadius: "0 12px 12px 0", marginBottom: "48px", marginLeft: "12px", filter: "drop-shadow(0px 8px 32px rgba(111,230,193,0.15))" }}>
+               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(18px, 2.5vw, 36px)", color: CYAN, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.25 }}>
+                 ЖКИМ И КВАНТОВО-ИНФОРМАЦИОННЫЕ КРЕМА
                </span>
              </div>
 

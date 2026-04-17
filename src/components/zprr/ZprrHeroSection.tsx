@@ -31,24 +31,25 @@ export function ZprrHeroSection() {
 
            {/* Mobile Text */}
            <div className="z-10 w-full flex flex-col items-center relative">
-             <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "16px" }}>
+             <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "12px" }}>
                <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em", color: "#6FE6C1", textTransform: "uppercase" }}>
-                 Комплексная работа при
+                 Комплексная работа при:
                </span>
                <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
              </div>
 
-             <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(28px, 9vw, 42px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", marginBottom: "16px", whiteSpace: "nowrap" }}>
-                СЕНСОМОТОРНОЙ<br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>АЛАЛИИ</span>
+             <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(20px, 7vw, 32px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.15, letterSpacing: "0.04em", textAlign: "center", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", marginBottom: "16px" }}>
+               <span style={{ textShadow: "0px 4px 40px rgba(0,238,163,0.45)" }}>ЗПРР РАС АУТИЗМЕ</span>
+               <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.85)" }}>
+                 ЗРР СДВГ ДЦП
+               </span>
              </h1>
 
-             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)", marginBottom: "16px", maxWidth: "280px" }} />
-
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", marginBottom: "6px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
-               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "10px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                 ЗПРР • РАС • АУТИЗМ • ЗРР • СДВГ • ДЦП
+             {/* Centered Highlight Block */}
+             <div style={{ padding: "12px 20px", border: `1px solid rgba(111,230,193,0.3)`, background: "rgba(111,230,193,0.08)", borderRadius: "12px", marginBottom: 0, textAlign: "center", display: "inline-block", boxShadow: "0 0 16px rgba(111,230,193,0.1) inset" }}>
+               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(18px, 6vw, 24px)", color: "#6FE6C1", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.3 }}>
+                 СЕНСОМОТОРНОЙ<br/>АЛАЛИИ
                </span>
              </div>
 
@@ -69,7 +70,7 @@ export function ZprrHeroSection() {
                />
              </div>
 
-             <div style={{ width: "310px", margin: "0 auto" }}>
+             <div style={{ width: "310px", margin: "-35px auto 0 auto", position: "relative", zIndex: 10 }}>
                <CTAButton text="Консультация" />
              </div>
            </div>
@@ -205,23 +206,22 @@ export function ZprrHeroSection() {
                алалия
              </div>
 
-             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-               <div style={{ width: "36px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
-               <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.25em", color: "#6FE6C1", textTransform: "uppercase" }}>
-                 Комплексная работа при
-               </span>
-             </div>
+             <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "14px", fontWeight: 700, letterSpacing: "0.3em", color: "#6FE6C1", textTransform: "uppercase", marginBottom: "20px", display: "flex", alignItems: "center", gap: "12px" }}>
+               <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.5 }} />
+               Комплексная работа при:
+             </span>
 
-             <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(34px, 4.5vw, 68px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.05, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 16px 0", whiteSpace: "nowrap", position: "relative" }}>
-                СЕНСОМОТОРНОЙ<br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>АЛАЛИИ</span>
+             <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(29px, 3.8vw, 53px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.05em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 24px 0", position: "relative", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span>ЗПРР РАС АУТИЗМЕ</span>
+                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.85)" }}>
+                  ЗРР СДВГ ДЦП
+                </span>
              </h1>
 
-             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, #6FE6C1 0%, rgba(111,230,193,0.15) 50%, transparent 100%)", marginBottom: "20px", maxWidth: "480px" }} />
-
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 24px", borderRadius: "100px", marginBottom: "40px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
-               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "12px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                 ЗПРР • РАС • АУТИЗМ • ЗРР • СДВГ • ДЦП
+             {/* Indented Highlight Block */}
+             <div style={{ padding: "16px 24px", borderLeft: `4px solid #6FE6C1`, background: "linear-gradient(90deg, rgba(111,230,193,0.12) 0%, rgba(111,230,193,0.02) 100%)", borderRadius: "0 12px 12px 0", marginBottom: "48px", marginLeft: "12px", filter: "drop-shadow(0px 8px 32px rgba(111,230,193,0.15))" }}>
+               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(20px, 2.5vw, 36px)", color: "#6FE6C1", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.25 }}>
+                 СЕНСОМОТОРНОЙ АЛАЛИИ
                </span>
              </div>
 

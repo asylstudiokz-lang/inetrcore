@@ -155,17 +155,17 @@ export function PedagogicalHeroSection() {
 
            {/* Mobile Text */}
            <div className="z-10 w-full flex flex-col items-center relative delay-300">
-             <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(28px, 9vw, 42px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", marginBottom: "16px", whiteSpace: "nowrap" }}>
-                ПЕДАГОГИЧЕСКАЯ<br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>КОРРЕКЦИЯ</span><br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>ДЕТЕЙ</span>
+             <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(24px, 8vw, 38px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.15, letterSpacing: "0.04em", textAlign: "center", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", marginBottom: "16px" }}>
+               <span style={{ textShadow: "0px 4px 40px rgba(0,238,163,0.45)" }}>ПЕДАГОГИЧЕСКАЯ</span>
+               <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.85)", whiteSpace: "nowrap" }}>
+                 КОРРЕКЦИЯ ДЕТЕЙ
+               </span>
              </h1>
 
-             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)", marginBottom: "16px", maxWidth: "280px" }} />
-
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 20px", borderRadius: "100px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset", marginBottom: "6px" }}>
-               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "10px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                 С РАС • ЗПРР • АУТИЗМОМ
+             {/* Centered Highlight Block */}
+             <div style={{ padding: "12px 20px", border: `1px solid rgba(111,230,193,0.3)`, background: "rgba(111,230,193,0.08)", borderRadius: "12px", marginBottom: "32px", textAlign: "center", display: "inline-block", boxShadow: "0 0 16px rgba(111,230,193,0.1) inset" }}>
+               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(14px, 4.5vw, 20px)", color: CYAN, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.3, whiteSpace: "nowrap" }}>
+                 С РАС, ЗПРР, АУТИЗМОМ
                </span>
              </div>
 
@@ -312,17 +312,17 @@ export function PedagogicalHeroSection() {
                коррекция
              </div>
 
-             <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(34px, 4.5vw, 68px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.05, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 16px 0", whiteSpace: "nowrap", position: "relative" }}>
-                ПЕДАГОГИЧЕСКАЯ<br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>КОРРЕКЦИЯ</span><br/>
-                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>ДЕТЕЙ</span>
+             <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(34px, 4.5vw, 62px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.05em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 24px 0", position: "relative", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span>ПЕДАГОГИЧЕСКАЯ</span>
+                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.85)" }}>
+                  КОРРЕКЦИЯ ДЕТЕЙ
+                </span>
              </h1>
 
-             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, #6FE6C1 0%, rgba(111,230,193,0.15) 50%, transparent 100%)", marginBottom: "20px", maxWidth: "480px" }} />
-
-             <div style={{ background: "rgba(111,230,193,0.05)", border: "1px solid rgba(111,230,193,0.15)", padding: "10px 24px", borderRadius: "100px", marginBottom: "40px", display: "inline-block", boxShadow: "0 0 20px rgba(111,230,193,0.05) inset" }}>
-               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "12px", color: "rgba(247,250,248,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                 С РАС • ЗПРР • АУТИЗМОМ
+             {/* Indented Highlight Block */}
+             <div style={{ padding: "16px 24px", borderLeft: `4px solid ${CYAN}`, background: "linear-gradient(90deg, rgba(111,230,193,0.12) 0%, rgba(111,230,193,0.02) 100%)", borderRadius: "0 12px 12px 0", marginBottom: "48px", marginLeft: "12px", filter: "drop-shadow(0px 8px 32px rgba(111,230,193,0.15))" }}>
+               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(22px, 2.8vw, 40px)", color: CYAN, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.25 }}>
+                 С РАС, ЗПРР, АУТИЗМОМ
                </span>
              </div>
 

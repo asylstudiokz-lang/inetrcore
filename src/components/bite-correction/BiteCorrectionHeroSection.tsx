@@ -35,27 +35,20 @@ export function BiteCorrectionHeroSection() {
               МИКАТА
             </div>
 
-            {/* Mobile Text - Compact Layout */}
-            <div className="z-10 w-full flex flex-col items-center relative">
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "16px" }}>
-                <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
-                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em", color: "#6FE6C1", textTransform: "uppercase" }}>
-                  исправление прикуса
+            {/* Mobile Text */}
+            <div className="z-10 w-full flex flex-col items-center relative gap-0">
+              <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(24px, 8vw, 38px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.15, letterSpacing: "0.04em", textAlign: "center", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", marginBottom: "16px" }}>
+                <span style={{ textShadow: "0px 4px 40px rgba(0,238,163,0.45)" }}>КОРРЕКТОР</span>
+                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.85)", whiteSpace: "nowrap" }}>
+                  МИКАТА
                 </span>
-                <div style={{ width: "24px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
-              </div>
-
-              <h1 style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(28px, 9vw, 42px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", marginBottom: "16px" }}>
-                 КОРРЕКТОР<br/>
-                 <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>МИКАТА</span>
               </h1>
 
-              <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(111,230,193,0.3) 50%, transparent 100%)", marginBottom: "16px", maxWidth: "280px" }} />
-
-              <div className="mb-0">
-                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>
-                   для защиты зубов в Алматы
-                 </p>
+              {/* Centered Highlight Block */}
+              <div style={{ padding: "12px 20px", border: `1px solid rgba(111,230,193,0.3)`, background: "rgba(111,230,193,0.08)", borderRadius: "12px", marginBottom: 0, textAlign: "center", display: "inline-block", boxShadow: "0 0 16px rgba(111,230,193,0.1) inset" }}>
+                <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(12px, 4.5vw, 18px)", color: CYAN, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.3, whiteSpace: "nowrap" }}>
+                  ДЛЯ ЗАЩИТЫ ЗУБОВ В АЛМАТЫ
+                </span>
               </div>
             </div>
 
@@ -177,25 +170,19 @@ export function BiteCorrectionHeroSection() {
                 МИКАТА
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-                <div style={{ width: "36px", height: "1px", background: "#6FE6C1", opacity: 0.7 }} />
-                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.25em", color: "#6FE6C1", textTransform: "uppercase" }}>
-                  исправление прикуса
+             <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(34px, 4.5vw, 62px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.1, letterSpacing: "0.05em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 24px 0", position: "relative", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span>КОРРЕКТОР</span>
+                <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.85)" }}>
+                  МИКАТА
                 </span>
-              </div>
+             </h1>
 
-              <h1 className="uppercase" style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(34px, 4.5vw, 68px)", fontWeight: 400, color: "#ffffff", textTransform: "uppercase", lineHeight: 1.05, letterSpacing: "0.06em", textShadow: "0px 4px 40px rgba(0,238,163,0.45)", margin: "0 0 16px 0", whiteSpace: "nowrap", position: "relative" }}>
-                 КОРРЕКТОР<br/>
-                 <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}>МИКАТА</span>
-              </h1>
-
-              <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, #6FE6C1 0%, rgba(111,230,193,0.15) 50%, transparent 100%)", marginBottom: "20px", maxWidth: "480px" }} />
-
-              <div className="mb-10">
-                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>
-                   для защиты зубов в Алматы
-                 </p>
-              </div>
+             {/* Indented Highlight Block */}
+             <div style={{ padding: "16px 24px", borderLeft: `4px solid ${CYAN}`, background: "linear-gradient(90deg, rgba(111,230,193,0.12) 0%, rgba(111,230,193,0.02) 100%)", borderRadius: "0 12px 12px 0", marginBottom: "48px", marginLeft: "12px", filter: "drop-shadow(0px 8px 32px rgba(111,230,193,0.15))" }}>
+               <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(22px, 2.8vw, 40px)", color: CYAN, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.25 }}>
+                 ДЛЯ ЗАЩИТЫ ЗУБОВ В АЛМАТЫ
+               </span>
+             </div>
 
               <CTAButton text="Консультация" />
             </div>
