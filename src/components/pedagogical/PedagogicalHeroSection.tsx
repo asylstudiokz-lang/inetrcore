@@ -147,7 +147,7 @@ export function PedagogicalHeroSection() {
       
       {/* ── MOBILE ── */}
       <Container className="w-full">
-        <div className="flex md:hidden flex-col items-center justify-center text-center gap-6 relative px-4 pt-[20px] pb-8 w-full duration-1000">
+        <div className="flex md:hidden flex-col items-center justify-center text-center gap-6 relative px-4 pt-[20px] pb-16 w-full duration-1000">
            {/* Ghost watermark */}
            <div style={{ position: "absolute", top: "10px", left: "50%", transform: "translateX(-50%)", fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(60px, 16vw, 100px)", fontWeight: 400, color: "rgba(111,230,193,0.03)", letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1, userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap" }}>
              коррекция
@@ -170,13 +170,13 @@ export function PedagogicalHeroSection() {
              </div>
 
               {/* Mobile Image + CTA overlay */}
-              <div style={{ width: "100%", maxWidth: "272px", position: "relative", margin: "0 auto", filter: "drop-shadow(0 0 18px rgba(111,230,193,0.35)) drop-shadow(0 8px 24px rgba(0,0,0,0.4))" }}>
+              <div style={{ width: "100%", maxWidth: "380px", position: "relative", margin: "0 auto", filter: "drop-shadow(0 0 18px rgba(111,230,193,0.35)) drop-shadow(0 8px 24px rgba(0,0,0,0.4))" }}>
                 <img
                   src={PedagogicalHeroImg.src}
                   alt="Педагогическая коррекция детей"
                   style={{ width: "100%", height: "auto", display: "block", objectFit: "cover", borderRadius: "12px" }}
                 />
-                <div style={{ position: "absolute", bottom: "0", left: "50%", transform: "translateX(-50%)", width: "100%", padding: "0 8px" }}>
+                <div style={{ position: "absolute", bottom: "-38px", left: "50%", transform: "translateX(-50%)", width: "100%", padding: "0 8px", display: "flex", justifyContent: "center" }}>
                   <CTAButton />
                 </div>
               </div>
@@ -320,7 +320,7 @@ export function PedagogicalHeroSection() {
              </h1>
 
              {/* Indented Highlight Block */}
-             <div style={{ padding: "16px 24px", borderLeft: `4px solid ${CYAN}`, background: "linear-gradient(90deg, rgba(111,230,193,0.12) 0%, rgba(111,230,193,0.02) 100%)", borderRadius: "0 12px 12px 0", marginBottom: "48px", marginLeft: "12px", filter: "drop-shadow(0px 8px 32px rgba(111,230,193,0.15))" }}>
+             <div style={{ padding: "16px 24px", borderLeft: `4px solid ${CYAN}`, background: "linear-gradient(90deg, rgba(111,230,193,0.12) 0%, rgba(111,230,193,0.02) 100%)", borderRadius: "0 12px 12px 0", marginBottom: "78px", marginLeft: "12px", filter: "drop-shadow(0px 8px 32px rgba(111,230,193,0.15))" }}>
                <span style={{ fontFamily: "'Furore', 'Exo 2', sans-serif", fontSize: "clamp(22px, 2.8vw, 40px)", color: CYAN, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.25 }}>
                  С РАС, ЗПРР, АУТИЗМОМ
                </span>
@@ -331,7 +331,7 @@ export function PedagogicalHeroSection() {
 
 
            {/* Desktop Image */}
-           <div style={{ flexShrink: 0, width: "clamp(280px, 30vw, 400px)", position: "relative", filter: "drop-shadow(0 0 16px rgba(111,230,193,0.65)) drop-shadow(0 4px 28px rgba(111,230,193,0.38)) drop-shadow(0 8px 20px rgba(0,0,0,0.55))" }}>
+           <div style={{ flexShrink: 0, width: "clamp(420px, 45vw, 620px)", position: "relative", filter: "drop-shadow(0 0 16px rgba(111,230,193,0.65)) drop-shadow(0 4px 28px rgba(111,230,193,0.38)) drop-shadow(0 8px 20px rgba(0,0,0,0.55))" }}>
              <div style={{ overflow: "hidden", borderRadius: "16px" }}>
                <img
                  src={PedagogicalHeroImg.src}

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Container } from '../ui/Container';
 import { useIsMobile } from '../ui/use-mobile';
-import imgCatalogMain from '../../assets/vitamins/catalog_main.jpg?url';
-import imgCatalogCard2 from '../../assets/vitamins/catalog_card2.jpg?url';
-import imgCatalogCard3 from '../../assets/vitamins/catalog_card3.jpg?url';
+import imgCatalogMain from '../../assets/vitamins/catalog_main.png?url';
+import imgCatalogCard2 from '../../assets/vitamins/catalog_card2.png?url';
+import imgCatalogCard3 from '../../assets/vitamins/catalog_card3.png?url';
 
 const CYAN = "#6FE6C1";
 const BG_DARK = "#001d14";
@@ -58,7 +58,7 @@ export function VitaminsCatalogSection() {
                     
                     {/* Interactive Card Stack */}
                     <a 
-                        href="https://drive.google.com/drive/folders/1Bl7moB1T5HzPApA9iEXCsDh_VRQo8tKF" 
+                        href="https://drive.google.com/drive/folders/1NUOJgqd0XCx6vGxGNxlKTzxzCgW2UnjR?usp=sharing" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         title="Посмотреть каталог продукции в Google Drive"
@@ -70,18 +70,18 @@ export function VitaminsCatalogSection() {
                             style={{
                                 position: "relative",
                                 width: isMobile ? "clamp(280px, 80vw, 420px)" : "clamp(260px, 40vw, 500px)",
-                                aspectRatio: "1.5 / 1",
+                                aspectRatio: "16 / 9",
                                 cursor: "pointer",
-                                filter: isHovered ? `drop-shadow(0 0 40px ${CYAN}40)` : "none",
+                                filter: isMobile ? `drop-shadow(0 0 15px rgba(111,230,193,0.2))` : (isHovered ? `drop-shadow(0 0 40px ${CYAN}40)` : "none"),
                                 transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                                transform: isHovered ? "translateY(-10px) scale(1.02)" : "translateY(0) scale(1)"
+                                transform: (!isMobile && isHovered) ? "translateY(-10px) scale(1.02)" : "translateY(0) scale(1)"
                             }}
                         >
                             {/* Card 3 (Bottom) */}
                             <div style={{
                                 position: "absolute", inset: 0, clipPath: CLIP(22),
                                 background: "rgba(111,230,193,0.15)", zIndex: 1,
-                                transform: isHovered ? "translate(-40px, -20px) rotate(-10deg)" : "translate(-20px, -10px) rotate(-5deg)",
+                                transform: (!isMobile && isHovered) ? "translate(-40px, -20px) rotate(-10deg)" : "translate(-20px, -10px) rotate(-5deg)",
                                 transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
                             }}>
                                 <img 
@@ -100,7 +100,7 @@ export function VitaminsCatalogSection() {
                             <div style={{
                                 position: "absolute", inset: 0, clipPath: CLIP(22),
                                 background: "rgba(111,230,193,0.25)", zIndex: 2,
-                                transform: isHovered ? "translate(40px, -20px) rotate(10deg)" : "translate(20px, -10px) rotate(5deg)",
+                                transform: (!isMobile && isHovered) ? "translate(40px, -20px) rotate(10deg)" : "translate(20px, -10px) rotate(5deg)",
                                 transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
                             }}>
                                 <img 
@@ -119,7 +119,7 @@ export function VitaminsCatalogSection() {
                             <div style={{
                                 position: "absolute", inset: 0, clipPath: CLIP(22),
                                 background: CYAN, zIndex: 3,
-                                transform: isHovered ? "translateY(-15px)" : "translateY(0)",
+                                transform: (!isMobile && isHovered) ? "translateY(-15px)" : "translateY(0)",
                                 transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
                             }}>
                                 <div style={{
@@ -164,14 +164,14 @@ export function VitaminsCatalogSection() {
                         <div style={{
                             position: "absolute", inset: "-4px",
                             clipPath: CLIP(18),
-                            background: CYAN, opacity: isHovered ? 0.35 : 0,
+                            background: CYAN, opacity: isMobile ? 0.08 : (isHovered ? 0.35 : 0),
                             transition: "opacity 0.4s",
                             filter: "blur(14px)"
                         }} />
 
                         {/* Main Button Body */}
                         <a 
-                            href="https://drive.google.com/drive/folders/1Bl7moB1T5HzPApA9iEXCsDh_VRQo8tKF" 
+                            href="https://drive.google.com/drive/folders/1NUOJgqd0XCx6vGxGNxlKTzxzCgW2UnjR?usp=sharing" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             title="Скачать каталог продукции в Google Drive"
