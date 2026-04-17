@@ -5,7 +5,7 @@ const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 const MAP_URL =
-  "https://yandex.ru/map-widget/v1/?ll=76.928500%2C43.256500&z=15&pt=76.928500,43.256500,pm2gnm&l=map&lang=ru_RU&theme=dark&from=mapframe&origin=jsapi_2_1_79&mode=search&text=%D0%B3.%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%2C%20%D1%83%D0%BB.%20%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B0%20133%2F2";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7702!2d76.9205!3d43.2458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836ec37ef6fb29%3A0x633d4fba73eb364c!2z0YPQuy4g0JzRg9C60LDQvdC-0LLQsCAyNDEsINCQ0LvQvNCw0YLRiyAwNTAwMDAsINCa0LDQt9Cw0YXRgdGC0LDQvQ!5e0!3m2!1sru!2skz!4v1713371000000!5m2!1sru!2skz";
 
 function InfoItem({
   icon,
@@ -174,7 +174,7 @@ function MapFrame({ height, cut = 22 }: { height: string; cut?: number }) {
           height="100%"
           frameBorder="0"
           allowFullScreen
-          title="Яндекс Карта — ул. Гагарина 133/2"
+          title="Google Maps — ул. Муканова 241, угол Шевченко"
           onLoad={() => setLoaded(true)}
           style={{
             display: "block",
@@ -271,7 +271,7 @@ export function LocationSection() {
                   </svg>
                 }
                 label="адрес"
-                value={"г. Алматы, ул. Гагарина 133/2\nофис 100, этаж 18"}
+                value={"г. Алматы, ул. Муканова 241\nугол Шевченко"}
                 mobile
               />
               <div
@@ -408,7 +408,7 @@ export function LocationSection() {
                     </svg>
                   }
                   label="адрес"
-                  value={"г. Алматы\nул. Гагарина 133/2\nофис 100, этаж 18"}
+                  value={"г. Алматы\nул. Муканова 241\nугол Шевченко"}
                 />
 
                 <div
