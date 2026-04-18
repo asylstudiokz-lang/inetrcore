@@ -643,8 +643,8 @@ export function HeroSection() {
                 position: "relative",
                 marginBottom: "40px",
                 maxWidth: "560px",
-                filter:
-                  "drop-shadow(0 0 12px rgba(111,230,193,0.3))",
+                filter: "drop-shadow(0 0 12px rgba(111,230,193,0.3))",
+                display: "none", // Hidden by user request
               }}
             >
               {/* Background */}

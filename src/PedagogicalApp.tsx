@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer";
 import { PedagogicalHeroSection } from "./components/pedagogical/PedagogicalHeroSection";
 import { ComplexLessonsSection } from "./components/pedagogical/ComplexLessonsSection";
 import { SpecialistProfileSection } from "./components/pedagogical/SpecialistProfileSection";
+import { PedagogicalAddressSection } from "./components/pedagogical/PedagogicalAddressSection";
 
 export default function PedagogicalApp() {
   return (
@@ -90,6 +91,7 @@ export default function PedagogicalApp() {
         <PedagogicalHeroSection />
         <ComplexLessonsSection />
         <SpecialistProfileSection />
+        <PedagogicalAddressSection />
         <LocationSection />
       </main>
       <Footer />

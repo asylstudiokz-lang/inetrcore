@@ -306,8 +306,7 @@ function ConsultationButton({ showArrow = true }: { showArrow?: boolean }) {
 
   return (
     <div 
-      className="relative group/btn" 
-      style={{ width: "260px", height: "48px" }}
+      className="relative group/btn w-full md:w-[260px] h-[56px] md:h-[48px]" 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -338,7 +337,6 @@ function ConsultationButton({ showArrow = true }: { showArrow?: boolean }) {
                 clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)", 
                 color: CYAN, 
                 fontFamily: "'Furore', sans-serif",
-                fontSize: "11px", 
                 letterSpacing: "0.15em", 
                 textTransform: "uppercase",
                 transition: "all 0.4s ease", 
@@ -350,7 +348,7 @@ function ConsultationButton({ showArrow = true }: { showArrow?: boolean }) {
                 gap: "12px",
                 padding: "0 24px"
               }} 
-              className="bg-gradient-to-br from-[#002416] to-[#000e08]"
+              className="bg-gradient-to-br from-[#002416] to-[#000e08] text-[16px] md:text-[11px]"
             >
                 <span className="relative z-10 leading-none" style={{ whiteSpace: "nowrap" }}>Получить консультацию</span>
                 {showArrow && (

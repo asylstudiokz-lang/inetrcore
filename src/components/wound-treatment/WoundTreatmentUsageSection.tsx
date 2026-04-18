@@ -24,7 +24,7 @@ export function WoundTreatmentUsageSection() {
       <div style={{ position: "absolute", bottom: "-100px", left: "-80px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(111,230,193,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       {/* ════════ MOBILE ════════ */}
-      <div className="md:hidden py-[60px]">
+      <div className="md:hidden pt-[40px] pb-[60px]">
         <Container>
           <div className="mb-[32px]">
             <h2 style={{ fontFamily: "'Furore', sans-serif", fontSize: "40px", fontWeight: 400, color: "#fff", textTransform: "uppercase", letterSpacing: "0.02em", lineHeight: 0.95, margin: "0 0 8px" }}>
@@ -53,7 +53,7 @@ export function WoundTreatmentUsageSection() {
       </div>
 
       {/* ════════ DESKTOP ════════ */}
-      <div className="hidden md:block" style={{ padding: "100px 0", position: "relative" }}>
+      <div className="hidden md:block" style={{ padding: "70px 0 100px", position: "relative" }}>
         <Container style={{ position: "relative", zIndex: 1 }}>
 
           {/* ── Top: heading + subtitle ── */}

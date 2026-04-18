@@ -5,7 +5,7 @@ const CLIP = (size: number) =>
   `polygon(${size}px 0, 100% 0, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0 100%, 0 ${size}px)`;
 
 const MAP_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7702!2d76.9205!3d43.2458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836ec37ef6fb29%3A0x633d4fba73eb364c!2z0YPQuy4g0JzRg9C60LDQvdC-0LLQsCAyNDEsINCQ0LvQvNCw0YLRiyAwNTAwMDAsINCa0LDQt9Cw0YXRgdGC0LDQvQ!5e0!3m2!1sru!2skz!4v1713371000000!5m2!1sru!2skz";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.498425268407!2d76.89087797660686!3d43.23652597816434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369178c4adc87%3A0x1ac1046d26bf634c!2z0L_RgNC-0YHQv9C10LrRgiDQk9Cw0LPQsNGA0LjQvdCwIDEzMy8yLCDQkNC70LzQsNGC0YsgMDUwMDAw!5e0!3m2!1sru!2skz!4v1776500003107!5m2!1sru!2skz";
 
 function InfoItem({
   icon,
@@ -174,7 +174,7 @@ function MapFrame({ height, cut = 22 }: { height: string; cut?: number }) {
           height="100%"
           frameBorder="0"
           allowFullScreen
-          title="Google Maps — ул. Муканова 241, угол Шевченко"
+          title="Google Maps — пр. Гагарина 133/2, ЖК Оркендеу"
           onLoad={() => setLoaded(true)}
           style={{
             display: "block",
@@ -271,7 +271,7 @@ export function LocationSection() {
                   </svg>
                 }
                 label="адрес"
-                value={"г. Алматы, ул. Муканова 241\nугол Шевченко"}
+                value={"г. Алматы, пр. Гагарина 133/2, офис 100, этаж 18\nЖК Оркендеу (вход со стороны Мынбаева)"}
                 mobile
               />
               <div
@@ -408,7 +408,7 @@ export function LocationSection() {
                     </svg>
                   }
                   label="адрес"
-                  value={"г. Алматы\nул. Муканова 241\nугол Шевченко"}
+                  value={"г. Алматы\nпр. Гагарина 133/2, офис 100, этаж 18\nЖК Оркендеу (вход со стороны Мынбаева)"}
                 />
 
                 <div

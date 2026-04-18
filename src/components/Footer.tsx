@@ -290,7 +290,7 @@ export function Footer() {
                 </a>
               </p>
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.45)", margin: 0, lineHeight: 1.6 }}>
-                Адрес: Муканова 241, угол Шевченко
+                Адрес: Гагарина 133/2, офис 100 этаж 18<br />ЖК Оркендеу (вход со стороны Мынбаева)
               </p>
             </div>
 
@@ -469,7 +469,7 @@ export function Footer() {
                       lineHeight: 1.5,
                     }}
                   >
-                    Муканова 241, угол Шевченко
+                    Гагарина 133/2, офис 100 этаж 18<br />ЖК Оркендеу (вход со стороны Мынбаева)
                   </p>
                 </div>
               </div>

@@ -501,7 +501,7 @@ function SocialBar() {
                     fontWeight: 500, 
                     marginTop: isMobile ? "12px" : "8px" 
                   }}>
-                    Эксклюзивные экспертные статьи и новости
+                    Эксклюзивный экспертный контент
                   </span>
                 </div>
 

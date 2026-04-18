@@ -175,13 +175,10 @@ function LessonCard({
                 className="block no-underline"
               >
                 <button 
-                  className="site-btn bg-gradient-to-br from-[#002416] to-[#000e08] border-none px-6 py-4 md:px-8 md:py-5 cursor-pointer font-furore text-[10px] md:text-[12px] tracking-widest text-[#6FE6C1] uppercase flex items-center justify-between md:justify-center gap-3 transition-colors duration-300 w-full md:w-auto" 
+                  className="site-btn bg-gradient-to-br from-[#002416] to-[#000e08] border-none px-6 py-[18px] md:px-8 md:py-5 cursor-pointer font-furore text-[16px] md:text-[12px] tracking-widest text-[#6FE6C1] uppercase flex items-center justify-center gap-3 transition-colors duration-300 w-full md:w-auto" 
                   style={{ clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)" }}
                 >
                   <span className="relative z-10 leading-none">Получить консультацию</span>
-                  <svg width="18" height="8" viewBox="0 0 18 8" fill="none" className="relative z-10">
-                    <path d="M0 4H16M12 1L16 4L12 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
                 </button>
               </a>
             </div>
