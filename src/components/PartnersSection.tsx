@@ -46,6 +46,7 @@ function PartnerCard({
         transition: "transform 0.4s cubic-bezier(0.34,1.56,0.64,1)",
         transform: hovered && !mobile ? "translateY(-8px)" : "translateY(0)",
         cursor: "default",
+        height: mobile ? undefined : "100%",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -62,6 +63,7 @@ function PartnerCard({
             ? "drop-shadow(0 0 28px rgba(111,230,193,0.4)) drop-shadow(0 12px 36px rgba(0,0,0,0.8))"
             : "drop-shadow(0 0 8px rgba(111,230,193,0.1)) drop-shadow(0 6px 20px rgba(0,0,0,0.6))",
           transition: "all 0.4s ease",
+          height: mobile ? undefined : "100%",
         }}
       >
         {/* Inner card */}
@@ -80,6 +82,8 @@ function PartnerCard({
             position: "relative",
             overflow: "hidden",
             minHeight: mobile ? "180px" : "240px",
+            height: mobile ? undefined : "100%",
+            boxSizing: "border-box",
             transition: "background 0.4s ease",
           }}
         >
@@ -290,46 +294,37 @@ export function PartnersSection() {
         className="hidden md:block relative" style={{ padding: "100px 0" }}
       >
         <Container style={{ position: "relative", zIndex: 1 }}>
-          {/* Heading + subtitle row */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              gap: "60px",
-              marginBottom: "60px",
-            }}
-          >
-            <div>
-              <p
-                style={{
-                  fontFamily: "'Furore', sans-serif",
-                  fontSize: "11px",
-                  letterSpacing: "0.28em",
-                  color: "rgba(111,230,193,0.45)",
-                  textTransform: "uppercase",
-                  margin: "0 0 12px",
-                }}
-              >
-                сотрудничество
-              </p>
-              <h2
-                style={{
-                  fontFamily: "'Furore', sans-serif",
-                  fontSize: "clamp(52px, 5.5vw, 80px)",
-                  fontWeight: 400,
-                  color: "#fff",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.02em",
-                  lineHeight: 0.92,
-                  margin: 0,
-                }}
-              >
-                Наши партнёры
-              </h2>
-            </div>
+          {/* Heading + subtitle column */}
+          <div style={{ marginBottom: "60px" }}>
+            <p
+              style={{
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                color: "rgba(111,230,193,0.45)",
+                textTransform: "uppercase",
+                margin: "0 0 12px",
+              }}
+            >
+              сотрудничество
+            </p>
+            <h2
+              style={{
+                fontFamily: "'Furore', sans-serif",
+                fontSize: "clamp(52px, 5.5vw, 80px)",
+                fontWeight: 400,
+                color: "#fff",
+                textTransform: "uppercase",
+                letterSpacing: "0.02em",
+                lineHeight: 0.92,
+                margin: "0 0 24px 0",
+              }}
+            >
+              Наши партнёры
+            </h2>
 
-            {/* Subtitle text */}
-            <div style={{ paddingBottom: "10px", maxWidth: "340px" }}>
+            {/* Subtitle text — now below heading */}
+            <div style={{ maxWidth: "520px" }}>
               <div
                 style={{
                   width: "32px",
@@ -341,8 +336,8 @@ export function PartnersSection() {
               <p
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "13px",
-                  color: "rgba(255,255,255,0.45)",
+                  fontSize: "14px",
+                  color: "rgba(255,255,255,0.5)",
                   lineHeight: 1.7,
                   margin: 0,
                 }}

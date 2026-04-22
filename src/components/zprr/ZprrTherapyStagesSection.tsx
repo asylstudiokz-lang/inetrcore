@@ -214,60 +214,59 @@ export function ZprrTherapyStagesSection() {
             </span>
           </div>
 
-          {/* Asymmetric grid: large card left (spans 2 rows), two smaller cards right */}
-          <div style={{ display: "grid", gridTemplateColumns: "1.35fr 1fr 1fr", gridTemplateRows: "auto", gap: "14px" }}>
+          {/* Two-column layout: large card left, 3 stacked cards right */}
+          <div style={{ display: "grid", gridTemplateColumns: "0.56fr 1fr", gap: "14px", alignItems: "start" }}>
 
-            {/* Card 1 — tall, spans full height */}
-            <div style={{ gridRow: "1 / 3", minHeight: "500px" }}>
-              <StageCard stage={stages[0]} large />
-            </div>
-
-            {/* Card 2 */}
-            <div style={{ minHeight: "240px" }}>
-              <StageCard stage={stages[1]} />
-            </div>
-
-            {/* Card 3 */}
-            <div style={{ minHeight: "240px" }}>
-              <StageCard stage={stages[2]} />
-            </div>
-
-            {/* Bottom row: a wide decorative banner spanning cards 2+3 columns */}
-            <div style={{
-              gridColumn: "2 / 4",
-              background: "#6FE6C1",
-              clipPath: CLIP(18),
-              padding: "1.5px",
-              filter: "drop-shadow(0 0 14px rgba(111,230,193,0.12))",
-            }}>
-              <div style={{
-                background: "linear-gradient(135deg, #001a0e 0%, #000b06 100%)",
-                clipPath: CLIP(17),
-                padding: "24px 32px",
-                display: "flex",
-                alignItems: "center",
-                gap: "32px",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                {/* Decorative grid lines */}
-                <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.06 }} viewBox="0 0 400 80" preserveAspectRatio="xMidYMid slice" fill="none">
-                  {[50,100,150,200,250,300,350].map((x,i) => <line key={i} x1={x} y1="0" x2={x} y2="80" stroke="#6FE6C1" strokeWidth="0.8"/>)}
-                  {[20,40,60].map((y,i) => <line key={i} x1="0" y1={y} x2="400" y2={y} stroke="#6FE6C1" strokeWidth="0.8"/>)}
-                </svg>
-
-                <div style={{ flexShrink: 0, width: "40px", height: "40px", background: "rgba(111,230,193,0.08)", clipPath: CLIP(10), display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FE6C1" strokeWidth="1.6" strokeLinecap="round">
-                    <path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/>
-                  </svg>
-                </div>
-                <div style={{ flex: 1, position: "relative", zIndex: 1 }}>
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, margin: 0 }}>
-                    Комплексный подход — три взаимосвязанных этапа, каждый из которых усиливает эффект следующего.{" "}
-                    <span style={{ color: "#6FE6C1" }}>Результат достигается только при соблюдении всей последовательности.</span>
-                  </p>
-                </div>
+            {/* Card 1 — Очищение + CTA button below */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <div style={{ height: "452px" }}>
+                <StageCard stage={stages[0]} large />
               </div>
+              <a
+                href="https://api.whatsapp.com/send/?phone=77021737192&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", display: "block" }}
+              >
+                <button
+                  style={{
+                    fontFamily: "'Furore', sans-serif",
+                    fontSize: "11px",
+                    color: "#000",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.15em",
+                    padding: "16px 24px",
+                    background: "linear-gradient(135deg, #6FE6C1 0%, #059669 100%)",
+                    clipPath: CLIP(10),
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                    boxShadow: "0 0 20px rgba(111,230,193,0.3)",
+                    width: "100%",
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 35px rgba(111,230,193,0.55)"; (e.currentTarget as HTMLButtonElement).style.filter = "brightness(1.08)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 20px rgba(111,230,193,0.3)"; (e.currentTarget as HTMLButtonElement).style.filter = "none"; }}
+                >
+                  Получить консультацию
+                </button>
+              </a>
+            </div>
+
+            {/* Right column: 3 cards stacked, height by content */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+
+              {/* Card 2 */}
+              <div>
+                <StageCard stage={stages[1]} />
+              </div>
+
+              {/* Card 3 */}
+              <div>
+                <StageCard stage={stages[2]} />
+              </div>
+
+
             </div>
           </div>
 

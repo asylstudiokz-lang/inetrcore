@@ -90,7 +90,7 @@ export function ZprrCausesSection() {
             
             {/* ── LEFT: HEADING COLUMN ── */}
             {/* The vertical dividing line (border-r) and right padding form the left gap */}
-            <div className="lg:w-[38%] xl:w-[35%] flex-shrink-0 flex flex-col items-start text-left relative z-10 w-full lg:border-r border-[#6FE6C1]/40 lg:pr-10 xl:pr-14 pb-8 lg:pb-0">
+            <div className="lg:w-[38%] xl:w-[35%] flex-shrink-0 flex flex-col items-start text-left relative z-10 w-full lg:border-r border-[#6FE6C1]/40 lg:pr-10 xl:pr-14 pb-8 lg:pb-0 lg:justify-center">
               <h2
                 style={{
                   fontFamily: "'Furore', sans-serif",
@@ -119,10 +119,10 @@ export function ZprrCausesSection() {
                 }}
               />
               
-              <div className="hidden md:block flex-1 min-h-[30px] lg:min-h-[140px]"></div>
+              <div className="hidden md:block lg:hidden flex-1 min-h-[30px]"></div>
               
               <span
-                className="hidden md:block mt-2 md:mt-auto"
+                className="hidden md:block mt-2 md:mt-auto lg:mt-6"
                 style={{
                   fontFamily: "'Furore', sans-serif",
                   fontSize: "12px",

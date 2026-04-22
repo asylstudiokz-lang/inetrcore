@@ -1,6 +1,7 @@
 ---
 import '../styles/index.css';
 import '../styles/fonts.css';
+import Screensaver from '../components/Screensaver.astro';
 
 interface Props {
 	title: string;
@@ -57,8 +58,29 @@ const fullOgImage = new URL(ogImage, Astro.url.origin).toString();
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<title>{title}</title>
 		{schema && <script type="application/ld+json" set:html={schema} />}
+		<style id="screensaver-anti-flash">
+			/* Hides everything except the screensaver overlay until it is done.
+			   Removed by JS in Screensaver.astro when finished. */
+			body:not(.__screensaver-done) {
+				overflow: hidden !important;
+			}
+			body:not(.__screensaver-done) > *:not(#screensaver-overlay) {
+				visibility: hidden !important;
+			}
+		</style>
+		<script is:inline>
+			// If already seen this session, mark body as done immediately so site is visible
+			if (sessionStorage.getItem('hasSeenScreensaver')) {
+				document.addEventListener('DOMContentLoaded', function() {
+					document.body.classList.add('__screensaver-done');
+					var s = document.getElementById('screensaver-anti-flash');
+					if (s) s.remove();
+				});
+			}
+		</script>
 	</head>
 	<body class="bg-[#f2fcf8]">
+		<Screensaver />
 		<slot />
 	</body>
 </html>

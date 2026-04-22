@@ -594,7 +594,7 @@ export function HeroSection() {
               className="uppercase"
               style={{
                 fontFamily: "'Furore', 'Exo 2', sans-serif",
-                fontSize: "clamp(52px, 6vw, 86px)",
+                fontSize: "clamp(47px, 5.5vw, 78px)",
                 fontWeight: 400,
                 letterSpacing: "0.06em",
                 color: "white",
